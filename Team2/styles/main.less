@@ -1,0 +1,86 @@
+
+@title-color:#ac3b61;
+@primary-color:#edc7b7;
+@secondary-color:#bab2b5;
+@tertiary-color:gainsboro;
+@background-color:#eee2dc;
+@menu-color:#123c69;
+
+.text-edit(@color){
+    color: @color;
+    font:serif;
+    text-decoration: none;
+}
+
+body{
+    background-color: @background-color;
+}
+
+a{
+    .text-edit(@menu-color);
+    
+    &:hover{
+        .text-edit(@menu-color);
+    }
+}
+
+h1{
+    color:@title-color;
+}
+
+h3{
+    color: @title-color;
+    font-size: 200%
+}
+
+.col-md-2{ //left side menu
+    margin-top: 3%;
+}
+
+.btn{
+    .text-edit(@menu-color);
+    background-color: @secondary-color;
+    font-size: 175%;
+}
+
+.dropdown-menu{
+    background-color: @secondary-color; 
+    color:teal; 
+    width: 100%;
+    
+    li{
+    background: @tertiary-color;
+    border-bottom:1px solid black;
+    border-left:2px solid black;
+    border-right:2px solid black;
+        a{
+            color:@menu-color; 
+            &:hover{
+                background:teal; 
+            }
+        }
+    }
+}
+
+.panel-group{
+    .panel-title{
+        background-color: @secondary-color;
+        font-size: 175%;
+        .text-edit(@menu-color);
+    }
+     
+    .panel-heading {
+        background-color: @secondary-color;
+    }
+
+    .panel-body{
+        background-color: @tertiary-color;
+        a{
+            .text-edit(black);
+            font-size: 150%;
+            &:hover{
+                color:white;
+            }
+        }
+    }
+}
