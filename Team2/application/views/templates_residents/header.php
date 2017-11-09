@@ -2,18 +2,18 @@
     <head>
         <meta charset="utf-8">
         <title>ciBlog</title>     
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">       
-        <link href="../../styles/mycss.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">       
+        <link href="../../../styles/mycss.css" rel="stylesheet" type="text/css"/>
     </head>
 </html>
 <script>
 function previous()
 {
-     location.href = "http://localhost/a17_webapps02/Team2/index.php/questionone/";
+     location.href = "<?php echo base_url(); ?>Pages/view/questionone";
 } 
 function next()
 {
-    location.href = "http://localhost/a17_webapps02/Team2/index.php/questiontwo/";
+    location.href = "<?php echo base_url(); ?>Pages/view/questiontwo";
 }
 </script>
 <body>
@@ -30,6 +30,9 @@ function next()
                         </li>
                         <li class="nav-link">
                           <a href="<?php echo base_url(); ?>about">About</a>
+                        </li>
+                        <li class="nav-link">
+                          <a href="<?php echo base_url(); ?>posts">Blog</a>
                         </li>
                       </ul>
                     </div>
