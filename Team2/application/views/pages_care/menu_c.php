@@ -17,7 +17,7 @@ and open the template in the editor.
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-        <link rel="stylesheet/less" type="text/css" href="../styles/main.less" />
+        <link rel="stylesheet/less" type="text/css" href="../../assets/main.less" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js">
         </script>
     </head>
