@@ -34,6 +34,15 @@ function next()
                         <li class="nav-link">
                           <a href="<?php echo base_url(); ?>posts">Blog</a>
                         </li>
+                        <li class="nav-link">
+                          <a href="<?php echo base_url(); ?>Main_resident/index">Main_resident</a>
+                        </li>
+                        <li class="nav-link">
+                          <a href="<?php echo base_url(); ?>MenuC_control/index">Menu</a>
+                        </li>
+                        <li class="nav-link">
+                          <a href="<?php echo base_url(); ?>LoginR_control/index">Login_res</a>
+                        </li>
                       </ul>
                     </div>
                 </nav>
