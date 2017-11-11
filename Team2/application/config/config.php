@@ -23,8 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/a17_webapps02/Team2/index.php/';
-
+$config['base_url'] = 'http://a17-webapps02.studev.groept.be/index.php/';
 /*
 |--------------------------------------------------------------------------
 | Index File
