@@ -43,6 +43,9 @@ function next()
                         <li class="nav-link">
                           <a href="<?php echo base_url(); ?>LoginR_control/index">Login_res</a>
                         </li>
+                        <li class="nav-link">
+                          <a href="<?php echo base_url(); ?>LoginCareGiver_control/index">Care giver Login </a>
+                        </li>
                       </ul>
                     </div>
                 </nav>
