@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php include_once 'ffunctions.php' ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -62,6 +62,8 @@
 			</button>
 		</div>
 		<div class="col-md-4">
+                    <a href="#" onclick="return getSuccessOutput();"> test success </a>
+                    <div id="output">waiting for action</div>
 		</div>
 		<div class="col-md-4">
 		</div>
@@ -70,6 +72,22 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        // handles the click event, sends the query
+function getSuccessOutput() {
+    $.ajax({
+        url:'ffunction.php?action=getQuestionOnId',
+        success: function (response) {
+            console.log(data, response);
+            $('#output').html(response);
+        },
+        error: function () {
+            $('#output').html('Bummer: there was an error!');
+        },
+    });
+    return false;
+}
+</script>
   </body>
 </html>
