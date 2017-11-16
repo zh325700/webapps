@@ -53,6 +53,9 @@
                             <li class="nav-link">
                                 <a href="<?php echo base_url(); ?>Residents_control/create">Add Residents</a>
                             </li>
+                            <li class="nav-link">
+                                <a href="<?php echo base_url(); ?>QuestionControl/index">Questionnaire</a>
+                            </li>                            
                         </ul>
                     </div>
                 </nav>

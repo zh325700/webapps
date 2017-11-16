@@ -15,14 +15,14 @@
                <div class="col-md-12 " style="text-align: center;height:300px;">
                     <div class="form-check form-check-inline">
                       <label class="form-check-label">
-                          <div><img src="http://www.clker.com/cliparts/P/Z/w/n/R/W/red-smiley-face-hi.png"style="width:80px;height:80px;"></div>
+                          <div><img src="../../../images/smiley2.jpg"style="width:80px;height:80px;"></div>
                           <p style="text-align: center">NOT HAPPY</p>
                           <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="width:20px;height:20px;text-align: center;" >
                       </label>
                     </div>
                     <div class="form-check form-check-inline">
                       <label class="form-check-label">
-                          <div><img src="http://www.fmylife.com/images/smiley/amusing.svg"style="width:80px;height:80px;"></div>
+                          <div><img src="../../../images/smiley3.jpg"style="width:80px;height:80px;"></div>
                           <p style="text-align: center">FAIRE</p>
                           <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="width:20px;height:20px;text-align: center;" >
                       </label>

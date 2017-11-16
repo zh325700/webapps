@@ -34,7 +34,7 @@ and open the template in the editor.
                 <div class="col-md-2">
                     <div>     
                         <button class="btn btn-default btn-lg btn-block">
-                            <a href="#"> algemeen </a>
+                            <a href="#"> Algemeen </a>
                         </button> 
                     </div>
                     </br>
