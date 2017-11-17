@@ -1,4 +1,4 @@
-<?php include_once 'ffunctions.php' ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -28,7 +28,9 @@
 			<img src="../../images/food.png" alt="" style=" width: 180px" class="align"/>
 		</div>
 		<div class="col-md-4">
-			<h2 class="text-center bar2">
+			<h2 
+                            class="text-center bar2"
+                            id = "question_number">
 				Question 1
 			</h2>
 		</div>
@@ -38,7 +40,9 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-center">
+			<h3 
+                            class="text-center"
+                            id = "question_content">
 				Question content
 			</h3>
 		</div>
@@ -62,7 +66,7 @@
 			</button>
 		</div>
 		<div class="col-md-4">
-                    <a href="#" onclick="return getSuccessOutput();"> test success </a>
+                    <a href="#" onclick="return getQuestion();"> test success </a>
                     <div id="output">waiting for action</div>
 		</div>
 		<div class="col-md-4">
@@ -75,19 +79,19 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
         // handles the click event, sends the query
-function getSuccessOutput() {
-    $.ajax({
-        url:'ffunction.php?action=getQuestionOnId',
-        success: function (response) {
-            console.log(data, response);
-            $('#output').html(response);
-        },
-        error: function () {
-            $('#output').html('Bummer: there was an error!');
-        },
-    });
-    return false;
-}
-</script>
+        var counter = 1;
+        function getQuestion() {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    document.getElementById("question_content").innerHTML = xmlhttp.responseText;
+                    document.getElementById("question_number").innerHTML = "Question "+(counter - 1);
+                }
+            };
+            xmlhttp.open("GET", "get_question_by_id.php?id_question="+counter, true);
+            xmlhttp.send();
+            counter++;
+        }
+    </script>
   </body>
 </html>
