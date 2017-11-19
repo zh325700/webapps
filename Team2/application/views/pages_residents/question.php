@@ -51,11 +51,11 @@
 		<div class="col-md-12">
                     <img src="../../images/Smileys.png" alt="" style="width:1000px" class="center" usemap="#map"/>
                     <map name="map">
-                            <area shape="circle" coords="95,110,100" href="" id="smiley">
-                            <area shape="circle" coords="295,110,100" href="" id="smiley">
-                            <area shape="circle" coords="495,110,100" href="" id="smiley">
-                            <area shape="circle" coords="695,110,100" href="" id="smiley">
-                            <area shape="circle" coords="895,110,100" href="" id="smiley">
+                        <area shape="circle" coords="95,110,100" href="" id="smiley" onclick="return getQuestion();">
+                        <area shape="circle" coords="295,110,100" href="" id="smiley" onclick="return getQuestion();">
+                        <area shape="circle" coords="495,110,100" href="" id="smiley" onclick="return getQuestion();">
+                        <area shape="circle" coords="695,110,100" href="" id="smiley" onclick="return getQuestion();">
+                        <area shape="circle" coords="895,110,100" href="" id="smiley" onclick="return getQuestion();">
                     </map>
 		</div>
 	</div>
@@ -64,10 +64,6 @@
 			<button id = "newButton" type="button" class="btn btn-lg style">
 				Previous <br />Question
 			</button>
-		</div>
-		<div class="col-md-4">
-                    <a href="#" onclick="return getQuestion();"> test success </a>
-                    <div id="output">waiting for action</div>
 		</div>
 		<div class="col-md-4">
 		</div>

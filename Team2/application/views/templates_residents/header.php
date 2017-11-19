@@ -22,19 +22,10 @@
         <div class="row">
             <div class="col-md-12">
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <nav class="navbar navbar-expand-sm navbar-light bg-light">
                     <a class="navbar-brand" href="Team2">ciblog</a>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>">Home</a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>about">About</a>
-                            </li>
-                            <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>posts">Blog</a>
-                            </li>
                             <li class="nav-link">
                                 <a href="<?php echo base_url(); ?>Main_resident/index">Main_resident</a>
                             </li>

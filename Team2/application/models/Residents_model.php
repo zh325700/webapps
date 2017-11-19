@@ -7,47 +7,43 @@ class Residents_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_residents($id_elder = FALSE) {
-        if ($id_elder === FALSE) {
-            $this->db->order_by('elder.id_elder', 'DESC'); // order by ID Descending 
-//            $this->db->join('categories','categories.id = posts.category_id');   // so you can get acess to the data in the table categories
-            $query = $this->db->get('elder'); // get every data in the elder tabel into the query
+    public function get_residents($ID_Elder = FALSE) {
+        if ($ID_Elder === FALSE) {
+            $this->db->order_by('Elder.ID_Elder', 'DESC'); // order by ID Descending 
+            $query = $this->db->get('Elder'); // get every data in the elder tabel into the query
             return $query->result_array();
         }
-        $query = $this->db->get_where('elder', array('id_elder' => $id_elder));
+        $query = $this->db->get_where('Elder', array('ID_Elder' => $ID_Elder));
         return $query->row_array();
     }
 
     public function create_resident($post_image) {
-        $id_elder = $this->input->post('id_elder'); //url_title will automatically replace space with '-'
+        $Id_Elder = $this->input->post('ID_Elder'); //url_title will automatically replace space with '-'
 
         $data = array(
-            'lastname' => $this->input->post('lastname'),
-//            'slug' => $slug,
-            'description' => $this->input->post('description'),
-//            'category_id' => $this->input->post('category_id'),
+            'LastName' => $this->input->post('LastName'),
             'picture' => $post_image
         );
         //posts is the table name and the data array is called "data"
-        return $this->db->insert('elder', $data);
+        return $this->db->insert('Elder', $data);
     }
 
-    public function delete_resident($id) {
-        $this->db->where('id_elder', $id);
-        $this->db->delete('elder');
+    public function delete_resident($ID_Elder) {
+        $this->db->where('ID_Elder', $ID_Elder);
+        $this->db->delete('Elder');
         return true;
     }
 
     public function update_resident() {
-        $id_elder = $this->input->post('id_elder');
+        $ID_Elder = $this->input->post('ID_Elder');
 
         $data = array(
-            'lastname' => $this->input->post('lastname'),
-            'description' => $this->input->post('description')
+            'LastName' => $this->input->post('LastName'),
+//            'description' => $this->input->post('description')
         );
 
-        $this->db->where('id_elder', $this->input->post('id_elder'));
-        return $this->db->update('elder', $data);
+        $this->db->where('ID_Elder', $this->input->post('ID_Elder'));
+        return $this->db->update('Elder', $data);
     }
 
 

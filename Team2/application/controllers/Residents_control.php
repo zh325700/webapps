@@ -3,7 +3,7 @@
 class Residents_control extends CI_Controller {
 
     public function index() {
-        $data['title'] = 'Latest Posts';
+        $data['title'] = 'Overview of residents';
 
         $data['residents'] = $this->Residents_model->get_residents();
 
@@ -12,13 +12,13 @@ class Residents_control extends CI_Controller {
         $this->load->view('templates_residents/footer');
     }
 
-    public function view($id_elder = NULL) {
-        $data['residents'] = $this->Residents_model->get_residents($id_elder); // use post_model to get the data in the database
+    public function view($ID_Elder = NULL) {
+        $data['residents'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
 
         if (empty($data['residents'])) {
             show_404();
         }
-        $data['id_elder'] = $data['residents']['id_elder'];
+        $data['$ID_Elder'] = $data['residents']['ID_Elder'];
         $this->load->view('templates_residents/header');
         $this->load->view('pages_care/view', $data);
         $this->load->view('templates_residents/footer');
@@ -27,8 +27,8 @@ class Residents_control extends CI_Controller {
     public function create() {
         $data['title'] = 'Create Residents';
         
-        $this->form_validation->set_rules('lastname', 'Lastname', 'required');
-        $this->form_validation->set_rules('description', 'Description', 'required');
+        $this->form_validation->set_rules('LastName', 'LastName', 'required');
+//        $this->form_validation->set_rules('Description', 'Description', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates_residents/header');
             $this->load->view('pages_care/create', $data);
@@ -56,14 +56,13 @@ class Residents_control extends CI_Controller {
         }
     }
 
-    public function delete($id_elder) {
-        $this->Residents_model->delete_resident($id_elder);
+    public function delete($ID_Elder) {
+        $this->Residents_model->delete_resident($ID_Elder);
         redirect('Residents_control'); // after click delete button you redirect to post page
     }
 
-    public function edit($id_elder) {
-        $data['resident'] = $this->Residents_model->get_residents($id_elder); // use post_model to get the data in the database
-//        $data['categories'] = $this->post_model->get_categories();
+    public function edit($ID_Elder) {
+        $data['resident'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
         if (empty($data['resident'])) {
             show_404();
         }
