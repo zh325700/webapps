@@ -16,16 +16,17 @@
   <body>
 
     <div class="container-fluid">
+        
 	<div class="row">
 		<div class="col-md-12">
 			<h1 class="text-center bar1">
-				Questionnaire
+				
 			</h1>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4">
-			<img src="../../images/food.png" alt="" style=" width: 180px" class="align"/>
+			<img src="../../images/food.png" alt="" style=" width: 150px" class="align-left"/>
 		</div>
 		<div class="col-md-4">
 			<h2 
@@ -35,7 +36,7 @@
 			</h2>
 		</div>
 		<div class="col-md-4">
-                        <img src="../../images/Info.png" alt="" style=" width: 180px" class="align"/>			
+                        <img src="../../images/Info.png" alt="" style=" width: 150px" class="align-right"/>			
 		</div>
 	</div>
 	<div class="row">
@@ -49,26 +50,26 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-                    <img src="../../images/Smileys.png" alt="" style="width:1000px" class="center" usemap="#map"/>
+                    <img src="../../images/Smileys.png" alt="" style="width:850px" class="center" usemap="#map"/>
                     <map name="map">
-                            <area shape="circle" coords="95,110,100" href="" id="smiley">
-                            <area shape="circle" coords="295,110,100" href="" id="smiley">
-                            <area shape="circle" coords="495,110,100" href="" id="smiley">
-                            <area shape="circle" coords="695,110,100" href="" id="smiley">
-                            <area shape="circle" coords="895,110,100" href="" id="smiley">
+                            <area shape="circle" coords="95,110,100" href="#" id="smiley" onclick="return getQuestion();">
+                            <area shape="circle" coords="295,110,100" href="#" id="smiley" onclick="return getQuestion();">
+                            <area shape="circle" coords="495,110,100" href="#" id="smiley" onclick="return getQuestion();">
+                            <area shape="circle" coords="695,110,100" href="#" id="smiley" onclick="return getQuestion();">
+                            <area shape="circle" coords="895,110,100" href="#" id="smiley" onclick="return getQuestion();">
                     </map>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4">			 
-			<button id = "newButton" type="button" class="btn btn-lg style">
+                    <button id = "newButton" type="button" class="btn btn-lg style active">
 				Previous <br />Question
 			</button>
 		</div>
-		<div class="col-md-4">
+		<!--<div class="col-md-4">
                     <a href="#" onclick="return getQuestion();"> test success </a>
                     <div id="output">waiting for action</div>
-		</div>
+		</div>-->
 		<div class="col-md-4">
 		</div>
 	</div>
@@ -81,7 +82,12 @@
         // handles the click event, sends the query
         var counter = 1;
         function getQuestion() {
+            if(window.XMLHttpRequest){
             xmlhttp = new XMLHttpRequest();
+        }
+            else{
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
             xmlhttp.onreadystatechange = function(){
                 if(xmlhttp.readyState === XMLHttpRequest.DONE){
                     document.getElementById("question_content").innerHTML = xmlhttp.responseText;
@@ -93,5 +99,6 @@
             counter++;
         }
     </script>
+    
   </body>
 </html>
