@@ -18,7 +18,7 @@ class Residents_model extends CI_Model {
     }
 
     public function create_resident($post_image) {
-        $Id_Elder = $this->input->post('ID_Elder'); //url_title will automatically replace space with '-'
+//        $Id_Elder = $this->input->post('ID_Elder'); 
 
         $data = array(
             'LastName' => $this->input->post('LastName'),
@@ -35,14 +35,14 @@ class Residents_model extends CI_Model {
     }
 
     public function update_resident() {
-        $ID_Elder = $this->input->post('ID_Elder');
+        $ID_Elder = $this->input->post('ID_Elder');     //post('name of the input ') 
 
         $data = array(
             'LastName' => $this->input->post('LastName'),
 //            'description' => $this->input->post('description')
         );
 
-        $this->db->where('ID_Elder', $this->input->post('ID_Elder'));
+        $this->db->where('ID_Elder', $ID_Elder);
         return $this->db->update('Elder', $data);
     }
 

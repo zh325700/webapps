@@ -5,11 +5,6 @@
     <label>Lastname</label>
     <input type="text" class="form-control" name="LastName" placeholder="Add LastName">
 </div>
-<!--<div class="form-group">
-    <label >Description</label>
-    <textarea id="editor1" type="password" class="form-control" name="description" placeholder="Add Description"></textarea>
-</div>-->
-
 <div class="form-group">
     <label>Upload Image</label>
     <input type="file" name="userfile" size="20"> <!--the name of the input has to be userfile-->
