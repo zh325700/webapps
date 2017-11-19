@@ -22,7 +22,10 @@ class Residents_model extends CI_Model {
 
         $data = array(
             'LastName' => $this->input->post('LastName'),
-            'picture' => $post_image
+            'FirstName' => $this->input->post('FirstName'),
+            'Birthday' => $this->input->post('Birthday'),
+            'Sex' => $this->input->post('Sex'),
+            'Picture' => $post_image
         );
         //posts is the table name and the data array is called "data"
         return $this->db->insert('Elder', $data);

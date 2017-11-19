@@ -28,11 +28,9 @@ class Residents_control extends CI_Controller {
         $data['title'] = 'Create Residents';
         
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
-//        $this->form_validation->set_rules('Description', 'Description', 'required');
+         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates_residents/header');
             $this->load->view('pages_care/create', $data);
-            $this->load->view('templates_residents/footer');
         } else {
             //upload image
             $config['upload_path'] = './images/icons';
