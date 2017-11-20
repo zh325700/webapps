@@ -50,13 +50,13 @@ class Residents_control extends CI_Controller {
             }
             
             $this->Residents_model->create_resident($post_image);
-            redirect('Residents_control');
+            redirect('index.php/Residents_control');
         }
     }
 
     public function delete($ID_Elder) {
         $this->Residents_model->delete_resident($ID_Elder);
-        redirect('Residents_control'); // after click delete button you redirect to post page
+        redirect('index.php/Residents_control'); // after click delete button you redirect to post page
     }
 
     public function edit($ID_Elder) {
@@ -72,7 +72,7 @@ class Residents_control extends CI_Controller {
 
     public function update() {
         $this->Residents_model->update_resident();
-        redirect('Residents_control');
+        redirect('index.php/Residents_control');
     }
 
 }

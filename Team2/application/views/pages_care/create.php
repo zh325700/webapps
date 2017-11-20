@@ -26,7 +26,7 @@
         </div>
 
         <?php echo validation_errors(); ?>
-        <?php echo form_open_multipart('Residents_control/create'); ?> <!--form_open_multipart so we can add image-->
+        <?php echo form_open_multipart('index.php/Residents_control/create'); ?> <!--form_open_multipart so we can add image-->
         <div class="row">
             <div class="col-md-8">
                 <div class="row insert-row">
@@ -91,11 +91,11 @@
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-4 fontsize">
-                        Room
+                        Room Number
                     </div>
                     <div class="col-md-5">
                         <div class="form-group insert-form">
-                            <input type="text" class="form-control" name="Room" placeholder="Add Room number">
+                            <input type="text" class="form-control" name="RoomNumber" placeholder="Add Room number">
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group insert-form">
-                            <input type="text" class="form-control" name="ID_instelling" placeholder="Add ID Instelling number">
+                            <input type="text" class="form-control" name="ID_Instelling" placeholder="Add ID Instelling number">
                         </div>
                     </div>
                 </div>

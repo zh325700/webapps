@@ -25,8 +25,8 @@ class Residents_model extends CI_Model {
             'FirstName' => $this->input->post('FirstName'),
             'Birthday' => $this->input->post('Birthday'),
             'Sex' => $this->input->post('Sex'),
-            'Room' => $this->input->post('Room'),
-            'ID_instelling' => $this->input->post('ID_instelling'),
+            'RoomNumber' => $this->input->post('RoomNumber'),
+            'ID_Instelling' => $this->input->post('ID_Instelling'),
             'Picture' => $post_image
         );
         //posts is the table name and the data array is called "data"
