@@ -17,25 +17,25 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>Main_resident/index">Main_resident</a>
+                                <a href="<?php echo base_url(); ?>index.php/Main_resident/index">Main_resident</a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>MenuC_control/index">Menu</a>
+                                <a href="<?php echo base_url(); ?>index.php/MenuC_control/index">Menu</a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>LoginR_control/index">Login_res</a>
+                                <a href="<?php echo base_url(); ?>index.php/LoginR_control/index">Login_res</a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>LoginCareGiver_control/index">Care giver Login </a>
+                                <a href="<?php echo base_url(); ?>index.php/LoginCareGiver_control/index">Care giver Login </a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>Residents_control">Overview of Residents</a>
+                                <a href="<?php echo base_url(); ?>index.php/Residents_control">Overview of Residents</a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>Residents_control/create">Add Residents</a>
+                                <a href="<?php echo base_url(); ?>index.php/Residents_control/create">Add Residents</a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>QuestionControl/index">Questionnaire</a>
+                                <a href="<?php echo base_url(); ?>index.php/QuestionControl/index">Questionnaire</a>
                             </li>                            
                         </ul>
                     </div>
