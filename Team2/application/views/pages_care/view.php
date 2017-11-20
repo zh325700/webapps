@@ -8,6 +8,6 @@
 <hr>   
 <a class="btn btn-outline-primary pull-left" href="edit/<?php echo $residents['ID_Elder'];?>">
  Edit</a>
-<?php echo form_open('/Residents_control/delete/' .$residents['ID_Elder']);/*if we click it it goes to /post/delete/3*/?>    
+<?php echo form_open('index.php/Residents_control/delete/' .$residents['ID_Elder']);/*if we click it it goes to /post/delete/3*/?>    
 <input type="submit" value="delete" class="btn btn-danger">
  </form>

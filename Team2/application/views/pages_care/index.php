@@ -8,7 +8,7 @@
         <div class="col-sm-9">
             <small class="post-date">Birthday : <?php echo $res['Birthday'] ?> Member since : <strong><?php echo $res['Member_Since']; ?>
                 </strong></small><br>
-            <p><a class="btn btn-link" href="<?php echo site_url('/Residents_control/' . $res['ID_Elder']); ?>"> Read More
+            <p><a class="btn btn-link" href="<?php echo site_url('index.php/Residents_control/' . $res['ID_Elder']); ?>"> Read More
                 </a></p>
         </div>
     </div>

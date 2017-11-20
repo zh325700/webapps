@@ -113,15 +113,29 @@
                 </div>
             </div>
             <div class="col-md-4">
-                
+                <div class="form-group">
+                    <label>Upload Image</label>
+                    <input type="file" accept="image/*" onchange="loadFile(event)" name="userfile" size="20"><br>
+                    <img id="output" width="300px" hight="400px">
+                    <script>
+                        var loadFile = function (event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                    </script>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <label>Upload Image</label>
-            <input type="file" name="userfile" size="20"> <!--the name of the input has to be userfile-->
+        <div class="row"> 
+            <div class="col col-md-4"></div>
+            <div class="col col-md-4" style="text-align: center;">
+                <button type="submit"  class="btn btn-success btn-lg">Add Residents</button>
+            </div> 
+            <div class="col col-md-4"></div>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+
+
+
     </form>
 
 </div>
