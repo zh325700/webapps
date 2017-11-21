@@ -1,16 +1,14 @@
+
 <h2><?= $title ?></h2>
+<?php $cout = 0; ?>
 <?php foreach ($residents as $res): ?>
-    <h3><?php echo $res['LastName']; ?></h3>
-    <div class="row">
-        <div class="col-sm-3">
-            <img class="post-thumb" src="../images/icons/<?php echo $res['Picture']; ?>">
-        </div>
-        <div class="col-sm-9">
-            <small class="post-date">Birthday : <?php echo $res['Birthday'] ?> Member since : <strong><?php echo $res['Member_Since']; ?>
-                </strong></small><br>
-            <p><a class="btn btn-link" href="<?php echo site_url('index.php/Residents_control/' . $res['ID_Elder']); ?>"> Read More
-                </a></p>
-        </div>
+
+    <div style="display: inline-block" >
+        <a href="<?php echo site_url('index.php/Residents_control/' . $res['ID_Elder']); ?>">
+            <img class="ImageBorder"  src="<?= base_url() ?>images/icons/<?php echo $res['Picture']; ?>" alt="<?php echo $res['LastName'] ?>" style="width:500px;height:500px;">
+             <figcaption>Caption goes here</figcaption>
+        </a>
     </div>
+
 
 <?php endforeach; ?>

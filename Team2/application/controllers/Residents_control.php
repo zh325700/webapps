@@ -19,9 +19,7 @@ class Residents_control extends CI_Controller {
             show_404();
         }
         $data['$ID_Elder'] = $data['residents']['ID_Elder'];
-        $this->load->view('templates_residents/header');
         $this->load->view('pages_care/view', $data);
-        $this->load->view('templates_residents/footer');
     }
 
     public function create() {

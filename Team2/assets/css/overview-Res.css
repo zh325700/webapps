@@ -1,0 +1,9 @@
+.imgsize{
+    width:300px;
+    height:300px;
+}
+.ImageBorder
+{
+    border-width: 30px;
+    border-color: blue;
+}
