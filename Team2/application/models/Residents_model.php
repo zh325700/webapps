@@ -39,12 +39,17 @@ class Residents_model extends CI_Model {
         return true;
     }
 
-    public function update_resident() {
+    public function update_resident($post_image) {
         $ID_Elder = $this->input->post('ID_Elder');     //post('name of the input ') 
 
         $data = array(
             'LastName' => $this->input->post('LastName'),
-//            'description' => $this->input->post('description')
+            'FirstName' => $this->input->post('FirstName'),
+            'Sex' => $this->input->post('Sex'),
+            'Birthday' => $this->input->post('Birthday'),
+            'RoomNumber' => $this->input->post('RoomNumber'),
+            'ID_Instelling' => $this->input->post('ID_Instelling'),
+            'Picture' => $post_image
         );
 
         $this->db->where('ID_Elder', $ID_Elder);

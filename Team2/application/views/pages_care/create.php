@@ -115,7 +115,7 @@
                 <div class="form-group">
                     <label>Upload Image</label>
                     <input type="file" accept="image/*" onchange="loadFile(event)" name="userfile" size="20"><br>
-                    <img id="output" width="300px" hight="400px">
+                    <img  id="output" width="300px" hight="400px">
                     <script>
                         var loadFile = function (event) {
                             var output = document.getElementById('output');

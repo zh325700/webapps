@@ -24,9 +24,9 @@ class Residents_control extends CI_Controller {
 
     public function create() {
         $data['title'] = 'Create Residents';
-        
+
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
-         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
+        $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_care/create', $data);
         } else {
@@ -36,17 +36,17 @@ class Residents_control extends CI_Controller {
             $config['max_size'] = '2048';
             $config['max_width'] = '1000';
             $config['max_height'] = '1000';
-            
-            $this->load->library('upload',$config);
-            
-            if(!$this->upload->do_upload()){
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload()) {
                 $errors = array('error' => $this->upload->display_errors());
                 $post_image = 'noimage.png';
-            }else{
+            } else {
                 $data = array('upload_data' => $this->upload->data());
                 $post_image = $_FILES['userfile']['name'];
             }
-            
+
             $this->Residents_model->create_resident($post_image);
             redirect('index.php/Residents_control');
         }
@@ -62,15 +62,34 @@ class Residents_control extends CI_Controller {
         if (empty($data['resident'])) {
             show_404();
         }
-        $data['title'] = 'Edit Resident';
-        $this->load->view('templates_residents/header');
         $this->load->view('pages_care/edit', $data);
-        $this->load->view('templates_residents/footer');
     }
 
     public function update() {
-        $this->Residents_model->update_resident();
-        redirect('index.php/Residents_control');
-    }
+        $this->form_validation->set_rules('LastName', 'LastName', 'required');
+        $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('pages_care/create', $data);
+        } else {
+            //upload image
+            $config['upload_path'] = './images/icons';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = '2048';
+            $config['max_width'] = '1000';
+            $config['max_height'] = '1000';
 
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload()) {
+                $errors = array('error' => $this->upload->display_errors());
+                $post_image = 'noimage.png';
+            } else {
+                $data = array('upload_data' => $this->upload->data());
+                $post_image = $_FILES['userfile']['name'];
+            }
+
+            $this->Residents_model->update_resident($post_image);
+            redirect('index.php/Residents_control');
+        }
+    }
 }
