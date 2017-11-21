@@ -1,0 +1,7 @@
+git init
+git pull https://gitlab.groept.be/webapps/a17_webapps02.git henky -u
+git checkout henky
+git status
+git add --all
+git commit -m "message"
+git push https://gitlab.groept.be/webapps/a17_webapps02.git henky
