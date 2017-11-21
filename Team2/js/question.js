@@ -1,8 +1,4 @@
-console.log('it works');
 
-
-$("#newButton").click(previous);
-$("#smiley").click(getQuestion);
 
 var counter = 1;
 function getQuestion() {

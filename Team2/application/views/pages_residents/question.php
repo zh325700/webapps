@@ -11,7 +11,6 @@
     <meta name="author" content="LayoutIt!">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="../../assets/question.css" rel="stylesheet" type="text/css"/>
-    
   </head>
   <body>
 
@@ -52,11 +51,11 @@
 		<div class="col-md-12">
                     <img src="../../images/Smileys.png" alt="" style="width:850px" class="center" usemap="#map"/>
                     <map name="map">
-                            <area shape="circle" coords="95,110,100" href="#" id="smiley" onclick="location.constructor='getQuestion()'">
-                            <area shape="circle" coords="295,110,100" href="#" id="smiley">
-                            <area shape="circle" coords="495,110,100" href="#" id="smiley">
-                            <area shape="circle" coords="695,110,100" href="#" id="smiley">
-                            <area shape="circle" coords="895,110,100" href="#" id="smiley">
+                            <area shape="circle" coords="80,90,80" href="javascript:getQuestion()" id="smiley" >
+                            <area shape="circle" coords="250,90,80" href="javascript:getQuestion()" id="smiley">
+                            <area shape="circle" coords="425,90,80" href="javascript:getQuestion()" id="smiley">
+                            <area shape="circle" coords="600,90,80" href="javascript:getQuestion()" id="smiley">
+                            <area shape="circle" coords="770,90,80" href="javascript:getQuestion()" id="smiley">
                     </map>
 		</div>
 	</div>
@@ -76,8 +75,8 @@
 </div>
 
     <!--<script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
       
     <!-- Javascript libraries -->
       <?php if (isset($js_to_load)) {
@@ -87,6 +86,8 @@
         <?php endforeach;
     }
     ?>
-            
+    <script type="text/javascript" src="../../js/question.js"></script>
+
+           
   </body>
 </html>
