@@ -52,17 +52,17 @@
 		<div class="col-md-12">
                     <img src="../../images/Smileys.png" alt="" style="width:850px" class="center" usemap="#map"/>
                     <map name="map">
-                            <area shape="circle" coords="95,110,100" href="#" id="smiley" onclick="return getQuestion();">
-                            <area shape="circle" coords="295,110,100" href="#" id="smiley" onclick="return getQuestion();">
-                            <area shape="circle" coords="495,110,100" href="#" id="smiley" onclick="return getQuestion();">
-                            <area shape="circle" coords="695,110,100" href="#" id="smiley" onclick="return getQuestion();">
-                            <area shape="circle" coords="895,110,100" href="#" id="smiley" onclick="return getQuestion();">
+                            <area shape="circle" coords="95,110,100" href="#" id="smiley" onclick="location.constructor='getQuestion()'">
+                            <area shape="circle" coords="295,110,100" href="#" id="smiley">
+                            <area shape="circle" coords="495,110,100" href="#" id="smiley">
+                            <area shape="circle" coords="695,110,100" href="#" id="smiley">
+                            <area shape="circle" coords="895,110,100" href="#" id="smiley">
                     </map>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4">			 
-                    <button id = "newButton" type="button" class="btn btn-lg style active">
+                    <button id = "newButton" type="button" class="btn btn-lg style active" onclick="location.href='<?php echo base_url(); ?>Pages/menuRes'">
 				Previous <br />Question
 			</button>
 		</div>
@@ -75,30 +75,18 @@
 	</div>
 </div>
 
-    <script src="js/jquery.min.js"></script>
+    <!--<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>
-        // handles the click event, sends the query
-        var counter = 1;
-        function getQuestion() {
-            if(window.XMLHttpRequest){
-            xmlhttp = new XMLHttpRequest();
-        }
-            else{
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                    document.getElementById("question_content").innerHTML = xmlhttp.responseText;
-                    document.getElementById("question_number").innerHTML = "Question "+(counter - 1);
-                }
-            };
-            xmlhttp.open("GET", "get_question_by_id.php?id_question="+counter, true);
-            xmlhttp.send();
-            counter++;
-        }
-    </script>
-    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+      
+    <!-- Javascript libraries -->
+      <?php if (isset($js_to_load)) {
+        foreach ($js_to_load as $js_lib):
+            ?>
+            <script src="<?= base_url() ?>assets/js/<?= $js_lib ?>"></script>
+        <?php endforeach;
+    }
+    ?>
+            
   </body>
 </html>

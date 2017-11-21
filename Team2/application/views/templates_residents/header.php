@@ -7,16 +7,6 @@
         <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
     </head>
 </html>
-<script>
-    function previous()
-    {
-        location.href = "<?php echo base_url(); ?>Pages/view/questionone";
-    }
-    function next()
-    {
-        location.href = "<?php echo base_url(); ?>Pages/view/questiontwo";
-    }
-</script>
 <body>
     <div class="container-fluid">
         <div class="row">
