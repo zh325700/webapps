@@ -10,7 +10,7 @@
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="../../assets/question.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/question.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
 
@@ -35,7 +35,7 @@
 			</h2>
 		</div>
 		<div class="col-md-4">
-                        <img src="../../images/Info.png" alt="" style=" width: 150px" class="align-right"/>			
+                        <img src="../../icons/information.png" alt="" style=" width: 150px" class="align-right"/>			
 		</div>
 	</div>
 	<div class="row">

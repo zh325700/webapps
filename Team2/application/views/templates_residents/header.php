@@ -26,7 +26,7 @@
                                 <a href="<?php echo base_url(); ?>posts">Blog</a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>Main_resident/index">Main_resident</a>
+                                <a href="<?php echo base_url(); ?>Pages/mainRes">Main_resident</a>
                             </li>
                             <li class="nav-link">
                                 <a href="<?php echo base_url(); ?>MenuC_control/index">Menu</a>

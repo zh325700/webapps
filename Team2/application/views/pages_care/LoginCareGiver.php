@@ -18,7 +18,7 @@ and open the template in the editor.
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
         <!-- optional theme-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-         <link rel="stylesheet" type="text/css" href="../../assets/logincg.css" />
+         <link rel="stylesheet" type="text/css" href="../../css/logincg.css" />
               
     </head>
     <body>

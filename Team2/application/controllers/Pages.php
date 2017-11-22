@@ -25,8 +25,13 @@
         }
         
         public function menuRes(){
-            $this->load->view('pages_residents/mainRes');
+            $this->load->view('pages_residents/menuResidents');
             $this->load->view('templates_residents/footer');
+        }
+        
+        public function loginRes(){
+            $this->load->view('pages_residents/loginR');
+            $this->load->view('templates_residents/footer');           
         }
 
     }
