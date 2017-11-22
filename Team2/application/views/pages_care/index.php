@@ -1,6 +1,12 @@
 
-<h2><?= $title ?></h2>
-
+<h2><?= $title ?>, Here should be the general title</h2>
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        <h2 class=" text-center headertwo">
+            Find Residents
+        </h2>
+    </div>
+</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
@@ -28,7 +34,7 @@
 <?php endforeach; ?>
 <div>
     <form action='' method='post'>
-        <p><label>Find By LastName:</label><input type='text' name='LastName' value='' class='auto'></p>
+        <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='auto'></p>
     </form>
 </div>
 <?php if (isset($_POST["LastName"])): $lastname = $_POST["LastName"]; ?>      <!--if you input something in the text field-->
