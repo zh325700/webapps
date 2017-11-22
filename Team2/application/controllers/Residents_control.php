@@ -66,11 +66,6 @@ class Residents_control extends CI_Controller {
     }
 
     public function update() {
-        $this->form_validation->set_rules('LastName', 'LastName', 'required');
-        $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
-        if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages_care/create', $data);
-        } else {
             //upload image
             $config['upload_path'] = './images/icons';
             $config['allowed_types'] = 'gif|jpg|png';
@@ -90,6 +85,7 @@ class Residents_control extends CI_Controller {
 
             $this->Residents_model->update_resident($post_image);
             redirect('index.php/Residents_control');
-        }
+//        }
     }
+
 }

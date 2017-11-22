@@ -122,12 +122,12 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Upload Image</label>
-                        <input type="file" accept="image/*" onchange="loadFile(event)" name="userfile" size="20"><br>
-                        <img  id="output" width="300px" hight="400px">
+                        <input type="file" accept="image/*" onchange="edloadFile(event)" name="userfile" size="20"><br>
+                        <img  id="edoutput" width="300px" hight="400px">
                         <script>
-                            var loadFile = function (event) {
-                                var output = document.getElementById('output');
-                                output.src = URL.createObjectURL(event.target.files[0]);
+                            var edloadFile = function (event) {
+                                var edoutput = document.getElementById('edoutput');
+                                edoutput.src = URL.createObjectURL(event.target.files[0]);
                             };
                         </script>
                     </div>
