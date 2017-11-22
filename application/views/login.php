@@ -29,6 +29,7 @@
 			</div>	
 		</div> 
 	</div>
+	<button type="button" onclick="loadPage('caregivermenu')" > login </button>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->

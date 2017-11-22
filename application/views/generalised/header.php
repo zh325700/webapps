@@ -36,6 +36,13 @@ if (login_check($mysqli) == true) {
 		<!--javascript includes-->
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/forms.js"></script>
+		
+		<!--load a page-->
+		<script>
+			function loadPage(page){
+				location.href = "<?php echo base_url();?>/index.php/Welcome/"+page;
+			}
+		</script>
 	</head>
 	<body>
 		<?php
