@@ -26,18 +26,15 @@
     ?> 
 
 <?php endforeach; ?>
-<?php echo json_encode($array); ?>
 <div>
 <form action='' method='post'>
     <p><label>LastName:</label><input type='text' name='LastName' value='' class='auto'></p>
 </form>
 </div>
-<?php
-   $lastname = $_POST["LastName"];
-?>
-<?php if(in_array($lastname, $array)): ?>
+<?php if (isset($_POST["LastName"])): $lastname = $_POST["LastName"]; ?>
+<?php if(array_search($lastname, array_column($array, 'LastName'))): ?>
 <?php echo $lastname ?>
-<?php $found_key = array_search(lolz, array_column($array, 'LastName'));
+<?php $found_key = array_search($lastname, array_column($array, 'LastName'));
 $pic = $array[$found_key]['Picture'];
 $id = $array[$found_key]['ID_Elder'];
 ?>
@@ -47,5 +44,6 @@ $id = $array[$found_key]['ID_Elder'];
         <figcaption class="text-center"><?php echo $lastname; ?></figcaption>
     </a>
 </div>
+<?php endif; ?>
 <?php endif; ?>
 
