@@ -30,8 +30,13 @@ if (login_check($mysqli) == true) {
 		<!-- optional theme-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
-		<!--our css-->
+		<!--our css and less - has to be cleaned-->
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/main.less" />
 		<link rel="stylesheet" href="<?php echo base_url();?>/assets/css/logincg.css">
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/caregiver.less" />
+        
+        <!--compile less files-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
 		<!--javascript includes-->
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
@@ -40,7 +45,7 @@ if (login_check($mysqli) == true) {
 		<!--load a page-->
 		<script>
 			function loadPage(page){
-				location.href = "<?php echo base_url();?>/index.php/Welcome/"+page;
+				location.href = "<?php echo base_url();?>index.php/Welcome/"+page;
 			}
 		</script>
 	</head>

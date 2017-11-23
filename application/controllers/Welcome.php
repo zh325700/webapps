@@ -8,4 +8,16 @@ class Welcome extends CI_Controller {
 		$this->load->view($page);
 		$this->load->view('generalised/footer');
 	}
+	
+	public function Caregiver($page){
+		$this->load->view('generalised/header');
+		$this->load->view('caregiver/'.$page);
+		$this->load->view('generalised/footer');
+	}
+	
+	public function Resident($page){
+		$this->load->view('generalised/header');
+		$this->load->view('resident/'.$page);
+		$this->load->view('generalised/footer');
+	}
 }
