@@ -33,27 +33,30 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4">
-                    <button id = "newButton" type="button" class="btn btn-lg active style">
+                    <button id = "newButton"  type="button" class="btn btn-lg active style" >
                         Family <br/>
-                        <img src="../../icons/family.png" style="width: 200px" class=""/>
+                        <img src="../../icons/family.png" style="width: 180px; padding-right: 35px" class=""/>
                     </button>  
 		</div>
 		<div class="col-md-4">
-                    <button id = "newButton" type="button" class="btn btn-lg style active" onclick="location.href='<?php echo base_url(); ?>Pages/question'">
+                    <button id = "newButton" type="button" class="btn btn-lg question active" 
+                            onclick="location.href='<?php echo base_url(); ?>Pages/question'">
                         Questionnaire <br/>
-                        <img src="../../icons/questions.png" style="width: 300px" class=""/>
+                        <img src="../../icons/questions.png" style="width: 200px" class=""/>
                     </button>  
 		</div>
 		<div class="col-md-4">
-                    <button id = "newButton" type="button" class="btn btn-lg style active">
-                        Acctivities <br/>
-                        <img src="../../icons/activities.png" style="width: 200px" class=""/>
+                    <button id = "newButton" type="button" class="btn btn-lg style active" 
+                            style="padding-right: 40px; padding-bottom: 25px; right: -30px">
+                        Activities <br/>
+                        <img src="../../icons/activities.png" style="width: 180px; padding-right: 35px" class=""/>
                     </button>  
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-                    <button id = "newButton" type="button" class="btn btn-lg style active" onclick="location.href='<?php echo base_url(); ?>Pages/loginRes'">
+                    <button id = "newButton" type="button" class="btn btn-lg style active" style="width: 40%; left: 230px"
+                            onclick="location.href='<?php echo base_url(); ?>Pages/loginRes'">
 			Log out
                     </button>                   
 		</div>
