@@ -40,7 +40,7 @@
 		</div>
 		<div class="col-md-4">
                     <button id = "newButton" type="button" class="btn btn-lg question active" 
-                            onclick="location.href='<?php echo base_url(); ?>Pages/question'">
+                            onclick="location.href='<?php echo base_url(); ?>Pages/categories'">
                         Questionnaire <br/>
                         <img src="../../icons/questions.png" style="width: 200px" class=""/>
                     </button>  

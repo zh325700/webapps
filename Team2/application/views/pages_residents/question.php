@@ -61,7 +61,8 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4">			 
-                    <button id = "newButton" type="button" class="btn btn-lg style active" onclick="location.href='<?php echo base_url(); ?>Pages/menuRes'">
+                    <button id = "newButton" type="button" class="btn btn-lg style active" 
+                            onclick="location.href='<?php echo base_url(); ?>Pages/categories'">
 				Previous <br />Question
 			</button>
 		</div>

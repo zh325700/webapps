@@ -16,11 +16,12 @@ h1.bar1{
 
 h2.bar2{
     background-color: #5f7396;
+    width: 150%;
     padding-top: 2%;
     padding-bottom: 2%;
     border-radius: 5px;
     position: relative;
-    left: -20px;
+    right: 80px;
 }
 
 button.style{
@@ -51,8 +52,6 @@ img.align-right{
     background-color: #94ea78;
 }
 
-
-
 button.question{
     border-radius: 10px;
     color: black;
@@ -68,3 +67,21 @@ button.question{
     top: 40px;
     left: -50px;
 }
+
+button.category{
+    border-radius: 10px;
+    color: black;
+    background-color:ivory;
+    border-color: #61b749;
+    width: 100%;
+    font-size: 40px;
+    border-bottom-width: 5px;
+    border-top-width: 5px;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    position: relative;
+    bottom: -150px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+

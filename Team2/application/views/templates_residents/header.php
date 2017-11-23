@@ -26,9 +26,6 @@
                                 <a href="<?php echo base_url(); ?>posts">Blog</a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>Pages/mainRes">Main_resident</a>
-                            </li>
-                            <li class="nav-link">
                                 <a href="<?php echo base_url(); ?>MenuC_control/index">Menu</a>
                             </li>
                             <li class="nav-link">
@@ -44,7 +41,7 @@
                                 <a href="<?php echo base_url(); ?>Residents_control/create">Add Residents</a>
                             </li>
                             <li class="nav-link">
-                                <a href="<?php echo base_url(); ?>QuestionControl/index">Questionnaire</a>
+                                <a href="<?php echo base_url(); ?>Pages/menuRes">Menu + question resident</a>
                             </li>                            
                         </ul>
                     </div>

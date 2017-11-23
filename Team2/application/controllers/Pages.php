@@ -33,5 +33,9 @@
             $this->load->view('pages_residents/loginR');
             $this->load->view('templates_residents/footer');           
         }
-
+        
+        public function categories(){
+            $this->load->view('pages_residents/categories');
+            $this->load->view('templates_residents/footer');            
+        }
     }
