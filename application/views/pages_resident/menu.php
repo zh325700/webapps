@@ -37,7 +37,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-                    <button id = "newButton" type="button" class="btn btn-lg style active" style="width: 40%; left: 230px">Log out</button>                   
+                    <button id = "newButton" type="button" class="btn btn-lg style active" style="width: 40%; left: 230px" onclick="loadPage('Caregiver/home')">Log out</button>                   
 		</div>
 	</div>
 </div>

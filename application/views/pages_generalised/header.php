@@ -14,7 +14,7 @@ if (login_check($mysqli) == true) {
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Care givers Login </title>
+		<title>HCI</title>
 
 		<!-- Latest compiled and minified bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -54,3 +54,5 @@ if (login_check($mysqli) == true) {
 		<?php
 		defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
+		
+		<h1>Temporary Title</h1>
