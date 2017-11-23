@@ -32,27 +32,19 @@
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_resqes">
-					Residents
-				</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_resqes">Residents</button> 
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_restime">
-					Fill-in history
-				</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_restime">Fill-in history</button> 
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_addelderly">
-					Add elderly
-				</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_addelderly">Add elderly</button> 
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_elderly">
-					Login Elderly
-				</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Resident/menu')" >Login Elderly</button> 
 			</div>
 			</br>
 		</div>

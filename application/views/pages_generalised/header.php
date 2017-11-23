@@ -34,6 +34,7 @@ if (login_check($mysqli) == true) {
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/main.less" />
 		<link rel="stylesheet" href="<?php echo base_url();?>/assets/css/logincg.css">
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/caregiver.less" />
+         <link href="<?php echo base_url();?>/assets/css/residentlore.css" rel="stylesheet" type="text/css"/>
         
         <!--compile less files-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
