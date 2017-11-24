@@ -10,7 +10,7 @@
 			<h2 class="text-center bar2" >Please chose a category</h2>                   
 		</div>
 		<div class="col-md-4">
-			<img src="<?php echo base_url(); ?>/image/information.png" alt="" style=" width: 150px" class="align-right"/>
+			<img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" style=" width: 150px" class="align-right"/>
 		</div>
 	</div>
 	<div class="row">

@@ -7,7 +7,7 @@
 			<div class="row middle sg">
 				<div class="row sg pic">
 					<div class="col-md-4 col-md-offset-4">
-						<img src="<?php echo base_url();?>/image/logo.jpg" alt="" class="photo">
+						<img src="<?php echo base_url();?>/image/pictograms/logo.jpg" alt="" class="photo">
 					</div>
 				</div>
 				<?php
@@ -29,7 +29,7 @@
 			</div>	
 		</div> 
 	</div>
-	<button type="button" onclick="loadPage('Caregiver/home')" > login </button>
+	<button type="button" onclick="loadPage('Welcome', 'Caregiver/home')" > login </button>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->

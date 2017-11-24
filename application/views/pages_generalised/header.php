@@ -24,8 +24,7 @@ if (login_check($mysqli) == true) {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
 		<!-- optional theme-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
@@ -34,7 +33,10 @@ if (login_check($mysqli) == true) {
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/main.less" />
 		<link rel="stylesheet" href="<?php echo base_url();?>/assets/css/logincg.css">
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/caregiver.less" />
-         <link href="<?php echo base_url();?>/assets/css/residentlore.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url();?>/assets/css/residentlore.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url();?>/assets/css/overview-Res.css" rel="stylesheet" type="text/css"/> <!--han-->
+        <link href="<?php echo base_url();?>/assets/css/addResidents.css" rel="stylesheet" type="text/css"/> <!--han-->
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
         
         <!--compile less files-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
@@ -45,8 +47,8 @@ if (login_check($mysqli) == true) {
 		
 		<!--load a page-->
 		<script>
-			function loadPage(page){
-				location.href = "<?php echo base_url();?>index.php/Welcome/"+page;
+			function loadPage(controller, page){
+				location.href = "<?php echo base_url();?>index.php/" + controller + "/" + page;
 			}
 		</script>
 	</head>

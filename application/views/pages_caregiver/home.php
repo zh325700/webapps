@@ -32,19 +32,19 @@
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_resqes">Residents</button> 
-			</div>
-			</br>
-			<div>
 				<button class="btn btn-default btn-lg btn-block" id="button_restime">Fill-in history</button> 
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_addelderly">Add elderly</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_resqes" onclick="loadPage('CaregiverOperateResident', 'find')">Find Resident</button> 
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Resident/menu')" >Login Elderly</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('CaregiverOperateResident', 'create')">Add Resident</button> 
+			</div>
+			</br>
+			<div>
+				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Resident/menu')" >Login Resident</button> 
 			</div>
 			</br>
 		</div>
