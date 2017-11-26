@@ -93,11 +93,11 @@
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-4 fontsize">
-                        ID Instelling
+                        ID Facility
                     </div>
                     <div class="col-md-5">
                         <div class="form-group insert-form">
-                            <input type="text" class="form-control" name="ID_Instelling" placeholder="Add ID Instelling number">
+                            <input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number">
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>Upload Image</label>
-                    <input type="file" accept="image/*" onchange="loadFile(event)" name="userfile" size="20"><br>
+                    <input type="file" accept="image/photos/*" onchange="loadFile(event)" name="userfile" size="20"><br>
                     <img  id="output" width="300px" hight="400px">
                     <script>
                         var loadFile = function (event) {

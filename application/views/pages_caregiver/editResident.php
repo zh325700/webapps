@@ -100,12 +100,12 @@
                     <div class="row insert-row">
                         <div class="col col-md-1"></div>
                         <div class="col col-md-4 fontsize">
-                            ID Instelling
+                            ID Facility 
                         </div>
                         <div class="col-md-5">
                             <div class="form-group insert-form">
-                                <input type="text" class="form-control" name="ID_Instelling" placeholder="Add ID Instelling number"
-                                       value="<?php echo $resident['ID_Instelling']; ?>">
+                                <input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number"
+                                       value="<?php echo $resident['ID_Facility']; ?>">
                             </div>
                         </div>
                     </div>

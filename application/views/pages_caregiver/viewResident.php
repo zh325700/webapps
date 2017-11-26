@@ -1,17 +1,17 @@
 <div class="container-fluid flex">
 	<div class="row">
-		<div class="col col-md-4">
-			<img class="Imagelayout"  src="<?php echo base_url();?>/images/photos/<?php echo $residents['Picture']; ?>">
+		<div class=" col-md-4">
+			<img class="Imagelayout"  src="<?php echo base_url();?>/image/photos/<?php echo $residents['Picture']; ?>">
 		</div>
-		<div class="col col-md-4">
+		<div class=" col-md-4">
 			<h2 style="padding-top: 150px;">Last Name: <?php echo $residents['LastName']; ?></h2>
 			<h2 style="padding-top: 50px;">First Name: <?php echo $residents['FirstName']; ?></h2>
 			<h3 style="padding-top: 50px;">Gender : <?php echo $residents['Sex']; ?></h3 >
 			<h3 style="padding-top: 50px;">Birthday : <?php echo $residents['Birthday']; ?></h3 >
 		</div>
-		<div class="col col-md-4">
+		<div class=" col-md-4">
 			<h2 style="padding-top: 150px;">Room Number: <?php echo $residents['RoomNumber']; ?></h2>
-			<h2 style="padding-top: 50px;">Facility: <?php echo $residents['ID_Instelling']; ?></h2>
+			<h2 style="padding-top: 50px;">Facility: <?php echo $residents['ID_Facility']; ?></h2>
 			<h2 style="padding-top: 50px;">Member Since: <?php echo $residents['Member_Since']; ?></h2>
 		</div>
 	</div>

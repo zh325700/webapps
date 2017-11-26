@@ -31,11 +31,11 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         if ($this->form_validation->run() === FALSE) {
 			$this->load->view('pages_generalised/header');
-            $this->load->view('pages_caregiver/createResident', $data);
+                        $this->load->view('pages_caregiver/createResident', $data);
 			$this->load->view('pages_generalised/footer');
         } else {
             //upload image
-            $config['upload_path'] = './images/icons';
+            $config['upload_path'] = './image/photos';
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '2048';
             $config['max_width'] = '1000';
