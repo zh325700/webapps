@@ -1,5 +1,4 @@
 
-<h2><?= $title ?>, Here should be the general title</h2>
 <div class="row justify-content-md-center">
     <div class="col-md-6">
         <h2 class=" text-center">
