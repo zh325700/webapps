@@ -29,13 +29,10 @@ if (login_check($mysqli) == true) {
 		<!-- optional theme-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
-		<!--our css and less - has to be cleaned-->
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/main.less" />
-		<link rel="stylesheet" href="<?php echo base_url();?>/assets/css/logincg.css">
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/caregiver.less" />
-        <link href="<?php echo base_url();?>/assets/css/residentlore.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url();?>/assets/css/overview-Res.css" rel="stylesheet" type="text/css"/> <!--han-->
-        <link href="<?php echo base_url();?>/assets/css/addResidents.css" rel="stylesheet" type="text/css"/> <!--han-->
+		<!--our css and less-->
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Main.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Caregiver.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Resident.less" />
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
         
         <!--compile less files-->

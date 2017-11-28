@@ -29,7 +29,7 @@
 			</div>	
 		</div> 
 	</div>
-	<button type="button" onclick="loadPage('Welcome', 'Caregiver/home')" > login </button>
+	<button type="button" onclick="loadPage('Welcome', 'Caregiver/overview')" > login </button>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->

@@ -10,7 +10,7 @@ class Welcome extends CI_Controller {
 	
 	public function Caregiver($page){
 		$this->load->view('pages_generalised/header');
-		$this->load->view('pages_caregiver/'.$page, $data);
+		$this->load->view('pages_caregiver/'.$page);
 		$this->load->view('pages_generalised/footer');
 	}
 	

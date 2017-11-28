@@ -6,7 +6,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-2" id="left">     
-			<button class="btn btn-default btn-lg btn-block">
+			<button class="btn btn-default btn-lg btn-block" onclick="return getScores();">
 				General
 			</button> 
 			</br>
@@ -16,7 +16,7 @@
 						<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" id="dropdown_floors_menu">
-						<li class="li" id="li_1">
+						<li class="li" id="li_1" onclick="return getScoresDiv('paveljoen');">
 							Gelijkvloers
 						</li>
 						<li class="li" id="li_2">
@@ -32,7 +32,9 @@
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_restime">Fill-in history</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_restime">
+					Fill-in history
+				</button> 
 			</div>
 			</br>
 			<div>
@@ -44,7 +46,7 @@
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Resident/menu')" >Login Resident</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Welcome', 'Resident/menu')" >Login Resident</button> 
 			</div>
 			</br>
 		</div>
@@ -60,37 +62,9 @@
 									 Residents results overview </a>
 							</div>
 							<div id="panel_element_1" class="panel-collapse collapse in">
-								<div class="panel-body" id="pb_1">
-								   <a href=#> Marie </a>
-								</div>
-								<div class="panel-body" id="pb_2">
-								   <a href=#> Jef </a>
-								</div>
-								<div class="panel-body" id="pb_3">
-								   <a href=#> Hans </a>
-								</div>
-								<div class="panel-body" id="pb_4">
-								   <a href=#> Lieven </a>
-								</div>
-								<div class="panel-body" id="pb_5">
-								   <a href=#> Maria </a>
-								</div>
-								<div class="panel-body" id="pb_6">
-								   <a href=#> Jozef </a>
-								</div>
-								<div class="panel-body" id="pb_7">
-								   <a href=#> Rik </a>
-								</div>
-								<div class="panel-body" id="pb_8">
-								   <a href=#> Marie </a>
-								</div>
-								<div class="panel-body" id="pb_9">
-								   <a href=#> Jean </a>
-								</div>
-								<div class="panel-body" id="pb_10">
-								   <a href=#> Marie </a>
-								</div>
-							</div>
+							 
+								{content_res}
+						   
 						</div>
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -99,9 +73,9 @@
 									Question results overview </a>
 							</div>
 							<div id="panel_element_2" class="panel-collapse collapse">
-								<div class="panel-body" id="pb_2_1">
-									vraag 1
-								</div>
+							   
+								{content_qes}
+								
 							</div>
 					</div>
 				</div>
@@ -109,3 +83,27 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	function getScores(){
+		xmlhttp= new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState === XMLHttpRequest.DONE){
+				document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+			}
+		};
+		xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general");
+		xmlhttp.send();
+	}
+	function getScoresDiv(Div){
+		xmlhttp= new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState === XMLHttpRequest.DONE){
+				document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+			}
+		};
+		xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_division?division="+Div,true);
+		xmlhttp.send();
+	}
+</script>
+
