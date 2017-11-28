@@ -20,40 +20,60 @@
 
     });
 </script>
-<?php $array = array(); ?>
-<?php foreach ($residents as $res): ?>
-    <?php
-    $array[] = array(
-        'LastName' => $res['LastName'],
-        'Picture' => $res['Picture'],
-        'ID_Elder' => $res['ID_Elder']
-    );
-    ?> 
 
-<?php endforeach; ?>
 <div>
     <form action='' method='post'>
         <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='auto'></p>
     </form>
 </div>
-<?php if (isset($_POST["LastName"])): $lastname = $_POST["LastName"]; ?>      <!--if you input something in the text field-->
-    <?php
-    $filteredArray = array_filter($array, function($element) use($lastname) {
-        return isset($element['LastName']) && $element['LastName'] == $lastname;
-    });
-    ?><!--find all arrays that have the same lastname and store in $filteredArray-->
+<div>
+    <form action='' method='post'>
+        <p><label class="fontsize">Find Residents By Room Number: </label><input type='text' name='RoomNumber' value='' class='auto'></p>
+    </form>
+</div>
 
-    <?php foreach ($filteredArray as $fArray): ?>
-        <?php
-        $pic = $fArray['Picture'];
-        $id = $fArray['ID_Elder'];
-        ?>
-        <div style="display: inline-block">
-                <img onclick="loadPage('CaregiverOperateResident', 'view/<?php echo $id; ?>')" src="<?php echo base_url();?>/image/photos/<?php echo $pic; ?>" alt="<?php echo $lastname ?>" style="width:360px;height:360px;border:10px blue;">
+<!--Add general function here-->
+<?php
+
+$array = array();
+foreach ($residents as $res){
+        $array[] = array(
+        'LastName' => $res['LastName'],
+        'Picture' => $res['Picture'],
+        'ID_Elder' => $res['ID_Elder'],
+        'RoomNumber' => $res['RoomNumber']
+    );
+}
+// Defining function
+function getResidentBy($relatedInfo, $nameOfInput,$array) {
+    if (isset($_POST[$nameOfInput])) {
+        $info = $_POST[$nameOfInput];
+        $filteredArray = array_filter($array, function($element) use($info,$relatedInfo) {
+            return isset($element[$relatedInfo]) && $element[$relatedInfo] == $info;
+        });
+        foreach ($filteredArray as $fArray) {
+            $pic = $fArray['Picture'];
+            $id = $fArray['ID_Elder'];
+            $lastname = $fArray['LastName'];
+            ?>
+            <div style="display: inline-block">
+                <img onclick="loadPage('CaregiverOperateResident', 'view/<?php echo $id; ?>')" src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>" alt="<?php echo $lastname ?>" style="width:360px;height:360px;border:10px blue;">
                 <figcaption class="text-center"><?php echo $lastname; ?></figcaption>
-        </div>
-    <?php endforeach; ?>
+            </div>
+            <?php
+
+            }
+            }
+            }
+
+// Calling function
+            getResidentBy('LastName', 'LastName',$array);
+            getResidentBy('RoomNumber', 'RoomNumber',$array);
+            ?>
 
 
-<?php endif; ?>
+
+
+
+
 
