@@ -1,6 +1,11 @@
 
 <div class="row justify-content-md-center">
     <div class="col-md-6">
+        <FORM>
+            <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url();?>index.php'">
+        </FORM>
+    </div>
+    <div class="col-md-6">
         <h2 class=" text-center">
             Find Residents
         </h2>
@@ -10,45 +15,51 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
 <script type="text/javascript">
-    $(function () {
+                $(function () {
 
-        //autocomplete
-        $(".auto").autocomplete({
-            source: "findResident.php",
-            minLength: 1
-        });
+                    //autocomplete
+                    $(".auto").autocomplete({
+                        source: "findResident.php",
+                        minLength: 1
+                    });
 
-    });
+                });
 </script>
-
 <div>
     <form action='' method='post'>
         <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='auto'></p>
     </form>
-</div>
-<div>
     <form action='' method='post'>
         <p><label class="fontsize">Find Residents By Room Number: </label><input type='text' name='RoomNumber' value='' class='auto'></p>
+    </form>
+    <form action='' method='post'>
+        <p><label class="fontsize">Find Residents By Facility Number: </label><input type='text' name='ID_Facility' value='' class='auto'></p>
+    </form>
+    <form action='' method='post'>
+        <p><label class="fontsize">Find Residents By Sex: </label><input type='text' name='Sex' value='' class='auto'></p>
     </form>
 </div>
 
 <!--Add general function here-->
 <?php
-
 $array = array();
-foreach ($residents as $res){
-        $array[] = array(
+foreach ($residents as $res) {
+    $array[] = array(
         'LastName' => $res['LastName'],
+        'FirstName' => $res['FirstName'],
+        'Sex' => $res['Sex'],
         'Picture' => $res['Picture'],
         'ID_Elder' => $res['ID_Elder'],
-        'RoomNumber' => $res['RoomNumber']
+        'RoomNumber' => $res['RoomNumber'],
+        'ID_Facility' => $res['ID_Facility']
     );
 }
-// Defining function
-function getResidentBy($relatedInfo, $nameOfInput,$array) {
+
+// Defining function getResidentby all kind of related info, you should pass : relatedInfo name && input name && array to store resident to call this func
+function getResidentBy($relatedInfo, $nameOfInput, $array) {
     if (isset($_POST[$nameOfInput])) {
         $info = $_POST[$nameOfInput];
-        $filteredArray = array_filter($array, function($element) use($info,$relatedInfo) {
+        $filteredArray = array_filter($array, function($element) use($info, $relatedInfo) {
             return isset($element[$relatedInfo]) && $element[$relatedInfo] == $info;
         });
         foreach ($filteredArray as $fArray) {
@@ -61,15 +72,16 @@ function getResidentBy($relatedInfo, $nameOfInput,$array) {
                 <figcaption class="text-center"><?php echo $lastname; ?></figcaption>
             </div>
             <?php
-
-            }
-            }
-            }
+        }
+    }
+}
 
 // Calling function
-            getResidentBy('LastName', 'LastName',$array);
-            getResidentBy('RoomNumber', 'RoomNumber',$array);
-            ?>
+getResidentBy('LastName', 'LastName', $array);
+getResidentBy('RoomNumber', 'RoomNumber', $array);
+getResidentBy('ID_Facility', 'ID_Facility', $array);
+getResidentBy('Sex', 'Sex', $array);
+?>
 
 
 
