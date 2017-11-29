@@ -2,7 +2,7 @@
 <div class="row justify-content-md-center">
     <div class="col-md-6">
         <FORM>
-            <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url();?>index.php'">
+            <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url(); ?>index.php'">
         </FORM>
     </div>
     <div class="col-md-6">
@@ -14,29 +14,66 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
+<?php
+$arraylastname = array();
+$arrayFirstname = array();
+$arrayRoom = array();
+$arrayFacility = array();
+$arraySex = array();
+foreach ($residents as $res) {
+    array_push($arraylastname, $res['LastName']);
+    array_push($arrayFirstname, $res['FirstName']);
+    array_push($arrayRoom, $res['RoomNumber']);
+    array_push($arrayFacility, $res['ID_Facility']);
+    array_push($arraySex, $res['Sex']);
+}
+?>
 <script type="text/javascript">
+                var arraylastname = <?php echo json_encode($arraylastname) ?>; // push $residents into the array
+                var arrayRoom = <?php echo json_encode($arrayRoom) ?>;
+                var arrayFirstname = <?php echo json_encode($arrayFirstname) ?>;
+                var arrayFacility = <?php echo json_encode($arrayFacility) ?>;
+                var arraySex = <?php echo json_encode($arraySex) ?>;
                 $(function () {
-
                     //autocomplete
-                    $(".auto").autocomplete({
-                        source: "findResident.php",
+                    $(".autoLastName").autocomplete({
+                        source: arraylastname,
                         minLength: 1
                     });
-
+                    $(".autoRoom").autocomplete({
+                        source: arrayRoom,
+                        minLength: 1
+                    });
+                    $(".autoFacility").autocomplete({
+                        source: arrayFacility,
+                        minLength: 1
+                    });
+                    $(".autoFirstname").autocomplete({
+                        source: arrayFirstname,
+                        minLength: 1
+                    });
+                    $(".autoSex").autocomplete({
+                        source: arraySex,
+                        minLength: 1
+                    });
                 });
 </script>
+
 <div>
     <form action='' method='post'>
-        <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='auto'></p>
+        <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
     </form>
     <form action='' method='post'>
-        <p><label class="fontsize">Find Residents By Room Number: </label><input type='text' name='RoomNumber' value='' class='auto'></p>
+        <p><label class="fontsize">Find Residents By FirstName: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
     </form>
     <form action='' method='post'>
-        <p><label class="fontsize">Find Residents By Facility Number: </label><input type='text' name='ID_Facility' value='' class='auto'></p>
+        <p><label class="fontsize">Find Residents By Room Number: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
     </form>
     <form action='' method='post'>
-        <p><label class="fontsize">Find Residents By Sex: </label><input type='text' name='Sex' value='' class='auto'></p>
+        <p><label class="fontsize">Find Residents By Facility Number: </label><input type='text' name='ID_Facility' value='' class='autoFacility'></p>
+    </form>
+    <form action='' method='post'>
+        <p><label class="fontsize">Find Residents By Sex: </label><input type='text' name='Sex' value='' class='autoSex'></p>
     </form>
 </div>
 
@@ -81,6 +118,7 @@ getResidentBy('LastName', 'LastName', $array);
 getResidentBy('RoomNumber', 'RoomNumber', $array);
 getResidentBy('ID_Facility', 'ID_Facility', $array);
 getResidentBy('Sex', 'Sex', $array);
+getResidentBy('FirstName', 'FirstName', $array);
 ?>
 
 
