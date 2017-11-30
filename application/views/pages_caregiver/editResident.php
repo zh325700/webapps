@@ -1,14 +1,4 @@
 <div class="container-fluid flex">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-6">
-                <FORM>
-                    <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/home'">
-                </FORM>
-            </div>
-
-        </div>
-    </div>
 
     <div class="row justify-content-md-center">
         <div class="col-md-6">
@@ -19,7 +9,7 @@
     </div>
 
     <?php echo validation_errors(); ?>
-    <?php echo form_open('index.php/Residents_control/update'); ?>
+    <?php echo form_open('CaregiverOperateResident/update'); ?>
 
     <div class="row">
         <div class="col-md-8">
@@ -128,7 +118,9 @@
         </div>
     </div>
     <div class="row"> 
-        <div class="col col-md-4"></div>
+        <div class="col col-md-4" style="text-align: center;">
+            <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/home'"/>
+        </div>
         <div class="col col-md-4" style="text-align: center;">
             <button type="submit"  class="btn btn-success btn-lg">Edit Residents</button>
         </div> 
@@ -137,4 +129,3 @@
 </div>
 </form>
 <!--Javascript libraries--> 
-<script src="<?= base_url() ?>assets/js/jquery.js"></script>

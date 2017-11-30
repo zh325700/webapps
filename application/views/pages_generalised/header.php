@@ -1,14 +1,14 @@
 
-<?php
-include_once 'includes/functions.php';
-sec_session_start();
-
-if (login_check($mysqli) == true) {
-    $logged = 'in';
-} else {
-    $logged = 'out';
-}
-?>
+//<?php
+//include_once 'includes/functions.php';
+//sec_session_start();
+//
+//if (login_check($mysqli) == true) {
+//    $logged = 'in';
+//} else {
+//    $logged = 'out';
+//}
+//?>
 
 <!DOCTYPE html>
 <html>
@@ -33,6 +33,7 @@ if (login_check($mysqli) == true) {
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Main.less" />
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Caregiver.less" />
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Resident.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/extraHan.less" />
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
         
         <!--compile less files-->

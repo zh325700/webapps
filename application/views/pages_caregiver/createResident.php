@@ -1,13 +1,4 @@
 <div class="container-fluid flex">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-6">
-                <FORM>
-                    <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/home'">
-                </FORM>
-            </div>
-        </div>
-    </div>
 
     <div class="row justify-content-md-center">
         <div class="col-md-6">
@@ -104,22 +95,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label>Upload Image</label>
-                <input type="file" accept="image/photos/*" onchange="loadFile(event)" name="userfile" size="20"><br>
-                <img  id="output" width="300px" hight="400px">
-                <script>
-                    var loadFile = function (event) {
-                        var output = document.getElementById('output');
-                        output.src = URL.createObjectURL(event.target.files[0]);
-                    };
-                </script>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Upload Image</label>
+                    <input type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
+                    <img  id="output" width="300px" hight="400px">
+                    <script>
+                        var loadFile = function (event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                    </script>
+                </div>
             </div>
-        </div>
     </div>
     <div class="row"> 
-        <div class="col col-md-4"></div>
+        <div class="col col-md-4" style="text-align: center;">
+            <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/home'"/>
+        </div>
         <div class="col col-md-4" style="text-align: center;">
             <button type="submit"  class="btn btn-lg">Add Residents</button>
         </div> 

@@ -41,7 +41,7 @@ class Residents_model extends CI_Model {
 
     public function update_resident($post_image) {
         $ID_Elder = $this->input->post('ID_Elder');     //post('name of the input ') 
-
+        echo $this->input->post('ID_Elder');
         $data = array(
             'LastName' => $this->input->post('LastName'),
             'FirstName' => $this->input->post('FirstName'),
