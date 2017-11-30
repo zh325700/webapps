@@ -6,7 +6,12 @@
             </h2>
         </div>
     </div>
-
+    <style>
+        form  { display: table;      }
+        p     { display: table-row;  }
+        label { display: table-cell; }
+        input { display: table-cell; }
+    </style>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
     <?php
@@ -22,7 +27,6 @@
         array_push($arrayFacility, $res['ID_Facility']);
         array_push($arraySex, $res['Sex']);
     }
-    
     ?>
     <script type="text/javascript">
         var arraylastname = <?php echo json_encode($arraylastname) ?>; // push $residents into the array
