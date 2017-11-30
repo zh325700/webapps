@@ -46,13 +46,13 @@
                             <div class=" col-md-3">
                                 <img src="https://cdn2.iconfinder.com/data/icons/person-gender-hairstyle-clothes-variations/48/Female-Side-comb-O-neck-512.png" style="width:40px;height:40px;">
 
-                                <input type="checkbox"name="Sex" id="male" value="M" style="width:15px;height:15px;text-align: center;"></div>
+                                <input type="checkbox"name="Sex" value="F" style="width:15px;height:15px;text-align: center;"></div>
                         </label>
                         <label>
                             <div class=" col-md-3">
                                 <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/user-male-icon.png" style="width:40px;height:40px;">
 
-                                <input type="checkbox"name="Sex" value="F" style="width:15px;height:15px;text-align: center;">
+                                <input type="checkbox"name="Sex" value="M" style="width:15px;height:15px;text-align: center;">
                             </div>
                         </label>
                     </div>
