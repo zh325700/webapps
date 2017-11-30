@@ -1,4 +1,4 @@
-<div class="container-fluid flex">
+<div class="container-fluid">
 	<div class="row top1">
 		
 	</div>
@@ -24,12 +24,12 @@
 						<span class="input-group-addon"><i class="fa fa-unlock-alt user"></i></span>
 						<input type="password" name="password" id="password" class="form-control" placeholder="password">
 					</div>
-                                    <button type="button" class="login" value="Login" onclick="formhash(this.form, this.form.password);" > Login </button>
+					<input type="button" class="bttn" value="Login" onclick="formhash(this.form, this.form.password);" />
 				</form>
 			</div>	
 		</div> 
 	</div>
-	<button  type="button" onclick="loadPage('Welcome', 'Caregiver/home')" > login </button>
+	<button type="button" onclick="loadPage('Welcome', 'Caregiver/overview')" > login </button>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->

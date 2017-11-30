@@ -23,7 +23,7 @@
                     </button>  
 		</div>
 		<div class="col-md-4">
-                    <button id = "newButton" type="button" class="btn btn-lg question active" onclick="loadPage('Resident/categories')">
+                    <button id = "newButton" type="button" class="btn btn-lg question active" onclick="loadPage('Welcome','Resident/categories')">
                         Questionnaire <br/>
                         <img src="<?php echo base_url(); ?>/image/pictograms/questions.png" style="width: 200px" class=""/>
                     </button>  
@@ -37,9 +37,9 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-                    <button id = "newButton" type="button" class="btn btn-lg style active" style="width: 40%; left: 230px" onclick="loadPage('Caregiver/home')">Log out</button>                   
+                    <button id = "newButton" type="button" class="btn btn-lg style active" style="width: 40%; left: 230px" onclick="loadPage('Welcome', 'Caregiver/overview')">Log out</button>                   
 		</div>
 	</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/question.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/question.js"></script>

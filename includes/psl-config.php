@@ -26,7 +26,7 @@ define("DEFAULT_ROLE", "member");
 
 define("HOST", "localhost"); 			// The host you want to connect to. 
 define("USER", "root"); 				// The database username. 
-define("PASSWORD", "root"); 				// The database password. Oorspronkelijk =  4Fa98xkHVd2XmnfK
+define("PASSWORD", "fun"); 				// The database password. Oorspronkelijk =  4Fa98xkHVd2XmnfK
 define("DATABASE", "hci");				// The database name.
 
 $dbname = DATABASE;

@@ -1,3 +1,10 @@
+
+<!--
+  <body onload='javascript:loadQuestions(<?= json_encode($questions)?>)'>
+-->
+
+
+
 <div class="container-fluid">
     <div class="row">
 		<div class="col-md-12">
@@ -17,24 +24,24 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-center" id = "question_content">Question content</h3>
+			<h3 class="text-center" id = "question_content"><?php echo $first_question;?></h3>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<img src="<?php echo base_url(); ?>/image/pictograms/Smileys.png" alt="" style="width:850px" class="center" usemap="#map"/>
 			<map name="map">
-					<area shape="circle" coords="80,90,80" href="javascript:getQuestion()" id="smiley" >
-					<area shape="circle" coords="250,90,80" href="javascript:getQuestion()" id="smiley">
-					<area shape="circle" coords="425,90,80" href="javascript:getQuestion()" id="smiley">
-					<area shape="circle" coords="600,90,80" href="javascript:getQuestion()" id="smiley">
-					<area shape="circle" coords="770,90,80" href="javascript:getQuestion()" id="smiley">
+					<area shape="circle" coords="80,90,80" href="javascript:getQuestion(1)" id="smiley" >
+					<area shape="circle" coords="250,90,80" href="javascript:getQuestion(2)" id="smiley">
+					<area shape="circle" coords="425,90,80" href="javascript:getQuestion(3)" id="smiley">
+					<area shape="circle" coords="600,90,80" href="javascript:getQuestion(4)" id="smiley">
+					<area shape="circle" coords="770,90,80" href="javascript:getQuestion(5)" id="smiley">
 			</map>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4">			 
-			<button id = "newButton" type="button" class="btn btn-lg style active" onclick="loadPage('Resident/categories')">
+			<button id = "prevButton" type="button" class="btn btn-lg style active" onclick="javascript:previous()">
 				Previous <br />Question
 			</button>
 		</div>
@@ -53,4 +60,9 @@
 	<?php endforeach;
 }
 ?>
+
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/question.js"></script>
+
+	<script type="text/javascript">
+		loadQuestions(<?php echo json_encode($questions)?>);
+	</script>

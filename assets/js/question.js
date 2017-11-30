@@ -1,25 +1,38 @@
 
 
 var counter = 1;
-function getQuestion() {
-    if(window.XMLHttpRequest){
-        xmlhttp = new XMLHttpRequest();
-    }
-    else{
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState === XMLHttpRequest.DONE){
-            document.getElementById("question_content").innerHTML = xmlhttp.responseText;
-            document.getElementById("question_number").innerHTML = "Question "+(counter - 1);
-        }
-    };
-    xmlhttp.open("GET", "get_question_by_id.php?id_question="+counter, true);
-    xmlhttp.send();
+var questions;
+var answers = [];
+function loadQuestions(all_questions){
+   questions = JSON.parse(all_questions);
+//   console.log(all_questions);
+}
+
+function getQuestionByCategory(){
+    
+}
+
+function getQuestion(score) {
+    var answer = {ID_Question:counter, ID_Elder:1, Score:score};
+    answers.push(answer);
     counter++;
+    if(counter > Object.keys(questions).length){
+        document.location.href = '../../index.php/Question/insertScore/?answers='+JSON.stringify(answers);
+    }
+    var question = questions[counter - 1];
+    document.getElementById("question_number").innerHTML = "Question "+counter;
+    document.getElementById("question_content").innerHTML = question.Question_en;
+    console.log(answers);
 }
 
 function previous(){
     //load previous question and remove previous answer from database
-    console.log("you clicked me");
+    answers.pop();
+    counter--;
+    if(counter >= 1){
+        var question = questions[counter - 1];
+        document.getElementById("question_number").innerHTML = "Question "+counter;
+        document.getElementById("question_content").innerHTML = question.Question_en;
+        console.log(counter);
+    }
 }
