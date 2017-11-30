@@ -1,8 +1,8 @@
-
+<div class="container-fluid">
 <div class="row justify-content-md-center">
     <div class="col-md-6">
         <FORM>
-            <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url(); ?>index.php'">
+            <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/home'">
         </FORM>
     </div>
     <div class="col-md-6">
@@ -58,12 +58,12 @@ foreach ($residents as $res) {
                     });
                 });
 </script>
-
-<div>
-    <form action='' method='post'>
+<div class="row">
+<div class="col-md-4">
+    <form  action='' method='post'>
         <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
     </form>
-    <form action='' method='post'>
+    <form  action='' method='post'>
         <p><label class="fontsize">Find Residents By FirstName: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
     </form>
     <form action='' method='post'>
@@ -76,7 +76,7 @@ foreach ($residents as $res) {
         <p><label class="fontsize">Find Residents By Sex: </label><input type='text' name='Sex' value='' class='autoSex'></p>
     </form>
 </div>
-
+    <div class="col-md-8">
 <!--Add general function here-->
 <?php
 $array = array();
@@ -120,6 +120,9 @@ getResidentBy('ID_Facility', 'ID_Facility', $array);
 getResidentBy('Sex', 'Sex', $array);
 getResidentBy('FirstName', 'FirstName', $array);
 ?>
+</div>
+</div>
+</div>
 
 
 

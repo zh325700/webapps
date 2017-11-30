@@ -3,7 +3,7 @@
         <div class=" col-md-4">
             <div class="col-md-6">
                 <FORM>
-                    <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url(); ?>index.php'">
+                    <INPUT Type="BUTTON" Value="Homepage" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/home'">
                 </FORM>
             </div>
             <img class="Imagelayout"  src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
