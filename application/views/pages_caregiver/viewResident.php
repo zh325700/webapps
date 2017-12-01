@@ -1,7 +1,7 @@
 <div class="container-fluid flex">
     <div class="row">
         <div class=" col-md-4">
-            <img class="Imagelayout_han thumbnail"  src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
+            <img class="thumbnail" height="420" width="420"  src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
         </div>
         <div class=" col-md-4">
             <p style="padding-top: 20px; font-size: 30px; font-family: italic" >Last Name: <?php echo $residents['LastName']; ?></p>
