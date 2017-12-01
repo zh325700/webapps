@@ -34,14 +34,26 @@ class CaregiverOperateResident extends CI_Controller {
             $this->load->view('pages_generalised/footer');
         } else {
             //upload image
-            $config['upload_path'] = './image/photos/'; 
+//            $this->load->library('sftp');
+//
+//            $configsftp['hostname'] = 'studev.groept.be';
+//            $configsftp['username'] = 'a17_webapps02';
+//            $configsftp['password'] = 'wk9yzu0z';
+
+            $config['upload_path'] = './image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['overwrite'] = TRUE;
             $config['max_size'] = '20480'; //20MB
             $config['max_width'] = '2000';
             $config['max_height'] = '2000';
 
+//            $this->sftp->connect($configsftp);
+//            $this->sftp->upload('userfile', '/html/a17_webapps02/image/photos/', 'ascii', 0775);
+//
+//            $this->sftp->close();
+
             $this->load->library('upload', $config);
+
 
             if (!$this->upload->do_upload('userfile')) {
                 $errors = array('error' => $this->upload->display_errors());
@@ -52,7 +64,7 @@ class CaregiverOperateResident extends CI_Controller {
             }
 
             $this->Residents_model->create_resident($post_image);
-            
+
             redirect('CaregiverOperateResident/find');
         }
     }
