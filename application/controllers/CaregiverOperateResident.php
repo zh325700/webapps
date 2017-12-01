@@ -6,7 +6,7 @@ class CaregiverOperateResident extends CI_Controller {
         $data['title'] = 'Overview of residents';
         $data['facilities'] = $this->Residents_model->get_facilities();
         $data['residents'] = $this->Residents_model->get_residents();
-        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/header_caregiver');
         $this->load->view('pages_caregiver/findResident', $data);
         $this->load->view('pages_generalised/footer');
     }
@@ -18,7 +18,7 @@ class CaregiverOperateResident extends CI_Controller {
             show_404();
         }
         $data['$ID_Elder'] = $data['residents']['ID_Elder'];
-        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/header_caregiver');
         $this->load->view('pages_caregiver/viewResident', $data);
         $this->load->view('pages_generalised/footer');
     }
@@ -30,13 +30,13 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages_generalised/header');
+            $this->load->view('pages_generalised/header_caregiver');
             $this->load->view('pages_caregiver/createResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
             //upload image
 
-            $config['upload_path'] = './image/photos/';
+            $config['upload_path'] = base_url().'/image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['overwrite'] = TRUE;
             $config['max_size'] = '20480'; //20MB
@@ -84,7 +84,7 @@ class CaregiverOperateResident extends CI_Controller {
         if (empty($data['resident'])) {
             show_404();
         }
-        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/header_caregiver');
         $this->load->view('pages_caregiver/editResident', $data);
         $this->load->view('pages_generalised/footer');
     }

@@ -49,6 +49,14 @@
 				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Welcome', 'Resident/menu')" >Login Resident</button> 
 			</div>
 			</br>
+				<div>
+					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'addfacility')">Add Facility</button> 
+				</div>
+			</br>
+				<div>
+					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'find')">Find Facility</button> 
+				</div>
+			</br>
 		</div>
 		<div class="col-sm-8" id="right_center">
 					<h3 id="title_type_overview">
