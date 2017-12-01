@@ -64,7 +64,13 @@
                 <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
                 <p><label class="fontsize">Find Residents By FirstName: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
                 <p><label class="fontsize">Find Residents By Room Number: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
-                <p><label class="fontsize">Find Residents By Facility Number: </label><input type='text' name='ID_Facility' value='' class='autoFacility'></p>
+                <p><label class="fontsize">Find Residents By Facility: </label>
+                    <select name="ID_Facility" class="form-control">
+                        <?php foreach ($facilities as $fac): ?>
+                            <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <!--<input type='text' name='ID_Facility' value='' class='autoFacility'></p>-->
                 <p><label class="fontsize">Find Residents By Sex: </label><input type='text' name='Sex' value='' class='autoSex'></p>
                 <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/overview'"/>
                 <input class="btn btn-primary btn-lg" type="submit" value="FIND" name="findres"/>

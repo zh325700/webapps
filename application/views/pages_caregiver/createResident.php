@@ -8,6 +8,7 @@
         </div>
     </div>
 
+
     <?php echo validation_errors(); ?>
     <?php echo form_open_multipart('CaregiverOperateResident/create'); ?> <!--form_open_multipart so we can add image-->
     <div class="row">
@@ -86,28 +87,36 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 fontsize">
-                    ID Facility
+                    Facility
                 </div>
                 <div class="col-md-5">
                     <div class="form-group insert-form">
-                        <input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number">
+                        <select name="ID_Facility" class="form-control">
+                            <?php foreach ($facilities as $fac): ?>
+                                <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+
+
+                        <!--<input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number">-->
                     </div>
                 </div>
             </div>
+
         </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>Upload Image</label>
-                    <input type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
-                    <img  id="output" width="300px" hight="400px">
-                    <script>
-                        var loadFile = function (event) {
-                            var output = document.getElementById('output');
-                            output.src = URL.createObjectURL(event.target.files[0]);
-                        };
-                    </script>
-                </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Upload Image</label>
+                <input type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
+                <img  id="output" width="300px" hight="400px">
+                <script>
+                    var loadFile = function (event) {
+                        var output = document.getElementById('output');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                    };
+                </script>
             </div>
+        </div>
     </div>
     <div class="row"> 
         <div class="col col-md-4" style="text-align: center;">

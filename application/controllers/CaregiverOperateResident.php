@@ -4,7 +4,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function find() {
         $data['title'] = 'Overview of residents';
-
+        $data['facilities'] = $this->Residents_model->get_facilities();
         $data['residents'] = $this->Residents_model->get_residents();
         $this->load->view('pages_generalised/header');
         $this->load->view('pages_caregiver/findResident', $data);
@@ -25,7 +25,8 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function create() {
         $data['title'] = 'Create Residents';
-
+        $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
+        
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         if ($this->form_validation->run() === FALSE) {
@@ -34,18 +35,13 @@ class CaregiverOperateResident extends CI_Controller {
             $this->load->view('pages_generalised/footer');
         } else {
             //upload image
-//            $this->load->library('sftp');
-//
-//            $configsftp['hostname'] = 'studev.groept.be';
-//            $configsftp['username'] = 'a17_webapps02';
-//            $configsftp['password'] = 'wk9yzu0z';
 
             $config['upload_path'] = './image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['overwrite'] = TRUE;
             $config['max_size'] = '20480'; //20MB
-            $config['max_width'] = '2000';
-            $config['max_height'] = '2000';
+            $config['max_width'] = '3000';
+            $config['max_height'] = '3000';
 
 //            $this->sftp->connect($configsftp);
 //            $this->sftp->upload('userfile', '/html/a17_webapps02/image/photos/', 'ascii', 0775);
@@ -59,6 +55,15 @@ class CaregiverOperateResident extends CI_Controller {
                 $errors = array('error' => $this->upload->display_errors());
                 $post_image = 'noimage.png';
             } else {
+// SFTP 
+//                $this->load->library('sftp');
+//
+//                $configsftp['hostname'] = 'studev.groept.be';
+//                $configsftp['username'] = 'a17_webapps02';
+//                $configsftp['password'] = 'wk9yzu0z';
+
+
+
                 $data = array('upload_data' => $this->upload->data());
                 $post_image = $_FILES['userfile']['name'];
             }
