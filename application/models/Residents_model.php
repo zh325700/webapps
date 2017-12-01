@@ -26,7 +26,7 @@ class Residents_model extends CI_Model {
             'Birthday' => $this->input->post('Birthday'),
             'Sex' => $this->input->post('Sex'),
             'RoomNumber' => $this->input->post('RoomNumber'),
-            'ID_Instelling' => $this->input->post('ID_Instelling'),
+            'ID_Facility' => $this->input->post('ID_Facility'),
             'Picture' => $post_image
         );
         //posts is the table name and the data array is called "data"
@@ -48,7 +48,7 @@ class Residents_model extends CI_Model {
             'Sex' => $this->input->post('Sex'),
             'Birthday' => $this->input->post('Birthday'),
             'RoomNumber' => $this->input->post('RoomNumber'),
-            'ID_Instelling' => $this->input->post('ID_Instelling'),
+            'ID_Facility' => $this->input->post('ID_Facility'),
             'Picture' => $post_image
         );
 

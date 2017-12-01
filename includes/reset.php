@@ -46,6 +46,7 @@ $query_Elder = ("	DROP TABLE IF EXISTS Elder;
 										Birthday DATE NOT NULL,
 										Member_Since TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 										Picture VARCHAR(30),
+										FontSize INT,
 										division VARCHAR(30));");
 $query_Questions = ("	DROP TABLE IF EXISTS Questions;
 						CREATE TABLE Questions(	ID_Question INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -106,10 +107,10 @@ $query_Questions = ("	DROP TABLE IF EXISTS Questions;
 						
 $query_TestData = ("	INSERT INTO Facility(Name, City, Postcode, Street, Number) VALUES('Remy', 'Leuven', '3000', 'Blijde inkomststraat', '5 ofzo');
 						INSERT INTO Caregiver(email, password, salt, username, permission, ID_facility) VALUES('remy@leuven.be', 'c3d48e73883fe272b125919bd0bed9e459e11f5ee7d38d5359f7a3d67ecff293a4b348153be6ad29309994d0322b4f9b889b262c1e87eaf87750b655502b922e', '4aa49ad51ef623ce845c1c3e6046850beb5741a641a9ccf9b54ba06f94b30c531745954ee87846f9133aa69fb906f858bd041c2984ee711ad886a8d4ada72e0d', 'Remy', '1', '1');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division) VALUES('1', 'Marie', 'Nagels', 'F', '225', '1995-09-04', 'paveljoen');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division) VALUES('1', 'Joske', 'Tielemans', 'M', '325', '1923-04-21', 'paveljoen');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division) VALUES('1', 'Willie', 'Marien', 'M', '112', '1964-02-17', 'paveljoen');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division) VALUES('1', 'Lore', 'Donneeeee', 'F', '143', '1995-05-20', 'paveljoen');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Marie', 'Nagels', 'F', '225', '1995-09-04', 'paveljoen', 'elwoman.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Joske', 'Tielemans', 'M', '325', '1923-04-21', 'paveljoen', 'elman.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Willie', 'Marien', 'M', '112', '1964-02-17', 'paveljoen', 'elman.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Lore', 'Donneeeee', 'F', '143', '1995-05-20', 'paveljoen', 'loredonnee.jpg');
 						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('5', '2', '3');
 						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('36', '4', '5');
 						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('24', '1', '1');
