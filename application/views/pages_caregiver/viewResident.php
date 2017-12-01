@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-2">
-        <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/home'"/>
+        <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/overview'"/>
         </div>
         <div class="col-md-2">
             <input class="btn btn-primary btn-lg" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')"/> 
