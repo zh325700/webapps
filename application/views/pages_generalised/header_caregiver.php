@@ -56,7 +56,6 @@ if (login_check($mysqli) == true) {
 		
 		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
 
-        <div class="col col-md-4">
+        <div class="col col-md-4" id="homebutton">
             <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/overview'"/>
         </div>
-        <br><br><br><br>

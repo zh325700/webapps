@@ -29,6 +29,36 @@
             $this->parser->parse('pages_caregiver/Tab_template',$data);
         }
         
+        public function get_divisions($facility=1){
+            $this->load->model('Overview_Model');
+            $results=$this->Overview_Model->get_divisions($facility);
+            $row['thedivisions']=$results['divisions'];
+            $data= array(
+                "content_title"=>"Divisions",
+                "content_div"=>$this->parser->parse('pages_caregiver/divisions_temp',$row,TRUE));
+            $this->parser->parse('pages_caregiver/dropdown_temp', $data);
+        }
         
+        public function init(){
+            $data2=array(
+                 "title_tab1"=>"announcements on residents",
+                "title_tab2"=>" announcements on questions",
+                "content_qes"=>"No announcements yet",
+                "content_res"=>"No announcements yet");
+           $this->parser->parse('pages_caregiver/Tab_template', $data2);
+        }
+        
+        public function event_time(){
+            $this->load->model('Overview_Model');
+            $results=$this->Overview_Model->get_timestamp_elders();
+            $row['theelder']=$results['timestamps'];
+            $data= array(
+                "title_tab1"=>"Resident timestamps ",
+                "title_tab2"=>" No information to show",
+                "content_qes"=>"empty",
+                "content_res"=>$this->parser->parse('pages_caregiver/Elder_Score',$row,TRUE));
+            $this->parser->parse('pages_caregiver/Tab_template', $data);
+            
+        }
     }
 ?>

@@ -56,5 +56,10 @@ class Residents_model extends CI_Model {
         return $this->db->update('Elder', $data);
     }
 
+    public function get_facilities() {
+        $this->db->order_by('Facility.ID_facility');
+        $query = $this->db->get('Facility');
+        return $query->result_array();
+    }
 
 }
