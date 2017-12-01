@@ -111,9 +111,6 @@
     </div>
     <div class="row"> 
         <div class="col col-md-4" style="text-align: center;">
-            <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/overview'"/>
-        </div>
-        <div class="col col-md-4" style="text-align: center;">
             <button type="submit"  class="btn btn-lg">Add Residents</button>
         </div> 
         <div class="col col-md-4"></div>

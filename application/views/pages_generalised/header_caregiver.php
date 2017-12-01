@@ -54,4 +54,9 @@ if (login_check($mysqli) == true) {
 		defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
 		
-		<h1>Temporary Title</h1>
+		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
+
+        <div class="col col-md-4">
+            <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/overview'"/>
+        </div>
+        <br><br><br><br>

@@ -6,7 +6,7 @@ class CaregiverOperateResident extends CI_Controller {
         $data['title'] = 'Overview of residents';
 
         $data['residents'] = $this->Residents_model->get_residents();
-        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/header_caregiver');
         $this->load->view('pages_caregiver/findResident', $data);
         $this->load->view('pages_generalised/footer');
     }
@@ -18,7 +18,7 @@ class CaregiverOperateResident extends CI_Controller {
             show_404();
         }
         $data['$ID_Elder'] = $data['residents']['ID_Elder'];
-        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/header_caregiver');
         $this->load->view('pages_caregiver/viewResident', $data);
         $this->load->view('pages_generalised/footer');
     }
@@ -29,7 +29,7 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages_generalised/header');
+            $this->load->view('pages_generalised/header_caregiver');
             $this->load->view('pages_caregiver/createResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
@@ -40,12 +40,12 @@ class CaregiverOperateResident extends CI_Controller {
 //            $configsftp['username'] = 'a17_webapps02';
 //            $configsftp['password'] = 'wk9yzu0z';
 
-            $config['upload_path'] = './image/photos/';
+            $config['upload_path'] = base_url().'/image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['overwrite'] = TRUE;
             $config['max_size'] = '20480'; //20MB
-            $config['max_width'] = '2000';
-            $config['max_height'] = '2000';
+            $config['max_width'] = '3000';
+            $config['max_height'] = '3000';
 
 //            $this->sftp->connect($configsftp);
 //            $this->sftp->upload('userfile', '/html/a17_webapps02/image/photos/', 'ascii', 0775);
@@ -79,7 +79,7 @@ class CaregiverOperateResident extends CI_Controller {
         if (empty($data['resident'])) {
             show_404();
         }
-        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/header_caregiver');
         $this->load->view('pages_caregiver/editResident', $data);
         $this->load->view('pages_generalised/footer');
     }
