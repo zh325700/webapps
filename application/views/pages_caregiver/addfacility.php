@@ -76,15 +76,12 @@
             </div>
            
         </div>
-         <div class="row"> 
-        <div class="col col-md-4" style="text-align: center;">
-            <input Type="button" class="btn btn-lg" Value="Home" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/overview'"/>
-        </div>
-        <div class="col col-md-4" style="text-align: center;">
+        <div class="row"> 
+        <div class="col col-md-6" style="text-align: center;">
             <button type="submit"  class="btn btn-lg">Add Facility</button>
         </div> 
-        <div class="col col-md-4"></div>
-    </div>
+        
+        </div>
    
 
  

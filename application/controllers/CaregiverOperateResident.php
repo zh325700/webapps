@@ -25,7 +25,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function create() {
         $data['title'] = 'Create Residents';
-        $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
+        $data['facilities'] = $this->Residents_model->get_facilities();   // get the names of facility
 
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
@@ -55,6 +55,7 @@ class CaregiverOperateResident extends CI_Controller {
                 $errors = array('error' => $this->upload->display_errors());
                 $post_image = 'noimage.png';
             } else {
+
                 $data = array('upload_data' => $this->upload->data());
                 $post_image = $_FILES['userfile']['name'];
                 chmod($zfile . $post_image, 0755); // CHMOD file to be rwxr
@@ -73,6 +74,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function edit($ID_Elder) {
         $data['resident'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
+        $data['facilities'] = $this->Residents_model->get_facilities();
         if (empty($data['resident'])) {
             show_404();
         }
@@ -82,25 +84,40 @@ class CaregiverOperateResident extends CI_Controller {
     }
 
     public function update() {
+        $data['facilities'] = $this->Residents_model->get_facilities();
         //upload image
-        $config['upload_path'] = './image/photos';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '20480';
-        $config['max_width'] = '2000';
-        $config['max_height'] = '2000';
 
-        $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload()) {
-            $errors = array('error' => $this->upload->display_errors());
-            $post_image = 'noimage.png';
+        $this->form_validation->set_rules('LastName', 'LastName', 'required');
+        $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('pages_generalised/header_caregiver');
+            $this->load->view('pages_caregiver/editResident', $data);
+            $this->load->view('pages_generalised/footer');
         } else {
-            $data = array('upload_data' => $this->upload->data());
-            $post_image = $_FILES['userfile']['name'];
-        }
+            $config['upload_path'] = './image/photos/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['overwrite'] = TRUE;
+            $config['max_size'] = '20480';
+            $config['max_width'] = '2000';
+            $config['max_height'] = '2000';
 
-        $this->Residents_model->update_resident($post_image);
-        redirect('CaregiverOperateResident/find');
+            $this->load->library('upload', $config);
+            $zdata = array('upload_data' => $this->upload->data()); // get data
+            $zfile = $zdata['upload_data']['full_path']; // get file path
+
+            if (!$this->upload->do_upload('editImage')) {
+                $errors = array('error' => $this->upload->display_errors());
+                $post_image = 'noimage.png';
+            } else {
+                $data = array('upload_data' => $this->upload->data());
+                $post_image = $_FILES['userfile']['name'];
+                chmod($zfile . $post_image, 0755); // CHMOD file to be rwxr
+            }
+
+            $this->Residents_model->update_resident($post_image);
+            redirect('CaregiverOperateResident/find');
+        }
     }
 
 }

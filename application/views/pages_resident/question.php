@@ -64,5 +64,5 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/question.js"></script>
 
 	<script type="text/javascript">
-		loadQuestions(<?php echo json_encode($questions)?>);
+		loadQuestions(<?php echo json_encode($questions)?>, "<?php echo $category?>");
 	</script>

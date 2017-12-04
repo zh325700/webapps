@@ -47,18 +47,17 @@
                 <div class="col-md-5" id="checkboxGroup">
                     <div class="form-group">
                         <label>
-                            <div class="col col-md-3">
+                            <div class=" col-md-3">
                                 <img src="https://cdn2.iconfinder.com/data/icons/person-gender-hairstyle-clothes-variations/48/Female-Side-comb-O-neck-512.png" style="width:40px;height:40px;">
-                            </div>
-                            <input type="checkbox"name="Sex" value="M" style="width:15px;height:15px;text-align: center;"> 
 
+                                <input type="checkbox"name="Sex" value="F" style="width:15px;height:15px;text-align: center;"></div>
                         </label>
                         <label>
-                            <div class="col col-md-3">
+                            <div class=" col-md-3">
                                 <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/user-male-icon.png" style="width:40px;height:40px;">
-                            </div>
-                            <input type="checkbox"name="Sex" value="F" style="width:15px;height:15px;text-align: center;">
 
+                                <input type="checkbox"name="Sex" value="M" style="width:15px;height:15px;text-align: center;">
+                            </div>
                         </label>
                     </div>
                 </div>
@@ -93,25 +92,32 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 fontsize">
-                    ID Facility 
+                    Facility
                 </div>
                 <div class="col-md-5">
                     <div class="form-group insert-form">
-                        <input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number"
-                               value="<?php echo $resident['ID_Facility']; ?>">
+                        <select name="ID_Facility" class="form-control">
+                            <?php foreach ($facilities as $fac): ?>
+                                <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+
+
+                        <!--<input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number">-->
                     </div>
                 </div>
             </div>
+            
         </div> 
         <div class="col-md-4">
             <div class="form-group">
                 <label>Upload Image</label>
-                <input type="file" accept="image/*" onchange="edloadFile(event)" name="userfile" size="20"><br>
-                <img  id="edoutput" width="300px" hight="400px">
+                <input type="file" name="editImage" accept="image/*" onchange="loadFile(event)" size="20"><br>
+                <img  id="output" width="300px" hight="400px">
                 <script>
-                    var edloadFile = function (event) {
-                        var edoutput = document.getElementById('edoutput');
-                        edoutput.src = URL.createObjectURL(event.target.files[0]);
+                    var loadFile = function (event) {
+                        var output = document.getElementById('output');
+                        output.src = URL.createObjectURL(event.target.files[0]);
                     };
                 </script>
             </div>

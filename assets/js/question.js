@@ -1,11 +1,21 @@
 
 
 var counter = 1;
-var questions;
+var questions = [];
+var category;
+var all_questions_array;
 var answers = [];
-function loadQuestions(all_questions){
-   questions = JSON.parse(all_questions);
-//   console.log(all_questions);
+function loadQuestions(all_questions, this_category){
+    all_questions_array = JSON.parse(all_questions);
+    console.log(this_category);
+    for (var question in all_questions_array){
+        var obj = all_questions_array[question];
+        console.log(obj.Type_en);
+        if(obj.Type_en === this_category){
+            questions.push(obj);
+        }
+    }
+    console.log(questions);
 }
 
 function getQuestionByCategory(){

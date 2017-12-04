@@ -55,3 +55,4 @@
 		?>
 		
 		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
+		<a href="<?php echo base_url();?>/index.php/Welcome/Caregiver/overview">b</a>
