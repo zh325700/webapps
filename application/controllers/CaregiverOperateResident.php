@@ -26,7 +26,7 @@ class CaregiverOperateResident extends CI_Controller {
     public function create() {
         $data['title'] = 'Create Residents';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
-        
+
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         if ($this->form_validation->run() === FALSE) {
@@ -36,36 +36,28 @@ class CaregiverOperateResident extends CI_Controller {
         } else {
             //upload image
 
-            $config['upload_path'] = base_url().'/image/photos/';
+            $config['upload_path'] = './image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['overwrite'] = TRUE;
             $config['max_size'] = '20480'; //20MB
             $config['max_width'] = '3000';
             $config['max_height'] = '3000';
 
-//            $this->sftp->connect($configsftp);
-//            $this->sftp->upload('userfile', '/html/a17_webapps02/image/photos/', 'ascii', 0775);
-//
-//            $this->sftp->close();
+
 
             $this->load->library('upload', $config);
+
+            $zdata = array('upload_data' => $this->upload->data()); // get data
+            $zfile = $zdata['upload_data']['full_path']; // get file path
 
 
             if (!$this->upload->do_upload('userfile')) {
                 $errors = array('error' => $this->upload->display_errors());
                 $post_image = 'noimage.png';
             } else {
-// SFTP 
-//                $this->load->library('sftp');
-//
-//                $configsftp['hostname'] = 'studev.groept.be';
-//                $configsftp['username'] = 'a17_webapps02';
-//                $configsftp['password'] = 'wk9yzu0z';
-
-
-
                 $data = array('upload_data' => $this->upload->data());
                 $post_image = $_FILES['userfile']['name'];
+                chmod($zfile . $post_image, 0755); // CHMOD file to be rwxr
             }
 
             $this->Residents_model->create_resident($post_image);
