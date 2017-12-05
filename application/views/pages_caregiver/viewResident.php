@@ -1,9 +1,9 @@
 <div class="container-fluid flex">
     <div class="row">
-        <div class=" col-md-4">
+        <div class=" col-md-4" data-step="1" data-intro="Here is the image of the resident">
             <img class="thumbnail" height="420" width="420"  src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
         </div>
-        <div class=" col-md-4">
+        <div class=" col-md-4" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
             <p style="padding-top: 20px; font-size: 30px; font-family: italic" >Last Name: <?php echo $residents['LastName']; ?></p>
             <p style="padding-top: 100px; font-size: 30px; font-family: italic" >First Name: <?php echo $residents['FirstName']; ?></p>
             <p style="padding-top: 100px; font-size: 30px; font-family: italic" >Gender: <?php echo $residents['Sex']; ?></p>
