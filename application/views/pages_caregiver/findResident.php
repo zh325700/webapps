@@ -66,6 +66,7 @@
                 <p><label class="fontsize">Find Residents By Room Number: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
                 <p><label class="fontsize">Find Residents By Facility: </label>
                     <select name="ID_Facility" class="form-control">
+                        <option value=""> - Select A Facility - </option>
                         <?php foreach ($facilities as $fac): ?>
                             <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                         <?php endforeach; ?>

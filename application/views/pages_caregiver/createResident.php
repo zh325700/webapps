@@ -92,6 +92,7 @@
                 <div class="col-md-5">
                     <div class="form-group insert-form">
                         <select name="ID_Facility" class="form-control">
+                            <option disabled selected value> -- Select a Facility -- </option>
                             <?php foreach ($facilities as $fac): ?>
                                 <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                             <?php endforeach; ?>
