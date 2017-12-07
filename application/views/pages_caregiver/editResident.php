@@ -44,7 +44,7 @@
                 <div class="col col-md-4 fontsize">
                     Gender
                 </div>
-                <div class="col-md-5" id="checkboxGroup">
+                <div class="col-md-5" >
                     <div class="form-group">
                         <label>
                             <div class=" col-md-3">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div> 
         <div class="col-md-4">
             <div class="form-group">
@@ -132,3 +132,8 @@
 </div>
 </form>
 <!--Javascript libraries--> 
+<script>   // allow to only check one sex 
+    $('input[type="checkbox"]').on('change', function () {
+        $('input[name="Sex"]').not(this).prop('checked', false);
+    });
+</script>
