@@ -6,11 +6,7 @@
 
 
 <div class="container-fluid">
-    <div class="row">
-		<div class="col-md-12">
-			<h1 class="text-center bar1"></h1>
-		</div>
-	</div>
+
 	<div class="row">
 		<div class="col-md-4">
 			<img src="<?php echo base_url(); ?>/image/pictograms/food.png" alt="" style=" width: 150px" class="align-left"/>

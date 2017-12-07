@@ -24,10 +24,10 @@
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member");
 
-define("HOST", "localhost"); 			// The host you want to connect to. 
-define("USER", "root"); 				// The database username. 
-define("PASSWORD", "fun"); 				// The database password. Oorspronkelijk =  4Fa98xkHVd2XmnfK
-define("DATABASE", "hci");				// The database name.
+define("HOST", "studev.groept.be"); 			// The host you want to connect to. 
+define("USER", "a17_webapps02"); 				// The database username. 
+define("PASSWORD", "wk9yzu0z"); 				// The database password. Oorspronkelijk =  4Fa98xkHVd2XmnfK
+define("DATABASE", "a17_webapps02");				// The database name.
 
 $dbname = DATABASE;
 
