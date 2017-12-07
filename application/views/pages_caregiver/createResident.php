@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group insert-form">
-                        <input type="text" class="form-control" name="FirstName" placeholder="Add FirstName">
+                        <input type="text" class="form-control" name="FirstName" placeholder="Add FirstName" value="<?php echo isset($_POST["FirstName"]) ? $_POST["FirstName"] : ''; ?>">
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group insert-form">
-                        <input type="text" class="form-control" name="LastName" placeholder="Add LastName">
+                        <input type="text" class="form-control" name="LastName" placeholder="Add LastName" value="<?php echo isset($_POST["LastName"]) ? $_POST["LastName"] : ''; ?>">
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group insert-form">
-                        <input type="date" class="form-control" name="Birthday" placeholder="Add Birthday">
+                        <input type="date" class="form-control" name="Birthday" placeholder="Add Birthday" value="<?php echo isset($_POST["Birthday"]) ? $_POST["Birthday"] : ''; ?>">
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group insert-form">
-                        <input type="text" class="form-control" name="RoomNumber" placeholder="Add Room number">
+                        <input type="text" class="form-control" name="RoomNumber" placeholder="Add Room number" value="<?php echo isset($_POST["RoomNumber"]) ? $_POST["RoomNumber"] : ''; ?>">
                     </div>
                 </div>
             </div>

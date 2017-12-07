@@ -29,6 +29,7 @@ class CaregiverOperateResident extends CI_Controller {
 
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
+        $this->form_validation->set_rules('Sex','Sex','required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header_caregiver');
             $this->load->view('pages_caregiver/createResident', $data);
@@ -86,10 +87,9 @@ class CaregiverOperateResident extends CI_Controller {
     public function update() {
         $data['facilities'] = $this->Residents_model->get_facilities();
         //upload image
-
-
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
+        $this->form_validation->set_rules('Sex','Sex','required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header_caregiver');
             $this->load->view('pages_caregiver/editResident', $data);
