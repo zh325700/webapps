@@ -1,8 +1,0 @@
-git init (enkel op de directory klaar te maken voor git)
-git pull https://gitlab.groept.be/webapps/a17_webapps02.git henky -u
-git checkout -b henky (enkel als het de eerste keer is dat de branch gebruikt word)
-git checkout henky
-git status
-git add --all
-git commit -m "message"
-git push https://gitlab.groept.be/webapps/a17_webapps02.git henky
