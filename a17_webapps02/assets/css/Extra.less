@@ -1,0 +1,59 @@
+@primary-color-light:#8ea1c7;
+@primary-color-mid:#5f7396;
+@primary-color-dark:#324868;
+@secondary-color-light:#c8ffa9;
+@secondary-color-mid:#94ea78;
+@secondary-color-dark:#61b749;
+@sober-color-light: white;
+@sober-color-mid: grey;
+@sober-color-dark: black;
+
+//Extra css for the overview page
+.container-fluid{
+    
+    #left{
+        .dropdown-menu{
+            background-color: @secondary-color-light;
+            border-color: @secondary-color-dark;
+            border-top-color:@secondary-color-light;
+            border-width: 5px;
+            .li{
+                border-bottom-color: @secondary-color-mid;
+                border-bottom-width: 5px;
+                cursor: pointer;
+            }
+            .li:hover{
+                background-color: @sober-color-light;
+            }
+        }
+    }
+
+    #right_center{
+        h2{
+            width: 100%;
+            right:0%;  
+        }
+        .panel-group{
+            .panel{
+                border-color: @secondary-color-dark;
+            }
+            .panel-heading{
+                background: @secondary-color-mid;
+            }
+            .panel-body{
+                backgroundr: @sober-color-light;     
+            }
+            .panel-body:hover{
+                background: @secondary-color-light;
+                cursor: pointer;
+            }
+        }
+    }
+
+
+   
+    
+    
+    
+   
+}
