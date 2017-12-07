@@ -62,4 +62,13 @@ class Residents_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_FacilityName_by_ElderID($ID_Elder) {
+        $this->db->select('*');
+        $this->db->from('Elder');
+        $this->db->join('Facility', 'Elder.ID_Facility = Facility.ID_facility');
+        $this->db->where('ID_Elder',$ID_Elder);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
 }

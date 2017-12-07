@@ -13,7 +13,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function view($ID_Elder = NULL) {
         $data['residents'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
-
+        $data['fac_name'] = $this->Residents_model->get_FacilityName_by_ElderID($ID_Elder);
         if (empty($data['residents'])) {
             show_404();
         }

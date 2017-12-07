@@ -1,3 +1,4 @@
+
 <div class="container-fluid flex">
     <div class="row">
         <div class=" col-md-4" data-step="1" data-intro="Here is the image of the resident">
@@ -11,7 +12,7 @@
         </div>
         <div class=" col-md-4">
             <p style="padding-top: 20px; font-size: 30px; font-family: italic" >Room Number: <?php echo $residents['RoomNumber']; ?></p>
-            <p style="padding-top: 100px; font-size: 30px; font-family: italic" >Facility: <?php echo $residents['ID_Facility']; ?></p>
+            <p style="padding-top: 100px; font-size: 30px; font-family: italic" >Facility: <?php echo $fac_name['Name']; ?></p>
             <p style="padding-top: 100px; font-size: 30px; font-family: italic" >Member Since: <?php echo $residents['Member_Since']; ?></p>
         </div>
     </div>
