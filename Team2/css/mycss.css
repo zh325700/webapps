@@ -1,0 +1,26 @@
+
+.customDiv{
+margin-bottom:30px;
+min-height:300px;
+padding-left: 50px;
+width:100px;
+}
+.divbutton{
+  padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+    width: 50%;
+    height:70px;
+}
+.post-date{
+    background:#f4f4f4;
+    padding: 4px;
+    margin: 3px ;
+    display: block;
+}
+.post-thumb{
+    width:100%;
+}
