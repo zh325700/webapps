@@ -98,8 +98,6 @@
                             <?php endforeach; ?>
                         </select>
 
-
-                        <!--<input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number">-->
                     </div>
                 </div>
             </div>

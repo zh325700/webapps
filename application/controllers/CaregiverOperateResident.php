@@ -106,7 +106,7 @@ class CaregiverOperateResident extends CI_Controller {
             $zdata = array('upload_data' => $this->upload->data()); // get data
             $zfile = $zdata['upload_data']['full_path']; // get file path
 
-            if (!$this->upload->do_upload('editImage')) {
+            if (!$this->upload->do_upload('usefile')) {
                 $errors = array('error' => $this->upload->display_errors());
                 $post_image = 'noimage.png';
             } else {
