@@ -4,9 +4,11 @@
 @secondary-color-light:#c8ffa9;
 @secondary-color-mid:#94ea78;
 @secondary-color-dark:#61b749;
-@sober-color-light: white;
+@sober-color-light: ivory;
 @sober-color-mid: grey;
 @sober-color-dark: black;
+@fontsize-elder:50px;
+
 
 #homebutton{
 	position: fixed;
@@ -78,33 +80,38 @@
                 }
                 .form{
                     padding:0 40px 40px 40px;
+                   
                 }
                 .y
                 {
                     padding-bottom:15px; 
                 }
+                .login-button{
+                     width:90%;
+                     height:60px;
+                     margin: 10% 0 0 10%;
+                     font-size: 24px;
+                     border-radius: 10px;
+                     border-bottom-width: 5px;
+                }
                 .input-group-addon{
                     background:0 0;
                     border:0;
                     border-radius:0;
-                    border-bottom:1px solid @sober-color-dark;
+                   border-bottom:1px solid @sober-color-dark;
                     input[type=text],
                     input[type=password]{
                         background:0 0;
                         background-color:@sober-color-light;
                         border:0;
                         border-radius:0;
-                        border-bottom:1px solid @sober-color-light;
+                        border-bottom:1px solid @sober-color-dark;
                     }
                     .user{
                         color:@sober-color-dark;
                     }
                 } 
-                 button.login{
-           width:90%;
-           height:60px;
-           margin: 10% 0 0 10%;
-           font-size: 24px;
+                 
        }
             } 
         }
@@ -144,6 +151,5 @@
         border-radius: 5px;
         position: relative;
     }
-  
    
-}
+
