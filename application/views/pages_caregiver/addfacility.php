@@ -2,9 +2,8 @@
 <div class="container-fluid flex">
 
     <div class="row justify-content-md-center">
-        <div class="col col-md-2"></div>
         <div class="col-md-6">
-            <h2 class=" text-center ">
+            <h2 class=" text-center headertwo">
                 Add New Facility
             </h2>
         </div>
@@ -16,62 +15,76 @@
             <div class="col-md-8">
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                       <label>Facility Name:</label> 
+                    <div class="col col-md-4 fontsize">
+                        Name
                     </div>
-                    <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="Name" placeholder="Add Name">
-                    </div>                 
-                </div>
-                <div class="row insert-row">
-                    <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                        <label>City: </label> 
-                    </div>                
-                    <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="City" placeholder="Add City">
+                    <div class="col-md-5">
+                        <div class="form-group insert-form">
+                            <input type="text" class="form-control" name="Name" placeholder="Add Name">
+                        </div>
                     </div>
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                         <label>Post: </label> 
+                    <div class="col col-md-4 fontsize">
+                        City
                     </div>
-                    <div class="col-md-5 input-group">
-                         <input type="text" class="form-control" name="Postcode" placeholder="Add Postcode">
+                    <div class="col-md-5">
+                        <div class="form-group insert-form">
+                            <input type="text" class="form-control" name="City" placeholder="Add City">
+                        </div>
                     </div>
                 </div>
+              
+
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                        <label>Street: </label> 
+                    <div class="col col-md-4 fontsize">
+                        Post Code
                     </div>
-                    <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="Street" placeholder="Add Street">
+                    <div class="col-md-5">
+                        <div class="form-group insert-form">
+                            <input type="text" class="form-control" name="Postcode" placeholder="Add Postcode">
+                        </div>
                     </div>
                 </div>
+                
+                 <div class="row insert-row">
+                    <div class="col col-md-1"></div>
+                    <div class="col col-md-4 fontsize">
+                        Street
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group insert-form">
+                            <input type="text" class="form-control" name="Street" placeholder="Add Street">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                      <label>Number:</label> 
+                    <div class="col col-md-4 fontsize">
+                      Number
                     </div>
-                    <div class="col-md-5 input-group">
-                       <input type="text" class="form-control" name="Number" placeholder="Add number">
+                    <div class="col-md-5">
+                        <div class="form-group insert-form">
+                            <input type="text" class="form-control" name="Number" placeholder="Add number">
+                        </div>
                     </div>
                 </div>
+              
             </div>
+           
+        </div>
+        <div class="row"> 
+        <div class="col col-md-6" style="text-align: center;">
+            <button type="submit"  class="btn btn-lg">Add Facility</button>
+        </div> 
         
         </div>
-        <div class="row insert-row"> 
-            <div class="col col-md-4"></div>
-            <div class="col col-md-2">
-              <button type="submit"  class="btn btn-default btn-lg btn-block ">Add Facility</button>
-           </div> 
-                 
-        </div>
-        <div class="row insert-row"> 
-        <div class="col col-md-4"></div>
-        </div>
+   
+
+ 
 </div>       
 <script src="<?= base_url() ?>assets/js/jquery.js"></script>
 

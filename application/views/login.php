@@ -18,21 +18,18 @@
 				<form action="process_login.php" method="post" name="login_form" class="form-horizontal form ">
 					<div class="input-group y">
 						<span class="input-group-addon"><i class="fa fa-user user"></i></span>
-						<input type="text" name="email" class="form-control" placeholder="Username/E-mail">
+						<input type="text" name="email" class="form-control" placeholder="Username/e-mail">
 					</div>
 					<div class="input-group ">
 						<span class="input-group-addon"><i class="fa fa-unlock-alt user"></i></span>
 						<input type="password" name="password" id="password" class="form-control" placeholder="password">
 					</div>
-                                        <div>
-                                         <button  class="btn btn-default login-button " onclick="formhash(this.form, this.form.password);" >Login</button>
-                                        </div> 
-                                </form>
+					<input type="button" class="bttn" value="Login" onclick="formhash(this.form, this.form.password);" />
+				</form>
 			</div>	
 		</div> 
-            
 	</div>
-	<button  onclick="loadPage('Welcome', 'Caregiver/overview')" > login </button>
+	<button type="button" onclick="loadPage('Welcome', 'Caregiver/overview')" > login </button>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->

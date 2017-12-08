@@ -70,14 +70,5 @@ class Residents_model extends CI_Model {
         $query = $this->db->get();
         return $query->row_array();
     }
-    
-     public function fontsize_resident($Fontsize,$ID_Elder) {
-       // $query = $this->db->query("UPDATE Elder SET Fontsize = $fontSize WHERE ID_Elder = $ID_Elder"); 
-         $data = array(
-            'Fontsize' => $Fontsize,
-        );
-         $this->db->where('ID_Elder',$ID_Elder);
-         $this->db->update('Elder',$data);  
-    }
 
 }

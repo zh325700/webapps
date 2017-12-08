@@ -19,13 +19,13 @@
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-2">
-            <button class="btn btn-default btn-lg btn-block " value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')"/> Edit </button> 
+            <input class="btn btn-primary btn-lg" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')"/> 
         </div>
         <div class="col-md-2">
             
             <?php echo form_open('index.php/Residents_control/delete/' . $residents['ID_Elder']); /* if we click it it goes to /post/delete/3 */ ?>    
 
-            <button class="btn btn-default btn-lg btn-block " value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')"> Delete</button>
+            <input class="btn btn-danger btn-lg" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')"/> 
         </div>
 
     </div>

@@ -30,9 +30,9 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 		<!--our css and less-->
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css.new/Main.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Main.less" />
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Caregiver.less" />
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css.new/Resident.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Resident.less" />
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
         <link href="<?php echo base_url();?>/assets/css/introjs.css" rel="stylesheet" type="text/css"/> <!--for hint of page-->
         <!--compile less files-->

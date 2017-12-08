@@ -1,7 +1,6 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-         <div class="col col-md-2"></div>
-         <div class="col-md-6">
+        <div class="col-md-6">
             <h2 class=" text-center">
                 Find Residents
             </h2>
@@ -62,23 +61,19 @@
     <div class="row">
         <div class="col-md-4">
             <form  action='' method='post'>
-                <p style="padding-top:100px"><label  >Last Name: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
-                <p><label >First Name: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
-                <p><label >Room Number: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
-                <p><label >Facility: </label>
+                <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
+                <p><label class="fontsize">Find Residents By FirstName: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
+                <p><label class="fontsize">Find Residents By Room Number: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
+                <p><label class="fontsize">Find Residents By Facility: </label>
                     <select name="ID_Facility" class="form-control">
+                        <option value=""> - Select A Facility - </option>
                         <?php foreach ($facilities as $fac): ?>
                             <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                         <?php endforeach; ?>
                     </select>
                     <!--<input type='text' name='ID_Facility' value='' class='autoFacility'></p>-->
-                <p><label class="fontsize">Sex: </label><input type='text' name='Sex' value='' class='autoSex'></p>
-               <div class="row insert-row"> 
-                <div class="col col-md-4"></div>
-                   <div class="col col-md-12">
-                      <button class="btn btn-default btn-lg btn-block " type="submit" value="FIND" name="findres" style="left: 115%; top: 15px"/>Find</button>;
-                   </div>
-               </div>
+                <p><label class="fontsize">Find Residents By Sex: </label><input type='text' name='Sex' value='' class='autoSex'></p>
+                <input class="btn btn-primary btn-lg" type="submit" value="FIND" name="findres"/>
             </form>
         </div>
         <div class="col-md-8" style="overflow:scroll;height:700px;width: 66%;">
