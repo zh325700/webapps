@@ -1,3 +1,4 @@
+<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 
 <div class="container-fluid flex">
 
@@ -72,3 +73,13 @@
 </div>       
 <script src="<?= base_url() ?>assets/js/jquery.js"></script>
 
+
+<?php else: ?>
+<p>
+<br><br><br>
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
+<br><br><br>
+</p>
+<?php endif; ?>

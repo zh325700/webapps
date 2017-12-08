@@ -1,3 +1,5 @@
+<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+<?php //if (login_check() == true && htmlentities($this->session->userdata('permission')) >= '1'): ?>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-2" id="left">     
@@ -22,25 +24,29 @@
 			</div>
 			</br>
 			<div>
+				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Welcome', 'Resident/menu')" >Login Resident</button> 
+			</div>
+			</br>
+			<div>
 				<button class="btn btn-default btn-lg btn-block" id="button_resqes" onclick="loadPage('CaregiverOperateResident', 'find')">Find Resident</button> 
 			</div>
+			</br>
+			<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+				<div>
+					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'find')">Find Facility</button> 
+				</div>
 			</br>
 			<div>
 				<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('CaregiverOperateResident', 'create')">Add Resident</button> 
 			</div>
 			</br>
-			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Fontsize_resident', 'index')" >Login Resident</button> 
-			</div>
-			</br>
+			<?php endif; ?>
+			<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 				<div>
 					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'addfacility')">Add Facility</button> 
 				</div>
 			</br>
-				<div>
-					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'find')">Find Facility</button> 
-				</div>
-			</br>
+			<?php endif; ?>
 		</div>
 		<div class="col-sm-8" id="right_center">
 					<h3 id="title_type_overview">
@@ -156,4 +162,12 @@
 </script>
 <script type='text/javascript'> window.onload=getDiv; </script>
 
-
+<?php else: ?>
+<p>
+<br><br><br>
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
+<br><br><br>
+</p>
+<?php endif; ?>

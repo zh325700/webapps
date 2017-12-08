@@ -1,3 +1,5 @@
+<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+
 <h2><?= $title ?></h2>
 <?php echo validation_errors(); ?>
 <?php echo form_open('addfacility_control/update'); ?>
@@ -9,3 +11,13 @@
 </div>
 <button type="submit" class="btn btn-default">Submit</button>
 </form>
+
+<?php else: ?>
+<p>
+<br><br><br>
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
+<br><br><br>
+</p>
+<?php endif; ?>

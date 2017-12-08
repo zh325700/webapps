@@ -1,3 +1,5 @@
+<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+
 <div class="container">
 	
 	<div class="row">
@@ -20,19 +22,19 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4">
-                    <button id = "newButton"  type="button" class="btn btn-lg active style family" >
+                    <button id = "newButton"  type="button" class="btn btn-lg button style family" >
                         Family <br/>
                         <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="family"/>
                     </button>  
 		</div>
 		<div class="col-md-4">
-                    <button id = "newButton" type="button" class="btn btn-lg question active" onclick="loadPage('Welcome','Resident/categories')">
+                    <button id = "newButton" type="button" class="btn btn-lg question button" onclick="loadPage('Welcome','Resident/categories')">
                         Questionnaire <br/>
                         <img src="<?php echo base_url(); ?>/image/pictograms/questions.png" class="quest"/>
                     </button>  
 		</div>
 		<div class="col-md-4">
-                    <button id = "newButton" type="button" class="btn btn-lg style active activity">
+                    <button id = "newButton" type="button" class="btn btn-lg style button activity">
                         Activities <br/>
                         <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="family"/>
                     </button>  
@@ -49,7 +51,7 @@
 	<div class="row">
                 <div class="col-md-4"></div>
 		<div class="col-md-4">
-                    <button id = "newButton" type="button" class="btn btn-lg style logout active center-block" onclick="loadPage('Welcome', 'Caregiver/overview')">Log out</button>                   
+                    <button id = "newButton" type="button" class="btn btn-lg style logout button center-block" onclick="loadPage('Welcome', 'Caregiver/overview')">Log out</button>                   
                 </div>
                 <div class="col-md-4"></div>
                 
@@ -58,3 +60,13 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/question.js"></script>
 <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+
+<?php else: ?>
+<p>
+<br><br><br>
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
+<br><br><br>
+</p>
+<?php endif; ?>

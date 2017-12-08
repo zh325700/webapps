@@ -1,3 +1,6 @@
+<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+
+
 <div class="container-fluid">
     <div class="row justify-content-md-center">
          <div class="col col-md-2"></div>
@@ -131,6 +134,25 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+<?php else: ?>
+<p>
+<br><br><br>
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
+<br><br><br>
+</p>
+<?php endif; ?>
 
 
 

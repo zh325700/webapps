@@ -2,11 +2,6 @@
 
 class Admin_Model extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->database();
-    }
-
     public function register_cgto_db($username, $email, $password, $random_salt, $admin,$ID_facility) {
 
         $data = array(

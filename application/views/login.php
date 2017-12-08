@@ -15,7 +15,7 @@
 				echo '<p class="error">Error Logging In!</p>';
 				}
 				?> 
-				<form action="process_login.php" method="post" name="login_form" class="form-horizontal form ">
+				<form action="<?php echo base_url();?>index.php/Process_login/user_login" method="post" name="login_form" class="form-horizontal form ">
 					<div class="input-group y">
 						<span class="input-group-addon"><i class="fa fa-user user"></i></span>
 						<input type="text" name="email" class="form-control" placeholder="Username/e-mail">
@@ -24,7 +24,7 @@
 						<span class="input-group-addon"><i class="fa fa-unlock-alt user"></i></span>
 						<input type="password" name="password" id="password" class="form-control" placeholder="password">
 					</div>
-					<input type="button" class="bttn" value="Login" onclick="formhash(this.form, this.form.password);" />
+					<button class="btn btn-default login-button" value="Login" onclick="formhash(this.form, this.form.password);" /> Login </button>
 				</form>
 			</div>	
 		</div> 
