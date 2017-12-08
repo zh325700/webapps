@@ -108,6 +108,7 @@ class CaregiverOperateResident extends CI_Controller {
 
             if (!$this->upload->do_upload('usefile')) {
                 $errors = array('error' => $this->upload->display_errors());
+                $this->load->view('pages_caregiver/errorDetect' ,$errors);
                 $post_image = 'noimage.png';
             } else {
                 $data = array('upload_data' => $this->upload->data());
@@ -116,7 +117,7 @@ class CaregiverOperateResident extends CI_Controller {
             }
 
             $this->Residents_model->update_resident($post_image);
-            redirect('CaregiverOperateResident/find');
+//            redirect('CaregiverOperateResident/find');
         }
     }
 
