@@ -8,7 +8,7 @@ class addfacility_control extends CI_Controller {
 
         //$this->load->view('pages_care/addfacility');
        $this->load->view('pages_generalised/header_caregiver');
-        $this->load->view('pages_caregiver/viewfacility', $data);
+        $this->parser->parse('pages_caregiver/viewfacility', $data);
         $this->load->view('pages_generalised/footer');
     }
      public function view($ID_facility = NULL) {
@@ -19,7 +19,7 @@ class addfacility_control extends CI_Controller {
         }
         $data['$ID_facility'] = $data['facility']['ID_facility'];
        $this->load->view('pages_generalised/header_caregiver');
-        $this->load->view('pages_caregiver/viewfacility', $data);
+        $this->parser->parse('pages_caregiver/viewfacility', $data);
          $this->load->view('pages_generalised/footer');
     }
        
