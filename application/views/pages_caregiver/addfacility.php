@@ -16,8 +16,8 @@
             <div class="col-md-8">
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-4 ">
-                       <label>Facility Name: </label> 
+                    <div class="col col-md-5 ">
+                       <label>Facility Name:</label> 
                     </div>
                     <div class="col-md-5 input-group">
                         <input type="text" class="form-control" name="Name" placeholder="Add Name">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-4 ">
+                    <div class="col col-md-5 ">
                         <label>City: </label> 
                     </div>                
                     <div class="col-md-5 input-group">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-4 ">
+                    <div class="col col-md-5 ">
                          <label>Post: </label> 
                     </div>
                     <div class="col-md-5 input-group">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-4 ">
+                    <div class="col col-md-5 ">
                         <label>Street: </label> 
                     </div>
                     <div class="col-md-5 input-group">
@@ -52,8 +52,8 @@
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
-                    <div class="col col-md-4 ">
-                      <label>Number: </label> 
+                    <div class="col col-md-5 ">
+                      <label>Number:</label> 
                     </div>
                     <div class="col-md-5 input-group">
                        <input type="text" class="form-control" name="Number" placeholder="Add number">
