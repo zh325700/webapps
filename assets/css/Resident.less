@@ -1,12 +1,4 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 25-nov-2017, 23:20:53
-    Author     : trexr
-*/
+
 @primary-color-light:#8ea1c7;
 @primary-color-mid:#5f7396;
 @primary-color-dark:#324868;
@@ -18,36 +10,137 @@ and open the template in the editor.
 @sober-color-dark: black;
 @fontsize-elder:50px;
 
-.container-fluid{
+#mainMenubutton{
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+#logoutbutton{
+	position: fixed;
+	top: 0;
+	left: 100px;
+}
+
+/**{
+    border: 1px solid red;
+}*/
+.container{
     button.style{
+        font-family: myriad-pro-condensed, sans-serif;
         width: 75%;
         font-size: 40px;
         background-color:@sober-color-light;
-        bottom: -80px;
     }
      img.align-left{
-        left: -150px;
+        width: 80px;
+        float: left;
         background-color:@primary-color-light;
     }
 
     img.align-right{
-        right: -250px;
+        width: 80px;
+        float: right;
         background-color:@sober-color-light;
     }
-
+    
+    img.family{
+        width: 100px;
+    }
+    
+    img.quest{
+        width: 200px;
+    }
+   
+    img.smiley{
+        width: 150px;
+        float:top;
+    }
+     
+    .button:active{
+        background-color: @secondary-color-light;
+    }
+    p{
+        font-size: 35px;
+        text-align: center;
+    }
+    
+    button.family{
+        float: right;
+        padding-bottom: 15px;
+    }
+    
+    button.logout{
+        float:bottom;
+        width:50%;
+    }
+    
+    button.activity{
+       //padding-right: 40px;
+       padding-bottom: 25px;
+       float: none;
+    }
+    
+    
     button.question{
-        width: 125%;
-        font-size: 40px;
-        top: 40px;
-        left: -50px;
-    }
-
-    button.category{
-        background-color:@sober-color-light;
+        background-color: @secondary-color-light;
         width: 100%;
         font-size: 40px;
-        bottom: -150px;
-        padding-bottom: 50px;
-        padding-top: 50px;
+        float:none;
+    }
+
+    button.style2{
+        font-family: myriad-pro-condensed, sans-serif;
+        background-color:@sober-color-light;
+        width: 180px;
+        font-size: 35px;
+    }
+    button.category{
+        float: none;
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+    
+    button.category1{
+        float: right;  
+        padding-bottom: 45px;
+        padding-top: 45px;
+    }
+    button.category2{
+        float: none;  
+        padding-bottom: 45px;
+        padding-top: 45px;
+    }
+    
+    button.category3{
+        float: right;  
+        padding-bottom: 22px;
+        padding-top: 22px;
+    }
+    
+    button.category4{
+        background-color:@sober-color-light;
+        font-family: myriad-pro-condensed, sans-serif;
+        width: 375px;
+        font-size: 35px;
+        float: right;  
+    }
+    
+    button.category5{
+        background-color:@sober-color-light;
+        font-family: myriad-pro-condensed, sans-serif;
+        width: 375px;
+        font-size: 35px;
+        float: left;  
+    }
+    
+    button.category6{
+        float: right;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        //font-size:25px;
+    }
+    
+    button.previous{
+        width:200px;
     }
 }

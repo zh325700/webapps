@@ -2,11 +2,6 @@
 
 class addfacility_model extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->database();
-    }
-
     public function get_facility($ID_facility = FALSE) {
         if ($ID_facility === FALSE) {
             $this->db->order_by('Facility.ID_facility', 'DESC'); // order by ID Descending 

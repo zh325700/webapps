@@ -2,11 +2,6 @@
 
 class Residents_model extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->database();
-    }
-
     public function get_residents($ID_Elder = FALSE) {
         if ($ID_Elder === FALSE) {
             $this->db->order_by('Elder.ID_Elder', 'DESC'); // order by ID Descending 
@@ -61,5 +56,21 @@ class Residents_model extends CI_Model {
         $query = $this->db->get('Facility');
         return $query->result_array();
     }
+    public function get_FacilityName_by_ElderID($ID_Elder) {
+        $this->db->select('*');
+        $this->db->from('Elder');
+        $this->db->join('Facility', 'Elder.ID_Facility = Facility.ID_facility');
+        $this->db->where('ID_Elder',$ID_Elder);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
 
+     public function fontsize_resident($Fontsize,$ID_Elder) {
+       // $query = $this->db->query("UPDATE Elder SET Fontsize = $fontSize WHERE ID_Elder = $ID_Elder"); 
+         $data = array(
+            'Fontsize' => $Fontsize,
+        );
+         $this->db->where('ID_Elder',$ID_Elder);
+         $this->db->update('Elder',$data);  
+    }
 }

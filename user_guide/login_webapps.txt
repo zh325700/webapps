@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Login Web Apps
 
 Webspace :
@@ -12,4 +13,20 @@ MySQL :
 Host : studev.groept.be
 Port : 3306
 Login : a17_webapps02
+=======
+Login Web Apps
+
+Webspace :
+----------
+URL :  http://a17_webapps02.studev.groept.be
+SFTP host : studev.groept.be
+SFTP user : a17_webapps02
+SFTP password : wk9yzu0z
+
+MySQL :
+-------
+Host : studev.groept.be
+Port : 3306
+Login : a17_webapps02
+>>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
 Password : wk9yzu0z

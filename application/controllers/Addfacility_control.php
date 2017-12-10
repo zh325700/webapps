@@ -7,8 +7,9 @@ class addfacility_control extends CI_Controller {
         $data['facility'] = $this->Addfacility_model->get_facility();
 
         //$this->load->view('pages_care/addfacility');
-       $this->load->view('pages_generalised/header_caregiver');
-        $this->load->view('pages_caregiver/viewfacility', $data);
+		$this->load->view('pages_generalised/header');
+		$this->load->view('pages_generalised/caregiver');
+        $this->parser->parse('pages_caregiver/viewfacility', $data);
         $this->load->view('pages_generalised/footer');
     }
      public function view($ID_facility = NULL) {
@@ -17,10 +18,11 @@ class addfacility_control extends CI_Controller {
         if (empty($data['facility'])) {
             show_404();
         }
-        $data['$ID_facility'] = $data['facility']['ID_facility'];
-       $this->load->view('pages_generalised/header_caregiver');
-        $this->load->view('pages_caregiver/viewfacility', $data);
-         $this->load->view('pages_generalised/footer');
+		$data['$ID_facility'] = $data['facility']['ID_facility'];
+		$this->load->view('pages_generalised/header');
+		$this->load->view('pages_generalised/caregiver');
+		$this->load->view('pages_caregiver/viewfacility', $data);
+		$this->load->view('pages_generalised/footer');
     }
        
     public function addfacility() {
@@ -29,9 +31,10 @@ class addfacility_control extends CI_Controller {
         $this->form_validation->set_rules('Name', 'Name', 'required');
          $this->form_validation->set_rules('City', 'City', 'required');
         if ($this->form_validation->run() === FALSE) {
-             $this->load->view('pages_generalised/header_caregiver');
-            $this->load->view('pages_caregiver/addfacility');
-             $this->load->view('pages_generalised/footer');
+			$this->load->view('pages_generalised/header');
+			$this->load->view('pages_generalised/caregiver');
+			$this->load->view('pages_caregiver/addfacility');
+			$this->load->view('pages_generalised/footer');
         } else {
                        
             $this->Addfacility_model->create_facility();
@@ -49,10 +52,11 @@ class addfacility_control extends CI_Controller {
         if (empty($data['facility'])) {
             show_404();
         }
-        $data['title'] = 'Edit Facility';
-         $this->load->view('pages_generalised/header_caregiver');
-        $this->load->view('pages_care/editfacility', $data);
-        $this->load->view('pages_generalised/footer');
+		$data['title'] = 'Edit Facility';
+		$this->load->view('pages_generalised/header');
+		$this->load->view('pages_generalised/caregiver');
+		$this->load->view('pages_caregiver/editfacility', $data);
+		$this->load->view('pages_generalised/footer');
     }
 
     public function update() {

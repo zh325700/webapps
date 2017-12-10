@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+
+>>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
 <h2><?= $title ?></h2>
 <?php echo validation_errors(); ?>
 <?php echo form_open('addfacility_control/update'); ?>
@@ -8,4 +13,18 @@
            value="<?php echo $facility['City']; ?>">
 </div>
 <button type="submit" class="btn btn-default">Submit</button>
+<<<<<<< HEAD
 </form>
+=======
+</form>
+
+<?php else: ?>
+<p>
+<br><br><br>
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
+<br><br><br>
+</p>
+<?php endif; ?>
+>>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
