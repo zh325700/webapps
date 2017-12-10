@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-sm-2" id="left">     
                     <button id="btn_general" class="btn btn-default btn-lg btn-block" >
-				General
+				{general}
 			</button> 
 			</br>
 			<div class="dropdown" id="dropdown_floors">
@@ -29,26 +29,26 @@
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Welcome', 'Resident/menu')" >Login Resident</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Welcome', 'Resident/menu')" >{Login_Resident}</button> 
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_resqes" onclick="loadPage('CaregiverOperateResident', 'find')">Find Resident</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_resqes" onclick="loadPage('CaregiverOperateResident', 'find')">{Find_Resident}</button> 
 			</div>
 			</br>
 			<?php //if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 				<div>
-					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'find')">Find Facility</button> 
+					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'find')">{Find_Facility}</button> 
 				</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('CaregiverOperateResident', 'create')">Add Resident</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('CaregiverOperateResident', 'create')">{Add_Resident}</button> 
 			</div>
 			</br>
 			<?php //endif; ?>
 			<?php //if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 				<div>
-					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'addfacility')">Add Facility</button> 
+					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'addfacility')">{Add_Facility}</button> 
 				</div>
 			</br>
 			<?php //endif; ?>
