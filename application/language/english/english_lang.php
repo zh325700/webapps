@@ -1,6 +1,7 @@
 <?php
     $lang['username/email']='Username/email';
     $lang['password']='Password';
+    $lang['login']='Login';
     $lang['general']='General';
     $lang['Find_Resident']='Find_Resident';
     $lang['Add_Resident']='Add Resident';
@@ -42,31 +43,32 @@
     $lang['Member_Since']="Member Since";
     $lang['EDIT']="EDIT";
     $lang['DELETE']="DELETE";
-    $lang['Please_category']="Kies een categorie";
+    $lang['Please_category']="Please chose a categorie";
     $lang['Privacy']="Privacy";
-    $lang['Food']="Eten";
-    $lang['and']="En";
-    $lang["Meals"]="Maaltijden";
+    $lang['Food']="Food";
+    $lang['and']="and";
+    $lang["Meals"]="Meals";
     $lang["Comfort"]="Comfort";
-    $lang['Activities']="Activiteiten";
-    $lang['Personal']="Persoonlijke";
-    $lang['relations']="omgang";
-    $lang["Daily"]="Dagelijkse";
-    $lang['decisions']="kiezen";
+    $lang['Activities']="Activities";
+    $lang['Personal']="Personal";
+    $lang['relations']="relations";
+    $lang["Daily"]="Daily";
+    $lang['decisions']="decisions";
     $lang['Respect']="Respect";
-    $lang['by']="van de";
-    $lang['Staff']="begeleiders";
-    $lang['resident']="bewoner";
-    $lang['bonding']="relatie";
-    $lang['responsiveness']="reactie op vragen";
-    $lang['Safety']="Veiligheid en";
-    $lang['Security']="beveiliging";
-    $lang['Weather_report']="Weerbericht";
-    $lang['Family']="Familie";
-    $lang['Questionnaire']="Vragenlijst";
-    $lang['Activities']="Activiteiten";
-    $lang['Log_out']="Uitloggen";
-    $lang['Previous']="Vorige";
-    $lang['Question']="Vraag";
+    $lang['by']="by";
+    $lang['Staff']="Staff";
+    $lang['resident']="resident";
+    $lang['bonding']="bonding";
+    $lang['responsiveness']="responsiveness";
+    $lang['Safety']="Safety and";
+    $lang['Security']="Security";
+    $lang['Weather_report']="Weather report";
+    $lang['Family']="Family";
+    $lang['Questionnaire']="Questionnaire";
+    $lang['Activities']="Activities";
+    $lang['Log_out']="Logout";
+    $lang['Previous']="Previous";
+    $lang['Question']="Question";
+
 ?>
 

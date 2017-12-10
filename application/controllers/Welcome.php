@@ -4,7 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Welcome extends CI_Controller {
 	public function index($page = 'login'){
             $this->load->view('pages_generalised/header');
-            $this->load->view($page);
+            $this->load->model('Language_model');
+            $this->lang->load('Dutch_lang','dutch');
+            $data=$this->Language_model->getData('Dutch','login');
+            $this->parser->parse($page,$data);
             $this->load->view('pages_generalised/footer');
 	}
 	
