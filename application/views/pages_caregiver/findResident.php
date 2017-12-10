@@ -1,18 +1,12 @@
-<<<<<<< HEAD
-<div class="container-fluid">
-    <div class="row justify-content-md-center">
-        <div class="col-md-6">
-=======
-<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+<?php //if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 
 <div class="container-fluid">
     <div class="row justify-content-md-center">
          <div class="col col-md-2"></div>
          <div class="col-md-6">
->>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
             <h2 class=" text-center">
-                Find Residents
+                {Find_Residents}
             </h2>
         </div>
     </div>
@@ -71,37 +65,24 @@
     <div class="row">
         <div class="col-md-4">
             <form  action='' method='post'>
-<<<<<<< HEAD
-                <p><label class="fontsize">Find Residents By LastName: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
-                <p><label class="fontsize">Find Residents By FirstName: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
-                <p><label class="fontsize">Find Residents By Room Number: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
-                <p><label class="fontsize">Find Residents By Facility: </label>
+                <p style="padding-top:100px"><label  >{LastName}: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
+                <p><label >{FirstName}: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
+                <p><label >{RoomNumber}: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
+                <p><label >{Facility}: </label>
                     <select name="ID_Facility" class="form-control">
-=======
-                <p style="padding-top:100px"><label  >Last Name: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
-                <p><label >First Name: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
-                <p><label >Room Number: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
-                <p><label >Facility: </label>
-                    <select name="ID_Facility" class="form-control">
-					<option value=""> - Select A Facility - </option>
->>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
+					<option value=""> - {Select_Facility} - </option>
                         <?php foreach ($facilities as $fac): ?>
                             <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                         <?php endforeach; ?>
                     </select>
                     <!--<input type='text' name='ID_Facility' value='' class='autoFacility'></p>-->
-<<<<<<< HEAD
-                <p><label class="fontsize">Find Residents By Sex: </label><input type='text' name='Sex' value='' class='autoSex'></p>
-                <input class="btn btn-primary btn-lg" type="submit" value="FIND" name="findres"/>
-=======
-                <p><label class="fontsize">Sex: </label><input type='text' name='Sex' value='' class='autoSex'></p>
+                <p><label class="fontsize">{Gender}: </label><input type='text' name='Sex' value='' class='autoSex'></p>
                <div class="row insert-row"> 
                 <div class="col col-md-4"></div>
                    <div class="col col-md-12">
-                      <button class="btn btn-default btn-lg btn-block " type="submit" value="FIND" name="findres" style="left: 115%; top: 15px"/>Find</button>;
+                      <button class="btn btn-default btn-lg btn-block " type="submit" value="{FIND}" name="findres" style="left: 115%; top: 15px"/>Find</button>;
                    </div>
                </div>
->>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
             </form>
         </div>
         <div class="col-md-8" style="overflow:scroll;height:700px;width: 66%;">
@@ -153,19 +134,8 @@
     </div>
 </div>
 
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
-
-
-
-<?php else: ?>
+<!--
+<?php //else: ?>
 <p>
 <br><br><br>
 <center>
@@ -173,11 +143,4 @@
 </center>
 <br><br><br>
 </p>
-<?php endif; ?>
-
-
-
-
-
-
->>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
+<?php //endif; ?>

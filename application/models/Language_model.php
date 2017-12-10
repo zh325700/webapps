@@ -15,6 +15,9 @@
             elseif($page== 'overview'){
                 $data=$this->DataOverview();
             }
+            elseif($page== 'findres'){
+                $data=$this->DataFindRes();
+            }
             return $data;
         }
         
@@ -32,6 +35,18 @@
             $data['Login_Resident']=$this->lang->line('Login_Resident');
             $data['Add_Facility']=$this->lang->line('Add_Facility');
             $data['Find_Facility']=$this->lang->line('Find_Facility');
+            return $data;
+        }
+        
+        public function DataFindRes(){
+            $data['Find_Residents']=$this->lang->line('Find_Resident');
+            $data['FirstName']=$this->lang->line('FirstName');
+            $data['LastName']=$this->lang->line('LastName');
+            $data['Gender']=$this->lang->line('Gender');
+            $data['RoomNumber']=$this->lang->line('RoomNumber');
+            $data['Facility']=$this->lang->line('Facility');
+            $data['Select_Facility']=$this->lang->line('Select_Facility');
+            $data['FIND']=$this->lang->line('FIND');  
             return $data;
         }
     }

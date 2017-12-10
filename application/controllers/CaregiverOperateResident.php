@@ -3,12 +3,15 @@
 class CaregiverOperateResident extends CI_Controller {
 
     public function find() {
+        $this->load->model('Language_model');
+        $this->lang->load('Dutch_lang','dutch');
+        $data=$this->Language_model->getData('Dutch','findres');
         $data['title'] = 'Overview of residents';
         $data['facilities'] = $this->Residents_model->get_facilities();
         $data['residents'] = $this->Residents_model->get_residents();
         $this->load->view('pages_generalised/header');
         $this->load->view('pages_generalised/caregiver');
-        $this->load->view('pages_caregiver/findResident', $data);
+        $this->parser->parse('pages_caregiver/findResident', $data);
         $this->load->view('pages_generalised/footer');
     }
 

@@ -9,11 +9,6 @@
     $lang['Add_Facility']='Add Facility';
     $lang['Find_Facility']='Find Facility';
     $lang['Find_Residents']='Find Residents';
-    $lang['Find_LastName']="Find resident by Lastname:";
-    $lang['Find_FirstName']="Find resident by FirstName:";
-    $lang['Find_RoomNumber']="Find resident by RoomNumber:";
-    $lang['Find_Residents_Facility']="Find residents by Facility:";
-    $lang['Find_Sex']="Find resident by Gender";
     $lang['FIND']="FIND";
     $lang['Add_New_Resident']='Add New Resident';
     $lang['FirstName']="FirstName";
