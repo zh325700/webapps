@@ -29,6 +29,9 @@ class CaregiverOperateResident extends CI_Controller {
     }
 
     public function create() {
+        $this->load->model('Language_model');
+        $this->lang->load('Dutch_lang','dutch');
+        $data=$this->Language_model->getData('Dutch','addres');
         $data['title'] = 'Create Residents';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
         
@@ -38,7 +41,7 @@ class CaregiverOperateResident extends CI_Controller {
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');
             $this->load->view('pages_generalised/caregiver');
-            $this->load->view('pages_caregiver/createResident', $data);
+            $this->parser->parse('pages_caregiver/createResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
             //upload image
