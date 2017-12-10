@@ -108,5 +108,25 @@
             $data['divisions']=$query->result();
             return $data;
         }
+        
+        public function convert($scores){
+            $i=0;
+            foreach($scores as $var){
+                $value=$scores[$i]->avg_Score;
+                if($value>4){
+                    $scores[$i]->avg_Score='image/pictograms/smiley5.jpg';
+                }elseif($value>3){
+                    $scores[$i]->avg_Score="image\pictograms\smiley4.jpg";
+                }elseif($value>2){
+                    $scores[$i]->avg_Score="image\pictograms\smiley3.jpg";
+                }elseif($value>1){
+                   $scores[$i]->avg_Score="image\pictograms\smiley2.jpg";
+                }else{
+                    $scores[$i]->avg_Score='image\pictograms\smiley1.jpg';
+                }
+                $i=$i+1;
+            }
+            return $scores;
+        }
     }
 

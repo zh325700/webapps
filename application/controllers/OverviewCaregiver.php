@@ -7,6 +7,8 @@
             $row['thescores']=$results["avg_Scores"];
             $results2=$this->Overview_Model->get_elder_score();
             $row['theelder']=$results2["avg_Scores"];
+            $row['thescores']=$this->Overview_Model->convert($row['thescores']);
+            $row['theelder']=$this->Overview_Model->convert($row['theelder']);
             $data= array(
                 "title_tab1"=>"Resident general overview",
                 "title_tab2"=>"Question general overview",
@@ -15,12 +17,15 @@
             $this->parser->parse('pages_caregiver/Tab_template',$data);
         }
         
-        public function event_division($division="paveljoen"){
+        public function event_division(){
+            $division=$this->input->get('division');
             $this->load->model('Overview_Model');
             $results=$this->Overview_Model->get_question_score_division($division);
             $row['thescores']=$results["avg_Scores"];
             $results2=$this->Overview_Model->get_elder_score_division($division);
             $row['theelder']=$results2["avg_Scores"];
+            $row['thescores']=$this->Overview_Model->convert($row['thescores']);
+            $row['theelder']=$this->Overview_Model->convert($row['theelder']);
             $data= array(
                 "title_tab1"=>"Resident division overview ",
                 "title_tab2"=>"Question division overview ",
@@ -49,6 +54,7 @@
         }
         
         public function event_time(){
+            $division=$this->input->get('division');
             $this->load->model('Overview_Model');
             $results=$this->Overview_Model->get_timestamp_elders();
             $row['theelder']=$results['timestamps'];

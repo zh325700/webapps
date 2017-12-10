@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://localhost/a17-webapps02';
+$config['base_url'] = 'http://localhost/a17_webapps02';
 
 
 /*
