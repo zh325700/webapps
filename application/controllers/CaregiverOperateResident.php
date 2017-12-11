@@ -90,6 +90,9 @@ class CaregiverOperateResident extends CI_Controller {
     }
 
     public function update() {
+        $this->load->model('Language_model');
+        $this->lang->load('Dutch_lang','dutch');
+        $data=$this->Language_model->getData('Dutch','editres');
         $data['facilities'] = $this->Residents_model->get_facilities();
         //upload image
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
@@ -97,8 +100,8 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');
-			$this->load->view('pages_generalised/caregiver');
-            $this->load->view('pages_caregiver/editResident', $data);
+            $this->load->view('pages_generalised/caregiver');
+            $this->parser->parse('pages_caregiver/editResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
             $config['upload_path'] = './image/photos/';

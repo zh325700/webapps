@@ -64,6 +64,14 @@
     $lang['Log_out']="Logout";
     $lang['Previous']="Previous";
     $lang['Question']="Question";
-
+    $lang['Never']="Never";
+    $lang['Rarely']="Rarely";
+    $lang['Sometimes']="Sometimes";
+    $lang['Most_time']="Most of the time";   
+    $lang['Always']="Always";
+    $lang['Can_message']="Can you read the message below";
+    $lang['maximum_font']="you have reached the maximum fontsize";
+    $lang['Text_Message']="Test Message";
+    $lang['Confirm']="Confirm";
 ?>
 

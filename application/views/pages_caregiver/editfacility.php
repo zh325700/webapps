@@ -1,24 +1,19 @@
-<<<<<<< HEAD
-=======
-<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+<?php //if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 
->>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
 <h2><?= $title ?></h2>
 <?php echo validation_errors(); ?>
 <?php echo form_open('addfacility_control/update'); ?>
     <input type="hidden" name="ID_facility" value="<?php echo $facility['ID_facility']; ?>"     
 <div class="form-group">
-    <label>City</label>
+    <label>{City}</label>
     <input type="text" class="form-control" name="City" placeholder="Add City"
            value="<?php echo $facility['City']; ?>">
 </div>
-<button type="submit" class="btn btn-default">Submit</button>
-<<<<<<< HEAD
-</form>
-=======
+<button type="submit" class="btn btn-default">{Submit}</button>
 </form>
 
-<?php else: ?>
+<!--
+<?php// else: ?>
 <p>
 <br><br><br>
 <center>
@@ -26,5 +21,4 @@
 </center>
 <br><br><br>
 </p>
-<?php endif; ?>
->>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
+<?php //endif; ?>

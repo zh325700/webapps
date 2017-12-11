@@ -7,7 +7,7 @@
 		</div>
 		<div class="col-md-10 col-sm-10">
                         <h2 class="text-center" >
-				Can you see the message below?
+				{Can_message}?
 			</h2>
 		</div>
 		<div class="col-md-1 col-sm-1">
@@ -27,7 +27,7 @@
                 var fontSize = parseFloat(style);
                 if (fontSize > 80) 
                 {
-                    alert("You have reached th maximum size of font");
+                    alert("{maximum_font}");
                     return;
                 }  
                 // now you have a proper float for the font size (yes, it can be a float, not just an integer)
@@ -64,7 +64,7 @@
 		</div>
                 <div class="col-md-8">
                     <h1  id = "zoom" class = "text-center changing" >
-			Text Message
+			{Text_Message}
                     </h1>                   
 		</div>          
                 <div class="col-md-2">
@@ -84,7 +84,7 @@
        <div class="row">
 		<div class="col-md-12">
                     <button id = "confirmButton" type="button1" class="btn btn-lg style active font" onclick="jumpto_update()" >
-			Confirm
+			{Confirm}
                     </button>       
 		</div> 
         </div>
