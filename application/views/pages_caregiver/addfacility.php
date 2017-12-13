@@ -1,4 +1,4 @@
-<?php //if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 
 <div class="container-fluid flex">
 
@@ -73,8 +73,7 @@
 </div>       
 <script src="<?= base_url() ?>assets/js/jquery.js"></script>
 
-<!--
-<?php// else: ?>
+<?php else: ?>
 <p>
 <br><br><br>
 <center>
@@ -82,4 +81,4 @@
 </center>
 <br><br><br>
 </p>
-<?php// endif; ?>
+<?php endif; ?>

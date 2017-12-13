@@ -1,4 +1,4 @@
-<?php //if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 
 <h2><?= $title ?></h2>
 <?php echo validation_errors(); ?>
@@ -12,8 +12,7 @@
 <button type="submit" class="btn btn-default">{Submit}</button>
 </form>
 
-<!--
-<?php// else: ?>
+<?php else: ?>
 <p>
 <br><br><br>
 <center>
@@ -21,4 +20,4 @@
 </center>
 <br><br><br>
 </p>
-<?php //endif; ?>
+<?php endif; ?>

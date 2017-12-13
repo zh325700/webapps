@@ -1,20 +1,19 @@
 
-   <div class="container-fluid">
+   <div class="container">
        
         <div class="row">
 		<div class="col-md-1 col-sm-1">
-                    <img src="../../image/pictograms/myPicture.png" alt="picture" style=" width: 120px; height: 150px" class="align-left"/>
+                    <img src="../../image/pictograms/myPicture.png" alt="picture" class="align-left"/>
 		</div>
-		<div class="col-md-10 col-sm-10">
-                        <h2 class="text-center" >
+		<div class="col-md-6 col-sm-6">
+                        <h2 class="text-center bar_font" >
 				{Can_message}?
 			</h2>
 		</div>
 		<div class="col-md-1 col-sm-1">
-                    <img src="../../image/pictograms/information.png" alt="info" style=" width: 150px; height: 150px" class="align-right"/>
+                    <img src="../../image/pictograms/information.png" alt="info" class="align-rfont"/>
                     <br>
-                    <br>
-                    <br>
+
                 </div>
         </div> 
        
@@ -52,7 +51,7 @@
             {     
                 $fontSize = get_fontsize();
                 //redirect ('/index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/1');   not working here
-                location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/1';
+                location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/7';
                 
             }         
        </script>

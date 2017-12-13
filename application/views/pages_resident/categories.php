@@ -1,4 +1,4 @@
-<?php //if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 <div class="container">
 	<div class="row">
@@ -81,8 +81,7 @@
 	</div>
 </div>
 
-<!--
-<?php //else: ?>
+<?php else: ?>
 <p>
 <br><br><br>
 <center>
@@ -90,4 +89,4 @@
 </center>
 <br><br><br>
 </p>
-<?php //endif; ?>
+<?php endif; ?>

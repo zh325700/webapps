@@ -1,4 +1,4 @@
-<?php //if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 
 <div class="container-fluid flex">
 
@@ -136,8 +136,7 @@
         $('input[name="Sex"]').not(this).prop('checked', false);
     });
 </script>
-<!--
-<?php// else: ?>
+<?php else: ?>
 <p>
 <br><br><br>
 <center>
@@ -145,4 +144,4 @@
 </center>
 <br><br><br>
 </p>
-<?php// endif; ?>
+<?php endif; ?>

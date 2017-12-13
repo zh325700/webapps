@@ -1,4 +1,4 @@
-<?php //if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 <div class="container">
 	
@@ -61,8 +61,8 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/question.js"></script>
 <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
 
-<!--
-<?php //else: ?>
+
+<?php else: ?>
 <p>
 <br><br><br>
 <center>
@@ -70,4 +70,4 @@
 </center>
 <br><br><br>
 </p>
-<?php //endif; ?>
+<?php endif; ?>

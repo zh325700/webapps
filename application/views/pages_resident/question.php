@@ -1,5 +1,5 @@
 
-<?php //if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 <div class="container">
 
@@ -102,8 +102,8 @@
 	<script type="text/javascript">
 		loadQuestions(<?php echo json_encode($questions)?>, "<?php echo $category?>");
 	</script>
-<!--
-<?php //else: ?>
+
+<?php else: ?>
 <p>
 <br><br><br>
 <center>
@@ -111,4 +111,4 @@
 </center>
 <br><br><br>
 </p>
-<?php// endif; ?>
+<?php endif; ?>

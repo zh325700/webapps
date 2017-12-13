@@ -1,6 +1,6 @@
 
 <?php //if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
-<?php //if (login_check() == true && htmlentities($this->session->userdata('permission')) >= '1'): ?>
+<?php if (login_check() == true && htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 <div class="container-fluid">
 	<div class="row">
@@ -29,14 +29,14 @@
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('Welcome', 'Resident/menu')" >{Login_Resident}</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('LoginResident', 'view')" >Login Resident</button> 
 			</div>
 			</br>
 			<div>
 				<button class="btn btn-default btn-lg btn-block" id="button_resqes" onclick="loadPage('CaregiverOperateResident', 'find')">{Find_Resident}</button> 
 			</div>
 			</br>
-			<?php //if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+			<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 				<div>
 					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'find')">{Find_Facility}</button> 
 				</div>
@@ -45,13 +45,13 @@
 				<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('CaregiverOperateResident', 'create')">{Add_Resident}</button> 
 			</div>
 			</br>
-			<?php //endif; ?>
-			<?php //if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+			<?php endif; ?>
+			<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 				<div>
 					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'addfacility')">{Add_Facility}</button> 
 				</div>
 			</br>
-			<?php //endif; ?>
+			<?php endif; ?>
 		</div>
 		<div class="col-sm-8" id="right_center">
 					<h3 id="title_type_overview">
@@ -200,8 +200,8 @@
 <script type='text/javascript'> window.onload=init; </script>
 
 
-<!--
-<//?php else: ?>
+
+<?php else: ?>
 <p>
 <br><br><br>
 <center>
@@ -209,4 +209,4 @@
 </center>
 <br><br><br>
 </p>
-<//?php endif; ?>-->
+<?php endif; ?>
