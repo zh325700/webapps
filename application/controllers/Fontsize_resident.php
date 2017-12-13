@@ -9,7 +9,7 @@
         public function index(){
            // $data['residents'] = $this->Residents_model->get_residents($ID_Elder);
             $this->load->view('pages_generalised/header');
-			$this->load->view('pages_generalised/resident');
+	    $this->load->view('pages_generalised/resident');
             $this->load->view('pages_resident/fontsizechoose');
             $this->load->view('pages_generalised/footer');
         }

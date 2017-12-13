@@ -1,20 +1,19 @@
 
-   <div class="container-fluid">
+   <div class="container">
        
         <div class="row">
 		<div class="col-md-1 col-sm-1">
-                    <img src="../../image/pictograms/myPicture.png" alt="picture" style=" width: 120px; height: 150px" class="align-left"/>
+                    <img src="../../image/pictograms/myPicture.png" alt="picture" class="align-left"/>
 		</div>
-		<div class="col-md-10 col-sm-10">
-                        <h2 class="text-center" >
+		<div class="col-md-6 col-sm-6">
+                        <h2 class="text-center bar_font" >
 				Can you see the message below?
 			</h2>
 		</div>
 		<div class="col-md-1 col-sm-1">
-                    <img src="../../image/pictograms/information.png" alt="info" style=" width: 150px; height: 150px" class="align-right"/>
+                    <img src="../../image/pictograms/information.png" alt="info" class="align-rfont"/>
                     <br>
-                    <br>
-                    <br>
+
                 </div>
         </div> 
        
@@ -83,7 +82,7 @@
        
        <div class="row">
 		<div class="col-md-12">
-                    <button id = "confirmButton" type="button1" class="btn btn-lg style active font" onclick="jumpto_update()" >
+                    <button id = "confirmButton" type="button" class="btn btn-lg style active font" onclick="jumpto_update()" >
 			Confirm
                     </button>       
 		</div> 

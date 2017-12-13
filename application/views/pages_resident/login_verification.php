@@ -17,8 +17,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 		<!--our css and less-->
-                <link rel="stylesheet/less" type="text/css" href="../../assets/css.new/Main.less" />
-                <link rel="stylesheet/less" type="text/css" href="../../assets/css.new/Resident.less" />
+                <link rel="stylesheet/less" type="text/css" href="../../assets/css/Main.less" />
+                <link rel="stylesheet/less" type="text/css" href="../../assets/css/Resident.less" />
                 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
         
         <!--compile less files-->
@@ -70,6 +70,37 @@
                                 </form>
                             </div>
                     </div>
+                
+            <script type="text/javascript">
+    
+            // document.getElementById("myBtn").addEventListener("click",myFunction); 
+    
+            function checkFontsize()
+            {
+                var font_size = document.getElementById("test").value;
+                
+                if( font_size == 30)
+                {
+                    // go to fontsize page
+                    location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/index';
+                }
+                else 
+                {
+                    // go to resident menu
+                    location.href='<?php echo base_url(); ?>index.php/Welcome/Resident/menu';           
+                }
+        
+            }
+            </script>
+        <input type="hidden" id="test" value="<?= $residents['FontSize'];?>"/>
+        <div class="row">
+		<div class="col-md-12">
+                    <button id = "myBtn" type="button" class="btn btn-lg style active" onclick="checkFontsize()" >         
+			Login
+                    </button>                   
+		</div> 
+        </div>
+                    
 
             </div>
         </body>

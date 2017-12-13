@@ -23,8 +23,16 @@ class LoginResident extends CI_Controller {
         $this->load->view('pages_generalised/footer');
     }
     
-    public function next(){
+    public function next($ID_Elder = 1){
         
-        $this->load->view('pages_resident/login_verification.php');
+        $data['residents'] = $this->Residents_model->get_residents($ID_Elder); 
+        if (empty($data['residents'])) 
+            {
+                show_404();
+            }
+        $data['$ID_Elder'] = $data['residents']['ID_Elder'];
+        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_resident/login_verification.php',$data);
+        $this->load->view('pages_generalised/footer');
     }
 }
