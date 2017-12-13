@@ -11,6 +11,15 @@ class Residents_model extends CI_Model {
         $query = $this->db->get_where('Elder', array('ID_Elder' => $ID_Elder));
         return $query->row_array();
     }
+    
+    public function get_residents_by_sex($Sex = FALSE){
+        if ($Sex == FALSE){
+            $query = $this->db->get('Elder');
+            return $query->result_array();
+        }
+        $query = $this->db->get_where('Elder', array('Sex' => $Sex));
+        return $query->result_array();
+    }
 
     public function create_resident($post_image) {
 //        $Id_Elder = $this->input->post('ID_Elder'); 
@@ -56,8 +65,7 @@ class Residents_model extends CI_Model {
         $query = $this->db->get('Facility');
         return $query->result_array();
     }
-    
-	public function get_FacilityName_by_ElderID($ID_Elder) {
+    public function get_FacilityName_by_ElderID($ID_Elder) {
         $this->db->select('*');
         $this->db->from('Elder');
         $this->db->join('Facility', 'Elder.ID_Facility = Facility.ID_facility');

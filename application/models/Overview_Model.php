@@ -1,5 +1,6 @@
 <?php
     Class Overview_Model extends CI_Model{
+
         public function get_scores(){
             $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_en Question ');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
@@ -106,6 +107,26 @@
             $query=$this->db->get();
             $data['divisions']=$query->result();
             return $data;
+        }
+        
+        public function convert($scores){
+            $i=0;
+            foreach($scores as $var){
+                $value=$scores[$i]->avg_Score;
+                if($value>4){
+                    $scores[$i]->avg_Score='image/pictograms/smiley5.jpg';
+                }elseif($value>3){
+                    $scores[$i]->avg_Score="image\pictograms\smiley4.jpg";
+                }elseif($value>2){
+                    $scores[$i]->avg_Score="image\pictograms\smiley3.jpg";
+                }elseif($value>1){
+                   $scores[$i]->avg_Score="image\pictograms\smiley2.jpg";
+                }else{
+                    $scores[$i]->avg_Score='image\pictograms\smiley1.jpg';
+                }
+                $i=$i+1;
+            }
+            return $scores;
         }
     }
 

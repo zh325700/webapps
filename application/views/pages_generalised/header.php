@@ -28,9 +28,9 @@ if (login_check() == true) {
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 		<!--our css and less-->
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Main.less" />
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Caregiver.less" />
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Resident.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>assets/css/Main.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>assets/css/Caregiver.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>assets/css/Resident.less" />
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
         
         <!--compile less files-->
@@ -53,3 +53,4 @@ if (login_check() == true) {
 		?>
 		
 		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
+                 

@@ -22,7 +22,8 @@
                             <input type="text" name="username" class="form-control" id="InputName" placeholder="Username"
                                    value="<?php echo isset($_POST["username"]) ? $_POST["username"] : ''; ?>"> </div>
                         <div class="form-group"> <label for="InputEmail1" class="text-dark">Email address</label>
-                            <input type="email" name="email" class="form-control" id="InputEmail1" placeholder="Enter email"> </div>
+                            <input type="email" name="email" class="form-control" id="InputEmail1" placeholder="Enter email"
+                                   value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>"> </div>
                         <div class="form-group"> <label class="text-dark">Password</label>
                             <input type="password"  id="password" name="password" class="form-control" placeholder="Password"> </div>
                         <div class="form-group"> <label class="text-dark">Confirm  Password </label><span style="padding-left: 50px" id='message'></span>

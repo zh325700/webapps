@@ -10,25 +10,26 @@
             </h2>
         </div>
     </div> 
-    
+      <?php echo(json_encode('{ccity}'));?>
+        <?php echo(json_encode('{city}'));?>
     <div class="row"> 
-        {facility}
-        <form method="post">         
-          <div class="col-md-4">  
+        {facility}   
+        <form method="post"> 
+             <?php echo(json_encode('{ccity}'));?>
+          <div class="col-md-4">
 			<h3 class="text-center"><b>{Name}</b></h3>
-			<label class="facility">City:&emsp;&emsp;&emsp;&emsp;&ensp;{City}  </label><br>
-			<label class="facility">Post Code:&emsp;&ensp;{Postcode}</label><br> 
-			<label class="facility">Street:&emsp;&emsp;&emsp;&ensp;{Street} </label><br>
-			<label class="facility">Number:&emsp;&emsp;&ensp;{Number} </label><br>
-            <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+			<label class="facility">{ccity}:&emsp;&emsp;&emsp;&emsp;&ensp;{City}  </label><br>
+			<label class="facility">{ppostcode}:&emsp;&ensp;{Postcode}</label><br> 
+			<label class="facility">{sstreet}:&emsp;&emsp;&emsp;&ensp;{Street} </label><br>
+			<label class="facility">{nnumber}:&emsp;&emsp;&ensp;{Number} </label><br>
+            <?php// if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
             <a class="btn btn-outline-primary pull-left" href="edit/{ID_facility}"><label class="facility">Edit</label></a>
             <p><a class="btn btn-link match" href="<?php echo site_url('index.php/addfacility_control/delete/{ID_facility}'); ?>"><b> Read More</b></a></p>
-            <?php endif; ?>
+            <?php// endif; ?>
             </div>
         {/facility}
     </div>
     </div>
-
 
 <?php else: ?>
 <p>
