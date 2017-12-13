@@ -14,7 +14,7 @@
             $this->load->view('pages_generalised/footer');
         }
         
-        public function update_fontsize_resident($fontSize,$ID_Elder = 1) {
+        public function update_fontsize_resident($fontSize,$ID_Elder = 7) {
             $data['residents'] = $this->Residents_model->get_residents($ID_Elder);
             $this->Residents_model->fontsize_resident($fontSize,$ID_Elder);
          //   redirect to the main resident page 

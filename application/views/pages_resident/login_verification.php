@@ -79,15 +79,15 @@
             {
                 var font_size = document.getElementById("test").value;
                 
-                if( font_size == 30)
+                if(font_size)
                 {
-                    // go to fontsize page
-                    location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/index';
+                    // go to resident menu
+                    location.href='<?php echo base_url(); ?>index.php/Welcome/Resident/menu'; 
                 }
                 else 
                 {
-                    // go to resident menu
-                    location.href='<?php echo base_url(); ?>index.php/Welcome/Resident/menu';           
+                    // go to fontsize page
+                    location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/index';          
                 }
         
             }

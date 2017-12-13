@@ -51,7 +51,7 @@
             {     
                 $fontSize = get_fontsize();
                 //redirect ('/index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/1');   not working here
-                location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/1';
+                location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/7';
                 
             }         
        </script>
