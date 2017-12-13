@@ -39,6 +39,7 @@ class CaregiverOperateResident extends CI_Controller {
             $this->load->view('pages_caregiver/createResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
+
             //upload image
 
             $config['upload_path'] = './image/photos/';
@@ -49,14 +50,14 @@ class CaregiverOperateResident extends CI_Controller {
             $config['max_height'] = '3000';
 
             $this->load->library('upload', $config);
+            $data = array('upload_data' => $this->upload->data());
+            $zfile = $data['upload_data']['full_path']; // get file path
+
 
             if (!$this->upload->do_upload('userfile')) {
                 $errors = array('error' => $this->upload->display_errors());
                 $post_image = 'noimage.png';
             } else {
-                $zdata = array('upload_data' => $this->upload->data()); // get data
-                $zfile = $zdata['upload_data']['full_path']; // get file path
-                $data = array('upload_data' => $this->upload->data());
                 $post_image = $_FILES['userfile']['name'];
                 chmod($zfile . $post_image, 0755); // CHMOD file to be rwxr
             }
