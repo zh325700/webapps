@@ -23,7 +23,7 @@ class LoginResident extends CI_Controller {
         $this->load->view('pages_generalised/footer');
     }
     
-    public function next($ID_Elder = 7){
+    public function next($ID_Elder = 8){
         
         $data['residents'] = $this->Residents_model->get_residents($ID_Elder); 
         if (empty($data['residents'])) 
