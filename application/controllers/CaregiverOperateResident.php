@@ -7,21 +7,21 @@ class CaregiverOperateResident extends CI_Controller {
         $data['facilities'] = $this->Residents_model->get_facilities();
         $data['residents'] = $this->Residents_model->get_residents();
         $this->load->view('pages_generalised/header');
-		$this->load->view('pages_generalised/caregiver');
+        $this->load->view('pages_generalised/caregiver');
         $this->load->view('pages_caregiver/findResident', $data);
         $this->load->view('pages_generalised/footer');
     }
 
     public function view($ID_Elder = NULL) {
         $data['residents'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
-		$data['fac_name'] = $this->Residents_model->get_FacilityName_by_ElderID($ID_Elder);
+        $data['fac_name'] = $this->Residents_model->get_FacilityName_by_ElderID($ID_Elder);
 
         if (empty($data['residents'])) {
             show_404();
         }
         $data['$ID_Elder'] = $data['residents']['ID_Elder'];
         $this->load->view('pages_generalised/header');
-		$this->load->view('pages_generalised/caregiver');
+        $this->load->view('pages_generalised/caregiver');
         $this->load->view('pages_caregiver/viewResident', $data);
         $this->load->view('pages_generalised/footer');
     }
@@ -29,13 +29,13 @@ class CaregiverOperateResident extends CI_Controller {
     public function create() {
         $data['title'] = 'Create Residents';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
-        
+
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');
-			$this->load->view('pages_generalised/caregiver');
+            $this->load->view('pages_generalised/caregiver');
             $this->load->view('pages_caregiver/createResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
@@ -79,7 +79,7 @@ class CaregiverOperateResident extends CI_Controller {
             show_404();
         }
         $this->load->view('pages_generalised/header');
-		$this->load->view('pages_generalised/caregiver');
+        $this->load->view('pages_generalised/caregiver');
         $this->load->view('pages_caregiver/editResident', $data);
         $this->load->view('pages_generalised/footer');
     }
@@ -92,7 +92,7 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');
-			$this->load->view('pages_generalised/caregiver');
+            $this->load->view('pages_generalised/caregiver');
             $this->load->view('pages_caregiver/editResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
@@ -120,6 +120,13 @@ class CaregiverOperateResident extends CI_Controller {
             $this->Residents_model->update_resident($post_image);
 //            redirect('CaregiverOperateResident/find');
         }
+    }
+
+    public function getScoreWeek() {
+//        $data['residents'] = $this->Residents_model->get_residents();
+//        return $data['residents'];
+        $fullname = $this->input->post('fullname');
+        echo 'Hello ' . $fullname;
     }
 
 }
