@@ -120,7 +120,7 @@
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_divisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
-            document.getElementById('dropdown_floors_button').firstChild.data="Division Timestamp";
+            document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
             var buttons=document.getElementsByClassName("li");
             for(var i=0,length=buttons.length;i<length;i++){
                value=buttons[i].getAttribute("id");

@@ -6,9 +6,8 @@ class addfacility_control extends CI_Controller {
         $this->load->model('Language_model');
         $this->lang->load('Dutch_lang','dutch');
         $data=$this->Language_model->getData('Dutch','findfac');
-        $data['title'] = 'Overview of facility';
+        $data['title'] =$this->lang->line('Overview_facility') ;
         $data['facility'] = $this->Addfacility_model->get_facility();
-
         //$this->load->view('pages_care/addfacility');
         $this->load->view('pages_generalised/header');
         $this->load->view('pages_generalised/caregiver');

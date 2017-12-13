@@ -22,6 +22,7 @@
     $lang['Facility']="Facility";
     $lang['Upload_Image']="Upload Image";
     $lang['Edit_Residents']='Edit Residents';
+    $lang['Overview_facility']="Overview of facility";
     $lang['Save']="Save";
     $lang['City']="City:";
     $lang['Postcode']="Postcode:";
@@ -73,5 +74,12 @@
     $lang['maximum_font']="you have reached the maximum fontsize";
     $lang['Text_Message']="Test Message";
     $lang['Confirm']="Confirm";
+    $lang['title_general1']="General overview residents";
+    $lang['title_general2']="General overview questions";
+    $lang['title_divisions1']="Division overview residents";
+    $lang['title_divisions2']="Division overview questions";
+    $lang['divisions']="division";
+    $lang['title_time']="Division timestamp resident";
+    $lang['Division_Timestamp']="Division timestamp";
 ?>
 

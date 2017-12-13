@@ -22,6 +22,7 @@ $lang['Add_Roomnumber']="Voeg kammernummer toe";
 $lang['Facility']="Faciliteit";
 $lang['Upload_Image']="Voeg Afbeelding toe";
 $lang['Edit_Residents']='Pas bewoonersinformatie aan';
+$lang['Overview_facility']="Overzicht van de faciliteiten";
 $lang['Save']="Opslaan";
 $lang['City']="Stad:";
 $lang['Postcode']="Postcode:";
@@ -75,6 +76,13 @@ $lang['Can_message']="Kan je de zin hieronder lezen";
 $lang['maximum_font']="Je hebt de grootste lettertype bereikt";
 $lang['Text_Message']="Goededag";
 $lang['Confirm']="Bevestig";
+$lang['title_general1']="Algemeen overzicht bewoners";
+$lang['title_general2']="Algemeen overzicht vragenlijst";
+$lang['title_divisions1']="overzicht afdeling bewoners";
+$lang['title_divisions2']="overzicht afdeling bewoners";
+$lang['divisions']="Afdeling";
+$lang['title_time']="Afdeling invuldatums bewoners";
+$lang['Division_Timestamp']="Afdeling invuldatums";
 ?>
 
 

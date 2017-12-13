@@ -59,6 +59,7 @@
             $data['Login_Resident']=$this->lang->line('Login_Resident');
             $data['Add_Facility']=$this->lang->line('Add_Facility');
             $data['Find_Facility']=$this->lang->line('Find_Facility');
+            $data['Division_Timestamp']=$this->lang->line('Division_Timestamp');
             return $data;
         }
         
