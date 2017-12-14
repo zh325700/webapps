@@ -108,15 +108,16 @@
             };
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general",false);
             xmlhttp.send();
-            var panels=document.getElementsByClassName("elder");
-            for(var i=0,length=panels.length;i<length;i++){
-                value=panels[i].getAttribute("id");
-               panels[i].addEventListener("click",function(){getChartElder(value);}); 
+            E_panels=document.getElementsByClassName("elder_tab");
+            E_value=[];
+            for(var i=0,length=E_panels.length;i<length;i++){
+               E_value[i]=E_panels[i].getAttribute("id");
+              // E_panels[i].addEventListener("click",function(){getChartElder(E_value[i]);}); 
             }
-            var panels=document.getElementsByClassName("question");
-            for(var i=0,length=panels.length;i<length;i++){
-                value=panels[i].getAttribute("id");
-               panels[i].addEventListener("click",function(){getChartQuestion(value);}); 
+            Q_panels=document.getElementsByClassName("question");
+            for(var j=0,length=Q_panels.length;i<length;i++){
+                Q_value=Q_panels[i].getAttribute("id");
+               Q_panels[i].addEventListener("click",function(){getChartQuestion(Q_value);}); 
             }
         xmlhttp= new XMLHttpRequest();
             xmlhttp.onreadystatechange = function(){
@@ -132,7 +133,7 @@
             xmlhttp.send();
             document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
             var buttons=document.getElementsByClassName("li");
-            for(var i=0,length=buttons.length;i<length;i++){
+            for(var k=0,length=buttons.length;i<length;i++){
                value=buttons[i].getAttribute("id");
                console.log(value);
                buttons[i].addEventListener("click",function(){getTimeDiv(value);}); 
@@ -154,7 +155,7 @@
             //loops over every made button by the server
             //and give it the right EventListener
             var buttons2=document.getElementsByClassName("li");
-            for(var i=0,length=buttons2.length;i<length;i++){
+            for(var l=0,length=buttons2.length;i<length;i++){
                 value=buttons2[i].getAttribute("id");
                 
                buttons2[i].addEventListener("click",function(){getScoresDiv(value);}); 
@@ -204,6 +205,29 @@
                 }
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_time",false);
+        xmlhttp.send();
+    }
+    
+    
+    function getChartElder(elder){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                        document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+                }
+        };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
+        xmlhttp.send();
+    }
+    
+     function getChartQuestion(ques){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                        document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+                }
+        };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
         xmlhttp.send();
     }
 </script>

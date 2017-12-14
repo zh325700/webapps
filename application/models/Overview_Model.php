@@ -1,7 +1,7 @@
 <?php
     Class Overview_Model extends CI_Model{
         public function get_scores(){
-            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_en Question ');
+            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_en Question, Questions.ID_Question Question_ID');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->group_by('Answers.ID_Question');
             $this->db->order_by('Score',"desc");
@@ -12,7 +12,7 @@
         }
         
         public function get_elder_score(){
-            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber ');
+            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber, Elder.ID_Elder Elder_ID ');
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->group_by('Answers.ID_Elder');
             $this->db->order_by('Score',"desc");
@@ -118,11 +118,11 @@
         }
         
         public function get_score_type($Type,$ID_elder){
-            $this->db->select('AVG(Answer.Score) avg_Score,Answers.DateStamp DateStamp,Question.Question_nl question');
-            $this->db->where('Type_en',$Type);
-            $this->db->where('Answer.ID_elder',$ID_elder);
+            $this->db->select('AVG(Answers.Score) avg_Score,Answers.DateStamp DateStamp,Questions.Question_nl question');
+            $this->db->where('Questions.Type_en',$Type);
+            $this->db->where('Answers.ID_elder',$ID_elder);
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
-            $this->db->groupby('Answers.DateStamp');
+            $this->db->group_by('Answers.DateStamp');
             $this->db->from("Answers");
             $query=$this->db->get();
             $data[$Type]=$query->result();
@@ -131,29 +131,31 @@
         
         public function get_Types(){
             $this->db->select('DISTINCT(Type_en) Type');
-            $this->db->from('Answers');
+            $this->db->from('Questions');
             $query=$this->db->get();
             $data['Topics']=$query->result();
             return $data;
         }
         
-        public function get_answerInfo($ID_Question){
-            $this->db->select('Question?Question_nl question,Question.Type_nl type,COUNT(Answers.Score) NumberAnswers, AVG(Answers.Score) avg_score');
-            $this->db->where('Question.ID_Question',$ID_Question);
+        public function get_questioninfo($ID_Question){
+            $this->db->select('Questions.Question_nl question,Questions.Type_nl type,COUNT(Answers.Score) NumberAnswers, AVG(Answers.Score) avg_score');
+            $this->db->where('Questions.ID_Question',$ID_Question);
             $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
-            $this->db->from('Question');
+            $this->db->from('Questions');
             $query=$this->db->get();
             $data['Info']=$query->result();
             return $data;
         }
         
-        public function get_score_division($Division){
-            $this->db->select('Question?Question_nl question,Question.Type_nl type,COUNT(Answers.Score) NumberAnswers, AVG(Answers.Score) avg_score');
-            $this->db->where('Question.ID_Question',$ID_Question);
-            $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
-            $this->db->from('Question');
+        public function get_score_division($Division,$ID_Question){
+            $this->db->select('AVG(Answers.Score) avg_Score, Answers.DateStamp timestamp,Elder.division division');
+            $this->db->where('Answers.ID_Question',$ID_Question);
+            $this->db->where('Elder.division',$Division);
+            $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
+            $this->db->group_by('Answers.DateStamp');
+            $this->db->from('Answers');
             $query=$this->db->get();
-            $data['Info']=$query->result();
+            $data['Score']=$query->result();
             return $data;
         }
         

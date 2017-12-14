@@ -65,12 +65,12 @@
         public function getChartElder(){
             $ID_Elder=$this->input->get('ID_Elder');
             $this->load->model('Overview_Model');
-            $data['topics']=$this->Overview_Model->get_Types();
+            $data['Topics']=$this->Overview_Model->get_Types();
             $data['info']=$this->Overview_Model->get_elderinfo($ID_Elder);
-            foreach($data['topics'] as $topic){
-                $data[$topic]=$this->Overview_Model->get_score_type($type);
+            for($i=0;$i<sizeof($data['Topics']['Topics']);$i++){
+                $data['score'][$i]=$this->Overview_Model->get_score_type($data['Topics']['Topics'][$i]->Type,$ID_Elder);
             }
-            $this->parser->parse('chartTemp', $data);
+            $this->parser->parse('pages_caregiver/tester', $data);
         }
         
         public function getChartQuestion(){
@@ -78,8 +78,8 @@
             $this->load->model('Overview_Model');
             $data['divisions']=$this->Overview_Model->get_divisions('1');
             $data['info']=$this->Overview_Model->get_questioninfo($ID_Question);
-            foreach($data['divisions'] as $div){
-                $data[$div]=$this->Overview_Model->get_score_division($div);
+            for($i=0;$i<sizeof($data['divisions']['divisions']);$i++){
+                $data['score'][$i]=$this->Overview_Model->get_score_division($data['divisions']['divisions'][$i]->divisions,$ID_Question);
             }
             $this->parser->parse('chartTemp', $data);
         }
