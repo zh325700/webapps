@@ -6,7 +6,7 @@
         <div class="col col-md-2"></div>
           <div class="col-md-6">
             <h2 class=" text-center headertwo">
-                {Edit_Residents}
+                Edit Residents
             </h2>
           </div>
     </div>
@@ -20,21 +20,21 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4">
-                    <label>{FirstName}: </label> 
+                    <label>First Name: </label> 
                 </div>
                 
                     <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="FirstName" placeholder="{Add_FirstName}" value="<?php echo $resident['FirstName']; ?>">
+                        <input type="text" class="form-control" name="FirstName" placeholder="Add FirstName" value="<?php echo $resident['FirstName']; ?>">
                     </div>
             </div>
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 fontsize">
-                    <label>{LastName}:</label> 
+                    <label>Last Name:</label> 
                 </div>
                 
                      <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="LastName" placeholder="{Add_LastName}" value="<?php echo $resident['LastName']; ?>">
+                        <input type="text" class="form-control" name="LastName" placeholder="Add LastName" value="<?php echo $resident['LastName']; ?>">
                     </div>
                 
             </div>
@@ -42,7 +42,7 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4">
-                     <label>{Gender}:</label> 
+                     <label>Gender:</label> 
                 </div>
                 <div class="col-md-6" id="checkboxGroup">
                     <div class="form-group">
@@ -68,7 +68,7 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 fontsize">
-                    <label>{Birthday}:</label>
+                    <label>Birthday:</label>
                 </div>
                 
                     <div class="col-md-5 input-group">
@@ -80,11 +80,11 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 fontsize">
-                    <label>{RoomNumber}:</label>
+                    <label>Room Number:</label>
                 </div>
                 
                     <div class="col-md-2 input-group">
-                        <input type="text" class="form-control" name="RoomNumber" placeholder="{Add_Roomnumber}" value="<?php echo $resident['RoomNumber']; ?>">
+                        <input type="text" class="form-control" name="RoomNumber" placeholder="Add Room number" value="<?php echo $resident['RoomNumber']; ?>">
                     </div>
                 
             </div>
@@ -92,7 +92,7 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 fontsize">
-                    <label>{Facility}:</label>
+                    <label>Facility:</label>
                 </div>
                 <div class="col-md-5 input-group">
                     <select name="ID_Facility" class="form-control">
@@ -108,7 +108,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <p style="font-size: 20px; font-family: sans-serif; font-weight: Bold">{Upload_Image}</p>
+                <p style="font-size: 20px; font-family: sans-serif; font-weight: Bold">Upload Image</p>
                 <input type="file" name="editImage" accept="image/*" onchange="loadFile(event)" size="20"><br>
                 <img  id="output" width="300px" hight="400px">
                 <script>
@@ -123,7 +123,7 @@
     <div class="row insert-row"> 
             <div class="col col-md-4"></div>
             <div class="col col-md-2">
-            <button type="submit"  class="btn btn-default btn-lg btn-block ">{Edit_Resident}</button>
+            <button type="submit"  class="btn btn-default btn-lg btn-block ">Edit Resident</button>
            </div> 
        
             
@@ -136,6 +136,7 @@
         $('input[name="Sex"]').not(this).prop('checked', false);
     });
 </script>
+
 <?php else: ?>
 <p>
 <br><br><br>

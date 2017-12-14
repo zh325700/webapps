@@ -38,8 +38,8 @@
                                     <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                                 <?php endforeach; ?>
                             </select></div>
-                        <div class="form-group"> <label for="InputAdminLevel" class="text-dark">Admin level</label>
-                            <select id="admin" name="Admin_Level" class="form-control">
+                        <div class="form-group"> <label for="InputAdminLevel" class="text-dark">Permission level</label>
+                            <select id="admin" name="permission" class="form-control">
                                 <option disabled selected value> -- Select a Admin level -- </option>
                                 <option value="1">internship</option>
                                 <option value="2">Manager</option>
@@ -66,5 +66,8 @@
 
 
     </body>
+    <div class="container">
+        <center><p style="font-size:15px;">Copyright: HCI/webapps project-team 2 &copy; 2017</p></center>
+    </div>
 
 </html>

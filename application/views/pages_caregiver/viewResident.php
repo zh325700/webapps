@@ -1,4 +1,3 @@
-
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 
@@ -32,12 +31,13 @@
             <button class="btn btn-default btn-lg btn-block" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')"/>Delete</button>
         </div>
 		<?php endif; ?>
->>>>>>> 7ad65d2a49f06c1ce4f148f1a4da62c1764d1e68
 
     </div>
 </div>
 <!--Javascript libraries--> 
 <script src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>
+
+
 
 <?php else: ?>
 <p>
