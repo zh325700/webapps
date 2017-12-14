@@ -1,7 +1,7 @@
 <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 
 
-    <div class="container-fluid">
+ <div class="container-fluid">
     <div class="row justify-content-md-center">
          <div class="col col-md-2"></div>
          <div class="col-md-6">

@@ -2,15 +2,15 @@
    <div class="container-fluid">
        
         <div class="row">
-		<div class="col-md-1 col-sm-1">
+		<div class="col-md-1">
                     <img src="../../image/pictograms/myPicture.png" alt="picture" style=" width: 120px; height: 150px" class="align-left"/>
 		</div>
-		<div class="col-md-10 col-sm-10">
+		<div class="col-md-10">
                         <h2 class="text-center" >
 				Can you see the message below?
 			</h2>
 		</div>
-		<div class="col-md-1 col-sm-1">
+		<div class="col-md-1">
                     <img src="../../image/pictograms/information.png" alt="info" style=" width: 150px; height: 150px" class="align-right"/>
                     <br>
                     <br>
