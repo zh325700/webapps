@@ -18,6 +18,7 @@ class AdminRegister extends CI_Controller {
             $this->load->view('pages_admin/registerCaregiver', $data);
         } else {
             $email = $_POST["email"];
+            $password =$_POST["password"];
             $error_msg = "";
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 //            if (strlen($password) != 128) {

@@ -23,6 +23,8 @@ class Welcome extends CI_Controller {
         $this->load->view('pages_resident/' . $page);
         $this->load->view('pages_generalised/footer');
     }
-
+    public function Overview($page) {
+        $this->load->view('pages_caregiver/' . $page);
+    }
 
 }
