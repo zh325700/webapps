@@ -1,6 +1,5 @@
 <?php
     Class Overview_Model extends CI_Model{
-
         public function get_scores(){
             $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_en Question ');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');

@@ -6,7 +6,7 @@
          <div class="col col-md-2"></div>
          <div class="col-md-6">
             <h2 class=" text-center">
-                {Find_Residents}
+                Find Residents
             </h2>
         </div>
     </div>
@@ -65,22 +65,22 @@
     <div class="row">
         <div class="col-md-4">
             <form  action='' method='post'>
-                <p style="padding-top:100px"><label  >{LastName}: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
-                <p><label >{FirstName}: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
-                <p><label >{RoomNumber}: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
-                <p><label >{Facility}: </label>
+                <p style="padding-top:100px"><label  >Last Name: </label><input type='text' name='LastName' value='' class='autoLastName'></p>
+                <p><label >First Name: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
+                <p><label >Room Number: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
+                <p><label >Facility: </label>
                     <select name="ID_Facility" class="form-control">
-					<option value=""> - {Select_Facility} - </option>
+					<option value=""> - Select A Facility - </option>
                         <?php foreach ($facilities as $fac): ?>
                             <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                         <?php endforeach; ?>
                     </select>
                     <!--<input type='text' name='ID_Facility' value='' class='autoFacility'></p>-->
-                <p><label class="fontsize">{Gender}: </label><input type='text' name='Sex' value='' class='autoSex'></p>
+                <p><label class="fontsize">Sex: </label><input type='text' name='Sex' value='' class='autoSex'></p>
                <div class="row insert-row"> 
                 <div class="col col-md-4"></div>
                    <div class="col col-md-12">
-                      <button class="btn btn-default btn-lg btn-block " type="submit" value="{FIND}" name="findres" style="left: 115%; top: 15px"/>Find</button>;
+                      <button class="btn btn-default btn-lg btn-block " type="submit" value="FIND" name="findres" style="left: 115%; top: 15px"/>Find</button>;
                    </div>
                </div>
             </form>
@@ -134,6 +134,16 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
 <?php else: ?>
 <p>
 <br><br><br>
@@ -143,3 +153,9 @@
 <br><br><br>
 </p>
 <?php endif; ?>
+
+
+
+
+
+

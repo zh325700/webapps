@@ -1,19 +1,20 @@
 
-   <div class="container">
+   <div class="container-fluid">
        
         <div class="row">
-		<div class="col-md-1 col-sm-1">
-                    <img src="../../image/pictograms/myPicture.png" alt="picture" class="align-left"/>
+		<div class="col-md-1">
+                    <img src="../../image/pictograms/myPicture.png" alt="picture" style=" width: 120px; height: 150px" class="align-left"/>
 		</div>
-		<div class="col-md-6 col-sm-6">
-                        <h2 class="text-center bar_font" >
-				{Can_message}?
+		<div class="col-md-10">
+                        <h2 class="text-center" >
+				Can you see the message below?
 			</h2>
 		</div>
-		<div class="col-md-1 col-sm-1">
-                    <img src="../../image/pictograms/information.png" alt="info" class="align-rfont"/>
+		<div class="col-md-1">
+                    <img src="../../image/pictograms/information.png" alt="info" style=" width: 150px; height: 150px" class="align-right"/>
                     <br>
-
+                    <br>
+                    <br>
                 </div>
         </div> 
        
@@ -26,7 +27,7 @@
                 var fontSize = parseFloat(style);
                 if (fontSize > 80) 
                 {
-                    alert("{maximum_font}");
+                    alert("You have reached th maximum size of font");
                     return;
                 }  
                 // now you have a proper float for the font size (yes, it can be a float, not just an integer)
@@ -51,7 +52,7 @@
             {     
                 $fontSize = get_fontsize();
                 //redirect ('/index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/1');   not working here
-                location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/7';
+                location.href='<?php echo base_url(); ?>index.php/Fontsize_resident/update_fontsize_resident/'+$fontSize+'/1';
                 
             }         
        </script>
@@ -63,7 +64,7 @@
 		</div>
                 <div class="col-md-8">
                     <h1  id = "zoom" class = "text-center changing" >
-			{Text_Message}
+			Text Message
                     </h1>                   
 		</div>          
                 <div class="col-md-2">
@@ -83,7 +84,7 @@
        <div class="row">
 		<div class="col-md-12">
                     <button id = "confirmButton" type="button1" class="btn btn-lg style active font" onclick="jumpto_update()" >
-			{Confirm}
+			Confirm
                     </button>       
 		</div> 
         </div>

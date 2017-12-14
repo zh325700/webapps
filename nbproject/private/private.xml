@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -9,3 +10,26 @@
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/CaregiverOperateResident.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/config/autoload.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/OverviewCaregiver.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/config/database.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/testAjax.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/models/Admin_Model.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/config/config.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_generalised/header.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/chartView.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/AdminRegister.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/createResident.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_admin/registerCaregiver.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/Welcome.php</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> 738b6d78bc5bc4968ace3fa44415eec231a08e48
