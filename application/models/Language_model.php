@@ -1,8 +1,11 @@
 <?php
     class Language_model extends CI_Model{
         
-        public function getData($language,$page){
+        public function getData($language,$page,$elder=Null){
              $this->load->helper('form');
+            if(isset($elder)){
+                $language=$this->getLanguage($elder);
+            }
             if($language=='English'){
                $this->lang->load('english_lang','English');
             }
@@ -112,7 +115,7 @@
             $data['Postcode']=$this->lang->line('Postcode');
             $data['Street']=$this->lang->line('Street');
             $data['Number']=$this->lang->line('Number');
-            $data['Read_More']=$this->lang->line('RoomNumber');
+            $data['Read_More']=$this->lang->line('Read_More');
             return $data;
         }
          public function DataAddFac(){
@@ -179,6 +182,15 @@
           $data['Most_time']=$this->lang->line('Most_time');
           $data['Always']=$this->lang->line('Always');
           return $data;
+      }
+      
+      public function getLanguage($ID_elder){
+        $this->db->select('Language language');
+        $this->db->where('ID_Elder',$ID_elder);
+        $this->db->from('Elder');
+        $query= $this->db->get();
+        $data=$query->result();
+        return $data;
       }
     }
 

@@ -10,22 +10,18 @@
             </h2>
         </div>
     </div> 
-      <?php echo(json_encode($text));?>
-        <?php echo(json_encode($facility));?>
     <div class="row"> 
            
         <form method="post"> 
-             <?php //echo(json_encode('{ccity}'));?>
-             <?php echo(json_encode('facility'));?>
           <div class="col-md-4">
-			<h3 class="text-center"><b>{Name}</b></h3>
+			<h3 class="text-center"><b>{facility}{Name}{/facility}</b></h3>
 			<label class="facility">{City}:&emsp;&emsp;&emsp;&emsp;&ensp;{facility}{City}{/facility}  </label><br>
 			<label class="facility">{Postcode}:&emsp;&ensp;{facility}{Postcode}{/facility}</label><br> 
 			<label class="facility">{Street}:&emsp;&emsp;&emsp;&ensp;{facility}{Street}{/facility} </label><br>
 			<label class="facility">{Number}:&emsp;&emsp;&ensp;{facility}{Number}{/facility} </label><br>
             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
             <a class="btn btn-outline-primary pull-left" href="edit/{ID_facility}"><label class="facility">Edit</label></a>
-            <p><a class="btn btn-link match" href="<?php echo site_url('index.php/addfacility_control/delete/{ID_facility}'); ?>"><b> Read_More</b></a></p>
+            <p><a class="btn btn-link match" href="<?php echo site_url('index.php/addfacility_control/delete/{ID_facility}'); ?>"><b> {Read_More} </b></a></p>
             <?php endif; ?>
             </div>
     </div>
