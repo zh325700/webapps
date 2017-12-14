@@ -116,7 +116,7 @@
             var panels=document.getElementByClassName("question");
             for(var i=0,length=panels.length;i<length;i++){
                 value=buttons[i].getAttribute("id");
-               buttons[i].addEventListener("click",function(){getChartElder(value);}); 
+               buttons[i].addEventListener("click",function(){getChartQuestion(value);}); 
             }
         xmlhttp= new XMLHttpRequest();
             xmlhttp.onreadystatechange = function(){

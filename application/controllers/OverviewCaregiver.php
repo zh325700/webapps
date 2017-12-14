@@ -61,5 +61,27 @@
             $this->parser->parse('pages_caregiver/Tab_template', $data);
             
         }
+        
+        public function getChartElder(){
+            $ID_Elder=$this->input->get('ID_Elder');
+            $this->load->model('Overview_Model');
+            $data['topics']=$this->Overview_Model->get_Types();
+            $data['info']=$this->Overview_Model->get_elderinfo($ID_Elder);
+            foreach($data['topics'] as $topic){
+                $data[$topic]=$this->Overview_Model->get_score_type($type);
+            }
+            $this->parser->parse('chartTemp', $data);
+        }
+        
+        public function getChartQuestion(){
+            $ID_Question=$this->input->get('ID_Question');
+            $this->load->model('Overview_Model');
+            $data['divisions']=$this->Overview_Model->get_divisions('1');
+            $data['info']=$this->Overview_Model->get_questioninfo($ID_Question);
+            foreach($data['divisions'] as $div){
+                $data[$div]=$this->Overview_Model->get_score_division($div);
+            }
+            $this->parser->parse('chartTemp', $data);
+        }
     }
 ?>

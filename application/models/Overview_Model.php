@@ -118,9 +118,10 @@
             return $data;
         }
         
-        public function get_score_type($Type){
+        public function get_score_type($Type,$ID_elder){
             $this->db->select('AVG(Answer.Score) avg_Score,Answers.DateStamp DateStamp,Question.Question_nl question');
             $this->db->where('Type_en',$Type);
+            $this->db->where('Answer.ID_elder',$ID_elder);
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->groupby('Answers.DateStamp');
             $this->db->from("Answers");
@@ -136,6 +137,27 @@
             $data['Topics']=$query->result();
             return $data;
         }
+        
+        public function get_answerInfo($ID_Question){
+            $this->db->select('Question?Question_nl question,Question.Type_nl type,COUNT(Answers.Score) NumberAnswers, AVG(Answers.Score) avg_score');
+            $this->db->where('Question.ID_Question',$ID_Question);
+            $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
+            $this->db->from('Question');
+            $query=$this->db->get();
+            $data['Info']=$query->result();
+            return $data;
+        }
+        
+        public function get_score_division($Division){
+            $this->db->select('Question?Question_nl question,Question.Type_nl type,COUNT(Answers.Score) NumberAnswers, AVG(Answers.Score) avg_score');
+            $this->db->where('Question.ID_Question',$ID_Question);
+            $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
+            $this->db->from('Question');
+            $query=$this->db->get();
+            $data['Info']=$query->result();
+            return $data;
+        }
+        
         public function convert($scores){
             $i=0;
             foreach($scores as $var){
