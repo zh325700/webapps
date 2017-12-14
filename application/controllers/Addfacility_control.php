@@ -3,44 +3,37 @@
 class addfacility_control extends CI_Controller {
 
     public function find() {
-        $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','findfac');
-        $data['title'] =$this->lang->line('Overview_facility') ;
+        $data['title'] = 'Overview of facility';
         $data['facility'] = $this->Addfacility_model->get_facility();
+
         //$this->load->view('pages_care/addfacility');
-        $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/caregiver');
+		$this->load->view('pages_generalised/header');
+		$this->load->view('pages_generalised/caregiver');
         $this->parser->parse('pages_caregiver/viewfacility', $data);
         $this->load->view('pages_generalised/footer');
     }
-     public function view($ID_facility = NULL) {
-        $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','findfac');
-        $data['facility'] =$this->Addfacility_model->get_facility($ID_facility); // use post_model to get the data in the database
-        
+     public function view($ID_Facility = NULL) {
+        $data['facility'] = $this->Addfacility_model->get_facility($ID_facility); // use post_model to get the data in the database
+
         if (empty($data['facility'])) {
             show_404();
         }
-        $data['$ID_facility'] = $data['facility']['ID_facility'];
-        $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/caregiver');
-        $this->parser->parse('pages_caregiver/viewfacility', $data);
-        $this->load->view('pages_generalised/footer');
+		$data['$ID_facility'] = $data['facility']['ID_facility'];
+		$this->load->view('pages_generalised/header');
+		$this->load->view('pages_generalised/caregiver');
+		$this->load->view('pages_caregiver/viewfacility', $data);
+		$this->load->view('pages_generalised/footer');
     }
        
     public function addfacility() {
         //$data['title'] = 'Add Facility';
-        $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','addfac');
+        
         $this->form_validation->set_rules('Name', 'Name', 'required');
          $this->form_validation->set_rules('City', 'City', 'required');
         if ($this->form_validation->run() === FALSE) {
 			$this->load->view('pages_generalised/header');
 			$this->load->view('pages_generalised/caregiver');
-			$this->parser->parse('pages_caregiver/addfacility',$data);
+			$this->load->view('pages_caregiver/addfacility');
 			$this->load->view('pages_generalised/footer');
         } else {
                        
@@ -56,6 +49,7 @@ class addfacility_control extends CI_Controller {
 
     public function edit($ID_facility) {
         $data['facility'] = $this->Addfacility_model->get_facility($ID_facility); // use post_model to get the data in the database
+        
         if (empty($data['facility'])) {
             show_404();
         }
@@ -67,8 +61,22 @@ class addfacility_control extends CI_Controller {
     }
 
     public function update() {
-        $this->Addfacility_model->update_facility();
-        redirect('addfacility_control');
+        $data['facility'] = $this->Addfacility_model->get_facility();
+        
+        $this->form_validation->set_rules('Name', 'Name', 'required');
+        $this->form_validation->set_rules('City', 'City', 'required');
+        if ($this->form_validation->run() === FALSE) {
+			$this->load->view('pages_generalised/header');
+			$this->load->view('pages_generalised/caregiver');
+			$this->load->view('pages_caregiver/editfacility',$data);
+			$this->load->view('pages_generalised/footer');
+        } else {
+                       
+            $this->Addfacility_model->update_facility();
+           
+        }
     }
+        
+ }
 
-}
+
