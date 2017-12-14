@@ -162,15 +162,15 @@
             foreach($scores as $var){
                 $value=$scores[$i]->avg_Score;
                 if($value>4){
-                    $scores[$i]->avg_Score='image/pictograms/smiley5.jpg';
+                    $scores[$i]->avg_Score='image/pictograms/smiley5.png';
                 }elseif($value>3){
-                    $scores[$i]->avg_Score="image\pictograms\smiley4.jpg";
+                    $scores[$i]->avg_Score="image/pictograms/smiley4.png";
                 }elseif($value>2){
-                    $scores[$i]->avg_Score="image\pictograms\smiley3.jpg";
+                    $scores[$i]->avg_Score="image/pictograms/smiley3.png";
                 }elseif($value>1){
-                   $scores[$i]->avg_Score="image\pictograms\smiley2.jpg";
+                   $scores[$i]->avg_Score="image/pictograms/smiley2.png";
                 }else{
-                    $scores[$i]->avg_Score='image\pictograms\smiley1.jpg';
+                    $scores[$i]->avg_Score='image/pictograms/smiley1.png';
                 }
                 $i=$i+1;
             }
