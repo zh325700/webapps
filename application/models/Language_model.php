@@ -108,11 +108,10 @@
         }
         
         public function DataFindFac(){
-            $data['ccity']=$this->lang->line('City');
-            $data['ppostCode']=$this->lang->line('Postcode');
-            $data['sstreet']=$this->lang->line('Street');
-            $data['nnumber']=$this->lang->line('Number');
-            $data['Rread_More']=$this->lang->line('Read_More');
+            $data['City']=$this->lang->line('City');
+            $data['Postcode']=$this->lang->line('Postcode');
+            $data['Street']=$this->lang->line('Street');
+            $data['Number']=$this->lang->line('Number');
             $data['Read_More']=$this->lang->line('RoomNumber');
             return $data;
         }

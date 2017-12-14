@@ -10,24 +10,24 @@
             </h2>
         </div>
     </div> 
-      <?php echo(json_encode('{ccity}'));?>
-        <?php echo(json_encode('{city}'));?>
+      <?php echo(json_encode($text));?>
+        <?php echo(json_encode($facility));?>
     <div class="row"> 
-        {facility}   
+           
         <form method="post"> 
-             <?php echo(json_encode('{ccity}'));?>
+             <?php //echo(json_encode('{ccity}'));?>
+             <?php echo(json_encode('facility'));?>
           <div class="col-md-4">
 			<h3 class="text-center"><b>{Name}</b></h3>
-			<label class="facility">{ccity}:&emsp;&emsp;&emsp;&emsp;&ensp;{City}  </label><br>
-			<label class="facility">{ppostcode}:&emsp;&ensp;{Postcode}</label><br> 
-			<label class="facility">{sstreet}:&emsp;&emsp;&emsp;&ensp;{Street} </label><br>
-			<label class="facility">{nnumber}:&emsp;&emsp;&ensp;{Number} </label><br>
-            <?php// if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+			<label class="facility">{City}:&emsp;&emsp;&emsp;&emsp;&ensp;{facility}{City}{/facility}  </label><br>
+			<label class="facility">{Postcode}:&emsp;&ensp;{facility}{Postcode}{/facility}</label><br> 
+			<label class="facility">{Street}:&emsp;&emsp;&emsp;&ensp;{facility}{Street}{/facility} </label><br>
+			<label class="facility">{Number}:&emsp;&emsp;&ensp;{facility}{Number}{/facility} </label><br>
+            <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
             <a class="btn btn-outline-primary pull-left" href="edit/{ID_facility}"><label class="facility">Edit</label></a>
-            <p><a class="btn btn-link match" href="<?php echo site_url('index.php/addfacility_control/delete/{ID_facility}'); ?>"><b> Read More</b></a></p>
-            <?php// endif; ?>
+            <p><a class="btn btn-link match" href="<?php echo site_url('index.php/addfacility_control/delete/{ID_facility}'); ?>"><b> Read_More</b></a></p>
+            <?php endif; ?>
             </div>
-        {/facility}
     </div>
     </div>
 
