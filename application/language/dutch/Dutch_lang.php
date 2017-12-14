@@ -84,6 +84,3 @@ $lang['divisions']="Afdeling";
 $lang['title_time']="Afdeling invuldatums bewoners";
 $lang['Division_Timestamp']="Afdeling invuldatums";
 ?>
-
-
-

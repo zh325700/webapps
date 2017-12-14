@@ -1,6 +1,6 @@
 
 <?php //if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
-<?php if (login_check() == true && htmlentities($this->session->userdata('permission')) >= '1'): ?>
+<?php //if (login_check() == true && htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 <div class="container-fluid">
 	<div class="row">
@@ -36,7 +36,7 @@
 				<button class="btn btn-default btn-lg btn-block" id="button_resqes" onclick="loadPage('CaregiverOperateResident', 'find')">{Find_Resident}</button> 
 			</div>
 			</br>
-			<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+			<?php //if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 				<div>
 					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'find')">{Find_Facility}</button> 
 				</div>
@@ -45,13 +45,13 @@
 				<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('CaregiverOperateResident', 'create')">{Add_Resident}</button> 
 			</div>
 			</br>
-			<?php endif; ?>
-			<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+			<?php //endif; ?>
+			<?php //if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 				<div>
 					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'addfacility')">{Add_Facility}</button> 
 				</div>
 			</br>
-			<?php endif; ?>
+			<?php //endif; ?>
 		</div>
 		<div class="col-sm-8" id="right_center">
 					<h3 id="title_type_overview">
@@ -108,6 +108,16 @@
             };
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general",false);
             xmlhttp.send();
+            var panels=document.getElementByClassName("elder");
+            for(var i=0,length=panels.length;i<length;i++){
+                value=buttons[i].getAttribute("id");
+               buttons[i].addEventListener("click",function(){getChartElder(value);}); 
+            }
+            var panels=document.getElementByClassName("question");
+            for(var i=0,length=panels.length;i<length;i++){
+                value=buttons[i].getAttribute("id");
+               buttons[i].addEventListener("click",function(){getChartElder(value);}); 
+            }
         xmlhttp= new XMLHttpRequest();
             xmlhttp.onreadystatechange = function(){
                     if(xmlhttp.readyState === XMLHttpRequest.DONE){
@@ -200,8 +210,8 @@
 <script type='text/javascript'> window.onload=init; </script>
 
 
-
-<?php else: ?>
+<!--
+<?php //else: ?>
 <p>
 <br><br><br>
 <center>
@@ -209,4 +219,4 @@
 </center>
 <br><br><br>
 </p>
-<?php endif; ?>
+<?php// endif; ?>

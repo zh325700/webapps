@@ -101,7 +101,7 @@
         }
         
         public function get_divisions($ID_facility){
-            $this->db->select('DISTINCt(division) divisions');
+            $this->db->select('DISTINCT(division) divisions');
             $this->db->where('ID_Facility',$ID_facility);
             $this->db->from('Elder');
             $query=$this->db->get();
@@ -109,6 +109,33 @@
             return $data;
         }
         
+        public function get_elderinfo($ID_elder){
+            $this->db->select('FirstName FirstName,LastName Lastname,Sex Gender,RoomNumber RoomNumber,division, Division,Picture Picture');
+            $this->db->where('ID_Elder',$ID_elder);
+            $this->db->from("Elder");
+            $query=$this->db->get();
+            $data['info']=$query->result();
+            return $data;
+        }
+        
+        public function get_score_type($Type){
+            $this->db->select('AVG(Answer.Score) avg_Score,Answers.DateStamp DateStamp,Question.Question_nl question');
+            $this->db->where('Type_en',$Type);
+            $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
+            $this->db->groupby('Answers.DateStamp');
+            $this->db->from("Answers");
+            $query=$this->db->get();
+            $data[$Type]=$query->result();
+            return $data;
+        }
+        
+        public function get_Types(){
+            $this->db->select('DISTINCT(Type_en) Type');
+            $this->db->from('Answers');
+            $query=$this->db->get();
+            $data['Topics']=$query->result();
+            return $data;
+        }
         public function convert($scores){
             $i=0;
             foreach($scores as $var){
