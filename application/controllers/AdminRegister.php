@@ -30,22 +30,6 @@ class AdminRegister extends CI_Controller {
                 $error_msg .= 'A user with this email address already exists';
                 header("location:register_caregiver/$error_msg");
             }
-            if (empty($error_msg)) {
-                // Create a random salt
-                $random_salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), TRUE));
-                // Create salted password 
-                $password = hash('sha512', $password . $random_salt);
-                $this->Admin_Model->register_cgto_db($password, $random_salt);
-                redirect('Welcome/index/login');
-            }
-            // Insert the new user into the database 
-//                if (!$this->Admin_Model->register_cgto_db($password, $admin, $random_salt)) { // if insert fails
-//                    header('Location: ./error.php?err=Registration failure: INSERT');
-////                exit();
-//                }
-//                header('Location: ./delete.php');
-////            exit();
-//            }
         }
     }
 

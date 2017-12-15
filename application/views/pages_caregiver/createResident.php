@@ -6,7 +6,7 @@
          <div class="col col-md-2"></div>
            <div class="col-md-6">
             <h2 class=" text-center headertwo">
-                Add New Residents
+                {Add_Resident}
             </h2>
            </div>
     </div>
@@ -19,22 +19,22 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 ">
-                   <label>First Name: </label> 
+                   <label>{FirstName}: </label> 
                 </div>
                
                     <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="FirstName" placeholder="Add FirstName" value="<?php echo isset($_POST["FirstName"]) ? $_POST["FirstName"] : ''; ?>">
+                        <input type="text" class="form-control" name="FirstName" placeholder="{Add_FirstName}" value="<?php echo isset($_POST["FirstName"]) ? $_POST["FirstName"] : ''; ?>">
                     </div>
                
             </div>
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 ">
-                    <label>Last Name:</label> 
+                    <label>{LastName}:</label> 
                 </div>
                
                     <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="LastName" placeholder="Add LastName" value="<?php echo isset($_POST["LastName"]) ? $_POST["LastName"] : ''; ?>">
+                        <input type="text" class="form-control" name="LastName" placeholder="{Add_LastName}" value="<?php echo isset($_POST["LastName"]) ? $_POST["LastName"] : ''; ?>">
                     </div>
               
             </div>
@@ -42,7 +42,7 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 ">
-                    <label>Gender:</label> 
+                    <label>{Gender}:</label> 
                 </div>
                 <div class="col-md-6" id="checkboxGroup">
                     <div class="form-group">
@@ -67,7 +67,7 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 ">
-                    <label> Birthday:</label> 
+                    <label>{Birthday}:</label> 
                 </div>
                 
                     <div class="col-md-5 input-group">
@@ -79,11 +79,11 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 ">
-                    <label> Room Number: </label>
+                    <label> {RoomNumber}: </label>
                 </div>
                 
                     <div class="col-md-2 input-group">
-                        <input type="text" class="form-control" name="RoomNumber" placeholder="Add Room number" value="<?php echo isset($_POST["RoomNumber"]) ? $_POST["RoomNumber"] : ''; ?>">
+                        <input type="text" class="form-control" name="RoomNumber" placeholder="{Add_Roomnumber}" value="<?php echo isset($_POST["RoomNumber"]) ? $_POST["RoomNumber"] : ''; ?>">
                     </div>
                
             </div>
@@ -91,16 +91,16 @@
             <div class="row insert-row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-4 ">
-                   <label> Facility:</label>
+                   <label> {Facility}:</label>
                 </div>
                 
                     <div class="col-md-5 input-group">
-                            <select name="ID_Facility" class="form-control">
-                                <option disabled selected value> -- Select a Facility -- </option>
-                                <?php foreach ($facilities as $fac): ?>
-                                    <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                        <select name="ID_Facility" class="form-control">
+						<option disabled selected value> -- {Select_Facility} -- </option>
+                            <?php foreach ($facilities as $fac): ?>
+                                <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
 
 
                         <!--<input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number">-->
@@ -111,7 +111,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <p style="font-size: 20px; font-family: sans-serif; font-weight: Bold">Upload Image</p>
+                <p style="font-size: 20px; font-family: sans-serif; font-weight: Bold">{Upload_Image}</p>
                 <input type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
                 <img  id="output" width="300px" hight="400px">
                 <script>
@@ -126,7 +126,7 @@
         <div class="row insert-row"> 
             <div class="col col-md-4"></div>
             <div class="col col-md-2">
-            <button type="submit"  class="btn btn-default btn-lg btn-block ">Add Resident</button>
+            <button type="submit"  class="btn btn-default btn-lg btn-block ">{Add_Resident}</button>
            </div> 
        
             

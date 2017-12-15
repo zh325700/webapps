@@ -38,11 +38,13 @@ class addfacility_model extends CI_Model {
 
         $data = array(
             'Name' => $this->input->post('Name'),
-//            'description' => $this->input->post('description')
+            'City' => $this->input->post('City'),
+            'Postcode' => $this->input->post('Postcode'),
+            'Street' => $this->input->post('Street'),
+            'Number' => $this->input->post('Number')         
         );
-
         $this->db->where('ID_facility', $ID_facility);
-        return $this->db->update('ID_facility', $data);
+        return $this->db->update('facility', $data);
     }
 
 

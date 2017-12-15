@@ -1,5 +1,5 @@
 {thedivisions}
-<li class="li" id="{divisions}" onclick="test()">
+<li class="li" id="{divisions}">
     {divisions}
 </li>
 {/thedivisions}
