@@ -100,25 +100,26 @@ class CaregiverOperateResident extends CI_Controller {
             $config['upload_path'] = './image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['overwrite'] = TRUE;
-            $config['max_size'] = '20480';
-            $config['max_width'] = '2000';
-            $config['max_height'] = '2000';
+            $config['max_size'] = '20480'; //20MB
+            $config['max_width'] = '3000';
+            $config['max_height'] = '3000';
 
             $this->load->library('upload', $config);
-            $zdata = array('upload_data' => $this->upload->data()); // get data
-            $zfile = $zdata['upload_data']['full_path']; // get file path
+            $data = array('upload_data' => $this->upload->data());
+            $zfile = $data['upload_data']['full_path']; // get file path
 
-            if (!$this->upload->do_upload('usefile')) {
+
+            if (!$this->upload->do_upload('userfile')) {
                 $errors = array('error' => $this->upload->display_errors());
-                $this->load->view('pages_caregiver/errorDetect', $errors);
                 $post_image = 'noimage.png';
             } else {
-                $data = array('upload_data' => $this->upload->data());
                 $post_image = $_FILES['userfile']['name'];
                 chmod($zfile . $post_image, 0755); // CHMOD file to be rwxr
             }
 
             $this->Residents_model->update_resident($post_image);
+
+            redirect('CaregiverOperateResident/find');
 //            redirect('CaregiverOperateResident/find');
         }
     }
