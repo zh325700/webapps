@@ -218,61 +218,61 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
-         var xarray = [1, 2, 3, 4, 5, 6, 7];
-    var arrayfoodData =[ 1.0, 3.0, 5.0, 4, 2, 9, 12];
-    var ctx = document.getElementById("canvas").getContext("2d");
-    var barChartData = {
-        labels: xarray,
-        datasets: [{
-                label: "Food",
-                borderColor: "rgb(255, 99, 132)",
-                backgroundColor: "rgb(255, 99, 132)",
-                fill: false,
-                data: arrayfoodData,
-                yAxisID: "y-axis-food",
-            }, {
-                label: "Drink",
-                borderColor: 'rgb(54, 162, 235)',
-                backgroundColor: 'rgb(54, 162, 235)',
-                fill: false,
-                data: [
-                    122, 119, 32, 52, 21, 31, 9
-                ],
-                yAxisID: "y-axis-drink"
-            }]
-    };
-    var myBar = new Chart(ctx, {
-        data: barChartData,
-        type: 'bar',
-        options: {
-            maintainAspectRatio: false, // adjust the size of chart 
-            responsive: true,
-            hoverMode: 'index',
-            stacked: false,
-            title: {
-                display: true,
-                text: 'Chart.js Bar Chart - Multi Axis'
-            },
-            scales: {
-                yAxes: [{
-                        type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                        display: true,
-                        borderColor: "rgba(255, 0, 0, 1)",
-                        position: "left",
-                        id: "y-axis-food",
-                    }, {
-                        type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                        display: true,
-                        position: "right",
-                        id: "y-axis-drink",
-                        // grid line settings
-                        gridLines: {
-                            drawOnChartArea: false, // only want the grid lines for one axis to show up
-                        },
-                    }],
+        var xarray = document.getElementById("tt").getAttribute("class").split(",");
+        var arrayfoodData =[ 1.0, 3.0, 5.0, 4, 2, 9, 12];
+        var ctx = document.getElementById("canvas").getContext("2d");
+        var barChartData = {
+            labels: xarray,
+            datasets: [{
+                    label: "Food",
+                    borderColor: "rgb(255, 99, 132)",
+                    backgroundColor: "rgb(255, 99, 132)",
+                    fill: false,
+                    data: arrayfoodData,
+                    yAxisID: "y-axis-food",
+                }, {
+                    label: "Drink",
+                    borderColor: 'rgb(54, 162, 235)',
+                    backgroundColor: 'rgb(54, 162, 235)',
+                    fill: false,
+                    data: [
+                        122, 119, 32, 52, 21, 31, 9
+                    ],
+                    yAxisID: "y-axis-drink"
+                }]
+        };
+        var myBar = new Chart(ctx, {
+            data: barChartData,
+            type: 'bar',
+            options: {
+                maintainAspectRatio: false, // adjust the size of chart 
+                responsive: true,
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Chart.js Bar Chart - Multi Axis'
+                },
+                scales: {
+                    yAxes: [{
+                            type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                            display: true,
+                            borderColor: "rgba(255, 0, 0, 1)",
+                            position: "left",
+                            id: "y-axis-food",
+                        }, {
+                            type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                            display: true,
+                            position: "right",
+                            id: "y-axis-drink",
+                            // grid line settings
+                            gridLines: {
+                                drawOnChartArea: false, // only want the grid lines for one axis to show up
+                            },
+                        }],
+                }
             }
-        }
-    });
+        });
 
     }
     

@@ -35,6 +35,7 @@ $array = array(
 $arrayfoodTime = $array["Food"]["Timestamp"];
 $arrayfoodData = $array["Food"]["Score"];
 ?>
+<div id="tt" class="<?php echo json_encode($arrayfoodTime); ?>"></div>
 <div class="row">
         <div class=" col-md-4" data-step="1" data-intro="Here is the image of the resident">
             <img class="thumbnail" height="100" width="100"  src="<?php echo base_url(); ?>/image/photos/<?php echo $info['info'][0]->Picture; ?>">
