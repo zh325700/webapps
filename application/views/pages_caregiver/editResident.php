@@ -109,7 +109,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <p style="font-size: 20px; font-family: sans-serif; font-weight: Bold">Upload Image</p>
-                <input type="file" name="editImage" accept="image/*" onchange="loadFile(event)" size="20"><br>
+                <input type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
                 <img  id="output" width="300px" hight="400px">
                 <script>
                     var loadFile = function (event) {
