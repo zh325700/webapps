@@ -41,7 +41,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a  href="<?php echo base_url(); ?>index.php/Welcome/Resident/menu"  id="button_elderly">
+                                <a  href="<?php echo base_url(); ?>index.php/LoginResident/view"  id="button_elderly">
                                     <span class="fa fa-anchor solo">Login Resident</span>
                                 </a>
                             </li>

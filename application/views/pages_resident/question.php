@@ -1,22 +1,23 @@
 
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
-<div class="container">
 
-	<div class="row">
-		<div class="col-md-4">
-			<img src="<?php echo base_url(); ?>/image/pictograms/food.png" alt="" class="align-left"/>
-		</div>
-		<div class="col-md-4">
-			<h2 class="text-center bar2" id = "question_number">{Question} 1</h2>
-		</div>
-		<div class="col-md-4">
-			<img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>			
-		</div>
-	</div>
+
+<div class="container">
+ 
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-offset-2">
+                    <h1>
+                        Privacy
+                    </h1>
+                </div>
+            </div>
+        </div>
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-center center-block" id = "question_content"><?php echo $first_question;?></h3>
+			<h2 class="text-center center-block" id = "question_content"><?php echo $first_question;?></h2>
 		</div>
 	</div>
 	<div class="row">
@@ -41,26 +42,26 @@
         <div class="row">
             <div class="col-md-1"></div>
 		<div class="col-md-2">
-                    <p>{Never}</p>
+                    <p>Never</p>
 		</div>
 		<div class="col-md-2">
-                    <p>{Rarely}</p>
+                    <p>Rarely</p>
 		</div>
 		<div class="col-md-2">
-                    <p>{Sometimes}</p>
+                    <p>Sometimes</p>
                 </div>
 		<div class="col-md-2">
-                    <p>{Most_time}</p>
+                    <p>Most of the time</p>
 		</div> 
 		<div class="col-md-2">
-                    <p>{Always}</p>
+                    <p>Always</p>
 		</div>    
             <div class="col-md-1"></div>
         </div>
 	<div class="row">
 		<div class="col-md-4">			 
 			<button id = "prevButton" type="button" class="btn btn-lg style button " onclick="javascript:previous()">
-				{Previous} <br />{Question}
+				Previous <br />Question
 			</button>
 		</div>
 		<div class="col-md-4"></div>

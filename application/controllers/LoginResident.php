@@ -9,7 +9,7 @@ class LoginResident extends CI_Controller {
             $sex = $_GET['sex'];
         }
         $data['residents'] = $this->Residents_model->get_residents_by_sex($sex);
-        $this->load->view('pages_generalised/header');
+        //$this->load->view('pages_generalised/header');
         $this->load->view('pages_resident/login_resident.php', $data);
         $this->load->view('pages_generalised/footer');
     }
@@ -18,13 +18,17 @@ class LoginResident extends CI_Controller {
         $this->load->model('Residents_model');
         $sex = $_GET['sex'];
         $data['residents'] = $this->Residents_model->get_residents_by_sex($sex);
-        $this->load->view('pages_generalised/header');
+        //$this->load->view('pages_generalised/header');
         $this->load->view('pages_resident/login_resident.php', $data);
         $this->load->view('pages_generalised/footer');
     }
     
-    public function next(){
-        
-        $this->load->view('pages_resident/login_verification.php');
+    public function verification(){
+        $this->load->model('Residents_model');
+        $id = $_GET['id'];
+        $data['resident'] = $this->Residents_model->get_residents($id);
+//        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_resident/login_verification.php', $data);
+//        $this->load->view('pages_generalised/footer');
     }
 }
