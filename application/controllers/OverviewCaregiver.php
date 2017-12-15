@@ -67,10 +67,10 @@
             $this->load->model('Overview_Model');
             $data['Topics']=$this->Overview_Model->get_Types();
             $data['info']=$this->Overview_Model->get_elderinfo($ID_Elder);
-            for($i=0;$i<sizeof($data['Topics']['Topics']);$i++){
-                $data['score'][$i]=$this->Overview_Model->get_score_type($data['Topics']['Topics'][$i]->Type,$ID_Elder);
+            for($i=0;$i<sizeof($data['Topics']);$i++){
+                $data['score'][$data['Topics'][$i]->Type]=$this->Overview_Model->get_score_type($data['Topics'][$i]->Type,$ID_Elder);
             }
-            $this->parser->parse('pages_caregiver/tester', $data);
+            $this->parser->parse('pages_caregiver/chartView', $data);
         }
         
         public function getChartQuestion(){

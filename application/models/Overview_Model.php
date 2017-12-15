@@ -109,7 +109,7 @@
         }
         
         public function get_elderinfo($ID_elder){
-            $this->db->select('FirstName FirstName,LastName Lastname,Sex Gender,RoomNumber RoomNumber,division, Division,Picture Picture');
+            $this->db->select('FirstName FirstName,LastName LastName,Sex Gender,Birthday BirthDay,RoomNumber RoomNumber,division Division,Member_Since Member_Since,Picture Picture');
             $this->db->where('ID_Elder',$ID_elder);
             $this->db->from("Elder");
             $query=$this->db->get();
@@ -125,7 +125,7 @@
             $this->db->group_by('Answers.DateStamp');
             $this->db->from("Answers");
             $query=$this->db->get();
-            $data[$Type]=$query->result();
+            $data=$query->result();
             return $data;
         }
         
@@ -133,7 +133,7 @@
             $this->db->select('DISTINCT(Type_en) Type');
             $this->db->from('Questions');
             $query=$this->db->get();
-            $data['Topics']=$query->result();
+            $data=$query->result();
             return $data;
         }
         
