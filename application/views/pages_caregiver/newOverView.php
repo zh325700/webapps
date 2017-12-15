@@ -10,95 +10,100 @@
 </head>
 <body>
     <div>
-<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
-    <div class="graceAge">
-      <h1> Fullscreen Hero image </h1>
+        <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
+        <div class="graceAge">
+            <h1> Fullscreen Hero image </h1>
+        </div>
     </div>
-</div>
     <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
         <div class="container-fluid">
-                <div id="wrapper">
+            <div id="wrapper">
 
-                    <!-- Sidebar -->
-                    <div id="sidebar-wrapper">
-                        <nav id="spy">
-                            <ul class="sidebar-nav nav">
+                <!-- Sidebar -->
+                <div id="sidebar-wrapper">
+                    <nav id="spy">
+                        <ul class="sidebar-nav nav">
+                            <li>
+                                <a href="#anch2" id="btn_general">
+                                    <span class="fa fa-home solo">General</span>
+                                </a>
+                            </li>
+                            <li class="dropdown"id="dropdown_floors">   <!--with this id style change.-->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
+                                <ul class="dropdown-menu"role="menu" id="dropdown_floors_menu">
+                                    {content_div}
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#anch2"  id="button_timestamp">
+                                    <span class="fa fa-anchor solo">Fill-in history</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="<?php echo base_url(); ?>index.php/Welcome/Resident/menu"  id="button_elderly">
+                                    <span class="fa fa-anchor solo">Login Resident</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/find" id="button_resqes">
+                                    <span class="fa fa-anchor solo">Find Resident</span>
+                                </a>
+                            </li>
+                            <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
                                 <li>
-                                    <a href="#anch2" id="btn_general">
-                                        <span class="fa fa-home solo">General</span>
+                                    <a href="<?php echo base_url(); ?>index.php/addfacility_control/find" id="button_resqes">
+                                        <span class="fa fa-anchor solo">Find Facility</span>
                                     </a>
                                 </li>
-                                <li class="dropdown"id="dropdown_floors">   <!--with this id style change.-->
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
-                                    <ul class="dropdown-menu"role="menu" id="dropdown_floors_menu">
-                                        {content_div}
-                                    </ul>
-                                </li>
                                 <li>
-                                    <a href="#anch2"  id="button_timestamp">
-                                        <span class="fa fa-anchor solo">Fill-in history</span>
+                                    <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/create" id="button_resqes">
+                                        <span class="fa fa-anchor solo">Add Resident</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+                                <li>
+                                    <a href="<?php echo base_url(); ?>index.php/addfacility_control/addfacility" id="button_resqes">
+                                        <span class="fa fa-anchor solo">Add Facility</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a  href="<?php echo base_url(); ?>index.php/Welcome/Resident/menu"  id="button_elderly">
-                                        <span class="fa fa-anchor solo">Login Resident</span>
+                                    <a href="<?php echo base_url(); ?>index.php/AdminRegister/register_caregiver" >
+                                        <span class="fa fa-anchor solo">Add Caregiver</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/find" id="button_resqes">
-                                        <span class="fa fa-anchor solo">Find Resident</span>
-                                    </a>
-                                </li>
-                                <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
-                                    <li>
-                                        <a href="<?php echo base_url(); ?>index.php/addfacility_control/find" id="button_resqes">
-                                            <span class="fa fa-anchor solo">Find Facility</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/create" id="button_resqes">
-                                            <span class="fa fa-anchor solo">Add Resident</span>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-                                <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
-                                    <li>
-                                        <a href="<?php echo base_url(); ?>index.php/addfacility_control/addfacility" id="button_resqes">
-                                            <span class="fa fa-anchor solo">Add Facility</span>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-                            </ul>
-                        </nav>
-                    </div>
+                            <?php endif; ?>
+                        </ul>
+                    </nav>
+                </div>
 
-                    <!-- Page content -->
-                    <div class="panel-group" id="panel_1">
+                <!-- Page content -->
+                <div class="panel-group" id="panel_1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title" data-toggle="collapse" 
+                               data-parent="#panel_1" href="#panel_element_1" id="panel_heading_1"> 
+                                Residents results overview </a>
+                        </div>
+                        <div id="panel_element_1" class="panel-collapse collapse in">
+
+                            {content_res}
+
+                        </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <a class="panel-title" data-toggle="collapse" 
-                                   data-parent="#panel_1" href="#panel_element_1" id="panel_heading_1"> 
-                                    Residents results overview </a>
+                                <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel_1" 
+                                   href="#panel_element_2" id="panel_heading_2"> 
+                                    Question results overview </a>
                             </div>
-                            <div id="panel_element_1" class="panel-collapse collapse in">
+                            <div id="panel_element_2" class="panel-collapse collapse">
 
-                                {content_res}
+                                {content_qes}
 
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel_1" 
-                                       href="#panel_element_2" id="panel_heading_2"> 
-                                        Question results overview </a>
-                                </div>
-                                <div id="panel_element_2" class="panel-collapse collapse">
-
-                                    {content_qes}
-
-                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
         <script type="text/javascript">

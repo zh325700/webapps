@@ -52,8 +52,6 @@ if (!empty($score["relationship"])) {
     }
 }
 
-
-
 $newarray = array_merge($arrayPrivacyWeek, $arrayRelationshipWeek);
 ?>
 
