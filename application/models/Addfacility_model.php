@@ -44,7 +44,7 @@ class addfacility_model extends CI_Model {
             'Number' => $this->input->post('Number')         
         );
         $this->db->where('ID_facility', $ID_facility);
-        return $this->db->update('facility', $data);
+        return $this->db->update('Facility', $data);
     }
 
 

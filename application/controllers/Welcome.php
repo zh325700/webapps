@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
         }
         $data = $this->Language_model->getData('Dutch', 'login');
 
-        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/loginpageheader');
         $this->parser->parse($page, $data);
         $this->load->view('pages_generalised/footer');
     }

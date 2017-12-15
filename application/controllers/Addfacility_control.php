@@ -66,9 +66,22 @@ class addfacility_control extends CI_Controller {
 		$this->load->view('pages_generalised/footer');
     }
 
-    public function update() {
-        $this->Addfacility_model->update_facility();
-        redirect('addfacility_control');
+    public function update($ID_facility) {
+        $data['facility'] = $this->Addfacility_model->get_facility($ID_facility);
+        
+        $this->form_validation->set_rules('Name', 'Name', 'required');
+        $this->form_validation->set_rules('City', 'City', 'required');
+        if ($this->form_validation->run() === FALSE) {
+			$this->load->view('pages_generalised/header');
+			$this->load->view('pages_generalised/caregiver');
+			$this->load->view('pages_caregiver/editfacility',$data);
+			$this->load->view('pages_generalised/footer');
+        } else {
+                       
+            $this->Addfacility_model->update_facility();
+            redirect('addfacility_control/find'); //redirects
+           
+        }
     }
 
 }
