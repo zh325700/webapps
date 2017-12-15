@@ -13,29 +13,53 @@
 	purple: 'rgb(153, 102, 255)',
 	grey: 'rgb(201, 203, 207)'*/
 </style>
+
 <?php
-$array = array(
-    "Food" => array(
-        "Timestamp" => array(
-            1, 2, 3, 4, 5, 6, 7
-        ),
-        "Score" => array(
-            1.0, 3.0, 5.0, 4, 2, 9, 12
-        )
+$arrayPrivacyWeek = array(0);
+$arrayPrivacyScore = array(0);
+$arrayRelationshipWeek = array(0);
+$arrayRelationshipScore = array(0);
+
+
+$score = array(
+    "Privacy" => array(
+        array("Timestamp" => 1,
+            "AvgScore" => 1),
+        array("Timestamp" => 2,
+            "AvgScore" => 2)
     ),
-    "Drink" => array(
-        "Timestamp" => array(
-            1, 2, 3, 4, 5, 6, 7
-        ),
-        "Score" => array(
-            7, 6, 5, 4, 3, 2, 1
-        )
+    "relationship" => array(
+        array("Timestamp" => 1,
+            "AvgScore" => 3),
+        array("Timestamp" => 2,
+            "AvgScore" => 4)
     )
 );
-$arrayfoodTime = $array["Food"]["Timestamp"];
-$arrayfoodData = $array["Food"]["Score"];
+$topic = array(
+    "privacy", "relationship"
+);
+
+
+if (!empty($score["Privacy"])) {
+    foreach ($score["Privacy"] as $privacy) {
+        $arrayPrivacyWeek[] = $privacy["Timestamp"];
+        $arrayPrivacyScore[] = $privacy["AvgScore"];
+    }
+}
+if (!empty($score["relationship"])) {
+    foreach ($score["relationship"] as $relationship) {
+        $arrayRelationshipWeek[] = $relationship["Timestamp"];
+        $arrayRelationshipScore[] = $relationship["AvgScore"];
+    }
+}
+
+
+$secondarray= array_merge($arrayPrivacyScore,$arrayRelationshipScore);
+$newarray = array_merge($arrayPrivacyWeek, $arrayRelationshipWeek);
+echo(json_encode($secondarray));
 ?>
-<div id="tt" class="<?php echo json_encode($arrayfoodTime); ?>"></div>
+<div id="st" class="<?php echo json_encode($secondarray); ?>"></div>
+<div id="tt" class="<?php echo json_encode($newarray); ?>"></div>
 <div class="row">
         <div class=" col-md-4" data-step="1" data-intro="Here is the image of the resident">
             <img class="thumbnail" height="100" width="100"  src="<?php echo base_url(); ?>/image/photos/<?php echo $info['info'][0]->Picture; ?>">
@@ -57,63 +81,57 @@ $arrayfoodData = $array["Food"]["Score"];
     </div>
 </div>
 
+
+<div style="width:120vh; height: 70vh;">  <!-- vh stands for the height of the browser-->
+    <canvas id="canvas"></canvas>
+</div>
+
 <script>// how to convert php array to js var?
-    var xarray = <?php echo json_encode($arrayfoodTime) ?>;
-    var arrayfoodData = <?php echo json_encode($arrayfoodData) ?>;
+    var xarray = <?php echo json_encode($newarray) ?>;
+    var arrayfoodData = <?php echo json_encode($arrayPrivacyScore) ?>;
+    var arrayRelationData = <?php echo json_encode($arrayRelationshipScore) ?>;
     var ctx = document.getElementById("canvas").getContext("2d");
     var barChartData = {
         labels: xarray,
         datasets: [{
-                label: "Food",
+                label: "Privacy",
                 borderColor: "rgb(255, 99, 132)",
                 backgroundColor: "rgb(255, 99, 132)",
                 fill: false,
                 data: arrayfoodData,
-                yAxisID: "y-axis-food",
+//                data: [{x: 0, y: 10}, {x: 1, y: 6}],
+
             }, {
-                label: "Drink",
+                label: "Relationship",
                 borderColor: 'rgb(54, 162, 235)',
                 backgroundColor: 'rgb(54, 162, 235)',
                 fill: false,
-                data: [
-                    122, 119, 32, 52, 21, 31, 9
-                ],
-                yAxisID: "y-axis-drink"
+                data: arrayRelationData,
+//                data: [{x: 1, y: 9}, {x: 2, y: 6}],
             }]
     };
     var myBar = new Chart(ctx, {
         data: barChartData,
         type: 'bar',
         options: {
-            maintainAspectRatio: false, // adjust the size of chart 
+            // adjust the size of chart 
             responsive: true,
-            hoverMode: 'index',
-            stacked: false,
+
+            legend: {
+                position: 'top',
+            },
             title: {
                 display: true,
-                text: 'Chart.js Bar Chart - Multi Axis'
+                text: 'Average score of one topic'
             },
-            scales: {
-                yAxes: [{
-                        type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                        display: true,
-                        borderColor: "rgba(255, 0, 0, 1)",
-                        position: "left",
-                        id: "y-axis-food",
-                    }, {
-                        type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                        display: true,
-                        position: "right",
-                        id: "y-axis-drink",
-                        // grid line settings
-                        gridLines: {
-                            drawOnChartArea: false, // only want the grid lines for one axis to show up
-                        },
-                    }],
-            }
+//            scales: {
+//                xAxes: [{
+//                        type: 'linear',
+//                        position: 'bottom'
+//                    }]
+//            }
+
         }
     });
 
 </script>
-
-

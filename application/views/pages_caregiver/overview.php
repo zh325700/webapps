@@ -218,62 +218,53 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
-        var xarray = document.getElementById("tt").getAttribute("class").split(",");
-        var arrayfoodData =[ 1.0, 3.0, 5.0, 4, 2, 9, 12];
+        console.log(document.getElementById("st").getAttribute("class").split(","));
+        var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
+        var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
+        var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
         var ctx = document.getElementById("canvas").getContext("2d");
         var barChartData = {
             labels: xarray,
             datasets: [{
-                    label: "Food",
+                    label: "Privacy",
                     borderColor: "rgb(255, 99, 132)",
                     backgroundColor: "rgb(255, 99, 132)",
                     fill: false,
                     data: arrayfoodData,
-                    yAxisID: "y-axis-food",
+    //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
+
                 }, {
-                    label: "Drink",
+                    label: "Relationship",
                     borderColor: 'rgb(54, 162, 235)',
                     backgroundColor: 'rgb(54, 162, 235)',
                     fill: false,
-                    data: [
-                        122, 119, 32, 52, 21, 31, 9
-                    ],
-                    yAxisID: "y-axis-drink"
+                    data: arrayRelationData,
+    //                data: [{x: 1, y: 9}, {x: 2, y: 6}],
                 }]
         };
         var myBar = new Chart(ctx, {
             data: barChartData,
             type: 'bar',
             options: {
-                maintainAspectRatio: false, // adjust the size of chart 
+                // adjust the size of chart 
                 responsive: true,
-                hoverMode: 'index',
-                stacked: false,
+
+                legend: {
+                    position: 'top',
+                },
                 title: {
                     display: true,
-                    text: 'Chart.js Bar Chart - Multi Axis'
+                    text: 'Average score of one topic'
                 },
-                scales: {
-                    yAxes: [{
-                            type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                            display: true,
-                            borderColor: "rgba(255, 0, 0, 1)",
-                            position: "left",
-                            id: "y-axis-food",
-                        }, {
-                            type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                            display: true,
-                            position: "right",
-                            id: "y-axis-drink",
-                            // grid line settings
-                            gridLines: {
-                                drawOnChartArea: false, // only want the grid lines for one axis to show up
-                            },
-                        }],
-                }
+    //            scales: {
+    //                xAxes: [{
+    //                        type: 'linear',
+    //                        position: 'bottom'
+    //                    }]
+    //            }
+
             }
         });
-
     }
     
      function getChartQuestion(ques){
