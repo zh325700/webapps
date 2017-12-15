@@ -1,0 +1,9 @@
+level	|		power
+--------+-----------------------------
+  1		|		basic power
+  2		|		search for facilities
+  3		|		add residents
+		|		edit residents
+		|		find facilities
+  4		|		add facilities
+		|		add caregivers
