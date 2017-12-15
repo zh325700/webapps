@@ -71,7 +71,7 @@
                 </div>
                 
                     <div class="col-md-5 input-group">
-                        <input type="date" class="form-control" name="Birthday" placeholder="Add Birthday" value="<?php echo isset($_POST["Birthday"]) ? $_POST["Birthday"] : ''; ?>">
+                        <input pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday" placeholder="Day/Month/Year" value="<?php echo isset($_POST["Birthday"]) ? $_POST["Birthday"] : ''; ?>">
                     </div>
               
             </div>
@@ -95,12 +95,12 @@
                 </div>
                 
                     <div class="col-md-5 input-group">
-                        <select name="ID_Facility" class="form-control">
-						<option disabled selected value> -- Select a Facility -- </option>
-                            <?php foreach ($facilities as $fac): ?>
-                                <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                            <select name="ID_Facility" class="form-control">
+                                <option disabled selected value> -- Select a Facility -- </option>
+                                <?php foreach ($facilities as $fac): ?>
+                                    <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
 
 
                         <!--<input type="text" class="form-control" name="ID_Facility" placeholder="Add ID Facility number">-->
