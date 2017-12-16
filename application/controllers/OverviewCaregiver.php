@@ -26,6 +26,26 @@
             $this->parser->parse('pages_caregiver/Tab_template',$data);
         }
         
+        public function getTypes(){
+            $this->load->model('Overview_Model');
+            $results=$this->Overview_Model->get_Types();
+            echo(json_encode($results));
+        }
+        public function test(){
+            $Type=$this->input->get('type');
+            $ID_elder=$this->input->get('ID_elder');
+            //$this->load->model('Overview_Model');
+            //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
+            //$row['thescores']=$results["avg_Scores"];
+            $row['thescores']=array( array("Timestamp" => "Last_Three_Week",
+                                "AvgScore" => 10),
+                            array("Timestamp" => "last_two_Week",
+                                "AvgScore" => 30),
+                            array("Timestamp" => "last_Week",
+                                "AvgScore" => 20));
+            echo json_encode($row);
+        }
+
         public function event_division(){
             $this->lang->load('Dutch_lang','dutch');
             $division=$this->input->get('division');

@@ -244,31 +244,102 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
-        //var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
-        var xarray=[1,2,3,4,5,6];
-        //var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
-        var arrayfoodData=[3,3,4,3,4,3];
-        //var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
-        var arrayRelationData=[2,2,3,2,2,1];
-        var ctx = document.getElementById("canvas").getContext("2d");
+        drawChart(elder);
+    }
+    
+     function getChartQuestion(ques){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                        document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+                }
+        };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
+        xmlhttp.send();
+        drawChart();
+    }
+    
+    function getData(elder){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             topics = xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTypes",false);
+        xmlhttp.send();
+        topics=jQuery.parseJSON(topics);
+        datascore=[];
+        data=[];
+        time=[];
+        for(var topic in topics){
+            input=collectData(elder,topics[topic]);
+            for(var value in input){
+                datascore[value]=input[value]["AvgScore"];
+                if(time.indexOf(input[value]["Timestamp"])===-1){
+                    time.push(input[value]["Timestamp"]);
+                }
+            }
+            data[topics[topic]["Type"]]=datascore;
+        }
+        //console.log(data);
+        //console.log(time);
+    }
+    function collectData(elder,topic){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             input = xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/test?type="+topic+"&ID_elder"+elder,false);
+        xmlhttp.send();
+        cdata=jQuery.parseJSON(input);
+        cdata=cdata["thescores"];
+        return cdata;
+    }
+    function drawChart(elder){
+        getData(elder);
+        console.log(time);
+        var xarray = time;
+        var arrayPrivacyData = data["Privacy"];
+        var arrayRelationData = data["Personal Relationships"];
+        var arrayFandMData = data["FoodAndMealsScore"];
+        //var arrayAVG = <?//php echo json_encode($arrayAvgScore); ?>;
+        var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
         var barChartData = {
             labels: xarray,
             datasets: [{
                     label: "Privacy",
-                    borderColor: "rgb(255, 99, 132)",
-                    backgroundColor: "rgb(255, 99, 132)",
+                    borderColor: "rgba(255, 99, 132,0.5)",
+                    backgroundColor: "rgba(255, 99, 132,0.5)",
                     fill: false,
-                    data: arrayfoodData,
-    //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
+                    data: arrayPrivacyData,
 
                 }, {
-                    label: "Relationship",
-                    borderColor: 'rgb(54, 162, 235)',
-                    backgroundColor: 'rgb(54, 162, 235)',
+                    label: "PersonalRelationships",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: 'rgba(54, 162, 235,0.5)',
                     fill: false,
                     data: arrayRelationData,
-    //                data: [{x: 1, y: 9}, {x: 2, y: 6}],
-                }]
+                },
+                {
+                    label: "FoodAndMeals",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    fill: false,
+                    data: arrayFandMData,
+                },
+                /*{
+                    type: "line",
+                    label: "AVG",
+                    borderColor: 'rgb(153, 102, 255)',
+                    backgroundColor: 'rgb(153, 102, 255)',
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: arrayAVG,
+                }*/
+            ]
         };
         var myBar = new Chart(ctx, {
             data: barChartData,
@@ -284,72 +355,8 @@
                     display: true,
                     text: 'Average score of one topic'
                 },
-    //            scales: {
-    //                xAxes: [{
-    //                        type: 'linear',
-    //                        position: 'bottom'
-    //                    }]
-    //            }
-
             }
-        });
-    }
-    
-     function getChartQuestion(ques){
-        xmlhttp= new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                        document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
-                }
-        };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
-        xmlhttp.send();
-        var xarray = [1,2,3,4,5];
-        var arrayfoodData = [3,4,5,5,4];
-        var arrayRelationData = [1,2,1,3,4];
-        var ctx = document.getElementById("canvas").getContext("2d");
-        var barChartData = {
-            labels: xarray,
-            datasets: [{
-                    label: "paviljoen",
-                    borderColor: "rgb(255, 99, 132)",
-                    backgroundColor: "rgb(255, 99, 132)",
-                    fill: false,
-                    data: arrayfoodData,
-    //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
-
-                }, {
-                    label: "verdieping 1",
-                    borderColor: 'rgb(54, 162, 235)',
-                    backgroundColor: 'rgb(54, 162, 235)',
-                    fill: false,
-                    data: arrayRelationData,
-    //                data: [{x: 1, y: 9}, {x: 2, y: 6}],
-                }]
-        };
-        var myBar = new Chart(ctx, {
-            data: barChartData,
-            type: 'bar',
-            options: {
-                // adjust the size of chart 
-                responsive: true,
-
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Average score of one division'
-                },
-    //            scales: {
-    //                xAxes: [{
-    //                        type: 'linear',
-    //                        position: 'bottom'
-    //                    }]
-    //            }
-
-            }
-        });
+        });   
     }
 </script>
 <script type='text/javascript'> window.onload=init; </script>
