@@ -1,5 +1,4 @@
 <?php
-
 class Residents_model extends CI_Model {
 
     public function get_residents($ID_Elder = FALSE) {

@@ -1,4 +1,3 @@
-
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 <div class="container">

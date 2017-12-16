@@ -69,8 +69,7 @@
             $data['Member_Since']=$this->lang->line('Member_Since');
             $data['Number_filled']=$this->lang->line('Number_filled');
             $data['Average_Score']=$this->lang->line('Average_Score');
-            $data['Question']=$this->lang->line('Question');
-            
+            $data['Question']=$this->lang->line('Question');      
             $data['RoomNumber']=$this->lang->line('RoomNumber');
             $data['Facility']=$this->lang->line('Facility');
             $data['Birthday']=$this->lang->line('Birthday');
@@ -83,7 +82,6 @@
             $data['LastName']=$this->lang->line('LastName');
             $data['Gender']=$this->lang->line('Gender');
             $data['RoomNumber']=$this->lang->line('RoomNumber');
-            
             $data['Facility']=$this->lang->line('Facility');
             $data['Select_Facility']=$this->lang->line('Select_Facility');
             $data['FIND']=$this->lang->line('FIND');  
