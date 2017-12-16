@@ -31,11 +31,23 @@
             $results=$this->Overview_Model->get_Types();
             echo(json_encode($results));
         }
+        
+        public function getDivisions(){
+            $this->load->model('Overview_Model');
+            $results=$this->Overview_Model->get_divisions(1);
+            echo(json_encode($results));
+        }
         public function test(){
             $Type=$this->input->get('type');
             $ID_elder=$this->input->get('ID_elder');
+            $test=$this->input->get('test');
             //$this->load->model('Overview_Model');
-            //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
+            if($test=="elder"){
+                //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
+            }
+            else{
+               //$results=$this->Overview_Model->get_score_division($Type,$ID_elder); 
+            }
             //$row['thescores']=$results["avg_Scores"];
             $row['thescores']=array( array("Timestamp" => "Last_Three_Week",
                                 "AvgScore" => 10),
@@ -118,7 +130,7 @@
             $data['divisions']=$this->Overview_Model->get_divisions('1');
             $data['info']=$this->Overview_Model->get_questioninfo($ID_Question);
             for($i=0;$i<sizeof($data['divisions']['divisions']);$i++){
-                $data['score'][$i]=$this->Overview_Model->get_score_division($data['divisions']['divisions'][$i]->divisions,$ID_Question);
+                $data['score'][$i]=$this->Overview_Model->get_score_division($data['divisions']['divisions'][$i]->Type,$ID_Question);
             }
             $this->parser->parse('pages_caregiver/chartViewQes', $data);
         }

@@ -244,7 +244,7 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
-        drawChart(elder);
+        drawChart(elder,"elder");
     }
     
      function getChartQuestion(ques){
@@ -256,24 +256,30 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
         xmlhttp.send();
-        drawChart();
+        drawChart(ques,"ques");
     }
     
-    function getData(elder){
+    function getData(elder,value){ 
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
                     if(xmlhttp.readyState === XMLHttpRequest.DONE){
                              topics = xmlhttp.responseText;
                     }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTypes",false);
+        if(value==="elder"){
+             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTypes",false);
+        }
+        else{
+             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
+        }
         xmlhttp.send();
         topics=jQuery.parseJSON(topics);
         datascore=[];
         data=[];
         time=[];
         for(var topic in topics){
-            input=collectData(elder,topics[topic]);
+            input=collectData(elder,topics[topic],value);
+            console.log(input);
             for(var value in input){
                 datascore[value]=input[value]["AvgScore"];
                 if(time.indexOf(input[value]["Timestamp"])===-1){
@@ -282,25 +288,25 @@
             }
             data[topics[topic]["Type"]]=datascore;
         }
-        //console.log(data);
-        //console.log(time);
+        console.log(data);
+        console.log(time);
     }
-    function collectData(elder,topic){
+    function collectData(elder,topic,test){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
                     if(xmlhttp.readyState === XMLHttpRequest.DONE){
                              input = xmlhttp.responseText;
                     }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/test?type="+topic+"&ID_elder"+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/test?type="+topic+"&ID_elder"+elder+"&test"+test,false);
         xmlhttp.send();
         cdata=jQuery.parseJSON(input);
         cdata=cdata["thescores"];
         return cdata;
     }
-    function drawChart(elder){
-        getData(elder);
-        console.log(time);
+    function drawChart(elder,test){
+        getData(elder,test);
+        //console.log(time);
         var xarray = time;
         var arrayPrivacyData = data["Privacy"];
         var arrayRelationData = data["Personal Relationships"];

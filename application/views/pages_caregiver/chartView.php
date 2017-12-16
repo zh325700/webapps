@@ -48,14 +48,7 @@
                 <p style="padding-top: 10px; font-size: 20px;" > <?php echo $info["info"][0]->Member_Since; ?></p>
         </div>
     </div>
-<div class="row">
-    <div style="width:120vh; height: 50vh;">  <!-- vh stands for the height of the browser-->
-        <canvas id="canvas"></canvas>
-    </div>
 </div>
-</div>
-
-
 <div style="width:120vh; height: 70vh;">  <!-- vh stands for the height of the browser-->
     <canvas id="WeeklyTopicScore"></canvas>
 </div>

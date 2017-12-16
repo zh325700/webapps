@@ -100,7 +100,7 @@
         }
         
         public function get_divisions($ID_facility){
-            $this->db->select('DISTINCT(division) divisions');
+            $this->db->select('DISTINCT(division) Type');
             $this->db->where('ID_Facility',$ID_facility);
             $this->db->from('Elder');
             $query=$this->db->get();
@@ -148,7 +148,7 @@
         }
         
         public function get_score_division($Division,$ID_Question){
-            $this->db->select('AVG(Answers.Score) avg_Score, Answers.DateStamp timestamp,Elder.division division');
+            $this->db->select('AVG(Answers.Score) avg_Score, Answers.DateStamp DateStamp,Elder.division division');
             $this->db->where('Answers.ID_Question',$ID_Question);
             $this->db->where('Elder.division',$Division);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');

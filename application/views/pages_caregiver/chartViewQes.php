@@ -13,8 +13,6 @@
 	purple: 'rgb(153, 102, 255)',
 	grey: 'rgb(201, 203, 207)'*/
 </style>
-<div id="st" class="<?php echo json_encode($secondarray); ?>"></div>
-<div id="tt" class="<?php echo json_encode($newarray); ?>"></div>
 
 <div class="row" style="text-align:center">
     <div class=" col-md-2">
@@ -39,12 +37,7 @@
                 <p style="padding-top: 10px; font-size: 20px;" >Type:&ensp;&ensp; <?php echo $info[0]->type; ?></p>
         </div>
     </div>
-    <div style="width:120vh; height: 50vh;">  <!-- vh stands for the height of the browser-->
-        <canvas id="canvas"></canvas>
+    <div style="width:120vh; height: 70vh;">  <!-- vh stands for the height of the browser-->
+        <canvas id="WeeklyTopicScore"></canvas>
     </div>
-</div>
-
-
-<div style="width:120vh; height: 70vh;">  <!-- vh stands for the height of the browser-->
-    <canvas id="WeeklyTopicScore"></canvas>
 </div>
