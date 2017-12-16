@@ -63,6 +63,17 @@
             $data['Add_Facility']=$this->lang->line('Add_Facility');
             $data['Find_Facility']=$this->lang->line('Find_Facility');
             $data['Division_Timestamp']=$this->lang->line('Division_Timestamp');
+            $data['FirstName']=$this->lang->line('FirstName');
+            $data['LastName']=$this->lang->line('LastName');
+            $data['Gender']=$this->lang->line('Gender');
+            $data['Member_Since']=$this->lang->line('Member_Since');
+            $data['Number_filled']=$this->lang->line('Number_filled');
+            $data['Average_Score']=$this->lang->line('Average_Score');
+            $data['Question']=$this->lang->line('Question');
+            
+            $data['RoomNumber']=$this->lang->line('RoomNumber');
+            $data['Facility']=$this->lang->line('Facility');
+            $data['Birthday']=$this->lang->line('Birthday');
             return $data;
         }
         

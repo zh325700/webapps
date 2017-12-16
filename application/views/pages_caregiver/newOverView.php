@@ -299,6 +299,55 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
         xmlhttp.send();
+        //var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
+        var xarray=[1,2,3,4,5,6];
+        //var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
+        var arrayfoodData=[3,3,4,3,4,3];
+        //var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
+        var arrayRelationData=[2,2,3,2,2,1];
+        var ctx = document.getElementById("canvas").getContext("2d");
+        var barChartData = {
+            labels: xarray,
+            datasets: [{
+                    label: "Privacy",
+                    borderColor: "rgb(255, 99, 132)",
+                    backgroundColor: "rgb(255, 99, 132)",
+                    fill: false,
+                    data: arrayfoodData,
+    //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
+
+                }, {
+                    label: "Relationship",
+                    borderColor: 'rgb(54, 162, 235)',
+                    backgroundColor: 'rgb(54, 162, 235)',
+                    fill: false,
+                    data: arrayRelationData,
+    //                data: [{x: 1, y: 9}, {x: 2, y: 6}],
+                }]
+        };
+        var myBar = new Chart(ctx, {
+            data: barChartData,
+            type: 'bar',
+            options: {
+                // adjust the size of chart 
+                responsive: true,
+
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Average score of one topic'
+                },
+    //            scales: {
+    //                xAxes: [{
+    //                        type: 'linear',
+    //                        position: 'bottom'
+    //                    }]
+    //            }
+
+            }
+        });
     }
 </script>
 <script type='text/javascript'> window.onload=init; </script>

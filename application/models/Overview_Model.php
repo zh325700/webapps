@@ -143,7 +143,7 @@
             $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
             $this->db->from('Questions');
             $query=$this->db->get();
-            $data['Info']=$query->result();
+            $data=$query->result();
             return $data;
         }
         

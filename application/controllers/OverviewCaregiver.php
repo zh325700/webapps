@@ -63,6 +63,9 @@
         }
         
         public function getChartElder(){
+            $this->lang->load('Dutch_lang','dutch');
+            $this->load->model('Language_model');
+            $data=$this->Language_model->DataOverview();
             $ID_Elder=$this->input->get('ID_Elder');
             $this->load->model('Overview_Model');
             $data['Topics']=$this->Overview_Model->get_Types();
@@ -74,6 +77,9 @@
         }
         
         public function getChartQuestion(){
+                      $this->lang->load('Dutch_lang','dutch');
+            $this->load->model('Language_model');
+            $data=$this->Language_model->DataOverview();
             $ID_Question=$this->input->get('ID_Question');
             $this->load->model('Overview_Model');
             $data['divisions']=$this->Overview_Model->get_divisions('1');
@@ -81,7 +87,7 @@
             for($i=0;$i<sizeof($data['divisions']['divisions']);$i++){
                 $data['score'][$i]=$this->Overview_Model->get_score_division($data['divisions']['divisions'][$i]->divisions,$ID_Question);
             }
-            $this->parser->parse('chartTemp', $data);
+            $this->parser->parse('pages_caregiver/chartViewQes', $data);
         }
         
     }

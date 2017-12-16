@@ -56,24 +56,22 @@ if (!empty($score["relationship"])) {
 
 $secondarray= array_merge($arrayPrivacyScore,$arrayRelationshipScore);
 $newarray = array_merge($arrayPrivacyWeek, $arrayRelationshipWeek);
-echo(json_encode($secondarray));
 ?>
 <div id="st" class="<?php echo json_encode($secondarray); ?>"></div>
 <div id="tt" class="<?php echo json_encode($newarray); ?>"></div>
 <div class="row">
-        <div class=" col-md-4" data-step="1" data-intro="Here is the image of the resident">
-            <img class="thumbnail" height="100" width="100"  src="<?php echo base_url(); ?>/image/photos/<?php echo $info['info'][0]->Picture; ?>">
+        <div class=" col-md-3" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
+            <p style="padding-top: 10px; font-size: 20px;"  >{Question}:&ensp;&emsp;</p>
+            <p style="padding-top: 10px; font-size: 20px;" > {Number_filled}:&emsp;&emsp;&ensp;&ensp;</p>
+            <p style="padding-top: 10px; font-size: 20px;" >{Average_Score}:&emsp;&emsp;&ensp;</p>
         </div>
-        <div class=" col-md-4" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
-                <p style="padding-top: 10px; font-size: 20px;"  >{LastName}:&emsp;&ensp; <?php echo $info['info'][0]->FirstName; ?></p>
-                <p style="padding-top: 10px; font-size: 20px;" >{FirstName}:&emsp;&ensp; <?php echo $info['info'][0]->LastName; ?></p>
-                <p style="padding-top: 10px; font-size: 20px;"  >{Gender}:&emsp;&emsp;&ensp;&ensp; <?php echo $info['info'][0]->Gender; ?></p>
-                <p style="padding-top: 10px; font-size: 20px;" >{Birthday}:&emsp;&emsp;&ensp; <?php echo $info["info"][0]->BirthDay; ?></p>
+        <div class=" col-md-5">
+            <p style="padding-top: 10px; font-size: 20px;"  ><?php echo $info[0]->question; ?> </p>
+            <p style="padding-top: 10px; font-size: 20px;"  > <?php echo $info[0]->NumberAnswers; ?></p>
+            <p style="padding-top: 10px; font-size: 20px;"  > <?php echo $info[0]->avg_score; ?></p>
         </div>
         <div class=" col-md-4">
-                <p style="padding-top: 10px; font-size: 20px;" >{RoomNumber}:&ensp;&ensp; <?php echo $info["info"][0]->RoomNumber; ?></p>
-                <p style="padding-top: 10px; font-size: 20px;" >{Facility}:&emsp;&emsp;&emsp;&ensp;&ensp; <?php echo $info["info"][0]->Division; ?></p>
-                <p style="padding-top: 10px; font-size: 20px;" >{Member_Since}:&emsp; <?php echo $info["info"][0]->Member_Since; ?></p>
+                <p style="padding-top: 10px; font-size: 20px;" >Type:&ensp;&ensp; <?php echo $info[0]->type; ?></p>
         </div>
     </div>
     <div style="width:120vh; height: 50vh;">  <!-- vh stands for the height of the browser-->
@@ -94,7 +92,7 @@ echo(json_encode($secondarray));
     var barChartData = {
         labels: xarray,
         datasets: [{
-                label: "Privacy",
+                label: "paviljoen",
                 borderColor: "rgb(255, 99, 132)",
                 backgroundColor: "rgb(255, 99, 132)",
                 fill: false,
@@ -102,7 +100,7 @@ echo(json_encode($secondarray));
 //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
 
             }, {
-                label: "Relationship",
+                label: "verdieping 1",
                 borderColor: 'rgb(54, 162, 235)',
                 backgroundColor: 'rgb(54, 162, 235)',
                 fill: false,
@@ -122,7 +120,7 @@ echo(json_encode($secondarray));
             },
             title: {
                 display: true,
-                text: 'Average score of one topic'
+                text: 'Average score of one division'
             },
 //            scales: {
 //                xAxes: [{
