@@ -9,7 +9,7 @@ class Process_login extends CI_Controller{
             
             if($this->functions_model->login($user,$password)==true){
                 //login succes
-                redirect('Welcome/Overview/newoverview','refresh'); 
+                redirect('Welcome/Overview/newOverView','refresh'); 
             }
             else{
                 //login failed
