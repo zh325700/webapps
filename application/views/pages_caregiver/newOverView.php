@@ -105,9 +105,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="row" align="right">
+                    <input Type="button" class="btn logout btn-lg" Value="LOGOUT" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
+                </div>
             </div>
+        
         </div>
-    
+        
     
     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
@@ -240,7 +244,6 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
-        console.log(document.getElementById("st").getAttribute("class").split(","));
         //var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
         var xarray=[1,2,3,4,5,6];
         //var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);

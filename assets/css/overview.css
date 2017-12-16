@@ -136,3 +136,9 @@ button.tab{
     text-decoration: none;
     cursor: pointer;
 }
+
+input.logout{
+       float:right;
+       font-size: 30px;
+       color: #61B749;
+    }

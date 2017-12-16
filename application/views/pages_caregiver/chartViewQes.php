@@ -59,6 +59,15 @@ $newarray = array_merge($arrayPrivacyWeek, $arrayRelationshipWeek);
 ?>
 <div id="st" class="<?php echo json_encode($secondarray); ?>"></div>
 <div id="tt" class="<?php echo json_encode($newarray); ?>"></div>
+
+<div class="row" style="text-align:center">
+    <div class=" col-md-2">
+    <button class="btn tab" onclick="getScores()" style="margin-top:10px; margin-left: 10px"> Back </button>
+    </div>
+    <div class=" col-md-10">
+    <p style="font-size:25px; color:#404C86"> Statestiek van vraag</p>
+    </div>
+</div>
 <div class="row">
         <div class=" col-md-3" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
             <p style="padding-top: 10px; font-size: 20px;"  >{Question}:&ensp;&emsp;</p>
