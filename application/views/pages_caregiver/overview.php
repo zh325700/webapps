@@ -133,7 +133,7 @@
             xmlhttp.send();
             document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
             var buttons=document.getElementsByClassName("li");
-            for(var k=0,length=buttons.length;i<length;i++){
+            for(var i=0,length=buttons.length;i<length;i++){
                value=buttons[i].getAttribute("id");
                console.log(value);
                buttons[i].addEventListener("click",function(){getTimeDiv(value);}); 

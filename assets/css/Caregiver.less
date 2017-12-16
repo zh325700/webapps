@@ -9,11 +9,13 @@
 @sober-color-dark: black;
 @fontsize-elder:50px;
 
+
 #homebutton{
 	position: fixed;
 	top: 0;
 	left: 0;
 }
+
 #logoutbutton{
 	position: fixed;
 	top: 0;
@@ -69,10 +71,10 @@
         align-items:center;
         justify-content:center;
         .box{
-            background-color:@primary-color-light;
-            width:400px;
-            height:450px;
-            border-radius:10px;
+            background-color:rgba(0,0,140,0.25);
+            width:500px;
+            height:480px;
+            border-radius:25px;
             .sg{
                margin:10px;
                 .pic{
@@ -93,27 +95,30 @@
                 .login-button{
                      width:90%;
                      height:60px;
-                     margin: 10% 0 0 10%;
+                     margin: 10% 0 0 7%;
                      font-size: 24px;
                      border-radius: 10px;
-                     border-bottom-width: 5px;
+                     background-color:#32B232;
+                     border-top-color: #32B232;
+                     border-left-color: #32B232;                                       
+                     color:#fff
+                     
+                         
                 }
-                .input-group-addon{
-                    background:0 0;
-                    border:0;
-                    border-radius:0;
-                   border-bottom:1px solid @sober-color-dark;
+                .input-group{
+                    width:90%;
+                    height:90%;
+                    padding-bottom: 5%;               
+                                    
                     input[type=text],
                     input[type=password]{
-                        background:0 0;
-                        background-color:@sober-color-light;
-                        border:0;
-                        border-radius:0;
-                        border-bottom:1px solid @sober-color-dark;
+                                          
+                        margin-left: 7%;
+                        height:60px;
+                        border-radius:10px;
+                        
                     }
-                    .user{
-                        color:@sober-color-dark;
-                    }
+                   
                 } 
                  
        }
@@ -150,10 +155,14 @@
     }
 
      h2{
-        background-color:@primary-color-mid;
-        width: 200%;
-        border-radius: 5px;
-        position: relative;
+        color:white;
+        float:bottom; 
+        padding-bottom: 50px;
+        margin-left: 120px;
+        /*color: #00008C;*/
+        font-family: sans-serif;
+        font-size: 50px;
+        font-style:bold;
     }
     
     //the extra css of the editting and overview of the facilities

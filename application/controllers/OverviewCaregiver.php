@@ -77,7 +77,11 @@
         }
         
         public function getChartQuestion(){
+<<<<<<< HEAD
             $this->lang->load('Dutch_lang','dutch');
+=======
+                      $this->lang->load('Dutch_lang','dutch');
+>>>>>>> 7bfc79bb532dd1521c29e530f03f663d1732cbca
             $this->load->model('Language_model');
             $data=$this->Language_model->DataOverview();
             $ID_Question=$this->input->get('ID_Question');
@@ -89,5 +93,6 @@
             }
             $this->parser->parse('pages_caregiver/chartViewQes', $data);
         }
+        
     }
 ?>

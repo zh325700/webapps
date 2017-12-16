@@ -64,13 +64,21 @@ echo(json_encode($secondarray));
         <div class=" col-md-2" data-step="1" data-intro="Here is the image of the resident">
             <img class="thumbnail" height="100" width="100"  src="<?php echo base_url(); ?>/image/photos/<?php echo $info['info'][0]->Picture; ?>">
         </div>
+<<<<<<< HEAD
         <div class=" col-md-5" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
+=======
+        <div class=" col-md-4" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
+>>>>>>> 7bfc79bb532dd1521c29e530f03f663d1732cbca
                 <p style="padding-top: 10px; font-size: 20px;"  >{LastName}:&emsp;&ensp; <?php echo $info['info'][0]->FirstName; ?></p>
                 <p style="padding-top: 10px; font-size: 20px;" >{FirstName}:&emsp;&ensp; <?php echo $info['info'][0]->LastName; ?></p>
                 <p style="padding-top: 10px; font-size: 20px;"  >{Gender}:&emsp;&emsp;&ensp;&ensp; <?php echo $info['info'][0]->Gender; ?></p>
                 <p style="padding-top: 10px; font-size: 20px;" >{Birthday}:&emsp;&emsp;&ensp; <?php echo $info["info"][0]->BirthDay; ?></p>
         </div>
+<<<<<<< HEAD
         <div class=" col-md-5">
+=======
+        <div class=" col-md-4">
+>>>>>>> 7bfc79bb532dd1521c29e530f03f663d1732cbca
                 <p style="padding-top: 10px; font-size: 20px;" >{RoomNumber}:&ensp;&ensp; <?php echo $info["info"][0]->RoomNumber; ?></p>
                 <p style="padding-top: 10px; font-size: 20px;" >{Facility}:&emsp;&emsp;&emsp;&ensp;&ensp; <?php echo $info["info"][0]->Division; ?></p>
                 <p style="padding-top: 10px; font-size: 20px;" >{Member_Since}:&emsp; <?php echo $info["info"][0]->Member_Since; ?></p>

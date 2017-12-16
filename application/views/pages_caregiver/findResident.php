@@ -28,7 +28,7 @@
         array_push($arraylastname, $res['LastName']);
         array_push($arrayFirstname, $res['FirstName']);
         array_push($arrayRoom, $res['RoomNumber']);
-        array_push($arrayFacility, $res['ID_Facility']);
+        array_push($arrayFacility, $res['ID_facility']);
         array_push($arraySex, $res['Sex']);
     }
     ?>
@@ -97,7 +97,7 @@
                     'Picture' => $res['Picture'],
                     'ID_Elder' => $res['ID_Elder'],
                     'RoomNumber' => $res['RoomNumber'],
-                    'ID_Facility' => $res['ID_Facility']
+                    'ID_Facility' => $res['ID_facility']
                 );
             }
 
@@ -125,7 +125,7 @@
 // Calling function
             getResidentBy('LastName', 'LastName', $array);
             getResidentBy('RoomNumber', 'RoomNumber', $array);
-            getResidentBy('ID_Facility', 'ID_Facility', $array);
+            getResidentBy('ID_facility', 'ID_facility', $array);
             getResidentBy('Sex', 'Sex', $array);
             getResidentBy('FirstName', 'FirstName', $array);
             ?>

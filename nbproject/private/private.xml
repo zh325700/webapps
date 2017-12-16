@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -22,3 +23,38 @@
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< OURS
+        <group/>
+=======
+        <group>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/categories.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/OverviewCaregiver.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/question.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/models/Language_model.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/language/dutch/Dutch_lang.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/config/config.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/LoginResident.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/models/Residents_model.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/newOverView.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/chartView.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_admin/registerCaregiver.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/assets/css/Caregiver.less</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/login_verification.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/login_resident.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/Question.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/menu.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/overview.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/Welcome.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/assets/css/residentsLore.less</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/models/Overview_Model.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/image/pictograms/activities.png</file>
+        </group>
+>>>>>>> THEIRS
+    </open-files>
+</project-private>
+>>>>>>> 7bfc79bb532dd1521c29e530f03f663d1732cbca
