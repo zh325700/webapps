@@ -39,7 +39,7 @@
 		defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
 		
-		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
+		<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
             <?php
                 $date = $resident['Birthday'];
                 $fontSize = $resident['FontSize']
@@ -163,11 +163,11 @@
                                 var match = input.match(regExp);
                                 if (match) {
                                     if (input === date) {
-                                        if (fontSize) {
+                                        //if (fontSize) {
                                             loadPage('Welcome', 'Resident/menu');
-                                        } else {
-                                            loadPage('Fontsize_resident', 'index');
-                                        }
+                                        //} else {
+                                         //   loadPage('Fontsize_resident', 'index');
+                                        //}
                                     } else {
                                         alert("Datum klopt niet.");
                                     }
