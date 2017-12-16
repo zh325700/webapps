@@ -138,12 +138,12 @@
         }
         
         public function get_questioninfo($ID_Question){
-            $this->db->select('Questions.Question_nl question,Questions.Type_nl type,COUNT(Answers.Score) NumberAnswers, AVG(Answers.Score) avg_score');
+            $this->db->select('Questions.Question_en question,Questions.Type_en type,COUNT(Answers.Score) NumberAnswers, AVG(Answers.Score) avg_score');
             $this->db->where('Questions.ID_Question',$ID_Question);
             $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
             $this->db->from('Questions');
             $query=$this->db->get();
-            $data['Info']=$query->result();
+            $data=$query->result();
             return $data;
         }
         
