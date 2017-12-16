@@ -25,7 +25,7 @@
                         <ul class="sidebar-nav nav">
                             <li>
                                 <a href="#anch2" id="btn_general">
-                                    <span class="fa fa-home solo">General</span>
+                                    <span class="fa fa-home solo">{general}</span>
                                 </a>
                             </li>
                             <li class="dropdown" id="dropdown_floors">   <!--with this id style change.-->
@@ -42,35 +42,35 @@
                             </li>
                             <li>
                                 <a  href="<?php echo base_url(); ?>index.php/LoginResident/view"  id="button_elderly">
-                                    <span class="fa fa-anchor solo">Login Resident</span>
+                                    <span class="fa fa-anchor solo">{Login_Resident}</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/find" id="button_resqes">
-                                    <span class="fa fa-anchor solo">Find Resident</span>
+                                    <span class="fa fa-anchor solo">{Find_Resident}</span>
                                 </a>
                             </li>
                             <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/addfacility_control/find" id="button_resqes">
-                                        <span class="fa fa-anchor solo">Find Facility</span>
+                                        <span class="fa fa-anchor solo">{Find_Facility}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/create" id="button_resqes">
-                                        <span class="fa fa-anchor solo">Add Resident</span>
+                                        <span class="fa fa-anchor solo">{Add_Resident}</span>
                                     </a>
                                 </li>
                             <?php endif; ?>
                             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/addfacility_control/addfacility" id="button_resqes">
-                                        <span class="fa fa-anchor solo">Add Facility</span>
+                                        <span class="fa fa-anchor solo">{Add_Facility}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/AdminRegister/register_caregiver" >
-                                        <span class="fa fa-anchor solo">Add Caregiver</span>
+                                        <span class="fa fa-anchor solo">{Add_Caregiver}</span>
                                     </a>
                                 </li>
                             <?php endif; ?>
@@ -110,7 +110,7 @@
     
     
     
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
 
 <script type="text/javascript">
     //makes the eventlisteners for the two buttons
@@ -180,7 +180,6 @@
             var buttons2=document.getElementsByClassName("li");
             for(var i=0,length=buttons2.length;i<length;i++){
                 value=buttons2[i].getAttribute("id");
-                
                buttons2[i].addEventListener("click",function(){getScoresDiv(value);}); 
             }
     }
@@ -242,9 +241,12 @@
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
         console.log(document.getElementById("st").getAttribute("class").split(","));
-        var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
-        var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
-        var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
+        //var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
+        var xarray=[1,2,3,4,5,6];
+        //var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
+        var arrayfoodData=[3,3,4,3,4,3];
+        //var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
+        var arrayRelationData=[2,2,3,2,2,1];
         var ctx = document.getElementById("canvas").getContext("2d");
         var barChartData = {
             labels: xarray,
@@ -299,17 +301,14 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
         xmlhttp.send();
-        //var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
-        var xarray=[1,2,3,4,5,6];
-        //var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
-        var arrayfoodData=[3,3,4,3,4,3];
-        //var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
-        var arrayRelationData=[2,2,3,2,2,1];
+        var xarray = [1,2,3,4,5];
+        var arrayfoodData = [3,4,5,5,4];
+        var arrayRelationData = [1,2,1,3,4];
         var ctx = document.getElementById("canvas").getContext("2d");
         var barChartData = {
             labels: xarray,
             datasets: [{
-                    label: "Privacy",
+                    label: "paviljoen",
                     borderColor: "rgb(255, 99, 132)",
                     backgroundColor: "rgb(255, 99, 132)",
                     fill: false,
@@ -317,7 +316,7 @@
     //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
 
                 }, {
-                    label: "Relationship",
+                    label: "verdieping 1",
                     borderColor: 'rgb(54, 162, 235)',
                     backgroundColor: 'rgb(54, 162, 235)',
                     fill: false,
@@ -337,7 +336,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Average score of one topic'
+                    text: 'Average score of one division'
                 },
     //            scales: {
     //                xAxes: [{
@@ -352,14 +351,14 @@
 </script>
 <script type='text/javascript'> window.onload=init; </script>
 
-    </body>
+
 
 <?php else: ?>
-    <p>
-        <br><br><br>
-    <center>
-        <span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
-    </center>
-    <br><br><br>
-    </p>
+<p>
+<br><br><br>
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
+<br><br><br>
+</p>
 <?php endif; ?>

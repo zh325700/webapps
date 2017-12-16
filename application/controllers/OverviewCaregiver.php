@@ -11,6 +11,14 @@
             $row['thescores']=$this->Overview_Model->convert($row['thescores']);
             $row['theelder']=$this->Overview_Model->convert($row['theelder']);
             $data= array(
+                "More_Info"=>"Meer informatie",
+                "division"=>"",
+                "RoomNumber"=>$this->lang->line('RoomNumber'),
+                "FirstName"=>$this->lang->line('FirstName'),
+                "LastName"=>$this->lang->line('LastName'),
+                "Score"=>$this->lang->line('Score'),
+                "Question"=>$this->lang->line('Question'),
+                "avg_Score"=>$this->lang->line('avg_Score'),
                 "title_tab1"=>$this->lang->line('title_general1'),
                 "title_tab2"=>$this->lang->line('title_general2'),
                 "content_qes"=>$this->parser->parse('pages_caregiver/Question_score',$row,TRUE),
@@ -29,6 +37,11 @@
             $row['thescores']=$this->Overview_Model->convert($row['thescores']);
             $row['theelder']=$this->Overview_Model->convert($row['theelder']);
             $data= array(
+                "division"=>$division,
+                "RoomNumber"=>$this->lang->line('RoomNumber'),
+                "FirstName"=>$this->lang->line('FirstName'),
+                "LastName"=>$this->lang->line('LastName'),
+                "Score"=>$this->lang->line('Score'),
                 "title_tab1"=>$this->lang->line('title_division'),
                 "title_tab2"=>$this->lang->line('title_division2'),
                 "content_qes"=>$this->parser->parse('pages_caregiver/Question_score',$row,TRUE),
@@ -77,11 +90,7 @@
         }
         
         public function getChartQuestion(){
-<<<<<<< HEAD
             $this->lang->load('Dutch_lang','dutch');
-=======
-                      $this->lang->load('Dutch_lang','dutch');
->>>>>>> 7bfc79bb532dd1521c29e530f03f663d1732cbca
             $this->load->model('Language_model');
             $data=$this->Language_model->DataOverview();
             $ID_Question=$this->input->get('ID_Question');

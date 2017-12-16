@@ -15,7 +15,7 @@
             if($page == 'login'){
                 $data=$this->DataLogin();
             }
-            elseif($page== 'overview'){
+            elseif($page== 'newOverView'){
                 $data=$this->DataOverview();
             }
             elseif($page== 'findres'){
@@ -62,6 +62,7 @@
             $data['Login_Resident']=$this->lang->line('Login_Resident');
             $data['Add_Facility']=$this->lang->line('Add_Facility');
             $data['Find_Facility']=$this->lang->line('Find_Facility');
+            $data['Add_Caregiver']=$this->lang->line('Add_Caregiver');
             $data['Division_Timestamp']=$this->lang->line('Division_Timestamp');
             $data['FirstName']=$this->lang->line('FirstName');
             $data['LastName']=$this->lang->line('LastName');

@@ -22,8 +22,6 @@ class Welcome extends CI_Controller {
         $this->load->model('Language_model');
         $this->lang->load('Dutch_lang', 'dutch');
         $data = $this->Language_model->getData('Dutch', $page);
-
-        $this->load->view('pages_generalised/header');
         $this->load->view('pages_generalised/caregiver');
         $this->parser->parse('pages_caregiver/' . $page, $data);
         $this->load->view('pages_generalised/footer');
