@@ -15,7 +15,7 @@
     <?php echo form_open_multipart('addfacility_control/update'); ?> <!--form_open_multipart so we can add image-->
         <div class="row">
             <div class="col-md-8">
-                <input type="hidden" name="ID_Facility" value="<?php echo $facility['ID_facility']; ?>" >
+                <input type="hidden" name="ID_facility" value="<?php echo $facility['ID_facility']; ?>" >
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-5 ">
@@ -67,8 +67,8 @@
         <div class="row insert-row"> 
             <div class="col col-md-4"></div>
             <div class="col col-md-2">
-              <button type="submit" class="btn btn-default btn-lg btn-block ">Edit Facility</button>
-           </div> 
+              <button class="btn btn-default btn-lg btn-block" onclick="loadPage('Addfacility_control', 'update/<?php echo $facility['ID_facility']; ?>')">{Edit}</button>
+             </div> 
         </div>
    
 </div>    

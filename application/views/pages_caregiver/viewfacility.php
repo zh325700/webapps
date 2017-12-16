@@ -21,8 +21,8 @@
 			<label class="facility">Street:&emsp;&emsp;&emsp;&ensp;{Street} </label><br>
 			<label class="facility">Number:&emsp;&emsp;&ensp;{Number} </label><br>
             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
-            <a class="btn btn-outline-primary pull-left" href="edit/{ID_facility}"><label class="facility">Edit</label></a>
-            <p><a class="btn btn-link match" href="<?php echo site_url('index.php/addfacility_control/delete/{ID_facility}'); ?>"><b> Read More</b></a></p>
+            <a class="btn btn-outline-primary pull-left" href="edit/{ID_facility}"><label class="facility" style=" text-decoration: underline;">Edit</label></a>
+            <p><a class="btn btn-link match" href="<?php echo site_url('addfacility_control/delete/{ID_facility}'); ?>"><b style=" text-decoration: underline;"> Delete</b></a></p>
             <?php endif; ?>
             </div>
         {/facility}

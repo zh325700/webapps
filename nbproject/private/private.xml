@@ -6,14 +6,27 @@
         <group/>
 =======
         <group>
-            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/editResident.php</file>
-            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_generalised/header.php</file>
-            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/CaregiverOperateResident.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/categories.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/OverviewCaregiver.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/question.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/models/Language_model.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/language/dutch/Dutch_lang.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/config/config.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/LoginResident.php</file>
             <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/models/Residents_model.php</file>
-            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/AdminRegister.php</file>
             <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/newOverView.php</file>
-            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/assets/css/overview.css</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/chartView.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_admin/registerCaregiver.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/assets/css/Caregiver.less</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/login_verification.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/login_resident.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/Question.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_resident/menu.php</file>
             <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/views/pages_caregiver/overview.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/controllers/Welcome.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/assets/css/residentsLore.less</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/application/models/Overview_Model.php</file>
+            <file>file:/C:/Users/zhanghan/Google%20Drive/GT_master/Web%20apps/a17_webapps02/image/pictograms/activities.png</file>
         </group>
 >>>>>>> THEIRS
     </open-files>
