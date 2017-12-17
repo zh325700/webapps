@@ -2,17 +2,17 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-5">
                 <h2 class="par1">Grace-AGE</h2>
             </div>
-            <div class="col-sm-8"></div>
+            <div class="col-sm-6"></div>
             <div class="col-sm-1">
                 <img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>
             </div>
         </div>
         
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
                 <h2> Kies een categorie </h2>
             </div>
         </div>
@@ -78,7 +78,7 @@
         </div>  
         
         <div class="row">
-		<div class="col-sm-offset-10 col-sm-2">
+		<div class="col-md-offset-10 col-sm-offset-9 col-sm-2">
                    <a id = "link" type="button" class="btn btn-lg logout" onclick="loadPage('Welcome', 'Caregiver/overview')">Afmelden</a>          
                 </div>     
 	</div>

@@ -52,7 +52,7 @@ class Residents_model extends CI_Model {
             'Sex' => $this->input->post('Sex'),
             'Birthday' => $this->input->post('Birthday'),
             'RoomNumber' => $this->input->post('RoomNumber'),
-            'ID_Facility' => $this->input->post('ID_Facility'),
+            'ID_facility' => $this->input->post('ID_facility'),
             'Picture' => $post_image
         );
 

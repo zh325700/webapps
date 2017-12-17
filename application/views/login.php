@@ -4,12 +4,12 @@
         
 	<div class="cont">
             <div class="row">
-                <h2 class="par1" style="color: #00008C;">Grace-AGE</h2>
+                <h2>Grace-AGE</h2>
                  
 		<div class="box">
 			<div class="row middle sg">
 				<div class="row sg pic">
-					<div class="col-md-4 col-md-offset-4">
+					<div class="col-sm-4 col-sm-offset-4">
 				        <img src="<?php echo base_url();?>/image/pictograms/logo.jpg" alt="" class="photo">
 					</div>
 				</div>

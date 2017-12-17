@@ -53,7 +53,7 @@
                 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-offset-2">
+                        <div class="col-sm-offset-2">
                             <h1>
                                 Login resident
                             </h1>
@@ -62,25 +62,52 @@
                 </div>
                 
                 <div class="container">
+<!--                    <div class="row">
+                        <div class="col-sm-4">
+                            <h1>
+                                Ik verblijf op :
+                            </h1>
+                        </div>
+                        <div class="col-sm-7 dropdown" style="padding-left: 0;">
+                            <button class="btn style btn-block" type="button" data-toggle="dropdown"><?= $division?><span class="caret"/></button>
+                            <ul class="dropdown-menu" style="text-height: text-size"> <h1>
+                                <li><a href="<?php echo base_url(); ?>index.php/LoginResident/loadByDivision?division=0">Verdieping 0</a></li>
+                                <li class="divider"></li>
+                                <li><a href="<?php echo base_url(); ?>index.php/LoginResident/loadByDivision?division=1">Verdieping 1</a></li>
+                                <li class="divider"></li>
+                                <li><a href="<?php echo base_url(); ?>index.php/LoginResident/loadByDivision?division=2">Verdieping 2</a></li>
+                                <li class="divider"></li>
+                                <li><a href="<?php echo base_url(); ?>index.php/LoginResident/loadByDivision?division=3">Verdieping 3</a></li> </h1>
+                            </ul>
+                        </div>
+                    </div>-->
                     <div class="row">
-                        <h1>
-                            I am a:
-                        </h1>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <button class="btn btn-lg button style btn-block" id="female_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/LoginResident/loadBySex?sex=F'">
+                        <div class="col-sm-4" style="margin-top: 2%; padding-left: 0">
+                            <h1>
+                                Ik ben een :
+                            </h1>
+                        </div>
+
+                        <div class="col-md-3 col-sm-4" style="padding-left: 0">
+                            <button class="btn style btn-block" id="female_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/LoginResident/loadBySex?sex=F'">
                                 Vrouw
                             </button>
                         </div>
-                        <div class="col-md-6">
-                            <button class="btn btn-lg button style btn-block" id="male_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/LoginResident/loadBySex?sex=M'">
+                        <div class="col-md-3 col-sm-4" style="padding-right: 0">
+                            <button class="btn style btn-block" id="male_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/LoginResident/loadBySex?sex=M'">
                                 Man
                             </button>
                         </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-12" style="padding-left: 0">
+                            <h1>
+                                Selecteer uw foto:
+                            </h1>
+                        </div>
                     </div>
                     <div class="row">
-                        <div id="overviewResidents" class="col-md-12" style="overflow:scroll; height:available;">
+                        <div id="overviewResidents" class="col-md-12 border-style " style="overflow-y: scroll; height: 50%;">
                             <?php
                             foreach ($residents as $res) {
                                 $fName = $res['FirstName'];
@@ -88,12 +115,12 @@
                                 $pic = $res['Picture'];
                                 $id = $res['ID_Elder'];
                                 ?>
-                                <div style="display: inline-block">
+                            <div class="col-sm-3" style="display: inline-block; margin-top: 2%; margin-bottom: 2%; margin-right: 7%;">
                                     <img onclick="loadPage('LoginResident', 'verification?id=<?= $id ?>')"
                                          src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>"
                                          alt="<?php echo $lName ?>" 
                                          style="width:200px ;height:200px;border:10px blue;">
-                                    <figcaption class="text-center"><?= $fName; ?> <?= $lName; ?> </figcaption>
+                                    <figcaption class="col-sm-2"><?= $fName; ?> <?= $lName; ?> </figcaption>
                                 </div>
                                 <?php
                             }
