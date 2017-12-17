@@ -126,7 +126,9 @@ button.tab{
     text-decoration: none;
     cursor: pointer;
 }
-
+.panel-group .panel-body{
+    background-color: #EDEEF4;
+}
 input.logout{
        float:right;
        font-size: 20px;

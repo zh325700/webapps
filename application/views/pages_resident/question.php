@@ -49,18 +49,20 @@ if (login_check() == true) {
 		<?php
 		defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
-        	<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
+            
+        	
+                
 
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-offset-1" style="padding-left: 0">
+            <div class="col-md-offset-1" style="padding-left: 20px">
                  <img src="<?php echo base_url(); ?>/image/pictograms/food.png" alt="" class="align"/>
             </div>
             <div class="col-sm-offset-1">
                 <h1>
-                   Eten (vraag1)
+                   Eten (vraag <p id="question_number" style="display: inline">1</p>)
                 </h1>
             </div>
         </div>
@@ -68,36 +70,36 @@ if (login_check() == true) {
  
     <div class="container" >   
 	<div class="row">
-		<div class="col-sm-8" style="padding-left: 0">
-			<h2 id = "question_content"><?php echo $first_question;?></h2>
+		<div class="col-sm-8" style="padding-left: 20px">
+			<h2 id = "question_content"></h2>
 		</div>
 	</div>
         
         
 	<div class="row" >
-		<div class="col-sm-2" style="padding-left: 0">
+		<div class="col-sm-2">
                         <img src="<?php echo base_url(); ?>/image/pictograms/smiley1.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
 		</div>
-		<div class="col-sm-2" style="padding-left: 0">
+		<div class="col-sm-2">
                         <img src="<?php echo base_url(); ?>/image/pictograms/smiley2.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
 		</div>
-		<div class="col-sm-2" style="padding-left: 0">
+		<div class="col-sm-2">
                         <img src="<?php echo base_url(); ?>/image/pictograms/smiley3.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
 		</div>
-		<div class="col-sm-2" style="padding-left: 0">
+		<div class="col-sm-2">
                         <img src="<?php echo base_url(); ?>/image/pictograms/smiley4.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
 		</div> 
-		<div class="col-sm-2" style="padding-left: 0">
+		<div class="col-sm-2">
                         <img src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
 		</div>    
-                <div class="col-sm-2" style="padding-left: 0">
-                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                <div class="col-sm-2">
+                        <img src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
 		</div> 
 	</div>
         
         <div class="row">
 		<div class="col-sm-2">
-                    <p>Nooit</p>
+                    <p >Nooit</p>
 		</div>
 		<div class="col-sm-2">
                     <p>Zelden</p>
@@ -112,12 +114,12 @@ if (login_check() == true) {
                     <p>Altijd</p>
 		</div>  
                 <div class="col-sm-2">
-                    <p>Ik weet het niet</p>
+                    <p>Ik weet </br>het niet</p>
 		</div> 
         </div>
         
 	<div class="row">
-            <div class="col-sm-offset-1 col-sm-1">
+            <div class="col-sm-offset-0 col-sm-3">
                 <a id = "link" type="button" class="btn btn-lg logout" onclick="javascript:previous()">Vorige vraag</a>          
             </div>     
 </div>

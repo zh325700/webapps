@@ -9,7 +9,7 @@ class Process_login extends CI_Controller{
             
             if($this->functions_model->login($user,$password,$language)==true){
                 //login succes
-                redirect('Welcome/Caregiver/newOverView','refresh'); 
+                redirect('Welcome/Overview/newOverView','refresh'); 
             }
             else{
                 //login failed

@@ -5,6 +5,8 @@ var questions = [];
 var category;
 var all_questions_array;
 var answers = [];
+var total_question_count;
+
 function loadQuestions(all_questions, this_category){
     all_questions_array = JSON.parse(all_questions);
     console.log(this_category);
@@ -15,12 +17,14 @@ function loadQuestions(all_questions, this_category){
             questions.push(obj);
         }
     }
+    total_question_count = questions.length;
+    var question = questions[0];
+    document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+    document.getElementById("question_content").innerHTML = question.Question_nl;
     console.log(questions);
 }
 
-function getQuestionByCategory(){
-    
-}
+
 
 function getQuestion(score) {
     var answer = {ID_Question:counter, ID_Elder:1, Score:score};
@@ -28,11 +32,12 @@ function getQuestion(score) {
     counter++;
     if(counter > Object.keys(questions).length){
         document.location.href = '../../index.php/Question/insertScore/?answers='+JSON.stringify(answers);
+    } else {
+        var question = questions[counter - 1];
+        document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+        document.getElementById("question_content").innerHTML = question.Question_nl;
+        console.log(answers);
     }
-    var question = questions[counter - 1];
-    document.getElementById("question_number").innerHTML = "Question "+counter;
-    document.getElementById("question_content").innerHTML = question.Question_en;
-    console.log(answers);
 }
 
 function previous(){
@@ -41,8 +46,8 @@ function previous(){
     counter--;
     if(counter >= 1){
         var question = questions[counter - 1];
-        document.getElementById("question_number").innerHTML = "Question "+counter;
-        document.getElementById("question_content").innerHTML = question.Question_en;
+        document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+        document.getElementById("question_content").innerHTML = question.Question_nl;
         console.log(counter);
     }
 }

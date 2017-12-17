@@ -32,15 +32,15 @@ class CaregiverOperateResident extends CI_Controller {
     public function create() {
         $this->load->model('Language_model');
         $data=$this->Language_model->getData($this->session->userdata('language'),'addres');
+        $data = $this->Language_model->getData('Dutch', 'addres');
         $data['title'] = 'Create Residents';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
-        
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages_generalised/header');
-            $this->load->view('pages_generalised/caregiver');
+//            $this->load->view('pages_generalised/header');
+//            $this->load->view('pages_generalised/caregiver');
             $this->parser->parse('pages_caregiver/createResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
@@ -85,25 +85,26 @@ class CaregiverOperateResident extends CI_Controller {
         if (empty($data['resident'])) {
             show_404();
         }
-        $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/caregiver');
+//        $this->load->view('pages_generalised/header');
+//        $this->load->view('pages_generalised/caregiver');
         $this->parser->parse('pages_caregiver/editResident', $data);
-        $this->load->view('pages_generalised/footer');
+//        $this->load->view('pages_generalised/footer');
     }
 
     public function update() {
         $this->load->model('Language_model');
         $data=$this->Language_model->getData($this->session->userdata('language'),'editres');
         $data['facilities'] = $this->Residents_model->get_facilities();
+//        $data['resident'] = $this->Residents_model->get_residents($_POST("ID_Elder"));
         //upload image
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages_generalised/header');
-            $this->load->view('pages_generalised/caregiver');
+//            $this->load->view('pages_generalised/header');
+//            $this->load->view('pages_generalised/caregiver');
             $this->parser->parse('pages_caregiver/editResident', $data);
-            $this->load->view('pages_generalised/footer');
+//            $this->load->view('pages_generalised/footer');
         } else {
             $config['upload_path'] = './image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -113,14 +114,14 @@ class CaregiverOperateResident extends CI_Controller {
             $config['max_height'] = '3000';
 
             $this->load->library('upload', $config);
-            $data = array('upload_data' => $this->upload->data());
-            $zfile = $data['upload_data']['full_path']; // get file path
-
 
             if (!$this->upload->do_upload('userfile')) {
                 $errors = array('error' => $this->upload->display_errors());
                 $post_image = 'noimage.png';
             } else {
+                $zdata = array('upload_data' => $this->upload->data()); // get data
+                $zfile = $zdata['upload_data']['full_path']; // get file path
+                $data = array('upload_data' => $this->upload->data());
                 $post_image = $_FILES['userfile']['name'];
                 chmod($zfile . $post_image, 0755); // CHMOD file to be rwxr
             }
@@ -128,7 +129,6 @@ class CaregiverOperateResident extends CI_Controller {
             $this->Residents_model->update_resident($post_image);
 
             redirect('CaregiverOperateResident/find');
-//            redirect('CaregiverOperateResident/find');
         }
     }
 

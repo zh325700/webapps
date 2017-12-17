@@ -68,7 +68,7 @@ body{
         position: relative;
         font-family:myriad-pro-condensed, sans-serif;
         word-wrap: break-word;
-        font-size:40px;
+        font-size:25px;
         //height: 130px;
         margin-bottom: 10px;
         margin-top: 2px;
@@ -80,7 +80,7 @@ body{
     button.question{
         background-color:@accent;
         //width: 745px;
-        height:150px;
+        height:120px;
     }
     
     .question:active {
@@ -106,7 +106,7 @@ body{
     button.style{
         background-color: @gray;
         color: @primary;
-        height:150px;
+        height:120px;
         text-align: center;
     }
     
@@ -115,12 +115,11 @@ body{
        color: @primary;
     }
     
-    .container-fluid{
-    background-color: @primary;
+    @media(max-width:768px){
+        button{
+            font-size:20px;
+        }
+    }
     
-    h1{
-        color: @gray
-    }        
-}
 }
 
