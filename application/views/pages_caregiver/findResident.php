@@ -69,7 +69,7 @@
                 <p><label >{FirstName}: </label><input type='text' name='FirstName' value='' class='autoFirstname'></p>
                 <p><label >{RoomNumber}: </label><input type='text' name='RoomNumber' value='' class='autoRoom'></p>
                 <p><label >{Facility}: </label>
-                    <select name="ID_Facility" class="form-control">
+                    <select name="ID_facility" class="form-control">
 					<option value=""> - {Select_Facility} - </option>
                         <?php foreach ($facilities as $fac): ?>
                             <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
@@ -97,7 +97,7 @@
                     'Picture' => $res['Picture'],
                     'ID_Elder' => $res['ID_Elder'],
                     'RoomNumber' => $res['RoomNumber'],
-                    'ID_Facility' => $res['ID_facility']
+                    'ID_facility' => $res['ID_facility']
                 );
             }
 

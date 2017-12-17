@@ -18,7 +18,7 @@
 				echo '<p class="error">Error Logging In!</p>';
 				}
 				?> 
-				<form action="<?php echo base_url();?>index.php/Process_login/user_login" method="post" name="login_form" class="form-horizontal form ">
+				<form action="<?php echo base_url();?>index.php/process_login/user_login" method="post" name="login_form" class="form-horizontal form ">
 					<div class="input-group ">
 						
 						<input type="text" name="email" class="form-control" placeholder="Username/E-mail">
