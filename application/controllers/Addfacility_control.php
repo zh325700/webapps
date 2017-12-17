@@ -4,8 +4,7 @@ class addfacility_control extends CI_Controller {
 
     public function find() {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','findfac');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'findfac');
         $data['title'] =$this->lang->line('Overview_facility') ;
         $data['facility'] = $this->Addfacility_model->get_facility();
         //$this->load->view('pages_care/addfacility');
@@ -16,8 +15,7 @@ class addfacility_control extends CI_Controller {
     }
      public function view($ID_facility = NULL) {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','findfac');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'findfac');
         $data['facility'] =$this->Addfacility_model->get_facility($ID_facility); // use post_model to get the data in the database
         
         if (empty($data['facility'])) {
@@ -33,8 +31,7 @@ class addfacility_control extends CI_Controller {
     public function addfacility() {
         //$data['title'] = 'Add Facility';
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','addfac');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'addfac');
         $this->form_validation->set_rules('Name', 'Name', 'required');
          $this->form_validation->set_rules('City', 'City', 'required');
         if ($this->form_validation->run() === FALSE) {

@@ -2,18 +2,24 @@
     $lang['username/email']='Username/email';
     $lang['password']='Password';
     $lang['login']='Login';
-    $lang['general']='General';
-    $lang['Find_Resident']='Find_Resident';
+    $lang['general']='General overview';
+    $lang['Find_Resident']='Find Resident';
     $lang['Add_Resident']='Add Resident';
     $lang['Login_Resident']='Login Resident';
     $lang['Add_Facility']='Add Facility';
     $lang['Find_Facility']='Find Facility';
-    $lang['Find_Residents']='Find Residents';
+    $lang['Add_Caregiver']='Add Caregiver';
+    $lang['Select_Facility']='Select Facility';
+    $lang['Score_Time']='Latest fill-in time';
     $lang['FIND']="FIND";
     $lang['Add_New_Resident']='Add New Resident';
     $lang['FirstName']="FirstName";
     $lang['LastName']="LastName";
-    $lang['Gender']="Gender";
+    $lang['Gender']="Geslacht";
+    $lang['Question']="Vraag";
+    $lang['Number_filled']="Number of times Filled-In";
+    $lang['Average_Score']="Average Score";
+    $lang['Member_Since']="Member Since";
     $lang['Add_FirstName']="Add FirstName";
     $lang['Add_LastName']="Add LastName";
     $lang['Birthday']="Birthday";
@@ -31,6 +37,8 @@
     $lang['Read_More']="Read more...";
     $lang['Add_New_Facility']="Voeg nieuwe faciliteit toe";
     $lang['Name']="Name";
+    $lang['Score']="Score";
+    $lang['Facility_Name']="Facility Name";
     $lang['Add_Name']="Add Name";
     $lang['Add_City']="Add City";
     $lang['Add_Postcode']="Add Postcode";
@@ -74,12 +82,12 @@
     $lang['maximum_font']="you have reached the maximum fontsize";
     $lang['Text_Message']="Test Message";
     $lang['Confirm']="Confirm";
-    $lang['title_general1']="General overview residents";
-    $lang['title_general2']="General overview questions";
-    $lang['title_divisions1']="Division overview residents";
-    $lang['title_divisions2']="Division overview questions";
+    $lang['title_general1']="General overview results residents";
+    $lang['title_general2']="General overview results questions";
+    $lang['title_divisions1']=" residents results overview ";
+    $lang['title_divisions2']=" question results overview";
     $lang['divisions']="division";
-    $lang['title_time']="Division timestamp resident";
+    $lang['title_time']="Division timestamp overview resident";
     $lang['Division_Timestamp']="Division timestamp";
 ?>
 

@@ -80,7 +80,7 @@ class Functions_model extends CI_Model{
 		}
 	} 
 		
-	function login($email, $password){
+	function login($email, $password,$language){
 		//getting the information of the account that is about to login
 		$this->db->select('ID_Caregiver, username, password, salt, permission');
 		$this->db->where('email', $email);
@@ -118,7 +118,7 @@ class Functions_model extends CI_Model{
 					$this->session->set_userdata('username', $username);
 					$this->session->set_userdata('login_string', $login_string);
 					$this->session->set_userdata('permission', $permission);
-					
+					$this->session->set_userdata('language',$language);
 					//login succesful
 					return true;
 					

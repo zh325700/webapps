@@ -27,6 +27,12 @@
 						
 						<input type="password" name="password" id="password" class="form-control" placeholder="password">
 					</div>
+                                        <div class="input-group">
+                                            <select name="language" >
+                                                <option value="Dutch">Nederlands</option>
+                                                <option value="English">Engels</option>
+                                            </select>
+                                        </div>
 					<button class="btn-outline-primary btn-lg btn-block login-button"  onclick="formhash(this.form, this.form.password);" > LOGIN </button>
 				</form>
 			</div>	
