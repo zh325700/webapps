@@ -35,7 +35,7 @@
         }
         
         public function get_question_score_division($division){
-             $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_en Question ');
+             $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_en Question, Answers.ID_Question ID_Question ');
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->where('Division',$division);
@@ -48,7 +48,7 @@
         }
         
         public function get_elder_score_question($ID_elder){
-            $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question Question ');
+            $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question Question Answers.ID_Elder ID_Elder ');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->where('Answers.ID_Elder',$ID_elder);
             $this->db->group_by('Answers.ID_Question');

@@ -28,7 +28,7 @@
 						<input type="password" name="password" id="password" class="form-control" placeholder="password">
 					</div>
                                         <div class="input-group">
-                                            <select name="language" >
+                                            <select name="language" class="select" >
                                                 <option value="Dutch">Nederlands</option>
                                                 <option value="English">Engels</option>
                                             </select>

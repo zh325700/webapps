@@ -23,7 +23,6 @@ class Welcome extends CI_Controller {
 
     public function Resident($page) {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang', 'dutch');
         $data = $this->Language_model->getData('Dutch', $page);
 
         $this->load->view('pages_generalised/headerRes');

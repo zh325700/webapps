@@ -34,32 +34,61 @@
         public function getTypes(){
             $this->load->model('Overview_Model');
             $results=$this->Overview_Model->get_Types();
+            echo(json_encode($results));
         }
         
         public function getDivisions(){
             $this->load->model('Overview_Model');
             $results=$this->Overview_Model->get_divisions(1);
+            echo(json_encode($results["divisions"]));
         }
         public function test(){
             $Type=$this->input->get('type');
             $ID_elder=$this->input->get('ID_elder');
-            $test=$this->input->get('test');
-            //$this->load->model('Overview_Model');
-            if($test=="elder"){
-                //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
-            }
-            else{
-               //$results=$this->Overview_Model->get_score_division($Type,$ID_elder); 
-            }
+            $this->load->model('Overview_Model');
+            //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
             //$row['thescores']=$results["avg_Scores"];
-            $row['thescores']=array( array("Timestamp" => "Last_Three_Week",
-                                "AvgScore" => 10),
-                            array("Timestamp" => "last_two_Week",
-                                "AvgScore" => 30),
-                            array("Timestamp" => "last_Week",
-                                "AvgScore" => 20));
+            $row['thescores']=array( 
+                            array("Timestamp" => "vorig jaar",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "zes maanden geleden",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "twee maanden geleden",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "vorige maand",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "deze maand",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "vorige week",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "deze week",
+                                "AvgScore" => mt_rand(1, 5)));
+            echo(json_encode($row));
         }
-
+        
+        public function getQestionScore(){
+            $division=$this->input->get('division');
+            $ID_Question=$this->input->get('ID_Question');
+            $this->load->model('Overview_Model');
+            //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
+            //$row['thescores']=$results["avg_Scores"];
+            $row['thescores']=array( 
+                            array("Timestamp" => "vorig jaar",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "zes maanden geleden",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "twee maanden geleden",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "vorige maand",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "deze maand",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "vorige week",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "deze week",
+                                "AvgScore" => mt_rand(1, 5)));
+            echo(json_encode($row));
+        }
         public function event_division(){
            if($this->session->userdata('language')=='dutch'){
                 $this->lang->load('Dutch_lang','dutch');
@@ -180,7 +209,7 @@
             $data['divisions']=$this->Overview_Model->get_divisions('1');
             $data['info']=$this->Overview_Model->get_questioninfo($ID_Question);
             for($i=0;$i<sizeof($data['divisions']['divisions']);$i++){
-                $data['score'][$i]=$this->Overview_Model->get_score_division($data['divisions']['divisions'][$i]->Type,$ID_Question);
+               // $data['score'][$i]=$this->Overview_Model->get_score_division($data['divisions']['divisions'][$i]->Type,$ID_Question);
             }
             $this->parser->parse('pages_caregiver/chartViewQes', $data);
         }

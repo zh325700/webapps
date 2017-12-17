@@ -1,11 +1,11 @@
 <?php
     class Language_model extends CI_Model{
         
-        public function getData($language,$page){
+        public function getData($language,$page,$elder=Null){
             $this->load->helper('form');
             //$elder=$this->session->userdata('item');
             if(isset($elder)){
-               // $language=$this->getLanguage($elder);
+                $language=$this->getLanguage($elder);
             }
             if($language=='English'){
                
