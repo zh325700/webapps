@@ -19,11 +19,11 @@
                         <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('CaregiverOperateResident/create'); ?> <!--form_open_multipart so we can add image-->
                         <div class="form-group"> <label for="FirstName" class="text-dark">{FirstName}</label>
-                            <input type="text" name="FirstName" class="form-control" id="InputName" placeholder="{Add_FirstName}"
+                            <input required="" type="text" name="FirstName" class="form-control" id="InputName" placeholder="{Add_FirstName}"
                                    value="<?php echo isset($_POST["FirstName"]) ? $_POST["FirstName"] : ''; ?>"> </div>
 
                         <div class="form-group"> <label for="LastName" class="text-dark">{LastName}</label>
-                            <input type="text" name="LastName" class="form-control" id="InputName" placeholder="{Add_LastName}"
+                            <input required="" type="text" name="LastName" class="form-control" id="InputName" placeholder="{Add_LastName}"
                                    value="<?php echo isset($_POST["LastName"]) ? $_POST["LastName"] : ''; ?>"> </div>
 
                         <div class="form-group"> <label for="Gender" class="text-dark">{Gender}</label>
@@ -31,20 +31,20 @@
                                 <div>
                                     <img src="https://cdn2.iconfinder.com/data/icons/person-gender-hairstyle-clothes-variations/48/Female-Side-comb-O-neck-512.png" style="width:40px;height:40px;">
 
-                                    <input type="checkbox" name="Sex" value="F" style="width:15px;height:15px;text-align: center;">
+                                    <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px;text-align: center;">
                                 </div>
                             </label>
                             <label style="padding-left: 20vh">
                                 <div >
                                     <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/user-male-icon.png" style="width:40px;height:40px;">
 
-                                    <input type="checkbox"name="Sex" value="M" style="width:15px;height:15px;text-align: center;">
+                                    <input   type="checkbox"name="Sex" value="M" style="width:15px;height:15px;text-align: center;">
                                 </div>
                             </label>
                         </div>
 
                         <div class="form-group"> <label for="Birthday" class="text-dark">{Birthday}</label>
-                            <input pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday"
+                            <input required="" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday"
                                    placeholder="Day/Month/Year" value="<?php echo isset($_POST["Birthday"]) ? $_POST["Birthday"] : ''; ?>">
                         </div>
 
@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-sm-6" style="margin-top: 6.5vh;">
                         <div class="form-group" > <label for="ID_Facility" class="text-dark">{Facility}</label>
-                            <select name="ID_Facility" class="form-control">
+                            <select required="" name="ID_Facility" class="form-control">
                                 <option disabled selected value> -- {Select_Facility} -- </option>
                                 <?php foreach ($facilities as $fac): ?>
                                     <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
@@ -64,7 +64,7 @@
                             </select>
                         </div>
                         <div class="form-group" > <label for="Add Image" class="text-dark">{Upload_Image}</label><br>
-                            <input class="inputfile" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
+                            <input required="" class="inputfile" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
                             <img  id="output" width="300px" hight="400px">
                             <script>
                                 var loadFile = function (event) {
