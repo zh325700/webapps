@@ -49,7 +49,7 @@
 		defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
 		
-		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
+		<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
                 
                 <div class="container-fluid">
                     <div class="row">

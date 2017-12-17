@@ -155,17 +155,11 @@
             };
             //send the request for data to the server, notice that the path is the server side path
             //it also fetches the data, the keyword false is for synchronous action which means that it waits for the result before it returns
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_divisions",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_time_divisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
             document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
-            var buttons=document.getElementsByClassName("li");
-            for(var i=0,length=buttons.length;i<length;i++){
-               value=buttons[i].getAttribute("id");
-               console.log(value);
-               buttons[i].addEventListener("click",function(){getTimeDiv(value);}); 
-               buttons[i].setAttribute("class","li_set");
-            }
+            
         xmlhttp= new XMLHttpRequest();
             //starts the function when the page is ready
             xmlhttp.onreadystatechange = function(){
@@ -181,11 +175,7 @@
             xmlhttp.send();
             //loops over every made button by the server
             //and give it the right EventListener
-            var buttons2=document.getElementsByClassName("li");
-            for(var i=0,length=buttons2.length;i<length;i++){
-                value=buttons2[i].getAttribute("id");
-               buttons2[i].addEventListener("click",function(){getScoresDiv(value);}); 
-            }
+           
     }
     
     

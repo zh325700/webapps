@@ -84,16 +84,6 @@
     
 }
 
-.sidebar-nav .dropdown-menu:hover,
-.sidebar-nav .dropdown-menu.active {
-    color: #41484c;
-    background: rgb(97,183,73);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-
 .graceAge{
   position:absolute;
   top:50%;

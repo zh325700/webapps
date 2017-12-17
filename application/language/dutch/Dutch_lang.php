@@ -10,6 +10,7 @@ $lang['Add_Facility']='Voeg faciliteit toe';
 $lang['Find_Facility']='Zoek faciliteit';
 $lang['Add_Caregiver']='Voeg verzorger toe';
 $lang['Select_Facility']='Selecteer een faciliteit';
+$lang['Score_Time']='Laatst ingevulde datum';
 $lang['FIND']="ZOEK";
 $lang['Add_New_Resident']='Voeg nieuwe bewoner toe';
 $lang['FirstName']='Voornaam';
@@ -87,6 +88,6 @@ $lang['title_general2']="Algemeen resultaten overzicht vragenlijst";
 $lang['title_division']=" bewoners resultaten overzicht";
 $lang['title_division2']=" vragenlijst resultaten overzicht";
 $lang['divisions']="Afdeling";
-$lang['title_time']="Afdeling invuldatums bewoners";
+$lang['title_time']=" overzicht laatste invultijden bewoners";
 $lang['Division_Timestamp']="Afdeling invuldatums";
 ?>

@@ -39,7 +39,10 @@ class Welcome extends CI_Controller {
     }
 
     public function Overview($page) {
-        $this->load->view('pages_caregiver/' . $page);
+        $this->load->model('Language_model');
+        $this->lang->load('Dutch_lang', 'dutch');
+        $data = $this->Language_model->getData('Dutch', 'newOverView');
+        $this->parser->parse('pages_caregiver/' . $page,$data);
     }
 
 }
