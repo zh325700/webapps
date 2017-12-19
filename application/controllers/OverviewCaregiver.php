@@ -1,53 +1,78 @@
 <?php
+    //This class is made as controller of the view page of the caregivers
     class OverviewCaregiver extends CI_Controller{
-		
+	
+        /*event_general 
+         *Fuction:action that will be called as the general button is clicked
+         *Input:none
+         *Output:the parsed Tab_template with the data provided.   */
         public function event_general(){
-            if($this->session->userdata('language')=='dutch'){
-                $this->lang->load('Dutch_lang','dutch');
-            }
-            else{
-                $this->lang->load('english_lang','english');
-            }
+            //Loading in the nessecairy models
+            $this->load->model('Language_model');
             $this->load->model('Overview_Model');
+            //Asking the data from the database-model for this controller
             $results=$this->Overview_Model->get_scores();
             $row['thescores']=$results["avg_Scores"];
             $results2=$this->Overview_Model->get_elder_score();
             $row['theelder']=$results2["avg_Scores"];
+            //Let the model do a conversion of the score from int to a image(smiley)
             $row['thescores']=$this->Overview_Model->convert($row['thescores']);
             $row['theelder']=$this->Overview_Model->convert($row['theelder']);
+            //construct the array of data for parsing
             $data= array(
-                "More_Info"=>"Meer informatie",
-                "division"=>"",
-                "RoomNumber"=>$this->lang->line('RoomNumber'),
-                "FirstName"=>$this->lang->line('FirstName'),
-                "LastName"=>$this->lang->line('LastName'),
-                "Score"=>$this->lang->line('Score'),
-                "Question"=>$this->lang->line('Question'),
-                "avg_Score"=>$this->lang->line('avg_Score'),
-                "title_tab1"=>$this->lang->line('title_general1'),
-                "title_tab2"=>$this->lang->line('title_general2'),
+                //Ask the language model for the right values of the keywords
+                $this->Language_model->getData($this->session->userdata('language'),general),
+                //parse the data from the databases into the right templates
                 "content_qes"=>$this->parser->parse('pages_caregiver/Question_score',$row,TRUE),
                 "content_res"=>$this->parser->parse('pages_caregiver/Elder_Score',$row,TRUE));
             $this->parser->parse('pages_caregiver/Tab_template',$data);
         }
         
+        /*getTypes
+         * Function: Calls the databasemodel and send back the different types
+         * Input:None
+         * Output:a string of the array of different Types
+         */
         public function getTypes(){
+            //Load in the databasemodel
             $this->load->model('Overview_Model');
+            //ask the model for the data
             $results=$this->Overview_Model->get_Types();
+            //return the data as a string
             echo(json_encode($results));
         }
         
-        public function getDivisions(){
+        /*getDivisions
+         * Function: Calls the databasemodel and send back the different Divisions
+         * Input:ID_facility:the ID of the facility the divisions are asked
+         * Output:a string of the array of different divisions
+         */
+        public function getDivisions($ID_facility=1){
+            //Load in the databasemodel
             $this->load->model('Overview_Model');
-            $results=$this->Overview_Model->get_divisions(1);
+            //ask the model for the data
+            $results=$this->Overview_Model->get_divisions($ID_facility);
+            //return the data as a string
             echo(json_encode($results["divisions"]));
         }
+        
+        /*test
+         * Function: Normal: ask the score from the databasmodel and send them back
+         *          Now: generate random data and send it through
+         * Input: Type: The type of which the question belong too
+         *        ID_elder: The ID of the elder the score should come from
+         * Output: a string of an array in whivh there are always two value,
+         *        one is the score and the other one is the timestamp of one answer
+         */
         public function test(){
+            //load in the input parameters and the databasemodel
             $Type=$this->input->get('type');
             $ID_elder=$this->input->get('ID_elder');
             $this->load->model('Overview_Model');
+            //ask and retrieve the data from the databasemodel
             //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
             //$row['thescores']=$results["avg_Scores"];
+            //generate a array of random data
             $row['thescores']=array( 
                             array("Timestamp" => "vorig jaar",
                                 "AvgScore" => mt_rand(1, 5)),
@@ -66,12 +91,23 @@
             echo(json_encode($row));
         }
         
-        public function getQestionScore(){
+        /*getQuestionScore
+         * Function: Normal: asks the dtat from the databasemodel and sends it back
+         *          Now: generating random data
+         * Input:division: the division of which the scores are asked
+         *       ID_Question: the ID of the question of which the scores are asked
+         * Output: a sting of the array of the data excisting out of two parts
+         *          One is the average score and the other is the timestamp of an answers
+         */
+        public function getQuestionScore(){
+            //load the inputs and the databasemodel
             $division=$this->input->get('division');
             $ID_Question=$this->input->get('ID_Question');
             $this->load->model('Overview_Model');
+            //ask and retrieve the data from the databasemodel
             //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
             //$row['thescores']=$results["avg_Scores"];
+            //generate the random data
             $row['thescores']=array( 
                             array("Timestamp" => "vorig jaar",
                                 "AvgScore" => mt_rand(1, 5)),
@@ -89,8 +125,16 @@
                                 "AvgScore" => mt_rand(1, 5)));
             echo(json_encode($row));
         }
+        
+        /*event_division
+         * Function: The action that will happen when the division button is pressed:
+         *          showing the score of that division
+         * Input:division: the division of which the scores are asked
+         * Output: A parsed template with the data provided
+         */
         public function event_division(){
-           if($this->session->userdata('language')=='dutch'){
+            //loading in the input and the models
+           if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
             else{
@@ -98,13 +142,17 @@
             }
             $division=$this->input->get('division');
             $this->load->model('Overview_Model');
+            //asking the data from the databasemodel
             $results=$this->Overview_Model->get_question_score_division($division);
             $row['thescores']=$results["avg_Scores"];
             $results2=$this->Overview_Model->get_elder_score_division($division);
             $row['theelder']=$results2["avg_Scores"];
+            //asks the model to change the int scores into images
             $row['thescores']=$this->Overview_Model->convert($row['thescores']);
             $row['theelder']=$this->Overview_Model->convert($row['theelder']);
+            //prepare the data array for the parsing
             $data= array(
+                //put the right link for the language placeholders
                 "division"=>$division,
                 "RoomNumber"=>$this->lang->line('RoomNumber'),
                 "FirstName"=>$this->lang->line('FirstName'),
@@ -114,13 +162,17 @@
                 "avg_Score"=>$this->lang->line('avg_Score'),
                 "title_tab1"=>$this->lang->line('title_division'),
                 "title_tab2"=>$this->lang->line('title_division2'),
+                //parse the data from the databasemodel into the templates
                 "content_qes"=>$this->parser->parse('pages_caregiver/Question_score',$row,TRUE),
                 "content_res"=>$this->parser->parse('pages_caregiver/Elder_Score',$row,TRUE));
             $this->parser->parse('pages_caregiver/Tab_template',$data);
         }
         
+        /*
+         * 
+         */
         public function get_divisions($facility=1){      
-            if($this->session->userdata('language')=='dutch'){
+            if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
             else{
@@ -152,7 +204,7 @@
         }
                
         public function event_time(){
-           if($this->session->userdata('language')=='dutch'){
+           if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
             else{
@@ -177,7 +229,7 @@
         }
         
         public function getChartElder(){
-           if($this->session->userdata('language')=='dutch'){
+           if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
             else{
@@ -196,7 +248,7 @@
         }
         
         public function getChartQuestion(){
-            if($this->session->userdata('language')=='dutch'){
+            if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
             else{

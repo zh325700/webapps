@@ -8,7 +8,6 @@
                 $language=$this->getLanguage($elder);
             }
             if($language=='English'){
-               
                $this->lang->load('english_lang','English');
             }
             elseif($language=='Dutch'){
@@ -49,6 +48,9 @@
             }
             elseif($page=='viewres'){
                 $data=$this->DataViewRes();
+            }
+            elseif($page=='general'){
+                $data=$this->DataGeneral();
             }
             return $data;
         }
@@ -222,6 +224,20 @@
         $data=$query->result();
         return $data;
       }
+      
+        public function getGeneral(){
+            $data["More_Info"]="Meer informatie";
+            $data['division']="";
+            $data["RoomNumber"]=$this->lang->line('RoomNumber');
+            $data["FirstName"]=$this->lang->line('FirstName');
+            $data["LastName"]=$this->lang->line('LastName');
+            $data["Score"]=$this->lang->line('Score');
+            $data["Question"]=$this->lang->line('Question');
+            $data["avg_Score"]=$this->lang->line('avg_Score');
+            $data["title_tab1"]=$this->lang->line('title_general1');
+            $data["title_tab2"]=$this->lang->line('title_general2');
+            return $data;
+        }
     }
 
 ?>

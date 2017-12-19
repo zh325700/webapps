@@ -264,16 +264,15 @@
         time=[];
         for(var topic in topics){
             input=collectData(elder,topics[topic],value);
-            
+            datascore[topic]=[];
             for(var value in input){
-                datascore[value]=input[value]["AvgScore"];
+                datascore[topic][value]=input[value]["AvgScore"];
                 if(time.indexOf(input[value]["Timestamp"])===-1){
                     time.push(input[value]["Timestamp"]);
                 }
             }
-            data[topics[topic]["Type"]]=datascore;
+            data[topics[topic]["Type"]]=datascore[topic];
             console.log(data);
-            console.log(data["Privacy"]);
         }
         console.log(data);
         console.log(time);
@@ -290,20 +289,20 @@
         xmlhttp.send();
         console.log(divisions);
         divisions=jQuery.parseJSON(divisions);
-        datascore=[];
+        var datascore=[];
         data=[];
         time=[];
         for(var div in divisions){
             input=collectDataqes(ques,divisions[div]);
-            
+            datascore[div]=[];
             for(var value in input){
-                datascore[value]=input[value]["AvgScore"];
+                datascore[div][value]=input[value]["AvgScore"];
                 if(time.indexOf(input[value]["Timestamp"])===-1){
                     time.push(input[value]["Timestamp"]);
                 }
             }
-            data[divisions[div]["Type"]]=datascore;
-            console.log(data);
+            data[divisions[div]["divisions"]]=datascore[div];
+            console.log(divisions[div]);
         }
         console.log(data);
         console.log(time);
@@ -328,8 +327,9 @@
                              input = xmlhttp.responseText;
                     }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getQestionScore?division="+division+"&ID_Question"+qes,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getQuestionScore?division="+division+"&ID_Question"+qes,false);
         xmlhttp.send();
+        console.log(input);
         cdata=jQuery.parseJSON(input);
         cdata=cdata["thescores"];
         return cdata;
@@ -341,6 +341,12 @@
         var arrayPrivacyData = data["Privacy"];
         var arrayRelationData = data["PersonalRelationships"];
         var arrayFandMData = data["FoodAndMeals"];
+        var arrayActivities = data["Activities"];
+        var arrayAutonomy = data["Autonomy"];
+        var arrayRespectByStaff = data["RespectByStaff"];
+        var arraySafetyAndSecurity = data["SafetyAndSecurity"];
+        var arrayStaffResidentBonding = data["StaffResidentBonding"];
+        var arrayStaffResponsiveness = data["StaffResponsiveness"];
         //var arrayAVG = <?//php echo json_encode($arrayAvgScore); ?>;
         var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
         var barChartData = {
@@ -361,10 +367,52 @@
                 },
                 {
                     label: "FoodAndMeals",
+                    borderColor: 'rgba(0, 0, 255,0.5)',
+                    backgroundColor: 'rgba(0, 0, 255,0.5)',
+                    fill: false,
+                    data: arrayFandMData,
+                },
+                {
+                    label: "Activities",
+                    borderColor: 'rgba(0, 255, 0,0.5)',
+                    backgroundColor: 'rgba(0, 255, 0,0.5)',
+                    fill: false,
+                    data: arrayActivities,
+                },
+                {
+                    label: "Autonomy",
+                    borderColor: 'rgba(	255,165,0,0.5)',
+                    backgroundColor: 'rgba(255,165,0,0.5)',
+                    fill: false,
+                    data: arrayAutonomy,
+                },
+                {
+                    label: "RespectByStaff",
                     borderColor: 'rgba(54, 162, 235,0.5)',
                     backgroundColor: 'rgba(54, 162, 235,0.5)',
                     fill: false,
-                    data: arrayFandMData,
+                    data: arrayRespectByStaff,
+                },
+                {
+                    label: "SafetyAndSecurity",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    fill: false,
+                    data: arraySafetyAndSecurity,
+                },
+                {
+                    label: "StaffResidentBonding",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    fill: false,
+                    data: arrayStaffResidentBonding,
+                },
+                {
+                    label: "StaffResponsiveness",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    fill: false,
+                    data: arrayStaffResponsiveness,
                 },
                 /*{
                     type: "line",
@@ -422,7 +470,7 @@
                     data: arraydivision0,
 
                 },{
-                    label: "verdieping 2",
+                    label: "verdieping 1",
                     borderColor: "rgba(255, 99, 132,0.5)",
                     backgroundColor: "rgba(255, 99, 132,0.5)",
                     fill: false,
