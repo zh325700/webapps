@@ -21,6 +21,9 @@
 	top: 0;
 	left: 100px;
 }
+body, html {
+    height: 100%;
+}
 
 //Extra css for the overview page
 .container-fluid{
@@ -81,7 +84,8 @@
                     margin: 40px 0 30px 0;
                     .photo{
                         width:100px;
-                        border-radius:50%
+                        border-radius:50%;
+                        margin-left:10%;
                     }
                 }
                 .form{
@@ -98,11 +102,23 @@
                      margin: 10% 0 0 7%;
                      font-size: 24px;
                      border-radius: 10px;
-                     background-color:#32B232;
-                     border-top-color: #32B232;
-                     border-left-color: #32B232;                                       
-                     color:#fff
+                     background-color:#32B232;                                                        
+                     color:#fff; 
+                     border-bottom-width: 0px;
+                     border-top-width: 0px;
+                     border-left-width: 0px;
+                     border-right-width:0px;
                      
+                         
+                }
+                .login-button:hover{
+                     width:90%;
+                     height:60px;
+                     margin: 10% 0 0 7%;
+                     font-size: 24px;
+                     border-radius: 10px;
+                     background-color:gray;                                                       
+                     color:darkblue;                    
                          
                 }
                 .input-group{

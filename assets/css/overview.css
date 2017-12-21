@@ -50,7 +50,6 @@
     text-decoration: none;
     padding-left: 60px;
 }
-
 .sidebar-nav li a span:before {
     position: absolute;
     left: 0;
@@ -80,9 +79,11 @@
     margin: 0;
     border-radius: 0;
     border: none;
-    background-color: #222;
+    background-color: #8EA1C7;
     box-shadow: none;
+    
 }
+
 .graceAge{
   position:absolute;
   top:50%;
@@ -95,3 +96,41 @@
     transform: translate(0,-50%);  
 
 }
+
+button.tab{
+    color: #EDEEF4;
+    background-color: #404C86;
+    display: block;
+    text-decoration: none;
+}
+
+.button.tab:hover,
+.button.tab .active {
+    color: #222;
+    background-color: #61B749;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.panel .panel-heading{
+    color: #EDEEF4;
+    background-color: #8EA1C7;
+    display: block;
+    text-decoration: none;
+}
+
+.panel .panel-heading:hover,
+.panel .panel-heading .active {
+    color: #222;
+    background-color: #61B749;
+    text-decoration: none;
+    cursor: pointer;
+}
+.panel-group .panel-body{
+    background-color: #EDEEF4;
+}
+input.logout{
+       float:right;
+       font-size: 20px;
+       color: #404C86;
+    }
