@@ -32,6 +32,16 @@ $arrayAvgScore = array();
 $arrayScore = array();
 
 
+//array_push($arrayScore, $arrayPrivacyScore);
+//array_push($arrayScore, $arrayFoodAndMealsScore);
+//array_push($arrayScore, $arraySafetyAndSecurityScore);
+//array_push($arrayScore, $arrayComfortScore);
+//array_push($arrayScore, $arrayAutonomyScore);
+//array_push($arrayScore, $arrayRespectByStaffScore);
+//array_push($arrayScore, $arrayStaffResponsivenessScore);
+//array_push($arrayScore, $arrayActivitiesScore);
+//array_push($arrayScore, $arrayPersonalRelationshipsScore);
+//array_push($arrayScore, $arrayDailyDecisionsScore);
 
 //if in some week resident not fill in the questionaire in some topic, The AVG will be 0.
 
@@ -148,8 +158,8 @@ for ($j = 0; $j < 3; $j ++) {
             },
             {
                 label: "FoodAndMeals",
-                borderColor: 'rgba(75, 192, 192,0.5)',
-                backgroundColor: 'rgba(75, 192, 192,0.5)',
+                borderColor: 'rgba(54, 162, 235,0.5)',
+                backgroundColor: 'rgba(54, 162, 235,0.5)',
                 fill: false,
                 data: arrayFandMData,
             },

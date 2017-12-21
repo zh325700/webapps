@@ -10,11 +10,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         </head>
     <body>
-        <img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
+        <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
         <div class="py-5 bg-primary text-white" >
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <h1 class="text-dark">Register Caregiver</h1>
                         <p class="text-dark">Welcome</p>
                         <?php echo validation_errors(); ?>
@@ -31,7 +31,7 @@
                             <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Type Password again"> </div>
                         <button type="submit" class="btn btn-info w-100">Create Caregiver</button>
                     </div>
-                    <div class="col-md-6" style="margin-top: 11.2vh;">
+                    <div class="col-sm-6" style="margin-top: 11.2vh;">
                         <div class="form-group" > <label for="Facility" class="text-dark">Facility</label>
                             <select name="ID_Facility" class="form-control">
                                 <option disabled selected value> -- Select a Facility -- </option>

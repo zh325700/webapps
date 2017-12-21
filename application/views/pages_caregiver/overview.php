@@ -10,7 +10,7 @@
 			</button> 
 			</br>
 			<div class="dropdown" id="dropdown_floors">
-					<button data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-lg btn-block" id="drowpdown_floors_button">
+					<button data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-lg btn-block" id="dropdown_floors_button">
 						Floor
 						<span class="caret"></span>
 					</button>
@@ -132,13 +132,6 @@
             //sends the new data to the server and update the page
             xmlhttp.send();
             document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
-            var buttons=document.getElementsByClassName("li");
-            for(var i=0,length=buttons.length;i<length;i++){
-               value=buttons[i].getAttribute("id");
-               console.log(value);
-               buttons[i].addEventListener("click",function(){getTimeDiv(value);}); 
-               buttons[i].setAttribute("class","li_set");
-            }
         xmlhttp= new XMLHttpRequest();
             //starts the function when the page is ready
             xmlhttp.onreadystatechange = function(){
@@ -154,12 +147,6 @@
             xmlhttp.send();
             //loops over every made button by the server
             //and give it the right EventListener
-            var buttons2=document.getElementsByClassName("li");
-            for(var i=0,length=buttons2.length;i<length;i++){
-                value=buttons2[i].getAttribute("id");
-                
-               buttons2[i].addEventListener("click",function(){getScoresDiv(value);}); 
-            }
     }
     
     
@@ -219,9 +206,12 @@
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
         console.log(document.getElementById("st").getAttribute("class").split(","));
-        var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
-        var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
-        var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
+        //var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
+        var xarray=[1,2,3,4,5,6];
+        //var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
+        var arrayfoodData=[3,3,4,3,4,3];
+        //var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
+        var arrayRelationData=[2,2,3,2,2,1];
         var ctx = document.getElementById("canvas").getContext("2d");
         var barChartData = {
             labels: xarray,
@@ -276,6 +266,52 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
         xmlhttp.send();
+        var xarray = [1,2,3,4,5];
+        var arrayfoodData = [3,4,5,5,4];
+        var arrayRelationData = [1,2,1,3,4];
+        var ctx = document.getElementById("canvas").getContext("2d");
+        var barChartData = {
+            labels: xarray,
+            datasets: [{
+                    label: "paviljoen",
+                    borderColor: "rgb(255, 99, 132)",
+                    backgroundColor: "rgb(255, 99, 132)",
+                    fill: false,
+                    data: arrayfoodData,
+    //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
+
+                }, {
+                    label: "verdieping 1",
+                    borderColor: 'rgb(54, 162, 235)',
+                    backgroundColor: 'rgb(54, 162, 235)',
+                    fill: false,
+                    data: arrayRelationData,
+    //                data: [{x: 1, y: 9}, {x: 2, y: 6}],
+                }]
+        };
+        var myBar = new Chart(ctx, {
+            data: barChartData,
+            type: 'bar',
+            options: {
+                // adjust the size of chart 
+                responsive: true,
+
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Average score of one division'
+                },
+    //            scales: {
+    //                xAxes: [{
+    //                        type: 'linear',
+    //                        position: 'bottom'
+    //                    }]
+    //            }
+
+            }
+        });
     }
 </script>
 <script type='text/javascript'> window.onload=init; </script>

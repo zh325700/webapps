@@ -83,3 +83,4 @@ class Residents_model extends CI_Model {
          $this->db->update('Elder',$data);  
     }
 }
+

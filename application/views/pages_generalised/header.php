@@ -1,4 +1,3 @@
-
 <?php
 /*
 if (login_check() == true) {
@@ -51,5 +50,3 @@ if (login_check() == true) {
 		<?php
 		defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
-		
-		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>

@@ -16,8 +16,8 @@ class Question extends CI_Controller{
         $data['questions'] = $this->Questionnaire_model->getQuestions();
         $data['first_question'] = $this->Questionnaire_model->getFirstQuestion($category);
         $data['category'] = $category;
-        $this->load->view('pages_generalised/headerRes');
-//        $this->load->view('pages_generalised/resident');
+        //$this->load->view('pages_generalised/headerRes2');
+        $this->load->view('pages_generalised/resident');
         $this->parser->parse('pages_resident/question', $data);
         $this->load->view('pages_generalised/footer');
     }
