@@ -49,11 +49,10 @@
 		defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
 		
-		<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
                 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-offset-2">
+                        <div class="col-sm-offset-1">
                             <h1>
                                 Login resident
                             </h1>

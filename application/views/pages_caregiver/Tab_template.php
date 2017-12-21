@@ -6,8 +6,8 @@
                                             {division}{title_tab1} </a>
                                     </div>
                                     <row id="question_template" style="font-size:20px">
-                                        <p><div class="col-sm-3">{RoomNumber}</div><div class="col-sm-4"><span class="text-nowrap"> {FirstName} {LastName}</span></div>
-                                            <div class="col-sm-5"> {Score}</div></p>
+                                        <p><div class="col-sm-3">{RoomNumber}</div><div class="col-sm-3"><span class="text-nowrap"> Naam</span></div>
+                                            <div class="col-sm-6"> {Score}</div></p>
                                     </row>
                                     <div id="panel_element_1" class="panel-collapse collapse in">
                                      

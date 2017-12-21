@@ -3,7 +3,6 @@
 
     <div class="container-fluid">
         <div class="row justify-content-md-center">
-
             <h2 style="margin-left: 0vh; width: 100%; right: 0vh;" class=" text-center" style="width: 100%">
                 {Find_Residents}
             </h2>
@@ -65,7 +64,6 @@
         </script>
         <div class="row">
             <div class="col-md-4">
-
                 <form   action='' method='post'>
                     <div class="form-group"><label >{LastName}: </label><input type='text' name='LastName' value='' class='autoLastName form-control'></div>
                     <div class="form-group"><label >{FirstName}: </label><input type='text' name='FirstName' value='' class='autoFirstname form-control'></div>
@@ -86,7 +84,6 @@
                 </form>
             </div>
             <div class="col-md-8" style="overflow:scroll;height:700px;width: 66%;">
-
                 <!--Add general function here-->
                 <?php
                 $array = array();

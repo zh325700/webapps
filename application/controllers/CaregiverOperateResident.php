@@ -4,8 +4,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function find() {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang', 'dutch');
-        $data = $this->Language_model->getData('Dutch', 'findres');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'findres');
         $data['title'] = 'Overview of residents';
         $data['facilities'] = $this->Residents_model->get_facilities();
         $data['residents'] = $this->Residents_model->get_residents();
@@ -17,9 +16,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function view($ID_Elder = NULL) {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang', 'dutch');
-        $data = $this->Language_model->getData('Dutch', 'findres');
-        $data = $this->Language_model->getData('Dutch', 'addres');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'viewres');
         $data['residents'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
         $data['fac_name'] = $this->Residents_model->get_FacilityName_by_ElderID($ID_Elder);
         if (empty($data['residents'])) {
@@ -34,7 +31,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function create() {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang', 'dutch');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'addres');
         $data = $this->Language_model->getData('Dutch', 'addres');
         $data['title'] = 'Create Residents';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
@@ -45,7 +42,7 @@ class CaregiverOperateResident extends CI_Controller {
 //            $this->load->view('pages_generalised/header');
 //            $this->load->view('pages_generalised/caregiver');
             $this->parser->parse('pages_caregiver/createResident', $data);
-//            $this->load->view('pages_generalised/footer');
+            $this->load->view('pages_generalised/footer');
         } else {
             //upload image
 
@@ -82,9 +79,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function edit($ID_Elder) {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang', 'dutch');
-        $data = $this->Language_model->getData('Dutch', 'findres');
-        $data = $this->Language_model->getData('Dutch', 'addres');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'editres');
         $data['resident'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
         $data['facilities'] = $this->Residents_model->get_facilities();
         if (empty($data['resident'])) {
@@ -98,8 +93,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function update() {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang', 'dutch');
-        $data = $this->Language_model->getData('Dutch', 'editres');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'editres');
         $data['facilities'] = $this->Residents_model->get_facilities();
 //        $data['resident'] = $this->Residents_model->get_residents($_POST("ID_Elder"));
         //upload image

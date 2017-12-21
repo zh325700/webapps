@@ -2,12 +2,12 @@
 class Process_login extends CI_Controller{
     function user_login(){
         $this->load->model('functions_model');
-               
+        $language=$this->input->post('language');       
         $user=$this->input->post('email');
         $password=$this->input->post('p');//The hashed password
         if(isset($user,$password)){
             
-            if($this->functions_model->login($user,$password)==true){
+            if($this->functions_model->login($user,$password,$language)==true){
                 //login succes
                 redirect('Welcome/Overview/newOverView','refresh'); 
             }

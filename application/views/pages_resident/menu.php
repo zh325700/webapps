@@ -39,9 +39,9 @@
                         </div>
 		</div>
                 <div class="col-sm-6">
-                    <button id = "newButton"  type="button" class="btn btn-lg button style btn-block" >
-                        <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="align"/>
-                        Familie
+                    <button id = "newButton"  type="button" class="btn btn-lg button style btn-block family" >
+                        <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="align family"/>
+                        Familie 
                     </button>
                     <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block">
                         <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>
