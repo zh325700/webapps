@@ -50,10 +50,10 @@
 		?>
 		
                 
-                <div class="container-fluid">
+                <div class="container-fluid" style="height: 6%; width:100.3%">
                     <div class="row">
-                        <div class="col-sm-offset-1">
-                            <h1>
+                        <div class="col-md-offset-1 col-sm-offset-1" style="padding-left: 17px">
+                            <h1 style="margin-top:0.75%">
                                 Login resident
                             </h1>
                         </div>
@@ -80,7 +80,7 @@
                             </ul>
                         </div>
                     </div>-->
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-sm-4" style="margin-top: 2%; padding-left: 0">
                             <h1>
                                 Ik ben een :
