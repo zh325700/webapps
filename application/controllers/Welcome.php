@@ -6,12 +6,7 @@ class Welcome extends CI_Controller {
 
     public function index($page = 'login') {
         $this->load->model('Language_model');
-        if ($this->input->post('language') == 'Dutch') {
-            $this->lang->load('Dutch_lang', 'dutch');
-        } else {
-            $this->lang->load('english_lang', 'english');
-        }
-        $data = $this->Language_model->getData('Dutch', 'login');
+        $data = $this->Language_model->getData($this->session->userdata('language'), 'login');
 
         $this->load->view('pages_generalised/loginpageheader');
         $this->parser->parse($page, $data);
@@ -20,10 +15,7 @@ class Welcome extends CI_Controller {
 
     public function Caregiver($page) {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang', 'dutch');
-        $data = $this->Language_model->getData('Dutch', $page);
-
-        $this->load->view('pages_generalised/header');
+        $data = $this->Language_model->getData($this->session->userdata('language'), $page);
         $this->load->view('pages_generalised/caregiver');
         $this->parser->parse('pages_caregiver/' . $page, $data);
         $this->load->view('pages_generalised/footer');
@@ -31,7 +23,6 @@ class Welcome extends CI_Controller {
 
     public function Resident($page) {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang', 'dutch');
         $data = $this->Language_model->getData('Dutch', $page);
 
         $this->load->view('pages_generalised/headerRes');
@@ -41,7 +32,10 @@ class Welcome extends CI_Controller {
     }
 
     public function Overview($page) {
-        $this->load->view('pages_caregiver/' . $page);
+        $this->load->model('Language_model');
+        $this->lang->load('Dutch_lang', 'dutch');
+        $data = $this->Language_model->getData($this->session->userdata('language'), 'newOverView');
+        $this->parser->parse('pages_caregiver/' . $page,$data);
     }
 
 }

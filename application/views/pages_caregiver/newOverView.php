@@ -25,7 +25,7 @@
                         <ul class="sidebar-nav nav">
                             <li>
                                 <a href="#anch2" id="btn_general">
-                                    <span class="fa fa-home solo">General</span>
+                                    <span class="fa fa-home solo">{general}</span>
                                 </a>
                             </li>
                             <li class="dropdown" id="dropdown_floors">   <!--with this id style change.-->
@@ -42,35 +42,35 @@
                             </li>
                             <li>
                                 <a  href="<?php echo base_url(); ?>index.php/LoginResident/view"  id="button_elderly">
-                                    <span class="fa fa-anchor solo">Login Resident</span>
+                                    <span class="fa fa-anchor solo">{Login_Resident}</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/find" id="button_resqes">
-                                    <span class="fa fa-anchor solo">Find Resident</span>
+                                    <span class="fa fa-anchor solo">{Find_Resident}</span>
                                 </a>
                             </li>
                             <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/addfacility_control/find" id="button_resqes">
-                                        <span class="fa fa-anchor solo">Find Facility</span>
+                                        <span class="fa fa-anchor solo">{Find_Facility}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/create" id="button_resqes">
-                                        <span class="fa fa-anchor solo">Add Resident</span>
+                                        <span class="fa fa-anchor solo">{Add_Resident}</span>
                                     </a>
                                 </li>
                             <?php endif; ?>
                             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/addfacility_control/addfacility" id="button_resqes">
-                                        <span class="fa fa-anchor solo">Add Facility</span>
+                                        <span class="fa fa-anchor solo">{Add_Facility}</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/AdminRegister/register_caregiver" >
-                                        <span class="fa fa-anchor solo">Add Caregiver</span>
+                                        <span class="fa fa-anchor solo">{Add_Caregiver}</span>
                                     </a>
                                 </li>
                             <?php endif; ?>
@@ -105,12 +105,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="row" align="right">
+                    <input Type="button" class="btn logout btn-lg" Value="LOGOUT" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
+                </div>
             </div>
+        
         </div>
+        
     
     
-    
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
 
 <script type="text/javascript">
     //makes the eventlisteners for the two buttons
@@ -151,17 +155,11 @@
             };
             //send the request for data to the server, notice that the path is the server side path
             //it also fetches the data, the keyword false is for synchronous action which means that it waits for the result before it returns
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_divisions",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_time_divisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
             document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
-            var buttons=document.getElementsByClassName("li");
-            for(var i=0,length=buttons.length;i<length;i++){
-               value=buttons[i].getAttribute("id");
-               console.log(value);
-               buttons[i].addEventListener("click",function(){getTimeDiv(value);}); 
-               buttons[i].setAttribute("class","li_set");
-            }
+            
         xmlhttp= new XMLHttpRequest();
             //starts the function when the page is ready
             xmlhttp.onreadystatechange = function(){
@@ -177,12 +175,7 @@
             xmlhttp.send();
             //loops over every made button by the server
             //and give it the right EventListener
-            var buttons2=document.getElementsByClassName("li");
-            for(var i=0,length=buttons2.length;i<length;i++){
-                value=buttons2[i].getAttribute("id");
-                
-               buttons2[i].addEventListener("click",function(){getScoresDiv(value);}); 
-            }
+           
     }
     
     
@@ -241,53 +234,7 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
-        console.log(document.getElementById("st").getAttribute("class").split(","));
-        var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
-        var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
-        var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
-        var ctx = document.getElementById("canvas").getContext("2d");
-        var barChartData = {
-            labels: xarray,
-            datasets: [{
-                    label: "Privacy",
-                    borderColor: "rgb(255, 99, 132)",
-                    backgroundColor: "rgb(255, 99, 132)",
-                    fill: false,
-                    data: arrayfoodData,
-    //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
-
-                }, {
-                    label: "Relationship",
-                    borderColor: 'rgb(54, 162, 235)',
-                    backgroundColor: 'rgb(54, 162, 235)',
-                    fill: false,
-                    data: arrayRelationData,
-    //                data: [{x: 1, y: 9}, {x: 2, y: 6}],
-                }]
-        };
-        var myBar = new Chart(ctx, {
-            data: barChartData,
-            type: 'bar',
-            options: {
-                // adjust the size of chart 
-                responsive: true,
-
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Average score of one topic'
-                },
-    //            scales: {
-    //                xAxes: [{
-    //                        type: 'linear',
-    //                        position: 'bottom'
-    //                    }]
-    //            }
-
-            }
-        });
+        drawChart(elder,"elder");
     }
     
      function getChartQuestion(ques){
@@ -299,31 +246,136 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
         xmlhttp.send();
-        //var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
-        var xarray=[1,2,3,4,5,6];
-        //var arrayfoodData = document.getElementById("st").getAttribute("class").split(",",3);
-        var arrayfoodData=[3,3,4,3,4,3];
-        //var arrayRelationData = document.getElementById("st").getAttribute("class").split(",");
-        var arrayRelationData=[2,2,3,2,2,1];
-        var ctx = document.getElementById("canvas").getContext("2d");
+        drawChartqes(ques,"ques");
+    }
+    
+    function getData(elder){ 
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             topics = xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTypes",false);
+        xmlhttp.send();
+        topics=jQuery.parseJSON(topics);
+        datascore=[];
+        data=[];
+        time=[];
+        for(var topic in topics){
+            input=collectData(elder,topics[topic],value);
+            
+            for(var value in input){
+                datascore[value]=input[value]["AvgScore"];
+                if(time.indexOf(input[value]["Timestamp"])===-1){
+                    time.push(input[value]["Timestamp"]);
+                }
+            }
+            data[topics[topic]["Type"]]=datascore;
+            console.log(data);
+            console.log(data["Privacy"]);
+        }
+        console.log(data);
+        console.log(time);
+    }
+    
+     function getDataqes(ques){ 
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             divisions= xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
+        xmlhttp.send();
+        console.log(divisions);
+        divisions=jQuery.parseJSON(divisions);
+        datascore=[];
+        data=[];
+        time=[];
+        for(var div in divisions){
+            input=collectDataqes(ques,divisions[div]);
+            
+            for(var value in input){
+                datascore[value]=input[value]["AvgScore"];
+                if(time.indexOf(input[value]["Timestamp"])===-1){
+                    time.push(input[value]["Timestamp"]);
+                }
+            }
+            data[divisions[div]["Type"]]=datascore;
+            console.log(data);
+        }
+        console.log(data);
+        console.log(time);
+    }
+    function collectData(elder,topic){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             input = xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/test?type="+topic+"&ID_elder"+elder,false);
+        xmlhttp.send();
+        cdata=jQuery.parseJSON(input);
+        cdata=cdata["thescores"];
+        return cdata;
+    }
+    function collectDataqes(qes,division){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             input = xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getQestionScore?division="+division+"&ID_Question"+qes,false);
+        xmlhttp.send();
+        cdata=jQuery.parseJSON(input);
+        cdata=cdata["thescores"];
+        return cdata;
+    }
+    function drawChart(elder,test){
+        getData(elder,test);
+        //console.log(time);
+        var xarray = time;
+        var arrayPrivacyData = data["Privacy"];
+        var arrayRelationData = data["PersonalRelationships"];
+        var arrayFandMData = data["FoodAndMeals"];
+        //var arrayAVG = <?//php echo json_encode($arrayAvgScore); ?>;
+        var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
         var barChartData = {
             labels: xarray,
             datasets: [{
                     label: "Privacy",
-                    borderColor: "rgb(255, 99, 132)",
-                    backgroundColor: "rgb(255, 99, 132)",
+                    borderColor: "rgba(255, 99, 132,0.5)",
+                    backgroundColor: "rgba(255, 99, 132,0.5)",
                     fill: false,
-                    data: arrayfoodData,
-    //                data: [{x: 0, y: 10}, {x: 1, y: 6}],
+                    data: arrayPrivacyData,
 
                 }, {
-                    label: "Relationship",
-                    borderColor: 'rgb(54, 162, 235)',
-                    backgroundColor: 'rgb(54, 162, 235)',
+                    label: "PersonalRelationships",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: 'rgba(54, 162, 235,0.5)',
                     fill: false,
                     data: arrayRelationData,
-    //                data: [{x: 1, y: 9}, {x: 2, y: 6}],
-                }]
+                },
+                {
+                    label: "FoodAndMeals",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    fill: false,
+                    data: arrayFandMData,
+                },
+                /*{
+                    type: "line",
+                    label: "AVG",
+                    borderColor: 'rgb(153, 102, 255)',
+                    backgroundColor: 'rgb(153, 102, 255)',
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: arrayAVG,
+                }*/
+            ]
         };
         var myBar = new Chart(ctx, {
             data: barChartData,
@@ -339,27 +391,103 @@
                     display: true,
                     text: 'Average score of one topic'
                 },
-    //            scales: {
-    //                xAxes: [{
-    //                        type: 'linear',
-    //                        position: 'bottom'
-    //                    }]
-    //            }
-
+                scales:{
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
-        });
+        });   
+    }
+    function drawChartqes(ques,test){
+        getDataqes(ques,test);
+        //console.log(time);
+        var xarray = time;
+        var arraydivision0 = data["0"];
+        var arraydivision1 = data["1"];
+        var arraydivision2 = data["2"];
+        var arraydivision3 = data["3"];
+        //var arrayAVG = <?//php echo json_encode($arrayAvgScore); ?>;
+        var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
+        var barChartData = {
+            labels: xarray,
+            datasets: [
+                {
+                    label: "gelijkvloers",
+                    borderColor: "rgb(128,128,128,0.5)",
+                    backgroundColor: "rgba(128,128,128,0.5)",
+                    fill: false,
+                    data: arraydivision0,
+
+                },{
+                    label: "verdieping 2",
+                    borderColor: "rgba(255, 99, 132,0.5)",
+                    backgroundColor: "rgba(255, 99, 132,0.5)",
+                    fill: false,
+                    data: arraydivision2,
+
+                }, {
+                    label: "verdieping 2",
+                    borderColor: 'rgba(184,0,0,0.5)',
+                    backgroundColor: 'rgba(184,0,0,0.5)',
+                    fill: false,
+                    data: arraydivision1,
+                },
+                {
+                    label: "verdieping 3",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    fill: false,
+                    data: arraydivision3,
+                },
+                /*{
+                    type: "line",
+                    label: "AVG",
+                    borderColor: 'rgb(153, 102, 255)',
+                    backgroundColor: 'rgb(153, 102, 255)',
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: arrayAVG,
+                }*/
+            ]
+        };
+        var myBar = new Chart(ctx, {
+            data: barChartData,
+            type: 'bar',
+            options: {
+                // adjust the size of chart 
+                responsive: true,
+
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Average score of one topic'
+                },
+                scales:{
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });   
     }
 </script>
 <script type='text/javascript'> window.onload=init; </script>
 
-    </body>
+
 
 <?php else: ?>
-    <p>
-        <br><br><br>
-    <center>
-        <span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
-    </center>
-    <br><br><br>
-    </p>
+<p>
+<br><br><br>
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
+<br><br><br>
+</p>
 <?php endif; ?>

@@ -2,11 +2,13 @@
     class Language_model extends CI_Model{
         
         public function getData($language,$page,$elder=Null){
-             $this->load->helper('form');
+            $this->load->helper('form');
+            //$elder=$this->session->userdata('item');
             if(isset($elder)){
                 $language=$this->getLanguage($elder);
             }
             if($language=='English'){
+               
                $this->lang->load('english_lang','English');
             }
             elseif($language=='Dutch'){
@@ -15,7 +17,7 @@
             if($page == 'login'){
                 $data=$this->DataLogin();
             }
-            elseif($page== 'overview'){
+            elseif($page== 'newOverView'){
                 $data=$this->DataOverview();
             }
             elseif($page== 'findres'){
@@ -45,6 +47,9 @@
             elseif ($page=='question') {
                 $data=$this->DataQes();
             }
+            elseif($page=='viewres'){
+                $data=$this->DataViewRes();
+            }
             return $data;
         }
         
@@ -62,6 +67,7 @@
             $data['Login_Resident']=$this->lang->line('Login_Resident');
             $data['Add_Facility']=$this->lang->line('Add_Facility');
             $data['Find_Facility']=$this->lang->line('Find_Facility');
+            $data['Add_Caregiver']=$this->lang->line('Add_Caregiver');
             $data['Division_Timestamp']=$this->lang->line('Division_Timestamp');
             $data['FirstName']=$this->lang->line('FirstName');
             $data['LastName']=$this->lang->line('LastName');
@@ -70,7 +76,6 @@
             $data['Number_filled']=$this->lang->line('Number_filled');
             $data['Average_Score']=$this->lang->line('Average_Score');
             $data['Question']=$this->lang->line('Question');
-            
             $data['RoomNumber']=$this->lang->line('RoomNumber');
             $data['Facility']=$this->lang->line('Facility');
             $data['Birthday']=$this->lang->line('Birthday');
@@ -105,6 +110,18 @@
             return $data;
         }
         
+        public function DataViewRes(){
+            $data['FirstName']=$this->lang->line('FirstName');
+            $data['LastName']=$this->lang->line('LastName');
+            $data['Gender']=$this->lang->line('Gender');
+            $data['Birthday']=$this->lang->line('Birthday');
+            $data['RoomNumber']=$this->lang->line('RoomNumber');
+            $data['Facility']=$this->lang->line('Facility');
+            $data['MemberSince']=$this->lang->line('Member_Since');
+            return $data;
+        }
+                
+        
         public function DataEditRes(){
             $data['Add_Resident']=$this->lang->line('Add_Resident');
             $data['FirstName']=$this->lang->line('FirstName');
@@ -117,7 +134,9 @@
             $data['Add_LastName']=$this->lang->line('Add_LastName');
             $data['Select_Facility']=$this->lang->line('Select_Facility');
             $data['Add_Roomnumber']=$this->lang->line('Add_Roomnumber');
-            $data['Upload_Image']=$this->lang->line('Upload_Image');  
+            $data['Upload_Image']=$this->lang->line('Upload_Image'); 
+            $data['Edit_Residents']=$this->lang->line('Edit_Residents');
+            $data['Edit_Resident']=$this->lang->line('Edit_Residents');
             return $data;
         }
         
@@ -132,7 +151,7 @@
          public function DataAddFac(){
             $data['Facility_Name']=$this->lang->line('Facility_Name');
             $data['City']=$this->lang->line('City');
-            $data['PostCode']=$this->lang->line('Postcode');
+            $data['Post']=$this->lang->line('Postcode');
             $data['Street']=$this->lang->line('Street');
             $data['Number']=$this->lang->line('Number');
             $data['Add_New_Facility']=$this->lang->line('Add_New_Facility');

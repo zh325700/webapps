@@ -8,9 +8,7 @@
         cursor: pointer;
     }   
 </style>
-<li class="lid" id="{divisions}" onclick="getScoresDiv({divisions})">
+<li class="lid" id="{divisions}" onclick="getTimeDiv({divisions})">
     {divisions}
 </li>
 {/thedivisions}
-
-

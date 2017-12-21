@@ -1,10 +1,13 @@
+
 <?php
-/*
-if (login_check() == true) {
+include_once 'includes/functions.php';
+sec_session_start();
+
+if (login_check($mysqli) == true) {
     $logged = 'in';
 } else {
     $logged = 'out';
-}*/
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,3 +53,9 @@ if (login_check() == true) {
 		<?php
 		defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
+		
+		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
+
+        <div class="col col-md-4" id="homebutton">
+            <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/overview'"/>
+        </div>

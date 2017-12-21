@@ -2,26 +2,26 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-sm-5">
                 <h2 class="par1">Grace-AGE</h2>
             </div>
-            <div class="col-md-8"></div>
-            <div class="col-md-1">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-1">
                 <img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>
             </div>
         </div>
 
         <div class="row">
-                <div class="col-md-1">
+                <div class="col-sm-1">
                     <img src="<?php echo base_url(); ?>/image/photos/picture.png" alt="" class="align-left"/>
                 </div>
-                <div class="col-md-5">
+                <div class="col-sm-5">
                     <h2 class="par2">Welkom, Maria</h2>
                 </div>
         </div>
 
         <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-12">
                     <button id = "newButton" type="button" class="btn btn-lg question button btn-block" onclick="loadPage('Welcome','Resident/categories')">                      
                         <img src="<?php echo base_url(); ?>/image/pictograms/questions.png" class="align"/>
                        Vragenlijst
@@ -30,7 +30,7 @@
         </div>
 
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-sm-6">
                         <!--Weather report-->
                         <a href="https://www.accuweather.com/…/…/27046/weather-forecast/27046" class="aw-widget-legal"></a>
                         <div id="awcc1511526958631" class="aw-widget-current"
@@ -38,10 +38,10 @@
                             data-useip="true" data-uid="awcc1511526958631">
                         </div>
 		</div>
-                <div class="col-md-6">
-                    <button id = "newButton"  type="button" class="btn btn-lg button style btn-block" >
-                        <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="align"/>
-                        Familie
+                <div class="col-sm-6">
+                    <button id = "newButton"  type="button" class="btn btn-lg button style btn-block family" >
+                        <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="align family"/>
+                        Familie 
                     </button>
                     <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block">
                         <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>
@@ -51,7 +51,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-offset-10 col-md-2">
+		<div class="col-sm-offset-9 col-md-offset-10 col-sm-2">
                    <a id = "link" type="button" class="btn btn-lg style logout" onclick="loadPage('LoginResident', 'view')">Afmelden</a>          
                 </div>    
 	</div>
