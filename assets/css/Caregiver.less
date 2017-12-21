@@ -4,18 +4,49 @@
 @secondary-color-light:#c8ffa9;
 @secondary-color-mid:#94ea78;
 @secondary-color-dark:#61b749;
-@sober-color-light: white;
+@sober-color-light: ivory;
 @sober-color-mid: grey;
 @sober-color-dark: black;
+@fontsize-elder:50px;
+@gray: #EDEEF4;
 
-#homebutton{
-	position: fixed;
-	top: 0;
-	left: 0;
+
+body, html {
+    height: 100%;
 }
 
+
+img.top-right2 {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    width: 60px;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 50px;
+    width: 110px;
+    background-color: @gray;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.par1{
+    position:absolute;
+    top: 8px;
+    font-size: 40px;
+    color: white;
+    right:280px;
+    }
 //Extra css for the overview page
 .container-fluid{
+    .header{
+        position: relative;
+    }
     #left{
         .dropdown-menu{
             background-color: @secondary-color-light;
@@ -63,48 +94,72 @@
         align-items:center;
         justify-content:center;
         .box{
-            background-color:@primary-color-light;
-            width:400px;
-            height:450px;
-            border-radius:10px;
+            background-color:rgba(0,0,140,0.25);
+            width:500px;
+            height:480px;
+            border-radius:25px;
             .sg{
                margin:10px;
                 .pic{
                     margin: 40px 0 30px 0;
                     .photo{
                         width:100px;
-                        border-radius:50%
+                        border-radius:50%;
+                        margin-left:10%;
                     }
                 }
                 .form{
                     padding:0 40px 40px 40px;
+                   
                 }
                 .y
                 {
                     padding-bottom:15px; 
                 }
-                .input-group-addon{
-                    background:0 0;
-                    border:0;
-                    border-radius:0;
-                    border-bottom:1px solid @sober-color-dark;
+                .login-button{
+                     width:90%;
+                     height:60px;
+                     margin: 10% 0 0 7%;
+                     font-size: 24px;
+                     border-radius: 10px;
+                     background-color:#32B232;                                                        
+                     color:#fff; 
+                     border-bottom-width: 0px;
+                     border-top-width: 0px;
+                     border-left-width: 0px;
+                     border-right-width:0px;
+                     
+                         
+                }
+                .login-button:active{
+                     width:90%;
+                     height:60px;
+                     margin: 10% 0 0 7%;
+                     font-size: 24px;
+                     border-radius: 10px;
+                     background-color: @gray;                                                       
+                     color:@primary-color-dark;                    
+                         
+                }
+                .input-group{
+                    width:90%;
+                    height:90%;
+                    padding-bottom: 5%;               
+                                    
                     input[type=text],
                     input[type=password]{
-                        background:0 0;
-                        background-color:@sober-color-light;
-                        border:0;
-                        border-radius:0;
-                        border-bottom:1px solid @sober-color-light;
-                    }
-                    .user{
-                        color:@sober-color-dark;
-                    }
-                } 
-                 button.login{
-           width:90%;
-           height:60px;
-           margin: 10% 0 0 10%;
-           font-size: 24px;
+                                          
+                        margin-left: 7%;
+                        height:60px;
+                        border-radius:10px;
+                        
+                    }  
+                }
+                .select{
+                    margin-left: 7%;
+                    
+                }
+                 
        }
             } 
         }
@@ -139,11 +194,37 @@
     }
 
      h2{
-        background-color:@primary-color-mid;
-        width: 200%;
-        border-radius: 5px;
-        position: relative;
+        color:white;
+        float:bottom; 
+        padding-bottom: 50px;
+        margin-left: 120px;
+        /*color: #00008C;*/
+        font-family: sans-serif;
+        font-size: 50px;
+        font-style:bold;
     }
-  
+    
+    //the extra css of the editting and overview of the facilities
+    
+    .match
+    {
+      font-size: 20px;
+      font-family: sans-serif;
+      font-style: normal;
+      margin-left: 20px;
+      text-align: right;
+      position:relative;
+        
+    }
+    
+    label.facility{
+      font-size: 20px;
+      font-family: sans-serif;
+      font-style: normal;
+      margin-left: 180px;
+      text-align: right;
+      position:relative;
+ }
+    
    
-}
+

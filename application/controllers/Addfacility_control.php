@@ -3,35 +3,42 @@
 class addfacility_control extends CI_Controller {
 
     public function find() {
-        $data['title'] = 'Overview of facility';
+        $this->load->model('Language_model');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'findfac');
+        $data['title'] =$this->lang->line('Overview_facility') ;
         $data['facility'] = $this->Addfacility_model->get_facility();
-
         //$this->load->view('pages_care/addfacility');
-       $this->load->view('pages_generalised/header_caregiver');
-        $this->load->view('pages_caregiver/viewfacility', $data);
+        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/caregiver');
+        $this->parser->parse('pages_caregiver/viewfacility', $data);
         $this->load->view('pages_generalised/footer');
     }
      public function view($ID_facility = NULL) {
-        $data['facility'] = $this->Addfacility_model->get_facility($ID_facility); // use post_model to get the data in the database
-
+        $this->load->model('Language_model');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'findfac');
+        $data['facility'] =$this->Addfacility_model->get_facility($ID_facility); // use post_model to get the data in the database
+        
         if (empty($data['facility'])) {
             show_404();
         }
         $data['$ID_facility'] = $data['facility']['ID_facility'];
-       $this->load->view('pages_generalised/header_caregiver');
-        $this->load->view('pages_caregiver/viewfacility', $data);
-         $this->load->view('pages_generalised/footer');
+        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/caregiver');
+        $this->parser->parse('pages_caregiver/viewfacility', $data);
+        $this->load->view('pages_generalised/footer');
     }
        
     public function addfacility() {
         //$data['title'] = 'Add Facility';
-        
+        $this->load->model('Language_model');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'addfac');
         $this->form_validation->set_rules('Name', 'Name', 'required');
          $this->form_validation->set_rules('City', 'City', 'required');
         if ($this->form_validation->run() === FALSE) {
-             $this->load->view('pages_generalised/header_caregiver');
-            $this->load->view('pages_caregiver/addfacility');
-             $this->load->view('pages_generalised/footer');
+			$this->load->view('pages_generalised/header');
+			$this->load->view('pages_generalised/caregiver');
+			$this->parser->parse('pages_caregiver/addfacility',$data);
+			$this->load->view('pages_generalised/footer');
         } else {
                        
             $this->Addfacility_model->create_facility();
@@ -49,15 +56,29 @@ class addfacility_control extends CI_Controller {
         if (empty($data['facility'])) {
             show_404();
         }
-        $data['title'] = 'Edit Facility';
-         $this->load->view('pages_generalised/header_caregiver');
-        $this->load->view('pages_care/editfacility', $data);
-        $this->load->view('pages_generalised/footer');
+		$data['title'] = 'Edit Facility';
+		$this->load->view('pages_generalised/header');
+		$this->load->view('pages_generalised/caregiver');
+		$this->load->view('pages_caregiver/editfacility', $data);
+		$this->load->view('pages_generalised/footer');
     }
 
-    public function update() {
-        $this->Addfacility_model->update_facility();
-        redirect('addfacility_control');
+    public function update($ID_facility) {
+        $data['facility'] = $this->Addfacility_model->get_facility($ID_facility);
+        
+        $this->form_validation->set_rules('Name', 'Name', 'required');
+        $this->form_validation->set_rules('City', 'City', 'required');
+        if ($this->form_validation->run() === FALSE) {
+			$this->load->view('pages_generalised/header');
+			$this->load->view('pages_generalised/caregiver');
+			$this->load->view('pages_caregiver/editfacility',$data);
+			$this->load->view('pages_generalised/footer');
+        } else {
+                       
+            $this->Addfacility_model->update_facility();
+            redirect('addfacility_control/find'); //redirects
+           
+        }
     }
 
 }

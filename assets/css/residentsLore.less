@@ -1,0 +1,129 @@
+/* 
+    Created on : Dec 14, 2017, 4:21:32 PM
+    Author     : loredonne
+*/
+
+/* Variables */
+@primary: #404C86;
+@accent: #61B749;
+@gray: #EDEEF4;
+@primary-light:#8EA1C7;
+
+/*{
+    border: 1px solid red;
+}*/
+
+body{
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    //display: flex;
+    flex-direction: column;   
+    background-image: url("../../../image/pictograms/loginpage.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 1500px 900px;
+}
+
+.container{
+
+    p{
+        color:white;
+        float:bottom;
+    }
+    h2{
+        color:white;
+        float:bottom;
+    }
+    .par1{
+        margin-top: 60px;
+        font-size: 40px;
+    }
+    .par2{
+        margin-top: 30px;
+        font-size:30px;
+    }
+    
+    img.align-right{
+        width: 60px;
+        float: right;
+        margin-top: 60px;
+        margin-right: 10px;
+    }
+    
+    img.align-left{
+        width: 60px;
+        float: left;
+        opacity: 0.8;
+    }
+    
+    img.align{
+        width: 60px;
+        opacity: 0.85;
+    }
+    
+    img.family{
+        margin-left: 20px;
+    }
+    
+    button{
+        color: white;
+        border-radius: 10px;
+        position: relative;
+        font-family:myriad-pro-condensed, sans-serif;
+        word-wrap: break-word;
+        font-size:25px;
+        //height: 130px;
+        margin-bottom: 10px;
+        margin-top: 2px;
+    }
+    button:hover{
+        color:white;
+    }
+    
+    button.question{
+        background-color:@accent;
+        //width: 745px;
+        height:120px;
+    }
+    
+    .question:active {
+            background-color: @gray;
+            color: @primary;
+        }
+    
+        
+    .style:active {
+            background-color: @accent;
+            color: white;
+        }
+        
+        .logout:active{
+            color: @accent;
+        }
+        
+    img.quest{
+        width:100px;
+        color:white;
+    }
+    
+    button.style{
+        background-color: @gray;
+        color: @primary;
+        height:120px;
+        text-align: center;
+    }
+    
+    .logout{
+       font-size: 30px;
+       color: @primary;
+    }
+    
+    @media(max-width:768px){
+        button{
+            font-size:20px;
+        }
+    }
+    
+}
+

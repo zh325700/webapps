@@ -2,20 +2,16 @@
 
 class Admin_Model extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->database();
-    }
-
-    public function register_cgto_db($username, $email, $password, $random_salt, $admin,$ID_facility) {
+    public function register_cgto_db($password, $random_salt) {
 
         $data = array(
             'username' => $this->input->post('username'), // this three should from the input area with name="username,admin,email"
-            'admin' => $this->input->post('admin'),
+            'permission' => $this->input->post('permission'),
             'email' => $this->input->post('email'),
-            'salt' => $random_salt, //this three variable are generated
+//            'salt' => $random_salt, //this three variable are generated
             'password' => $password,
-            'ID_facility' => $ID_facility
+            'salt' => $random_salt,
+            'ID_facility' => $this->input->post('ID_Facility')
         );
         //posts is the table name and the data array is called "data"
         return $this->db->insert('Caregiver', $data);

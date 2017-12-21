@@ -1,13 +1,13 @@
 
-//<?php
-//include_once 'includes/functions.php';
-//sec_session_start();
-//
-//if (login_check($mysqli) == true) {
-//    $logged = 'in';
-//} else {
-//    $logged = 'out';
-//}
+<?php
+include_once 'includes/functions.php';
+sec_session_start();
+
+if (login_check($mysqli) == true) {
+    $logged = 'in';
+} else {
+    $logged = 'out';
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,15 +33,15 @@
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Main.less" />
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Caregiver.less" />
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Resident.less" />
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
-        <link href="<?php echo base_url();?>/assets/css/introjs.css" rel="stylesheet" type="text/css"/> <!--for hint of page-->
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
+        
         <!--compile less files-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
 		<!--javascript includes-->
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/forms.js"></script>
-		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/intro.js"></script>  <!--hint for pages-->
+		
 		<!--load a page-->
 		<script>
 			function loadPage(controller, page){
@@ -55,8 +55,6 @@
 		?>
 		
 		<img src="<?php echo base_url(); ?>/image/pictograms/header.png" style=" max-width:100%; height:auto" class=""/>
-                 <a class="btn btn-large btn-success" href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();">Show me how</a>
-                 <!--Show  the instruction-->
 
         <div class="col col-md-4" id="homebutton">
             <input Type="button" class="btn btn-primary btn-lg" Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Caregiver/overview'"/>

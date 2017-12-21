@@ -2,11 +2,6 @@
 
 class addfacility_model extends CI_Model {
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->database();
-    }
-
     public function get_facility($ID_facility = FALSE) {
         if ($ID_facility === FALSE) {
             $this->db->order_by('Facility.ID_facility', 'DESC'); // order by ID Descending 
@@ -43,11 +38,13 @@ class addfacility_model extends CI_Model {
 
         $data = array(
             'Name' => $this->input->post('Name'),
-//            'description' => $this->input->post('description')
+            'City' => $this->input->post('City'),
+            'Postcode' => $this->input->post('Postcode'),
+            'Street' => $this->input->post('Street'),
+            'Number' => $this->input->post('Number')         
         );
-
         $this->db->where('ID_facility', $ID_facility);
-        return $this->db->update('ID_facility', $data);
+        return $this->db->update('Facility', $data);
     }
 
 
