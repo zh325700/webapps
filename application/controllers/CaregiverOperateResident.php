@@ -4,8 +4,8 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function find() {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','findres');
+        $this->lang->load('Dutch_lang', 'dutch');
+        $data = $this->Language_model->getData('Dutch', 'findres');
         $data['title'] = 'Overview of residents';
         $data['facilities'] = $this->Residents_model->get_facilities();
         $data['residents'] = $this->Residents_model->get_residents();
@@ -16,6 +16,10 @@ class CaregiverOperateResident extends CI_Controller {
     }
 
     public function view($ID_Elder = NULL) {
+        $this->load->model('Language_model');
+        $this->lang->load('Dutch_lang', 'dutch');
+        $data = $this->Language_model->getData('Dutch', 'findres');
+        $data = $this->Language_model->getData('Dutch', 'addres');
         $data['residents'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
         $data['fac_name'] = $this->Residents_model->get_FacilityName_by_ElderID($ID_Elder);
         if (empty($data['residents'])) {
@@ -24,25 +28,24 @@ class CaregiverOperateResident extends CI_Controller {
         $data['$ID_Elder'] = $data['residents']['ID_Elder'];
         $this->load->view('pages_generalised/header');
         $this->load->view('pages_generalised/caregiver');
-        $this->load->view('pages_caregiver/viewResident', $data);
+        $this->parser->parse('pages_caregiver/viewResident', $data);
         $this->load->view('pages_generalised/footer');
     }
 
     public function create() {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','addres');
+        $this->lang->load('Dutch_lang', 'dutch');
+        $data = $this->Language_model->getData('Dutch', 'addres');
         $data['title'] = 'Create Residents';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
-        
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages_generalised/header');
-            $this->load->view('pages_generalised/caregiver');
+//            $this->load->view('pages_generalised/header');
+//            $this->load->view('pages_generalised/caregiver');
             $this->parser->parse('pages_caregiver/createResident', $data);
-            $this->load->view('pages_generalised/footer');
+//            $this->load->view('pages_generalised/footer');
         } else {
             //upload image
 
@@ -78,31 +81,36 @@ class CaregiverOperateResident extends CI_Controller {
     }
 
     public function edit($ID_Elder) {
+        $this->load->model('Language_model');
+        $this->lang->load('Dutch_lang', 'dutch');
+        $data = $this->Language_model->getData('Dutch', 'findres');
+        $data = $this->Language_model->getData('Dutch', 'addres');
         $data['resident'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
         $data['facilities'] = $this->Residents_model->get_facilities();
         if (empty($data['resident'])) {
             show_404();
         }
-        $this->load->view('pages_generalised/header');
-		$this->load->view('pages_generalised/caregiver');
-        $this->load->view('pages_caregiver/editResident', $data);
-        $this->load->view('pages_generalised/footer');
+//        $this->load->view('pages_generalised/header');
+//        $this->load->view('pages_generalised/caregiver');
+        $this->parser->parse('pages_caregiver/editResident', $data);
+//        $this->load->view('pages_generalised/footer');
     }
 
     public function update() {
         $this->load->model('Language_model');
-        $this->lang->load('Dutch_lang','dutch');
-        $data=$this->Language_model->getData('Dutch','editres');
+        $this->lang->load('Dutch_lang', 'dutch');
+        $data = $this->Language_model->getData('Dutch', 'editres');
         $data['facilities'] = $this->Residents_model->get_facilities();
+//        $data['resident'] = $this->Residents_model->get_residents($_POST("ID_Elder"));
         //upload image
         $this->form_validation->set_rules('LastName', 'LastName', 'required');
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages_generalised/header');
-            $this->load->view('pages_generalised/caregiver');
+//            $this->load->view('pages_generalised/header');
+//            $this->load->view('pages_generalised/caregiver');
             $this->parser->parse('pages_caregiver/editResident', $data);
-            $this->load->view('pages_generalised/footer');
+//            $this->load->view('pages_generalised/footer');
         } else {
             $config['upload_path'] = './image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -112,14 +120,14 @@ class CaregiverOperateResident extends CI_Controller {
             $config['max_height'] = '3000';
 
             $this->load->library('upload', $config);
-            $data = array('upload_data' => $this->upload->data());
-            $zfile = $data['upload_data']['full_path']; // get file path
-
 
             if (!$this->upload->do_upload('userfile')) {
                 $errors = array('error' => $this->upload->display_errors());
                 $post_image = 'noimage.png';
             } else {
+                $zdata = array('upload_data' => $this->upload->data()); // get data
+                $zfile = $zdata['upload_data']['full_path']; // get file path
+                $data = array('upload_data' => $this->upload->data());
                 $post_image = $_FILES['userfile']['name'];
                 chmod($zfile . $post_image, 0755); // CHMOD file to be rwxr
             }
@@ -127,7 +135,6 @@ class CaregiverOperateResident extends CI_Controller {
             $this->Residents_model->update_resident($post_image);
 
             redirect('CaregiverOperateResident/find');
-//            redirect('CaregiverOperateResident/find');
         }
     }
 
