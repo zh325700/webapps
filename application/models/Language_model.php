@@ -60,7 +60,7 @@
                 $data=$this->DataViewRes();
             }
             elseif($page=='general'){
-                $data=$this->DataGeneral();
+                $data=$this->getDataGeneral();
             }
             return $data;
         }
@@ -235,7 +235,7 @@
         return $data;
       }
       
-        public function getGeneral(){
+        public function getDataGeneral(){
             $data["More_Info"]="Meer informatie";
             $data['division']="";
             $data["RoomNumber"]=$this->lang->line('RoomNumber');

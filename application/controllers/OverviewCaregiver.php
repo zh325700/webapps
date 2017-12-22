@@ -10,6 +10,7 @@
             //Loading in the nessecairy models
             $this->load->model('Language_model');
             $this->load->model('Overview_Model');
+            $this->lang->load('Dutch_lang','dutch');
             //Asking the data from the database-model for this controller
             $results=$this->Overview_Model->get_scores();
             $row['thescores']=$results["avg_Scores"];
@@ -21,7 +22,16 @@
             //construct the array of data for parsing
             $data= array(
                 //Ask the language model for the right values of the keywords
-                $this->Language_model->getData($this->session->userdata('language'),general),
+                "More_Info"=>"Meer informatie",
+                'division'=>"",
+                "RoomNumber"=>$this->lang->line('RoomNumber'),
+                "FirstName"=>$this->lang->line('FirstName'),
+                "LastName"=>$this->lang->line('LastName'),
+                "Score"=>$this->lang->line('Score'),
+                "Question"=>$this->lang->line('Question'),
+                "avg_Score"=>$this->lang->line('avg_Score'),
+                "title_tab1"=>$this->lang->line('title_general1'),
+                "title_tab2"=>$this->lang->line('title_general2'),
                 //parse the data from the databases into the right templates
                 "content_qes"=>$this->parser->parse('pages_caregiver/Question_score',$row,TRUE),
                 "content_res"=>$this->parser->parse('pages_caregiver/Elder_Score',$row,TRUE));
