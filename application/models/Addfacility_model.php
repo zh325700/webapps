@@ -4,8 +4,8 @@ class addfacility_model extends CI_Model {
 
     public function get_facility($ID_facility = FALSE) {
         if ($ID_facility === FALSE) {
-            $this->db->order_by('Facility.ID_facility', 'DESC'); // order by ID Descending 
-            $query = $this->db->get('Facility'); // get every data in the Facility tabel into the query
+            $this->db->order_by('Facility.ID_facility', 'DESC'); 
+            $query = $this->db->get('Facility'); 
             return $query->result_array();
         }
         $query = $this->db->get_where('Facility', array('ID_facility' => $ID_facility));
@@ -34,7 +34,7 @@ class addfacility_model extends CI_Model {
     }
 
     public function update_facility() {
-        $ID_facility = $this->input->post('ID_facility');     //post('name of the input ') 
+        $ID_facility = $this->input->post('ID_facility');     
 
         $data = array(
             'Name' => $this->input->post('Name'),

@@ -58,11 +58,11 @@ if (login_check() == true) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-offset-1" style="padding-left: 20px">
-                 <img src="<?php echo base_url(); ?>/image/pictograms/food.png" alt="" class="align"/>
+                 <img src="<?php echo base_url(); ?>/image/pictograms/<?=$category?>.png" alt="" class="align"/>
             </div>
             <div class="col-sm-offset-1">
                 <h1>
-                   Eten (vraag <p id="question_number" style="display: inline">1</p>)
+                   <?=$category?> (vraag <p id="question_number" style="display: inline">1</p>)
                 </h1>
             </div>
         </div>
@@ -81,16 +81,16 @@ if (login_check() == true) {
                         <img src="<?php echo base_url(); ?>/image/pictograms/smiley1.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
 		</div>
 		<div class="col-sm-2">
-                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley2.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley2.png" onclick="javascript:getQuestion(2)" alt="" class="smiley" usemap="#map"/>
 		</div>
 		<div class="col-sm-2">
-                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley3.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley3.png" onclick="javascript:getQuestion(3)" alt="" class="smiley" usemap="#map"/>
 		</div>
 		<div class="col-sm-2">
-                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley4.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley4.png" onclick="javascript:getQuestion(4)" alt="" class="smiley" usemap="#map"/>
 		</div> 
 		<div class="col-sm-2">
-                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                        <img src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(5)" alt="" class="smiley" usemap="#map"/>
 		</div>    
                 <div class="col-sm-2">
                         <img src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
@@ -120,27 +120,10 @@ if (login_check() == true) {
         
 	<div class="row">
             <div class="col-sm-offset-0 col-sm-3">
-                <a id = "link" type="button" class="btn btn-lg logout" onclick="javascript:previous()">Vorige vraag</a>          
+                <a id = "previousBtn" type="button" class="btn btn-lg logout" onclick="javascript:previous()">Ga terug</a>          
             </div>     
 </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  
-<!-- Javascript libraries -->
-  <?php if (isset($js_to_load)) {
-	foreach ($js_to_load as $js_lib):
-		?>
-		<script src="<?php echo base_url(); ?>/assets/js/<?= $js_lib ?>"></script>
-	<?php endforeach;
-}
-?>
-
-<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/question.js"></script>
-
-	<script type="text/javascript">
-		loadQuestions(<?php echo json_encode($questions)?>, "<?php echo $category?>");
-	</script>
-
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   
@@ -156,7 +139,7 @@ if (login_check() == true) {
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/question.js"></script>
 
 	<script type="text/javascript">
-		loadQuestions(<?php echo json_encode($questions)?>, "<?php echo $category?>");
+		loadQuestions(<?php echo json_encode($questions)?>, "<?php echo $category?>", "<?php echo $this->session->userdata('idelder')?>");
 	</script>
 
 <?php else: ?>

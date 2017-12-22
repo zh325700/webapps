@@ -82,7 +82,8 @@
                             </form>
                         
                     </div>
-                    <div class="row" style="height: 10%">
+                    
+                      <div class="row" style="height: 10%">
                         <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3" >
                             <input type="button" class="btn btn-lg button style btn-block" style="height: 100%; border-radius: 10px; border: solid 2px #EDEEF4; background: #EDEEF4;"
                                    name="1" value="1" id="1" onclick="addNumber(this);"/>
@@ -134,6 +135,7 @@
                                    name="Delete" value="delete" id="delete" onclick="addNumber(this);"/>
                         </div>
                     </div>
+
                         </div>
                         
                         <script type = "text/javascript">
@@ -171,11 +173,15 @@
                                 var match = input.match(regExp);
                                 if (match) {
                                     if (input === date) {
-//                                        if (fontSize) {
+                                            <?php 
+                                                $this->session->set_userdata('idelder', $resident['ID_Elder']);
+                                                $this->session->set_userdata('idfacility', $resident['ID_facility']);
+                                                $this->session->set_userdata('firstname', $resident['FirstName']);
+                                                $this->session->set_userdata('lastname', $resident['LastName']);
+                                                $this->session->set_userdata('division', $resident['division']);
+                                                $this->session->set_userdata('picture', $resident['Picture']);
+                                            ?>
                                             loadPage('Welcome', 'Resident/menu');
-//                                        } else {
-//                                            loadPage('Fontsize_resident', 'index');
-//                                        }
                                     } else {
                                         document.getElementById('date').value = "";
                                         counter = 0;
