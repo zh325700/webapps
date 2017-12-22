@@ -7,7 +7,9 @@
             </div>
             <div class="col-sm-6"></div>
             <div class="col-sm-1">
+                <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
                 <img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>
+                </a>
             </div>
         </div>
 
@@ -21,7 +23,7 @@
         </div>
 
         <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12" data-step="1" data-intro="Click here to answer the questionaire" data-position='top'>
                     <button id = "newButton" type="button" class="btn btn-lg question button btn-block" onclick="loadPage('Welcome','Resident/categories')">                      
                         <img src="<?php echo base_url(); ?>/image/pictograms/questions.png" class="align"/>
                        Vragenlijst
@@ -35,15 +37,18 @@
                         <a href="https://www.accuweather.com/…/…/27046/weather-forecast/27046" class="aw-widget-legal"></a>
                         <div id="awcc1511526958631" class="aw-widget-current"
                             data-locationkey="" data-unit="c" data-language="nl" 
-                            data-useip="true" data-uid="awcc1511526958631">
+                            data-useip="true" data-uid="awcc1511526958631"
+                            data-step="2" data-intro="You can see today's weather here" data-position='top'>
                         </div>
 		</div>
                 <div class="col-sm-6">
-                    <button id = "newButton"  type="button" class="btn btn-lg button style btn-block family" >
+                    <button id = "newButton"  type="button" class="btn btn-lg button style btn-block family" 
+                            data-step="3" data-intro="Watch video your familly sent you" data-position='top'>
                         <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="align family"/>
                         Familie 
                     </button>
-                    <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block">
+                    <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block"
+                            data-step="4" data-intro="Click here to see recent activities" data-position='top'>
                         <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>
                         Activiteiten
                     </button>

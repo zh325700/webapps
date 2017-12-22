@@ -20,13 +20,14 @@
 		<!--our css and less-->
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/pj_login_resident.less" />
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
-        
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
         <!--compile less files-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
 		<!--javascript includes-->
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/forms.js"></script>
+                <script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
 		
 		<!--load a page-->
 		<script>
@@ -56,17 +57,17 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-2 col-sm-2" style="margin-top: 3%">
+                        <div class="col-md-2 col-sm-2" style="margin-top: 3%" data-step="1" data-intro="Here is your picture" data-position='top'>
                             <img src="../../image/photos/<?= $pic?>" alt="" style=" width: 100px" class="align-left"/>
                         </div>
                         
-                        <div class="col-md-offset-1 col-md-6 col-sm-offset-1 col-sm-9">
+                        <div class="col-md-offset-1 col-md-6 col-sm-offset-1 col-sm-9" >
                             <h1 >Gelieve uw geboortedag in te vullen:</h1>
                         </div>
                     </div>
                     <div class="row">
                         
-                        <div class="col-sm-3">
+                        <div class="col-sm-3" data-step="2" data-intro="Click this if picture is wrong" data-position='top'>
                             <button class="btn button style small btn-block" onclick="loadPage('LoginResident', 'view')">
                                 Dit ben<br> ik niet</button>
                         </div>
@@ -75,7 +76,7 @@
                                     <h2>Geboortedag: </h2>
                                 </div>
                                 <div class="col-sm-offset-1 col-md-4 col-sm-4"> 
-                                    <h2>
+                                    <h2 data-step="3" data-intro="Enter your date of birth Using the keyboard below" data-position='top'>
                                         <input id="date" type="text" placeholder="dd/mm/yyyy" 
                                                pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d">
                                     </h2>
