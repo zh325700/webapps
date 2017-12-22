@@ -123,6 +123,7 @@
     //change the styling of this body
     document.body.style.display='inline';
     
+
     /*init()
      * Function:the initiations of the overview page, 
      *          loads in the dropdown menu's and the statistics
@@ -143,7 +144,6 @@
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general",false);
             //Sends the request to the server and then waits for a response
             xmlhttp.send();
-            
             E_panels=document.getElementsByClassName("elder_tab");
             E_value=[];
             for(var i=0,length=E_panels.length;i<length;i++){
@@ -253,6 +253,7 @@
         xmlhttp.send();
     }
     
+
     /*getChartElder()
      * Function: the action when you press the detail button in a tab, it update the view
      * Input: the elder ID
@@ -340,6 +341,7 @@
         console.log(time);
     }
     
+
     /*getDataqes()
      * 
      * @param {type} ques
@@ -356,7 +358,7 @@
         xmlhttp.send();
         console.log(divisions);
         divisions=jQuery.parseJSON(divisions);
-        var datascore=[];
+        datascore=[];
         data=[];
         time=[];
         for(var div in divisions){

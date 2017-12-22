@@ -7,8 +7,12 @@
          *Input:none
          *Output:the parsed Tab_template with the data provided.   */
         public function event_general(){
-            //Loading in the nessecairy models
-            $this->load->model('Language_model');
+            if($this->session->userdata('language')=='dutch'){
+                $this->lang->load('Dutch_lang','dutch');
+            }
+            else{
+                $this->lang->load('english_lang','english');
+            }
             $this->load->model('Overview_Model');
             $this->lang->load('Dutch_lang','dutch');
             //Asking the data from the database-model for this controller
@@ -45,6 +49,71 @@
          */
         public function getTypes(){
             //Load in the databasemodel
+            $this->load->model('Overview_Model');
+            $results=$this->Overview_Model->get_Types();
+            echo(json_encode($results));
+        }
+        
+        public function getDivisions(){
+            $this->load->model('Overview_Model');
+            $results=$this->Overview_Model->get_divisions(1);
+            echo(json_encode($results["divisions"]));
+        }
+        public function test(){
+            $Type=$this->input->get('type');
+            $ID_elder=$this->input->get('ID_elder');
+            $this->load->model('Overview_Model');
+            //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
+            //$row['thescores']=$results["avg_Scores"];
+            $row['thescores']=array( 
+                            array("Timestamp" => "vorig jaar",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "zes maanden geleden",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "twee maanden geleden",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "vorige maand",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "deze maand",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "vorige week",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "deze week",
+                                "AvgScore" => mt_rand(1, 5)));
+            echo(json_encode($row));
+        }
+        
+        public function getQestionScore(){
+            $division=$this->input->get('division');
+            $ID_Question=$this->input->get('ID_Question');
+            $this->load->model('Overview_Model');
+            //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
+            //$row['thescores']=$results["avg_Scores"];
+            $row['thescores']=array( 
+                            array("Timestamp" => "vorig jaar",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "zes maanden geleden",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "twee maanden geleden",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "vorige maand",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "deze maand",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "vorige week",
+                                "AvgScore" => mt_rand(1, 5)),
+                            array("Timestamp" => "deze week",
+                                "AvgScore" => mt_rand(1, 5)));
+            echo(json_encode($row));
+        }
+        public function event_division(){
+           if($this->session->userdata('language')=='dutch'){
+                $this->lang->load('Dutch_lang','dutch');
+            }
+            else{
+                $this->lang->load('english_lang','english');
+            }
+            $division=$this->input->get('division');
             $this->load->model('Overview_Model');
             //ask the model for the data
             $results=$this->Overview_Model->get_Types();
@@ -178,6 +247,7 @@
             $this->parser->parse('pages_caregiver/Tab_template',$data);
         }
         
+
         /*get_divisions
          * Function: loads the different divisions from one facility into a dropdown menu
          * Input: facility ID
@@ -261,7 +331,7 @@
             $this->parser->parse('pages_caregiver/Tab_template', $data);
             
         }
-        
+
         /*getChartElder
          * Function: makes the view of the data of the elderly
          * Input:ID_elder

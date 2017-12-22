@@ -50,9 +50,11 @@ body{
     background-color: @primary-color-dark;
     
     h1{
-        color: @sober-color-light
+        color: white;
+        font-size: 25px;
+         
     }   
-    
+
     img.align{
         width: 40px;
         float: left;
@@ -71,7 +73,8 @@ body{
         font-size: 40px;
         color: white;
     }
-.top-right2 {
+
+img.top-right2 {
     position: absolute;
     top: 8px;
     right: 16px;
@@ -82,26 +85,31 @@ body{
 
 img.top-right {
     position: absolute;
-    top: 16px;
-    right: 100px;
+    top: 30px;
+    right: 110px;
     width: 60px;
-    background-color: @gray;
-    opacity: 0.7;
+    opacity: 0.75;
     border-radius: 10px;
 }
 
 .container{
    
     padding-left: 0;
-    
-  
+
+    h1{
+        color: @primary;
+        font-size: 25px;
+    }
+    h1.par2{
+            margin-top: 10%;
+    }
     button{
         color: white;
         border-radius: 10px;
         position: relative;
         font-family:myriad-pro-condensed, sans-serif;
         word-wrap: break-word;
-        font-size:40px;
+        font-size:35px;
         margin-bottom: 10px;
         margin-top: 20px;
     }
@@ -126,9 +134,10 @@ img.top-right {
     }
     
     h2{
-        font-size: 40px;
+        font-size: 25px;
         margin-top: 50px;
         margin-bottom: 50px;
+        color: @primary;
     }
     
     p{
@@ -137,6 +146,7 @@ img.top-right {
         opacity: 0.8;
         float:none;
         text-align: center;
+        margin-top: 10px;
         //padding-left: 20px;
         
     }
@@ -169,5 +179,10 @@ img.top-right {
         //padding-left: 5%;
     }
     
+    .smiley:active{
+        background-color: @primary-light;
+        border-radius: 70px;
+    }
+
 }
 
