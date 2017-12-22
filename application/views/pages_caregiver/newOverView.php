@@ -123,18 +123,27 @@
     //change the styling of this body
     document.body.style.display='inline';
     
-    //is the function for initiating the page with loading in the divisions
-    //and the initial tabs
+    /*init()
+     * Function:the initiations of the overview page, 
+     *          loads in the dropdown menu's and the statistics
+     * Input:none
+     * Output: the different dorpdown menu's and the statistics views
+     * @returns 
+     */
     function init() {
-        //xmlhttp is a request to the server to collect data
+        //xmlhttp is a request that will be send to the server
         xmlhttp= new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function(){
+            xmlhttp.onreadystatechange = function(){ //checks if the server is ready
                     if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                            document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+                        //responsetext is the output send by the server and is placed in the provided placeholder
+                        document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                     }
             };
+            //prepare the xmlhttp request, here it's calling a controller function for the statics
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general",false);
+            //Sends the request to the server and then waits for a response
             xmlhttp.send();
+            
             E_panels=document.getElementsByClassName("elder_tab");
             E_value=[];
             for(var i=0,length=E_panels.length;i<length;i++){
@@ -173,13 +182,16 @@
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_divisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
-            //loops over every made button by the server
-            //and give it the right EventListener
-           
     }
     
     
-    //is the function that asks the server for the scores and updates the tab with it
+    /*getScores()
+     * Function: the action preformed when clicked on the general button
+     *          it generates a new view in the tabs by asking the server for the data
+     *Input: none
+     *Output: the view is updated
+     * @returns 
+     */
     function getScores(){
             xmlhttp= new XMLHttpRequest();
             xmlhttp.onreadystatechange = function(){
@@ -190,7 +202,15 @@
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general");
             xmlhttp.send();
     }
-    //is the function that asks the server for the scores and updates the tab with it
+    
+    /*getScoredDiv()
+     * Function: the action preformed when clicked on the division dropdown buttons
+     *          it generates a new view in the tabs by asking the server for the data
+     * Input: The division that is selected
+     * Output: The view is updated
+     * @param {type} Div
+     * @returns {undefined}
+     */
     function getScoresDiv(Div){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -202,6 +222,14 @@
         xmlhttp.send();
     }
     
+    /*getTimeDiv()
+     * Function: the action preformed when clicked on the time-filled in dropdown buttons
+     *          it generates a new view in the tabs by asking the server for the data
+     * Input: The selected division
+     * Output: the view is updated
+     * @param {type} Div
+     * @returns {undefined}
+     */
     function getTimeDiv(Div){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -212,6 +240,7 @@
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_time?division="+Div,false);
         xmlhttp.send();
     }
+    
     //is the function that asks the server for the timestamps and updates the tab with it
     function getTimestamps(){
         xmlhttp= new XMLHttpRequest();
@@ -224,7 +253,13 @@
         xmlhttp.send();
     }
     
-    
+    /*getChartElder()
+     * Function: the action when you press the detail button in a tab, it update the view
+     * Input: the elder ID
+     * Output: the view is updated
+     * @param {type} elder
+     * @returns {undefined}
+     */
     function getChartElder(elder){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -234,10 +269,18 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
+        //call the function to draw the chart
         drawChart(elder,"elder");
     }
     
-     function getChartQuestion(ques){
+     /*getChartQuestion()
+     * Function: the action when you press the detail button in a tab, it update the view
+     * Input: the question ID
+     * Output: the view is updated
+     * @param {type} ques
+     * @returns {undefined}
+     */
+    function getChartQuestion(ques){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
                 if(xmlhttp.readyState === XMLHttpRequest.DONE){
@@ -246,9 +289,18 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
         xmlhttp.send();
+        //call the function to draw the chart
         drawChartqes(ques,"ques");
     }
     
+    /*getData()
+     * Function: collects the data and put them in the right arrays, first it asks for the different topics
+     *           then it aks for the data for each topic
+     * Input: The elder id
+     * Output: an array with all the data needed in it
+     * @param {type} elder
+     * @returns {undefined}
+     */
     function getData(elder){ 
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -258,19 +310,29 @@
             };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTypes",false);
         xmlhttp.send();
+        //reparse the data giving from the server from string into array
+        //topics is the array of every topic
         topics=jQuery.parseJSON(topics);
-        datascore=[];
-        data=[];
-        time=[];
+        //initializing the arrays
+        datascore=[];//a temp array to store the scores
+        data=[];// the array that will be send to the chartdrawer
+        time=[];// the array with the different timepoints(x-axis)
+        //loops over every topic in the topic array
         for(var topic in topics){
+            //calls a function to collect all the data from the server for each topic
             input=collectData(elder,topics[topic],value);
+            //initialize in the data array for each topic
             datascore[topic]=[];
+            //loop over every value in the inout from the scores for each topic
             for(var value in input){
+                //put every avgScore into the temp array on the right spot
                 datascore[topic][value]=input[value]["AvgScore"];
+                //checks if the timestamp is already on the x-axis if not adds it to it
                 if(time.indexOf(input[value]["Timestamp"])===-1){
                     time.push(input[value]["Timestamp"]);
                 }
             }
+            //puts the scores from the temp array into the data array
             data[topics[topic]["Type"]]=datascore[topic];
             console.log(data);
         }
@@ -278,7 +340,12 @@
         console.log(time);
     }
     
-     function getDataqes(ques){ 
+    /*getDataqes()
+     * 
+     * @param {type} ques
+     * @returns {undefined}
+     */
+    function getDataqes(ques){ 
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
                     if(xmlhttp.readyState === XMLHttpRequest.DONE){

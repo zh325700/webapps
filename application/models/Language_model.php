@@ -1,6 +1,16 @@
 <?php
     class Language_model extends CI_Model{
         
+        /*getData
+         * Function:depending on the input calls the right function 
+         *          which get the lines from the language files and put them into an array
+         *          and send this array back to the controller
+         * Input:language: the selected language
+         *       page: the page that will be shown, 
+         *              so this decides the placeholders that should be filled in
+         *       elder: if is send, the ID of the elderly
+         * Output: the language data to be filled in into the placeholders
+         */
         public function getData($language,$page,$elder=Null){
             $this->load->helper('form');
             //$elder=$this->session->userdata('item');

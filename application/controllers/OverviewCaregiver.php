@@ -168,10 +168,13 @@
             $this->parser->parse('pages_caregiver/Tab_template',$data);
         }
         
-        /*
-         * 
+        /*get_divisions
+         * Function: loads the different divisions from one facility into a dropdown menu
+         * Input: facility ID
+         * Output: The parsed dropdownmenu filled in with the right data 
          */
-        public function get_divisions($facility=1){      
+        public function get_divisions($facility=1){
+            //load in the needed models
             if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
@@ -179,15 +182,24 @@
                 $this->lang->load('english_lang','english');
             }
             $this->load->model('Overview_Model');
+            //asks the databasemodel for the data about the different divisions in a facility
             $results=$this->Overview_Model->get_divisions($facility);
             $row['thedivisions']=$results['divisions'];
+            //prepare the data array for parsing
             $data= array(
                 "content_title"=>$this->lang->line('divisions'),
+                //parses the data into different dropdown items
                 "content_div"=>$this->parser->parse('pages_caregiver/divisions_temp',$row,TRUE));
             $this->parser->parse('pages_caregiver/dropdown_temp', $data);
         }
         
-        public function get_time_divisions($facility=1){      
+        /*get_time_divisions
+         * Function: loads the different divisions from one facility into a dropdown menu
+         * Input: facility ID
+         * Output: The parsed dropdownmenu filled in with the right data 
+         */
+        public function get_time_divisions($facility=1){
+            //load in the needed models
            if($this->session->userdata('language')=='dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
@@ -195,15 +207,24 @@
                 $this->lang->load('english_lang','english');
             };
             $this->load->model('Overview_Model');
+             //asks the databasemodel for the data about the different divisions in a facility
             $results=$this->Overview_Model->get_divisions($facility);
             $row['thedivisions']=$results['divisions'];
+             //prepare the data array for parsing
             $data= array(
                 "content_title"=>$this->lang->line('divisions'),
+                //parses the data into different dropdown items
                 "content_div"=>$this->parser->parse('pages_caregiver/divisions_time_temp',$row,TRUE));
             $this->parser->parse('pages_caregiver/dropdown_temp', $data);
         }
-               
+        
+        /*event_time
+         * Function: the action that will happen when the fill-in time of a division is asked
+         * Input:division: the division of which the data will be asked
+         * Output:The parsed tabtemplate with the data
+         */
         public function event_time(){
+            //loading in the needed models and input variables
            if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
@@ -212,8 +233,10 @@
             }
             $division=$this->input->get('division');
             $this->load->model('Overview_Model');
+            //asked the data from the datbasemodel
             $results=$this->Overview_Model->get_timestamp_elders($division);
             $row['theelder']=$results['timestamps'];
+            //prepare the array for parsing
             $data= array(
                  "division"=>$division,
                 "RoomNumber"=>$this->lang->line('RoomNumber'),
@@ -223,12 +246,19 @@
                 "title_tab1"=>$this->lang->line('title_time'),
                 "title_tab2"=>" No information to show",
                 "content_qes"=>"empty",
+                //parses the separete data into the different tabpanels
                 "content_res"=>$this->parser->parse('pages_caregiver/Time_Score_temp',$row,TRUE));
             $this->parser->parse('pages_caregiver/Tab_template', $data);
             
         }
         
+        /*getChartElder
+         * Function: makes the view of the data of the elderly
+         * Input:ID_elder
+         * Output; the parsed view of the elderly with the data
+         */
         public function getChartElder(){
+            //load in the needed models and inuts
            if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
@@ -239,15 +269,23 @@
             $data=$this->Language_model->DataOverview();
             $ID_Elder=$this->input->get('ID_Elder');
             $this->load->model('Overview_Model');
+            //asks the data(the different topics and the info about the elderly) from the databasemodel
             $data['Topics']=$this->Overview_Model->get_Types();
             $data['info']=$this->Overview_Model->get_elderinfo($ID_Elder);
+            //asks the average scores and timestamps for each topic seperatly
             for($i=0;$i<sizeof($data['Topics']);$i++){
                 $data['score'][$data['Topics'][$i]->Type]=$this->Overview_Model->get_score_type($data['Topics'][$i]->Type,$ID_Elder);
             }
             $this->parser->parse('pages_caregiver/chartView', $data);
         }
         
+        /*getChatQuestion
+         * Function: makes the view of the data of the question
+         * Input:ID_question
+         * Output: the parsed view of the question  with the data
+         */
         public function getChartQuestion(){
+            //loads in the models and the input
             if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
@@ -258,8 +296,10 @@
             $data=$this->Language_model->DataOverview();
             $ID_Question=$this->input->get('ID_Question');
             $this->load->model('Overview_Model');
+           //asks the data(the different divisions and the info about the questions) from the databasemodel
             $data['divisions']=$this->Overview_Model->get_divisions('1');
             $data['info']=$this->Overview_Model->get_questioninfo($ID_Question);
+            //asks the average scores and timestamps for each division seperatly
             for($i=0;$i<sizeof($data['divisions']['divisions']);$i++){
                // $data['score'][$i]=$this->Overview_Model->get_score_division($data['divisions']['divisions'][$i]->Type,$ID_Question);
             }
