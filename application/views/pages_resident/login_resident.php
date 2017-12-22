@@ -50,10 +50,10 @@
 		?>
 		
                 
-                <div class="container-fluid">
+                <div class="container-fluid" style="height: 6%; width:100.3%">
                     <div class="row">
-                        <div class="col-sm-offset-1">
-                            <h1>
+                        <div class="col-md-offset-1 col-sm-offset-1" style="padding-left: 17px">
+                            <h1 style="margin-top:0.75%">
                                 Login resident
                             </h1>
                         </div>
@@ -80,19 +80,19 @@
                             </ul>
                         </div>
                     </div>-->
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-sm-4" style="margin-top: 2%; padding-left: 0">
                             <h1>
                                 Ik ben een :
                             </h1>
                         </div>
 
-                        <div class="col-md-3 col-sm-4" style="padding-left: 0">
+                        <div class="col-md-4 col-sm-4" style="padding-left: 0">
                             <button class="btn style btn-block" id="female_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/LoginResident/loadBySex?sex=F'">
                                 Vrouw
                             </button>
                         </div>
-                        <div class="col-md-3 col-sm-4" style="padding-right: 0">
+                        <div class="col-md-4 col-sm-4" style="padding-right: 0">
                             <button class="btn style btn-block" id="male_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/LoginResident/loadBySex?sex=M'">
                                 Man
                             </button>
@@ -126,6 +126,12 @@
                             ?>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-offset-10 col-md-offset-11 col-sm-2" >
+                                <a id = "link" type="button" class="btn btn-lg style logout" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">Afmelden</a>          
+                            </div>    
+                    </div>
+   
                 </div>
     </body>
     
@@ -142,3 +148,5 @@
 
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/loginResident.js"></script>
 </html>
+
+                    
