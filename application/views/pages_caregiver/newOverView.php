@@ -315,6 +315,7 @@
         //topics is the array of every topic
         topics=jQuery.parseJSON(topics);
         //initializing the arrays
+        options=[]
         datascore=[];//a temp array to store the scores
         data=[];// the array that will be send to the chartdrawer
         time=[];// the array with the different timepoints(x-axis)
@@ -335,13 +336,75 @@
             }
             //puts the scores from the temp array into the data array
             data[topics[topic]["Type"]]=datascore[topic];
-            console.log(data);
         }
+        options["colors"]=getColor(data);
+        options["visible"]=setVisibility(data);
         console.log(data);
         console.log(time);
     }
     
-
+    function setVisibility(data){
+        var avg=0;
+        var count=0;
+        visible=[];
+        for(var topic in data){
+            for(value in data[topic]){
+                avg=avg+data[topic][value];
+            }
+            avg=avg/data[topic].length;
+            if(avg<2){
+                visible[topic]=false;
+                count++; 
+            }
+            else{
+                visible[topic]=true;
+            }
+        }
+        if(count<4){
+            for(value in data[topic]){
+                avg=avg+data[topic][value];
+            }
+            avg=avg/data[topic].length;
+            if(avg<3){
+                visible[topic]=false;
+                count++; 
+            }
+            else{
+                visible[topic]=true;
+            }
+        }
+        console.log(visible);
+        return visible;
+    }
+    
+    function getColor(data){
+        var avg=0;
+        color=[];
+        for(var topic in data){
+            for(value in data[topic]){
+                avg=avg+data[topic][value];
+            }
+            avg=avg/data[topic].length;
+            if(avg>4){
+                color[topic]="DarkGreen";
+            }
+            else if(avg>3){
+                color[topic]="ForestGreen";
+            }
+            else if(avg>2){
+                color[topic]="Gold";
+            }
+            else if(avg>1){
+                color[topic]="DarkOrange";
+            }
+            else{
+                color[topic]="Red";
+            }
+        }
+        return color;
+    }
+    
+    
     /*getDataqes()
      * 
      * @param {type} ques
@@ -376,6 +439,7 @@
         console.log(data);
         console.log(time);
     }
+    
     function collectData(elder,topic){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -389,6 +453,7 @@
         cdata=cdata["thescores"];
         return cdata;
     }
+    
     function collectDataqes(qes,division){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -403,6 +468,7 @@
         cdata=cdata["thescores"];
         return cdata;
     }
+    
     function drawChart(elder,test){
         getData(elder,test);
         //console.log(time);
@@ -422,66 +488,75 @@
             labels: xarray,
             datasets: [{
                     label: "Privacy",
+                    visible: false,
                     borderColor: "rgba(255, 99, 132,0.5)",
-                    backgroundColor: "rgba(255, 99, 132,0.5)",
-                    fill: false,
+                    backgroundColor: options["colors"]["Privacy"],
+                    hidden: options["visible"]["Privacy"],
                     data: arrayPrivacyData,
-
+                    
                 }, {
                     label: "PersonalRelationships",
                     borderColor: 'rgba(54, 162, 235,0.5)',
-                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: options["colors"]["PersonalRelationships"],
                     fill: false,
                     data: arrayRelationData,
+                    hidden: options["visible"]["PersonalRelationships"],
                 },
                 {
                     label: "FoodAndMeals",
                     borderColor: 'rgba(0, 0, 255,0.5)',
-                    backgroundColor: 'rgba(0, 0, 255,0.5)',
+                    backgroundColor: options["colors"]["FoodAndMeals"],
                     fill: false,
                     data: arrayFandMData,
+                    hidden: options["visible"]["FoodAndMeals"],
                 },
                 {
                     label: "Activities",
                     borderColor: 'rgba(0, 255, 0,0.5)',
-                    backgroundColor: 'rgba(0, 255, 0,0.5)',
+                    backgroundColor: options["colors"]["Activities"],
                     fill: false,
                     data: arrayActivities,
+                    hidden: options["visible"]["Activities"],
                 },
                 {
                     label: "Autonomy",
                     borderColor: 'rgba(	255,165,0,0.5)',
-                    backgroundColor: 'rgba(255,165,0,0.5)',
+                    backgroundColor: options["colors"]["Autonomy"],
                     fill: false,
                     data: arrayAutonomy,
+                    hidden: options["visible"]["Autonomy"],
                 },
                 {
                     label: "RespectByStaff",
                     borderColor: 'rgba(54, 162, 235,0.5)',
-                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: options["colors"]["RespectByStaff"],
                     fill: false,
                     data: arrayRespectByStaff,
+                    hidden: options["visible"]["RespectByStaff"],
                 },
                 {
                     label: "SafetyAndSecurity",
                     borderColor: 'rgba(54, 162, 235,0.5)',
-                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: options["colors"]["SafetyAndSecurity"],
                     fill: false,
                     data: arraySafetyAndSecurity,
+                    hidden: options["visible"]["SafetyAndSecurity"],
                 },
                 {
                     label: "StaffResidentBonding",
                     borderColor: 'rgba(54, 162, 235,0.5)',
-                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: options["colors"]["StaffResidentBonding"],
                     fill: false,
                     data: arrayStaffResidentBonding,
+                    hidden: options["visible"]["StaffResidentBonding"],
                 },
                 {
                     label: "StaffResponsiveness",
                     borderColor: 'rgba(54, 162, 235,0.5)',
-                    backgroundColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: options["colors"]["StaffResponsiveness"],
                     fill: false,
                     data: arrayStaffResponsiveness,
+                    hidden: options["visible"]["StaffResponsiveness"],
                 },
                 /*{
                     type: "line",

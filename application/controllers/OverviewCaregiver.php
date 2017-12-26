@@ -54,35 +54,6 @@
             echo(json_encode($results));
         }
         
-        public function getDivisions(){
-            $this->load->model('Overview_Model');
-            $results=$this->Overview_Model->get_divisions(1);
-            echo(json_encode($results["divisions"]));
-        }
-        public function test(){
-            $Type=$this->input->get('type');
-            $ID_elder=$this->input->get('ID_elder');
-            $this->load->model('Overview_Model');
-            //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
-            //$row['thescores']=$results["avg_Scores"];
-            $row['thescores']=array( 
-                            array("Timestamp" => "vorig jaar",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "zes maanden geleden",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "twee maanden geleden",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "vorige maand",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "deze maand",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "vorige week",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "deze week",
-                                "AvgScore" => mt_rand(1, 5)));
-            echo(json_encode($row));
-        }
-        
         public function getQestionScore(){
             $division=$this->input->get('division');
             $ID_Question=$this->input->get('ID_Question');
@@ -91,35 +62,22 @@
             //$row['thescores']=$results["avg_Scores"];
             $row['thescores']=array( 
                             array("Timestamp" => "vorig jaar",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "zes maanden geleden",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "twee maanden geleden",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "vorige maand",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "deze maand",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "vorige week",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "deze week",
-                                "AvgScore" => mt_rand(1, 5)));
+                                "AvgScore" => mt_rand(0, 5)));
             echo(json_encode($row));
         }
-        public function event_division(){
-           if($this->session->userdata('language')=='dutch'){
-                $this->lang->load('Dutch_lang','dutch');
-            }
-            else{
-                $this->lang->load('english_lang','english');
-            }
-            $division=$this->input->get('division');
-            $this->load->model('Overview_Model');
-            //ask the model for the data
-            $results=$this->Overview_Model->get_Types();
-            //return the data as a string
-            echo(json_encode($results));
-        }
+        
         
         /*getDivisions
          * Function: Calls the databasemodel and send back the different Divisions
@@ -154,19 +112,19 @@
             //generate a array of random data
             $row['thescores']=array( 
                             array("Timestamp" => "vorig jaar",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "zes maanden geleden",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "twee maanden geleden",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "vorige maand",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "deze maand",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "vorige week",
-                                "AvgScore" => mt_rand(1, 5)),
+                                "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "deze week",
-                                "AvgScore" => mt_rand(1, 5)));
+                                "AvgScore" => mt_rand(0, 5)));
             echo(json_encode($row));
         }
         
