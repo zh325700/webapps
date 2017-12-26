@@ -328,15 +328,16 @@
             //loop over every value in the inout from the scores for each topic
             for(var value in input){
                 //put every avgScore into the temp array on the right spot
-                datascore[topic][value]=input[value]["AvgScore"];
+                datascore[topic][value]=input[value][0];
                 //checks if the timestamp is already on the x-axis if not adds it to it
-                if(time.indexOf(input[value]["Timestamp"])===-1){
-                    time.push(input[value]["Timestamp"]);
+                if(time.indexOf(input[value][1])===-1){
+                    time.push(input[value][1]);
                 }
             }
             //puts the scores from the temp array into the data array
             data[topics[topic]["Type"]]=datascore[topic];
         }
+        options["average"]=getAverage(data);
         options["colors"]=getColor(data);
         options["visible"]=setVisibility(data);
         console.log(data);
@@ -428,9 +429,9 @@
             input=collectDataqes(ques,divisions[div]);
             datascore[div]=[];
             for(var value in input){
-                datascore[div][value]=input[value]["AvgScore"];
-                if(time.indexOf(input[value]["Timestamp"])===-1){
-                    time.push(input[value]["Timestamp"]);
+                datascore[div][value]=input[value][0];
+                if(time.indexOf(input[value][1])===-1){
+                    time.push(input[value][1]);
                 }
             }
             data[divisions[div]["divisions"]]=datascore[div];
@@ -447,13 +448,88 @@
                              input = xmlhttp.responseText;
                     }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/test?type="+topic+"&ID_elder"+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/test?type="+topic["Type"]+"&ID_elder="+elder,false);
         xmlhttp.send();
+        //console.log(input);
         cdata=jQuery.parseJSON(input);
         cdata=cdata["thescores"];
+        cdata=convertData(cdata);
         return cdata;
     }
     
+    function convertData(data){
+        convertdata=[[0,"deze week"],
+                    [0,"vorige week"],
+                    [0,"deze maand"],
+                    [0,"vorige maand"],
+                    [0,"vorige zes maanden"],
+                    [0,"meer dan zes maanden"]];
+        var timenow=new Date();
+        var week=100*60*60*24*7;
+        var month=100*60*60*24*30;
+        var years=100*60*60*24*356;
+        for(var values in data){
+            var datestamp=Date.parse(data[values]["DateStamp"]);
+            var score=parseInt(data[values]["avg_Score"]);
+            var difference=timenow-datestamp;
+            console.log(difference);
+            if(difference<week){ 
+                var sum=convertdata[1][0]+score;
+                if(convertdata[1][0]===0){
+                    convertdata[1][0]=sum;
+                }
+                else{
+                    convertdata[1][0]=sum/2;
+                }
+            }
+            else if(difference<2*week){
+                var sum=convertdata[2][0]+score;
+                if(convertdata[2][0]===0){
+                    convertdata[2][0]=sum;
+                }
+                else{
+                    convertdata[2][0]=sum/2;
+                }
+            }
+            else if(difference<month){
+                var sum=convertdata[3][0]+score;
+                if(convertdata[3][0]===0){
+                    convertdata[3][0]=sum;
+                }
+                else{
+                    convertdata[3][0]=sum/2;
+                }
+            }
+            else if(difference<2*month){
+                var sum=convertdata[4][0]+score;
+                if(convertdata[4][0]===0){
+                    convertdata[4][0]=sum;
+                }
+                else{
+                 convertdata[4][0]=sum/2;
+                }
+            }
+            else if(difference<6*month){
+                var sum=convertdata[5][0]+score;
+                if(convertdata[5][0]===0){
+                    convertdata[5][0]=sum;
+                }
+                else{
+                    convertdata[5][0]=sum/2;
+                }
+            }
+            else{
+                var sum=convertdata[6][0]+score;
+                if(convertdata[6][0]===0){
+                    convertdata[6][0]=sum;
+                }
+                else{
+                    convertdata[6][0]=sum/2;
+                }
+            }
+        }
+        return convertdata;
+    }
     function collectDataqes(qes,division){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -586,7 +662,8 @@
                 scales:{
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            suggestedMax:5
                         }
                     }]
                 }

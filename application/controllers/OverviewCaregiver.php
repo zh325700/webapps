@@ -107,10 +107,10 @@
             $ID_elder=$this->input->get('ID_elder');
             $this->load->model('Overview_Model');
             //ask and retrieve the data from the databasemodel
-            //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
-            //$row['thescores']=$results["avg_Scores"];
+            $results=$this->Overview_Model->get_score_type($Type,$ID_elder);
+            $row['thescores']=$results;
             //generate a array of random data
-            $row['thescores']=array( 
+           /* $row['thescores']=array( 
                             array("Timestamp" => "vorig jaar",
                                 "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "zes maanden geleden",
@@ -124,7 +124,7 @@
                             array("Timestamp" => "vorige week",
                                 "AvgScore" => mt_rand(0, 5)),
                             array("Timestamp" => "deze week",
-                                "AvgScore" => mt_rand(0, 5)));
+                                "AvgScore" => mt_rand(0, 5)));*/
             echo(json_encode($row));
         }
         
