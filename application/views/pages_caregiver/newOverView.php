@@ -315,7 +315,7 @@
         //topics is the array of every topic
         topics=jQuery.parseJSON(topics);
         //initializing the arrays
-        options=[]
+        options=[];
         datascore=[];//a temp array to store the scores
         data=[];// the array that will be send to the chartdrawer
         time=[];// the array with the different timepoints(x-axis)
@@ -346,11 +346,21 @@
         console.log(time);
     }
     
+    /*Function:calculates the average of each time set
+     * 
+     * @param {type} data
+     * @returns {Array|avg}
+     */
     function getTimeAverage(data){
+        //initialises the array
         avg=[0,0,0,0,0,0];
+        //loop through each topic
         for(var topic in data){
+            //loop through each time value in a topic
             for(var value in data[topic]){
-                    if(data[topic][value]!==0){
+                //if the score isn't zero then it calculates a temp avg
+                //keeping in mind that if it's the first value it shouldn't be divided by 2
+                if(data[topic][value]!==0){
                     sum=avg[value]+data[topic][value];
                     if(avg[value]===0){
                         avg[value]=sum;
@@ -365,34 +375,50 @@
         return  avg;
     }
     
+    /*Function:get the average score for each topic
+     * 
+     * @param {type} data
+     * @returns {Array|average}
+     */
     function getTopicAverage(data){
+        //initialises the array
         average=[];
+        //loops over every topic
         for(var topic in data){
             var sum=0;
             var count=0;
+            //loops over every value in a topic
             for(var value in data[topic]){
+                //when a score is not zero is get added in the sum and the counter adds up
                 if(data[topic][value]===0){}
                 else{
                     sum=sum+data[topic][value];
                     count++;
                 }
             }
+            //if the count is not zero then the sum is divided by the count
             if(count!==0){
                 average[topic]=sum/count;
             }
             else{
-                average[topic]=0
+                average[topic]=0;
             }
         }
         console.log(average);
         return average;
     }
     
+    /*Function:set the boolean if the bar will be visible, based on the average topicscore
+     * 
+     */
     function setVisibility(data){
+        //initialises values
         var count=0;
         visible=[];
+        //loop through each topic
         for(var topic in data){
-            if(options["topicaverage"][topic]<2 && options["topicaverage"][topic]!==0){
+            //if the topic average score is above zero but less or equel then two then the bar is shown
+            if(options["topicaverage"][topic]<=2 && options["topicaverage"][topic]!==0){
                 visible[topic]=false;
                 count++; 
             }
@@ -400,6 +426,7 @@
                 visible[topic]=true;
             }
         }
+        //if there is nothing shown on the graph then every none-zero topic will be shown
         if(count===0){
             for(var topic in data){
                 if(options["topicaverage"][topic]>0){
@@ -411,10 +438,18 @@
         return visible;
     }
     
+    /*Function: set the color of the bars for each topic based on the average topic score
+     * 
+     * @param {type} data
+     * @returns {Array|color}
+     */
     function getColor(data){
+        //initialises values
         var avg=0;
         color=[];
+        //loop through each topic
         for(var topic in data){
+            //set the color based on the average topic score
             if(options["topicaverage"][topic]>4){
                 color[topic]="DarkGreen";
             }
@@ -609,7 +644,7 @@
                     borderColor: "rgba(255, 99, 132,0.5)",
                     backgroundColor: options["colors"]["Privacy"],
                     hidden: options["visible"]["Privacy"],
-                    data: arrayPrivacyData,
+                    data: arrayPrivacyData
                     
                 }, {
                     label: "PersonalRelationships",
@@ -617,7 +652,7 @@
                     backgroundColor: options["colors"]["PersonalRelationships"],
                     fill: false,
                     data: arrayRelationData,
-                    hidden: options["visible"]["PersonalRelationships"],
+                    hidden: options["visible"]["PersonalRelationships"]
                 },
                 {
                     label: "FoodAndMeals",
@@ -625,7 +660,7 @@
                     backgroundColor: options["colors"]["FoodAndMeals"],
                     fill: false,
                     data: arrayFandMData,
-                    hidden: options["visible"]["FoodAndMeals"],
+                    hidden: options["visible"]["FoodAndMeals"]
                 },
                 {
                     label: "Activities",
@@ -633,7 +668,7 @@
                     backgroundColor: options["colors"]["Activities"],
                     fill: false,
                     data: arrayActivities,
-                    hidden: options["visible"]["Activities"],
+                    hidden: options["visible"]["Activities"]
                 },
                 {
                     label: "Autonomy",
@@ -641,7 +676,7 @@
                     backgroundColor: options["colors"]["Autonomy"],
                     fill: false,
                     data: arrayAutonomy,
-                    hidden: options["visible"]["Autonomy"],
+                    hidden: options["visible"]["Autonomy"]
                 },
                 {
                     label: "RespectByStaff",
@@ -649,7 +684,7 @@
                     backgroundColor: options["colors"]["RespectByStaff"],
                     fill: false,
                     data: arrayRespectByStaff,
-                    hidden: options["visible"]["RespectByStaff"],
+                    hidden: options["visible"]["RespectByStaff"]
                 },
                 {
                     label: "SafetyAndSecurity",
@@ -657,7 +692,7 @@
                     backgroundColor: options["colors"]["SafetyAndSecurity"],
                     fill: false,
                     data: arraySafetyAndSecurity,
-                    hidden: options["visible"]["SafetyAndSecurity"],
+                    hidden: options["visible"]["SafetyAndSecurity"]
                 },
                 {
                     label: "StaffResidentBonding",
@@ -665,7 +700,7 @@
                     backgroundColor: options["colors"]["StaffResidentBonding"],
                     fill: false,
                     data: arrayStaffResidentBonding,
-                    hidden: options["visible"]["StaffResidentBonding"],
+                    hidden: options["visible"]["StaffResidentBonding"]
                 },
                 {
                     label: "StaffResponsiveness",
@@ -673,7 +708,7 @@
                     backgroundColor: options["colors"]["StaffResponsiveness"],
                     fill: false,
                     data: arrayStaffResponsiveness,
-                    hidden: options["visible"]["StaffResponsiveness"],
+                    hidden: options["visible"]["StaffResponsiveness"]
                 }
             ]
         };
