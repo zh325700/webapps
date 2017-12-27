@@ -337,23 +337,62 @@
             //puts the scores from the temp array into the data array
             data[topics[topic]["Type"]]=datascore[topic];
         }
-        options["average"]=getAverage(data);
-        options["colors"]=getColor(data);
-        options["visible"]=setVisibility(data);
+        //cal several functions to set some options
+        options["timeaverage"]=getTimeAverage(data);
+        options["topicaverage"]=getTopicAverage(data);
+        options["colors"]=getColor(data,options);
+        options["visible"]=setVisibility(data,options);
         console.log(data);
         console.log(time);
     }
     
+    function getTimeAverage(data){
+        avg=[0,0,0,0,0,0];
+        for(var topic in data){
+            for(var value in data[topic]){
+                    if(data[topic][value]!==0){
+                    sum=avg[value]+data[topic][value];
+                    if(avg[value]===0){
+                        avg[value]=sum;
+                    }
+                    else{
+                        avg[value]=sum/2;
+                    }
+                }
+            }
+        }
+        console.log(avg);
+        return  avg;
+    }
+    
+    function getTopicAverage(data){
+        average=[];
+        for(var topic in data){
+            var sum=0;
+            var count=0;
+            for(var value in data[topic]){
+                if(data[topic][value]===0){}
+                else{
+                    sum=sum+data[topic][value];
+                    count++;
+                }
+            }
+            if(count!==0){
+                average[topic]=sum/count;
+            }
+            else{
+                average[topic]=0
+            }
+        }
+        console.log(average);
+        return average;
+    }
+    
     function setVisibility(data){
-        var avg=0;
         var count=0;
         visible=[];
         for(var topic in data){
-            for(value in data[topic]){
-                avg=avg+data[topic][value];
-            }
-            avg=avg/data[topic].length;
-            if(avg<2){
+            if(options["topicaverage"][topic]<2 && options["topicaverage"][topic]!==0){
                 visible[topic]=false;
                 count++; 
             }
@@ -361,17 +400,11 @@
                 visible[topic]=true;
             }
         }
-        if(count<4){
-            for(value in data[topic]){
-                avg=avg+data[topic][value];
-            }
-            avg=avg/data[topic].length;
-            if(avg<3){
-                visible[topic]=false;
-                count++; 
-            }
-            else{
-                visible[topic]=true;
+        if(count===0){
+            for(var topic in data){
+                if(options["topicaverage"][topic]>0){
+                    visible[topic]=false;
+                }
             }
         }
         console.log(visible);
@@ -382,24 +415,23 @@
         var avg=0;
         color=[];
         for(var topic in data){
-            for(value in data[topic]){
-                avg=avg+data[topic][value];
-            }
-            avg=avg/data[topic].length;
-            if(avg>4){
+            if(options["topicaverage"][topic]>4){
                 color[topic]="DarkGreen";
             }
-            else if(avg>3){
+            else if(options["topicaverage"][topic]>3){
                 color[topic]="ForestGreen";
             }
-            else if(avg>2){
+            else if(options["topicaverage"][topic]>2){
                 color[topic]="Gold";
             }
-            else if(avg>1){
+            else if(options["topicaverage"][topic]>1){
                 color[topic]="DarkOrange";
             }
-            else{
+            else if(options["topicaverage"][topic]>0){
                 color[topic]="Red";
+            }
+            else{
+                color[topic]="White";
             }
         }
         return color;
@@ -558,11 +590,20 @@
         var arraySafetyAndSecurity = data["SafetyAndSecurity"];
         var arrayStaffResidentBonding = data["StaffResidentBonding"];
         var arrayStaffResponsiveness = data["StaffResponsiveness"];
-        //var arrayAVG = <?//php echo json_encode($arrayAvgScore); ?>;
+        var arrayAVG = options["timeaverage"];
         var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
         var barChartData = {
             labels: xarray,
-            datasets: [{
+            datasets: [
+                {
+                    type: "line",
+                    label: "AVG",
+                    borderColor: 'Black',
+                    backgroundColor: 'BSlack',
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: arrayAVG
+                },{
                     label: "Privacy",
                     visible: false,
                     borderColor: "rgba(255, 99, 132,0.5)",
@@ -633,16 +674,7 @@
                     fill: false,
                     data: arrayStaffResponsiveness,
                     hidden: options["visible"]["StaffResponsiveness"],
-                },
-                /*{
-                    type: "line",
-                    label: "AVG",
-                    borderColor: 'rgb(153, 102, 255)',
-                    backgroundColor: 'rgb(153, 102, 255)',
-                    pointHighlightFill: "#fff",
-                    fill: false,
-                    data: arrayAVG,
-                }*/
+                }
             ]
         };
         var myBar = new Chart(ctx, {
@@ -665,7 +697,8 @@
                             beginAtZero: true,
                             suggestedMax:5
                         }
-                    }]
+                    }],
+                    xAxes:[{ticks: {mirror: true}}]
                 }
             }
         });   
