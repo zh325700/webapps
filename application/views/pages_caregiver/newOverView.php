@@ -141,7 +141,7 @@
                     }
             };
             //prepare the xmlhttp request, here it's calling a controller function for the statics
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getIntro",false);
             //Sends the request to the server and then waits for a response
             xmlhttp.send();
             E_panels=document.getElementsByClassName("elder_tab");
