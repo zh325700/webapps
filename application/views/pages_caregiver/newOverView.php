@@ -204,14 +204,43 @@
         makeQuestionAlert(data["question"],alerts);
         makeTimeAlert(data["time"],alerts);
             console.log(alerts);
-        for(text in alerts){
-            var parent=document.getElementById("alertList");
+        for(text=0;text<10;text++){
+            if(typeof alerts[text] !== 'undefined'){
+                var parent=document.getElementById("alertList");
+                var child=document.createElement("li");
+                var span=document.createElement("span");
+                var button=document.createElement("button");
+                button.setAttribute('id',text);
+                button.appendChild(document.createTextNode("delete"));
+                button.addEventListener("click",deleteAlert);
+                child.setAttribute('id',parent.value);
+                child.setAttribute('class',"list-group-item");
+                span.appendChild(document.createTextNode(alerts[text]));
+                child.appendChild(span);
+                child.appendChild(button);
+                parent.appendChild(child);
+            }
+        }
+    }
+    
+    function deleteAlert(){
+        var id=event.target.id;
+        var parent=event.target.parentElement.parentElement;
+        parent.removeChild(event.target.parentElement);
+        delete alerts[id];
+        var parent=document.getElementById("alertList");
+        if(typeof alerts[9] !== 'undefined'){
             var child=document.createElement("li");
             var span=document.createElement("span");
+            var button=document.createElement("button");
+            button.setAttribute('id',text);
+            button.appendChild(document.createTextNode("delete"));
+            button.addEventListener("click",deleteAlert);
             child.setAttribute('id',parent.value);
             child.setAttribute('class',"list-group-item");
-            span.appendChild(document.createTextNode(alerts[text]));
+            span.appendChild(document.createTextNode(alerts[9]));
             child.appendChild(span);
+            child.appendChild(button);
             parent.appendChild(child);
         }
     }
