@@ -112,10 +112,12 @@
         
         </div>
         
-    
+    <link href='<?php echo base_url()?>/assets/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='<?php echo base_url()?>/assets/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
-
+      <script src='<?php echo base_url()?>/assets/js/moment.js'></script>
+      <script src='<?php echo base_url()?>/assets/js/fullcalendar.min.js'></script>
 <script type="text/javascript">
     //makes the eventlisteners for the two buttons
     document.getElementById("btn_general").addEventListener("click",getScores);
@@ -146,7 +148,18 @@
             xmlhttp.send();
             drawIntroChart();
             drawIntroAlert();
-           
+           $(document).ready(function() {
+                $('#calendar').fullCalendar({
+                  defaultView: 'listWeek',
+                  defaultDate: '2017-12-12',
+                  navLinks: true, // can click day/week names to navigate views
+                  editable: true,
+                  eventLimit: true, // allow "more" link when too many events
+                  events: [
+
+                  ]
+                });
+              });
             E_panels=document.getElementsByClassName("elder_tab");
             E_value=[];
             for(var i=0,length=E_panels.length;i<length;i++){
