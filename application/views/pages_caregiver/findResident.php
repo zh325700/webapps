@@ -63,11 +63,7 @@
             });
         </script>
         <div class="row">
-<<<<<<< HEAD
             <div class="col-sm-4">
-=======
-            <div class="col-md-4">
->>>>>>> 77b4a35a2b895cd42bc776598b70db6c3b3570bb
                 <form   action='' method='post'>
                     <div class="form-group"><label >{LastName}: </label><input type='text' name='LastName' value='' class='autoLastName form-control'></div>
                     <div class="form-group"><label >{FirstName}: </label><input type='text' name='FirstName' value='' class='autoFirstname form-control'></div>
@@ -87,11 +83,8 @@
                     </div>
                 </form>
             </div>
-<<<<<<< HEAD
             <div class="col-sm-8" style="overflow:scroll;height:700px;width: 66%;">
-=======
-            <div class="col-md-8" style="overflow:scroll;height:700px;width: 66%;">
->>>>>>> 77b4a35a2b895cd42bc776598b70db6c3b3570bb
+
                 <!--Add general function here-->
                 <?php
                 $array = array();

@@ -1,4 +1,3 @@
-
  <div class="panel-group" id="panel_1">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">

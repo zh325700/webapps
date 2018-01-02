@@ -6,7 +6,7 @@
         <div class="col col-md-2"></div>
         <div class="col-md-6">
             <h2 class=" text-center ">
-                {Add_New_Facility}
+                Add New Facility
             </h2>
         </div>
     </div>
@@ -18,46 +18,46 @@
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-5 ">
-                       <label>{Facility_Name}:</label> 
+                       <label>Facility Name:</label> 
                     </div>
                     <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="Name" placeholder="{Add_Name}">
+                        <input type="text" class="form-control" name="Name" placeholder="Name" required>
                     </div>                 
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-5 ">
-                        <label>{City}: </label> 
+                        <label>City: </label> 
                     </div>                
                     <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="City" placeholder="{Add_City}">
+                        <input type="text" class="form-control" name="City" placeholder="City" required>
                     </div>
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-5 ">
-                         <label>{Post}: </label> 
+                         <label>Post Code: </label> 
                     </div>
                     <div class="col-md-5 input-group">
-                         <input type="text" class="form-control" name="Postcode" placeholder="{Add_Postcode}">
+                         <input type="text" class="form-control" name="Postcode" placeholder="Post code" required>
                     </div>
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-5 ">
-                        <label>{Street}: </label> 
+                        <label>Street: </label> 
                     </div>
                     <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="Street" placeholder="{Add_Street}">
+                        <input type="text" class="form-control" name="Street" placeholder="Street" required>
                     </div>
                 </div>
                 <div class="row insert-row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-5 ">
-                      <label>{Number}:</label> 
+                      <label>Number:</label> 
                     </div>
                     <div class="col-md-5 input-group">
-                       <input type="text" class="form-control" name="Number" placeholder="{Add_number}">
+                       <input type="text" class="form-control" name="Number" placeholder="number" required>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
         <div class="row insert-row"> 
             <div class="col col-md-4"></div>
             <div class="col col-md-2">
-              <button type="submit"class="btn btn-default btn-lg btn-block ">{Add_Facility}</button>
+              <button type="submit"class="btn btn-default btn-lg btn-block ">Add Facility</button>
            </div> 
         </div>
    
