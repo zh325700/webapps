@@ -144,6 +144,7 @@
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getIntro",false);
             //Sends the request to the server and then waits for a response
             xmlhttp.send();
+            drawIntroChart();
             E_panels=document.getElementsByClassName("elder_tab");
             E_value=[];
             for(var i=0,length=E_panels.length;i<length;i++){
@@ -539,8 +540,16 @@
             var datestamp=Date.parse(data[values]["DateStamp"]);
             var score=parseInt(data[values]["avg_Score"]);
             var difference=timenow-datestamp;
-            console.log(difference);
             if(difference<week){ 
+                var sum=convertdata[0][0]+score;
+                if(convertdata[0][0]===0){
+                    convertdata[0][0]=sum;
+                }
+                else{
+                    convertdata[0][0]=sum/2;
+                }
+            }
+            else if(difference<2*week){
                 var sum=convertdata[1][0]+score;
                 if(convertdata[1][0]===0){
                     convertdata[1][0]=sum;
@@ -549,7 +558,7 @@
                     convertdata[1][0]=sum/2;
                 }
             }
-            else if(difference<2*week){
+            else if(difference<month){
                 var sum=convertdata[2][0]+score;
                 if(convertdata[2][0]===0){
                     convertdata[2][0]=sum;
@@ -558,40 +567,31 @@
                     convertdata[2][0]=sum/2;
                 }
             }
-            else if(difference<month){
+            else if(difference<2*month){
                 var sum=convertdata[3][0]+score;
                 if(convertdata[3][0]===0){
                     convertdata[3][0]=sum;
                 }
                 else{
-                    convertdata[3][0]=sum/2;
+                 convertdata[3][0]=sum/2;
                 }
             }
-            else if(difference<2*month){
+            else if(difference<6*month){
                 var sum=convertdata[4][0]+score;
                 if(convertdata[4][0]===0){
                     convertdata[4][0]=sum;
                 }
                 else{
-                 convertdata[4][0]=sum/2;
+                    convertdata[4][0]=sum/2;
                 }
             }
-            else if(difference<6*month){
+            else{
                 var sum=convertdata[5][0]+score;
                 if(convertdata[5][0]===0){
                     convertdata[5][0]=sum;
                 }
                 else{
                     convertdata[5][0]=sum/2;
-                }
-            }
-            else{
-                var sum=convertdata[6][0]+score;
-                if(convertdata[6][0]===0){
-                    convertdata[6][0]=sum;
-                }
-                else{
-                    convertdata[6][0]=sum/2;
                 }
             }
         }
@@ -606,12 +606,131 @@
             };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getQuestionScore?division="+division+"&ID_Question"+qes,false);
         xmlhttp.send();
-        console.log(input);
         cdata=jQuery.parseJSON(input);
         cdata=cdata["thescores"];
         return cdata;
     }
     
+    function getIntroData(){
+        options=[];
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             divisions= xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
+        xmlhttp.send();
+        divisions=jQuery.parseJSON(divisions);
+        console.log(divisions);
+        datascore=[];
+        data=[];
+        time=[];
+        for(var div in divisions){
+            input=collectDataIntro(divisions[div]);
+            datascore[div]=[];
+            for(var value in input){ 
+                datascore[div][value]=input[value][0];
+                if(time.indexOf(input[value][1])===-1){
+                    time.push(input[value][1]);
+                }
+            }
+            data[divisions[div]["divisions"]]=datascore[div];
+        }
+        options["topicaverage"]=getTopicAverage(data);
+        options["color"]=getColor(data);
+        console.log(time);
+        console.log(options["color"]);
+        console.log(data);
+    }
+    function collectDataIntro(division){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             input = xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisionScore?division="+division["divisions"],false);
+        xmlhttp.send();
+        cdata=jQuery.parseJSON(input);
+        cdata=convertData(cdata);
+        return cdata;
+    }
+    function drawIntroChart(){
+        getIntroData();
+        var xarray = time;
+        var arrayDivision0 = data["0"];
+        var arrayDivision1 = data["1"];
+        var arrayDivision2 = data["2"];
+        var arrayDivision3 = data["3"];
+        var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
+        var barChartData = {
+            labels: xarray,
+            datasets: [
+                {
+                    type: "line",
+                    label: "Division0",
+                    borderColor: options["color"][0],
+                    backgroundColor: options["color"][0],
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: arrayDivision0
+                },
+                {
+                    type: "line",
+                    label: "Division1",
+                    borderColor: options["color"][1],
+                    backgroundColor: options["color"][1],
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: arrayDivision1
+                },
+                {
+                    type: "line",
+                    label: "Division2",
+                    borderColor: options["color"][2],
+                    backgroundColor: options["color"][2],
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: arrayDivision2
+                },
+                {
+                    type: "line",
+                    label: "Division3",
+                    borderColor: options["color"][3],
+                    backgroundColor: options["color"][3],
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: arrayDivision3
+                }
+            ]
+        };
+        var myBar = new Chart(ctx, {
+            data: barChartData,
+            type: 'bar',
+            options: {
+                // adjust the size of chart 
+                responsive: true,
+
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Average score of one topic'
+                },
+                scales:{
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            suggestedMax:5
+                        }
+                    }],
+                    xAxes:[{ticks: {mirror: true}}]
+                }
+            }
+        });   
+    }
     function drawChart(elder,test){
         getData(elder,test);
         //console.log(time);

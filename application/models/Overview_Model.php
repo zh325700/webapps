@@ -164,6 +164,17 @@
             return $data;
         }
         
+        public function get_division_score($Division){
+            $this->db->select('AVG(Answers.Score) avg_Score, Answers.DateStamp DateStamp');
+            $this->db->where('Elder.Division',$Division);
+            $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
+            $this->db->group_by('Answers.DateStamp');
+            $this->db->from('Answers');
+            $query=$this->db->get();
+            $data=$query->result();
+            return $data;
+        }
+        
         public function convert($scores){
             $i=0;
             foreach($scores as $var){

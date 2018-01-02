@@ -165,6 +165,13 @@
             echo(json_encode($row));
         }
         
+        public function getDivisionScore(){
+            $division=$this->input->get('division');
+            $this->load->model('Overview_Model');
+            $result=$this->Overview_Model->get_division_score($division);
+            $row=$result;
+            echo(json_encode($row));
+        }
         /*event_division
          * Function: The action that will happen when the division button is pressed:
          *          showing the score of that division
