@@ -172,6 +172,21 @@
             $row=$result;
             echo(json_encode($row));
         }
+        
+        public function getAlert(){
+            $this->load->helper('date');
+            $this->load->model('Overview_Model');
+            $timestamp=date('Y-m-d H:i:s');
+            $date=new DateTime($timestamp);
+            $date=$date->modify('-1 month');
+            $data["division"]=$this->Overview_Model->get_alert_division($date->format('Y-m-d H:i:s'));
+            $data["resident"]=$this->Overview_Model->get_alert_resident($date->format('Y-m-d H:i:s'));
+            $data["question"]=$this->Overview_Model->get_alert_question($date->format('Y-m-d H:i:s'));
+            $data["time"]=$this->Overview_Model->get_alert_time($date->format('Y-m-d H:i:s'));
+            //$data["residentquestion"]=$this->Overview_Model->get_alert_residentquestion();
+            echo(json_encode($data));
+        }
+        
         /*event_division
          * Function: The action that will happen when the division button is pressed:
          *          showing the score of that division

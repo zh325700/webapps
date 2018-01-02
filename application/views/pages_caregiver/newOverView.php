@@ -145,6 +145,8 @@
             //Sends the request to the server and then waits for a response
             xmlhttp.send();
             drawIntroChart();
+            drawIntroAlert();
+           
             E_panels=document.getElementsByClassName("elder_tab");
             E_value=[];
             for(var i=0,length=E_panels.length;i<length;i++){
@@ -185,7 +187,62 @@
             xmlhttp.send();
     }
     
+    function drawIntroAlert(){
+        alerts=[];
+        xmlhttp= new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                           input = xmlhttp.responseText;
+                    }
+            };
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getAlert",false);
+            xmlhttp.send();
+            data=jQuery.parseJSON(input);
+            console.log(data);
+        makeDivisionAlert(data["division"],alerts);
+        makeResidentAlert(data["resident"],alerts);
+        makeQuestionAlert(data["question"],alerts);
+        makeTimeAlert(data["time"],alerts);
+            console.log(alerts);
+        for(text in alerts){
+            var parent=document.getElementById("alertList");
+            var child=document.createElement("li");
+            var span=document.createElement("span");
+            child.setAttribute('id',parent.value);
+            child.setAttribute('class',"list-group-item");
+            span.appendChild(document.createTextNode(alerts[text]));
+            child.appendChild(span);
+            parent.appendChild(child);
+        }
+    }
     
+    function makeDivisionAlert(data,alerts){
+        for(value in data){
+            var text="Division "+ data[value]['division']+" scored an average score of "+data[value]['avg_Score']+" on the topic of "+data[value]['type'];
+            alerts.push(text);
+        }
+    }
+    
+    function makeResidentAlert(data,alerts){
+        for(value in data){
+            var text=data[value]['FirstName']+" "+data[value]['LastName']+" has answered the question "+data[value]['question']+" with a score of "+data[value]['avg_Score'];
+            alerts.push(text);
+        }
+    }
+    
+    function makeQuestionAlert(data,alerts){
+        for(value in data){
+            var text=data[value]['count']+" amount of residents has answered the question "+data[value]['question']+" with a low score";
+            alerts.push(text);
+        }
+    }
+    
+    function makeTimeAlert(data,alerts){
+        for(value in data){
+            var text=data[value]['FirstName']+" "+data[value]['LastName']+" hasn' filled in her questions since "+data[value]['Datestamp'];
+            alerts.push(text);
+        }
+    }
     /*getScores()
      * Function: the action preformed when clicked on the general button
      *          it generates a new view in the tabs by asking the server for the data

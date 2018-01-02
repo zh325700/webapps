@@ -175,6 +175,56 @@
             return $data;
         }
         
+        public function get_alert_division($Datestamp){
+            $this->db->select('AVG(Answers.Score) avg_Score,Questions.Type_en type, Elder.division division');
+            $this->db->where('Answers.Datestamp <',$Datestamp);
+            $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
+            $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
+            $this->db->group_by('Questions.Type_en');
+            $this->db->having('AVG(Answers.Score) <',2);
+            $this->db->from('Answers');
+            $query=$this->db->get();
+            $data=$query->result();
+            return $data;
+        }
+        
+        public function get_alert_resident($Datestamp){
+            $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_en question,Questions.Type_en type, Elder.FirstName FirstName, Elder.LastName LastName');
+            $this->db->where('Answers.Datestamp <',$Datestamp);
+            $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
+            $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
+            $this->db->group_by('Questions.ID_Question');
+            $this->db->having('AVG(Answers.Score) <',2);
+            $this->db->from('Answers');
+            $query=$this->db->get();
+            $data=$query->result();
+            return $data;
+        }
+        
+        public function get_alert_question($Datestamp){
+            $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_en question,Questions.Type_en type, Count(Answers.Score) count');
+            $this->db->where('Answers.Datestamp <',$Datestamp);
+            $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
+            $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
+            $this->db->group_by('Elder.ID_Elder');
+            $this->db->having('AVG(Answers.Score) <',2);
+            $this->db->from('Answers');
+            $query=$this->db->get();
+            $data=$query->result();
+            return $data;
+        }
+        
+        public function get_alert_time($Datestamp){
+            $this->db->select('MIN(Answers.DateStamp) Datestamp,Elder.FirstName FirstName, Elder.LastName LastName');
+            $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
+            $this->db->group_by('Elder.ID_Elder');
+            $this->db->having('MIN(Answers.DateStamp) >',$Datestamp);
+            $this->db->from('Answers');
+            $query=$this->db->get();
+            $data=$query->result();
+            return $data;
+        }
+        
         public function convert($scores){
             $i=0;
             foreach($scores as $var){
