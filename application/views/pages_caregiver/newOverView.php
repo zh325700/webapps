@@ -114,20 +114,28 @@
         
     <link href='<?php echo base_url()?>/assets/css/fullcalendar.min.css' rel='stylesheet' />
     <link href='<?php echo base_url()?>/assets/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
-      <script src='<?php echo base_url()?>/assets/js/moment.js'></script>
-      <script src='<?php echo base_url()?>/assets/js/fullcalendar.min.js'></script>
-      <script src='<?php echo base_url()?>/assets/js/alert.js'></script>
-      <script src='<?php echo base_url()?>/assets/js/chart.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
+    <script src='<?php echo base_url()?>/assets/js/moment.js'></script>
+    <script src='<?php echo base_url()?>/assets/js/fullcalendar.min.js'></script>
+    <script src='<?php echo base_url()?>/assets/js/alert.js'></script>
+    <script src='<?php echo base_url()?>/assets/js/chart.js'></script>
 <script type="text/javascript">
     //makes the eventlisteners for the two buttons
     document.getElementById("btn_general").addEventListener("click",getScores);
-    
+    language="Dutch";
     //change the styling of this body
     document.body.style.display='inline';
-    
-
+    xmlhttp= new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){ //checks if the server is ready
+            if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                //responsetext is the output send by the server and is placed in the provided placeholder
+                language = xmlhttp.responseText;
+            }
+    };
+    //prepare the xmlhttp request, here it's calling a controller function for the statics
+    xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getLanguage",false);
+    //Sends the request to the server and then waits for a response
+    xmlhttp.send();
     /*init()
      * Function:the initiations of the overview page, 
      *          loads in the dropdown menu's and the statistics

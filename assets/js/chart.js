@@ -224,12 +224,22 @@ return color;
 }
 
 function convertData(data){
-    convertdata=[[0,"deze week"],
-                [0,"vorige week"],
-                [0,"deze maand"],
-                [0,"vorige maand"],
-                [0,"vorige zes maanden"],
-                [0,"meer dan zes maanden"]];
+    if(language==="Dutch"){
+        convertdata=[[0,"deze week"],
+                    [0,"vorige week"],
+                    [0,"deze maand"],
+                    [0,"vorige maand"],
+                    [0,"vorige zes maanden"],
+                    [0,"meer dan zes maanden"]];
+    }
+    else{
+        convertdata=[[0,"this week"],
+                    [0,"previous week"],
+                    [0,"this month"],
+                    [0,"previous month"],
+                    [0,"previous six months"],
+                    [0,"more then six months ago"]];
+    }
     var timenow=new Date();
     var week=100*60*60*24*7;
     var month=100*60*60*24*30;

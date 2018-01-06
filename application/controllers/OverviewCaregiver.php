@@ -41,8 +41,13 @@
                 "content_res"=>$this->parser->parse('pages_caregiver/Elder_Score',$row,TRUE));
             $this->parser->parse('pages_caregiver/Tab_template',$data);
         }
+        
         public function getIntro(){
             $this->load->view('pages_caregiver/overviewIntro');
+        }
+        
+        public function getLanguage(){
+            echo($this->session->userdata('language'));
         }
         /*getTypes
          * Function: Calls the databasemodel and send back the different types

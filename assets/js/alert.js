@@ -58,28 +58,48 @@ function deleteAlert(){
 
 function makeDivisionAlert(data,alerts){
     for(var value in data){
-        var text="Division "+ data[value]['division']+" scored an average score of "+data[value]['avg_Score']+" on the topic of "+data[value]['type'];
+        if(language==="Dutch"){
+            var text="Afdeling "+ data[value]['division']+" heeft een gemidelde score van "+data[value]['avg_Score']+" op de categorie "+data[value]['type'];
+        }
+        else{
+            var text="Division "+ data[value]['division']+" scored an average score of "+data[value]['avg_Score']+" on the topic of "+data[value]['type'];
+        }
         alerts.push(text);
     }
 }
 
 function makeResidentAlert(data,alerts){
     for(var value in data){
-        var text=data[value]['FirstName']+" "+data[value]['LastName']+" has answered the question "+data[value]['question']+" with a score of "+data[value]['avg_Score'];
+        if(language==="Dutch"){
+            var text=data[value]['FirstName']+" "+data[value]['LastName']+" heeft de vraag "+data[value]['question']+" met een score van "+data[value]['avg_Score']+" beantwoord";
+        }
+        else{
+            var text=data[value]['FirstName']+" "+data[value]['LastName']+" has answered the question "+data[value]['question']+" with a score of "+data[value]['avg_Score'];
+        }
         alerts.push(text);
     }
 }
 
 function makeQuestionAlert(data,alerts){
     for(var value in data){
-        var text=data[value]['count']+" amount of residents has answered the question "+data[value]['question']+" with a low score";
+        if(language==="Dutch"){
+            var text=data[value]['count']+" aantal bewoners hebben de vraag "+data[value]['question']+" met een lage score beantwoord";
+        }
+        else{
+            var text=data[value]['count']+" amount of residents has answered the question "+data[value]['question']+" with a low score";
+        }
         alerts.push(text);
     }
 }
 
 function makeTimeAlert(data,alerts){
     for(var value in data){
-        var text=data[value]['FirstName']+" "+data[value]['LastName']+" hasn' filled in her questions since "+data[value]['Datestamp'];
+        if(language==="Dutch"){
+             var text=data[value]['FirstName']+" "+data[value]['LastName']+" heeft de vragenlijst niet beantwoord sinds "+data[value]['Datestamp'];
+        }
+        else{
+             var text=data[value]['FirstName']+" "+data[value]['LastName']+" hasn' filled in her questions since "+data[value]['Datestamp'];
+        }
         alerts.push(text);
     }
 }
@@ -103,14 +123,24 @@ function makeElderAlert(data){
   
 function makeQuestionAlertElder(data,alerts){
     for(var value in data){
-        var text=data[value]["type"]+": "+data[value]["question"]+" has a score of "+data[value]["avg_Score"];
+        if(language==="Dutch"){
+            var text=data[value]["type"]+": "+data[value]["question"]+" heeft een score van "+data[value]["avg_Score"];
+        }
+        else{
+            var text=data[value]["type"]+": "+data[value]["question"]+" has a score of "+data[value]["avg_Score"];
+        }
         alerts.push(text);
     }
 }
 
 function makeTimeAlertElder(data,alerts){
     for(var value in data){
-        var text=" hasn' filled in her questions since "+data[value]['Datestamp'];
+        if(language==="Dutch"){
+            var text=" heeft de vragenlijst niet ingevuld sinds "+data[value]['Datestamp'];
+        }
+        else{
+            var text=" hasn' filled in her questions since "+data[value]['Datestamp'];
+        }
         alerts.push(text);
     }
 }
