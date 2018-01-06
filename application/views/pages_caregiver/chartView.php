@@ -15,23 +15,39 @@
     </div>
 </div>
 <div class="row">
-        <div class=" col-sm-2" data-step="1" data-intro="Here is the image of the resident">
-            <img class="thumbnail" height="100" width="100"  src="<?php echo base_url(); ?>/image/photos/<?php echo $info['info'][0]->Picture; ?>">
-        </div>
-        <div class=" col-sm-2" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
-                <p style="padding-top: 10px; font-size: 20px;"  >{Name}:&emsp;&ensp;</p>
+    <div class=" col-sm-2" data-step="1" data-intro="Here is the image of the resident">
+        <img class="thumbnail" height="100" width="100"  src="<?php echo base_url(); ?>/image/photos/<?php echo $info['info'][0]->Picture; ?>">
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+        <div class=" col-sm-3" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;"  >{Name}:&emsp;&ensp;</p></div>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;"  >{Avg_Score}:&emsp;&ensp;</p></div>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;"  >{Worst_Topic}:&emsp;&ensp;</p></div> 
         </div>
         <div class=" col-sm-3" data-step="2" data-intro="Here you can find Information of residents" >
-                <p style="padding-top: 10px; font-size: 20px;"  ><?php echo $info['info'][0]->FirstName; ?> <?php echo $info['info'][0]->LastName; ?></p>
-        </div>
-        <div class=" col-sm-2">
-                <p style="padding-top: 10px; font-size: 20px;" >{RoomNumber}: </p>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;"  ><?php echo $info['info'][0]->FirstName; ?> <?php echo $info['info'][0]->LastName; ?></p></div>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;"  ><?php echo $question['question'][0]->avgScore; ?> </p></div>
+             <div class="row"><p style="padding-top: 10px; font-size: 20px;"  ><?php echo $worsttopic['worsttopic'][0]->WorstTopic; ?> <?php echo $worsttopic['worsttopic'][0]->WorstScore; ?> </p></div>
         </div>
         <div class=" col-sm-3">
-                <p style="padding-top: 10px; font-size: 20px;" > <?php echo $info["info"][0]->RoomNumber; ?></p>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;" >{RoomNumber}: </p></div>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;" >{NumberoftimesFilledIn}: </p></div>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;" >{Best_Topic}: </p></div>
         </div>
+        <div class=" col-sm-3">
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;" > <?php echo $info["info"][0]->RoomNumber; ?></p></div>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;" > <?php echo $question["question"][0]->numberFilled; ?></p></div>
+            <div class="row"><p style="padding-top: 10px; font-size: 20px;" > <?php echo $besttopic["besttopic"][0]->typeBest; ?> <?php echo $besttopic["besttopic"][0]->avg_ScoreBest; ?></p></div>
+        </div> 
+    </div>
+    <div class="row">
+        <ul class="list-group" id="alertElderList">
+            <li class="list-group-item"> <span>{alert_box}</span></li>
+        </ul>
     </div>
 </div>
+
 <div style="width:120vh; height: 70vh;">  <!-- vh stands for the height of the browser-->
     <canvas id="WeeklyTopicScore"></canvas>
 </div>

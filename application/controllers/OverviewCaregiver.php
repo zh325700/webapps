@@ -62,25 +62,17 @@
             $this->load->model('Overview_Model');
             //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
             //$row['thescores']=$results["avg_Scores"];
-            $row['thescores']=array( 
-                            array("Timestamp" => "vorig jaar",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "zes maanden geleden",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "twee maanden geleden",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "vorige maand",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "deze maand",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "vorige week",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "deze week",
-                                "AvgScore" => mt_rand(0, 5)));
             echo(json_encode($row));
         }
         
-        
+        public function getTopicScores(){
+            $Topic=$this->input->get('Topic');
+            $division=$this->input->get('Division');
+            $this->load->model('Overview_Model');
+            $results=$this->Overview_Model->get_topic_scores($Topic,$division);
+            $row=$results;
+            echo(json_encode($row));
+        }
         /*getDivisions
          * Function: Calls the databasemodel and send back the different Divisions
          * Input:ID_facility:the ID of the facility the divisions are asked
@@ -111,22 +103,6 @@
             //ask and retrieve the data from the databasemodel
             $results=$this->Overview_Model->get_score_type($Type,$ID_elder);
             $row['thescores']=$results;
-            //generate a array of random data
-           /* $row['thescores']=array( 
-                            array("Timestamp" => "vorig jaar",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "zes maanden geleden",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "twee maanden geleden",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "vorige maand",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "deze maand",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "vorige week",
-                                "AvgScore" => mt_rand(0, 5)),
-                            array("Timestamp" => "deze week",
-                                "AvgScore" => mt_rand(0, 5)));*/
             echo(json_encode($row));
         }
         
@@ -177,8 +153,8 @@
             $this->load->helper('date');
             $this->load->model('Overview_Model');
             $timestamp=date('Y-m-d H:i:s');
-            $date=new DateTime($timestamp);
-            $date=$date->modify('-1 month');
+            $dateTime=new DateTime($timestamp);
+            $date=$dateTime->modify('-1 month');
             $data["division"]=$this->Overview_Model->get_alert_division($date->format('Y-m-d H:i:s'));
             $data["resident"]=$this->Overview_Model->get_alert_resident($date->format('Y-m-d H:i:s'));
             $data["question"]=$this->Overview_Model->get_alert_question($date->format('Y-m-d H:i:s'));
@@ -187,6 +163,16 @@
             echo(json_encode($data));
         }
         
+        public function getAlertElder(){
+            $ID_elder=$this->input->get('ID_Elder');
+            $this->load->model('Overview_Model');
+            $timestamp=date('Y-m-d H:i:s');
+            $dateTime=new DateTime($timestamp);
+            $date=$dateTime->modify('-1 month');
+            $data["question"]=$this->Overview_Model->get_alert_resident_elder($date->format('Y-m-d H:i:s'),$ID_elder);
+            $data["time"]=$this->Overview_Model->get_alert_time_elder($date->format('Y-m-d H:i:s'),$ID_elder);
+            echo(json_encode($data));
+        }
         /*event_division
          * Function: The action that will happen when the division button is pressed:
          *          showing the score of that division
@@ -334,6 +320,9 @@
             //asks the data(the different topics and the info about the elderly) from the databasemodel
             $data['Topics']=$this->Overview_Model->get_Types();
             $data['info']=$this->Overview_Model->get_elderinfo($ID_Elder);
+            $data['question']=$this->Overview_Model->get_elderquestioninfo($ID_Elder);
+            $data['worsttopic']=$this->Overview_Model->get_elderworsttopicinfo($ID_Elder);
+            $data['besttopic']=$this->Overview_Model->get_elderbesttopicinfo($ID_Elder);
             //asks the average scores and timestamps for each topic seperatly
             for($i=0;$i<sizeof($data['Topics']);$i++){
                 $data['score'][$data['Topics'][$i]->Type]=$this->Overview_Model->get_score_type($data['Topics'][$i]->Type,$ID_Elder);
@@ -346,7 +335,7 @@
          * Input:ID_question
          * Output: the parsed view of the question  with the data
          */
-        public function getChartQuestion(){
+        public function getChartTopic(){
             //loads in the models and the input
             if($this->session->userdata('language')=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
@@ -356,16 +345,18 @@
             }
             $this->load->model('Language_model');
             $data=$this->Language_model->DataOverview();
-            $ID_Question=$this->input->get('ID_Question');
+            $Topic=$this->input->get('Topic');
             $this->load->model('Overview_Model');
            //asks the data(the different divisions and the info about the questions) from the databasemodel
-            $data['divisions']=$this->Overview_Model->get_divisions('1');
-            $data['info']=$this->Overview_Model->get_questioninfo($ID_Question);
-            //asks the average scores and timestamps for each division seperatly
-            for($i=0;$i<sizeof($data['divisions']['divisions']);$i++){
-               // $data['score'][$i]=$this->Overview_Model->get_score_division($data['divisions']['divisions'][$i]->Type,$ID_Question);
-            }
+            $data['info']=$this->Overview_Model->get_topicinfo($Topic);
             $this->parser->parse('pages_caregiver/chartViewQes', $data);
+        }
+        
+        public function getTopicQuestions(){
+            $Topic=$this->input->get('Topic');
+            $this->load->model('Overview_Model');
+            $data=$this->Overview_Model->get_topicquestions($Topic);
+            echo(json_encode($data));
         }
         
     }

@@ -118,6 +118,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
       <script src='<?php echo base_url()?>/assets/js/moment.js'></script>
       <script src='<?php echo base_url()?>/assets/js/fullcalendar.min.js'></script>
+      <script src='<?php echo base_url()?>/assets/js/alert.js'></script>
 <script type="text/javascript">
     //makes the eventlisteners for the two buttons
     document.getElementById("btn_general").addEventListener("click",getScores);
@@ -210,81 +211,11 @@
             };
             xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getAlert",false);
             xmlhttp.send();
-            data=jQuery.parseJSON(input);
-            console.log(data);
-        makeDivisionAlert(data["division"],alerts);
-        makeResidentAlert(data["resident"],alerts);
-        makeQuestionAlert(data["question"],alerts);
-        makeTimeAlert(data["time"],alerts);
-            console.log(alerts);
-        for(text=0;text<10;text++){
-            if(typeof alerts[text] !== 'undefined'){
-                var parent=document.getElementById("alertList");
-                var child=document.createElement("li");
-                var span=document.createElement("span");
-                var button=document.createElement("button");
-                button.setAttribute('id',text);
-                button.appendChild(document.createTextNode("delete"));
-                button.addEventListener("click",deleteAlert);
-                child.setAttribute('id',parent.value);
-                child.setAttribute('class',"list-group-item");
-                span.appendChild(document.createTextNode(alerts[text]));
-                child.appendChild(span);
-                child.appendChild(button);
-                parent.appendChild(child);
-            }
-        }
+        data=jQuery.parseJSON(input);
+        //console.log(data);
+        makeAlert(data);
     }
-    
-    function deleteAlert(){
-        var id=event.target.id;
-        var parent=event.target.parentElement.parentElement;
-        parent.removeChild(event.target.parentElement);
-        delete alerts[id];
-        var parent=document.getElementById("alertList");
-        if(typeof alerts[9] !== 'undefined'){
-            var child=document.createElement("li");
-            var span=document.createElement("span");
-            var button=document.createElement("button");
-            button.setAttribute('id',text);
-            button.appendChild(document.createTextNode("delete"));
-            button.addEventListener("click",deleteAlert);
-            child.setAttribute('id',parent.value);
-            child.setAttribute('class',"list-group-item");
-            span.appendChild(document.createTextNode(alerts[9]));
-            child.appendChild(span);
-            child.appendChild(button);
-            parent.appendChild(child);
-        }
-    }
-    
-    function makeDivisionAlert(data,alerts){
-        for(value in data){
-            var text="Division "+ data[value]['division']+" scored an average score of "+data[value]['avg_Score']+" on the topic of "+data[value]['type'];
-            alerts.push(text);
-        }
-    }
-    
-    function makeResidentAlert(data,alerts){
-        for(value in data){
-            var text=data[value]['FirstName']+" "+data[value]['LastName']+" has answered the question "+data[value]['question']+" with a score of "+data[value]['avg_Score'];
-            alerts.push(text);
-        }
-    }
-    
-    function makeQuestionAlert(data,alerts){
-        for(value in data){
-            var text=data[value]['count']+" amount of residents has answered the question "+data[value]['question']+" with a low score";
-            alerts.push(text);
-        }
-    }
-    
-    function makeTimeAlert(data,alerts){
-        for(value in data){
-            var text=data[value]['FirstName']+" "+data[value]['LastName']+" hasn' filled in her questions since "+data[value]['Datestamp'];
-            alerts.push(text);
-        }
-    }
+
     /*getScores()
      * Function: the action preformed when clicked on the general button
      *          it generates a new view in the tabs by asking the server for the data
@@ -370,9 +301,27 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
+        
+        getAlerts(elder);
         //call the function to draw the chart
         drawChart(elder,"elder");
     }
+    
+    function getAlerts(elder){
+        alerts=[];
+        xmlhttp= new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                           input = xmlhttp.responseText;
+                    }
+            };
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getAlertElder?ID_Elder="+elder,false);
+            xmlhttp.send();
+            data=jQuery.parseJSON(input);
+        console.log(data);
+        makeElderAlert(data);
+    }
+   
     
      /*getChartQuestion()
      * Function: the action when you press the detail button in a tab, it update the view
@@ -381,19 +330,42 @@
      * @param {type} ques
      * @returns {undefined}
      */
-    function getChartQuestion(ques){
+    function getChartTopic(topic){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
                 if(xmlhttp.readyState === XMLHttpRequest.DONE){
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartTopic?Topic="+topic,false);
         xmlhttp.send();
         //call the function to draw the chart
-        drawChartqes(ques,"ques");
+        drawQuestionScores(topic);
+        drawCharttopic(topic);
     }
     
+    function drawQuestionScores(charttopic){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                        input= xmlhttp.responseText;
+                }
+        };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTopicQuestions?Topic="+charttopic,false);
+        xmlhttp.send();
+        data=jQuery.parseJSON(input);
+        console.log(input);
+        var parentquestion=document.getElementById("questionlist");
+        var parentscore=document.getElementById("scorelist");
+        for(value in data){
+            var childquestion=document.createElement("p");
+            var childscore=document.createElement("p");
+            childquestion.appendChild(document.createTextNode(data[value]["Question"]));
+            childscore.appendChild(document.createTextNode(data[value]["Avg_Score"]));
+            parentquestion.appendChild(childquestion);
+            parentscore.appendChild(childscore);
+        }
+    }
     /*getData()
      * Function: collects the data and put them in the right arrays, first it asks for the different topics
      *           then it aks for the data for each topic
@@ -442,8 +414,8 @@
         options["topicaverage"]=getTopicAverage(data);
         options["colors"]=getColor(data,options);
         options["visible"]=setVisibility(data,options);
-        console.log(data);
-        console.log(time);
+        //console.log(data);
+        //console.log(time);
     }
     
     /*Function:calculates the average of each time set
@@ -471,7 +443,7 @@
                 }
             }
         }
-        console.log(avg);
+        //console.log(avg);
         return  avg;
     }
     
@@ -504,7 +476,7 @@
                 average[topic]=0;
             }
         }
-        console.log(average);
+        //console.log(average);
         return average;
     }
     
@@ -534,7 +506,7 @@
                 }
             }
         }
-        console.log(visible);
+        //console.log(visible);
         return visible;
     }
     
@@ -606,6 +578,53 @@
         }
         console.log(data);
         console.log(time);
+    }
+    
+    function getDatatopic(topic){ 
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             divisions= xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
+        xmlhttp.send();
+        divisions=jQuery.parseJSON(divisions);
+        datascore=[];
+        data=[];
+        time=[];
+        console.log(divisions);
+        for(var div in divisions){
+            input=collectDatatopic(topic,divisions[div]['divisions']);
+            datascore[div]=[];
+            for(var value in input){
+                datascore[div][value]=input[value][0];
+                if(time.indexOf(input[value][1])===-1){
+                    time.push(input[value][1]);
+                }
+            }
+            data[divisions[div]["divisions"]]=datascore[div];
+            console.log(data);
+        }
+        options["timeaverage"]=getTimeAverage(data);
+        options["colors"]=getColor(data,options);
+        console.log(datascore);
+        console.log(data);
+        console.log(time);
+    }
+    
+    function collectDatatopic(topic,divisions){
+        xmlhttp= new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                             input= xmlhttp.responseText;
+                    }
+            };
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTopicScores?Topic="+topic+"+&Division="+divisions,false);
+        xmlhttp.send();
+        cdata=jQuery.parseJSON(input);
+        cdata=convertData(cdata);
+        return cdata;
     }
     
     function collectData(elder,topic){
@@ -816,7 +835,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Average score of one topic'
+                    text: 'General overview of the divisions'
                 },
                 scales:{
                     yAxes: [{
@@ -1006,6 +1025,83 @@
                     fill: false,
                     data: arrayAVG,
                 }*/
+            ]
+        };
+        var myBar = new Chart(ctx, {
+            data: barChartData,
+            type: 'bar',
+            options: {
+                // adjust the size of chart 
+                responsive: true,
+
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Average score of one topic'
+                },
+                scales:{
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });   
+    }
+    
+    function drawCharttopic(topic){
+        getDatatopic(topic);
+        //console.log(time);
+        var xarray = time;
+        var arraydivision0 = data["0"];
+        var arraydivision1 = data["1"];
+        var arraydivision2 = data["2"];
+        var arraydivision3 = data["3"];
+        //var arrayAVG = <?//php echo json_encode($arrayAvgScore); ?>;
+        var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
+        var barChartData = {
+            labels: xarray,
+            datasets: [
+                {
+                    label: "gelijkvloers",
+                    borderColor: "rgb(128,128,128,0.5)",
+                    backgroundColor: options["color"]["3"],
+                    fill: false,
+                    data: arraydivision0,
+
+                },{
+                    label: "verdieping 1",
+                    borderColor: "rgba(255, 99, 132,0.5)",
+                    backgroundColor:options["color"]["3"],
+                    fill: false,
+                    data: arraydivision2,
+
+                }, {
+                    label: "verdieping 2",
+                    borderColor: 'rgba(184,0,0,0.5)',
+                    backgroundColor: options["color"]["3"],
+                    fill: false,
+                    data: arraydivision1,
+                },
+                {
+                    label: "verdieping 3",
+                    borderColor: 'rgba(54, 162, 235,0.5)',
+                    backgroundColor: options["color"]["3"],
+                    fill: false,
+                    data: arraydivision3,
+                },
+                {
+                    type: "line",
+                    label: "AVG",
+                    borderColor: 'rgb(153, 102, 255)',
+                    backgroundColor: 'rgb(153, 102, 255)',
+                    pointHighlightFill: "#fff",
+                    fill: false,
+                    data: options["timeaverage"],
+                }
             ]
         };
         var myBar = new Chart(ctx, {
