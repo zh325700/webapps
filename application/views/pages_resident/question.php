@@ -28,16 +28,16 @@ if (login_check() == true) {
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 		<!--our css and less-->
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/pj_login_resident.less" />
+                <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/pj_login_resident.less" />
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
-        
+                <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
         <!--compile less files-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
 		<!--javascript includes-->
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/forms.js"></script>
-		
+		<script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
 		<!--load a page-->
 		<script>
 			function loadPage(controller, page){
@@ -69,14 +69,14 @@ if (login_check() == true) {
     </div>
  
     <div class="container" >   
-	<div class="row">
+	<div class="row" data-step="1" data-intro="Here you can see the questions" data-position='right'>
 		<div class="col-sm-8" style="padding-left: 20px">
 			<h2 id = "question_content"></h2>
 		</div>
 	</div>
         
         
-	<div class="row" >
+	<div class="row" data-step="2" data-intro="select answer by click the faces" data-position='top'>
 		<div class="col-sm-2">
                         <img src="<?php echo base_url(); ?>/image/pictograms/smiley1.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
 		</div>
