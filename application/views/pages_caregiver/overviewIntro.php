@@ -1,6 +1,7 @@
+
 <div class="row">
-    <div class="col-sm-6">
-        <div >  
+    <div class="col-sm-6 ">
+        <div class="chart-container">  
             <canvas style="width:60px; height:70px;" id="WeeklyTopicScore"></canvas>
         </div>
         <div class="row">

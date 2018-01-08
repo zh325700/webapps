@@ -23,7 +23,7 @@
     $lang['Add_FirstName']="Add FirstName";
     $lang['Add_LastName']="Add LastName";
     $lang['Birthday']="Birthday";
-    $lang['RoomNumber']="RoomNumber";
+    $lang['RoomNumber']="Roomnumber";
     $lang['Add_Roomnumber']="Add Roomnumber";
     $lang['Facility']="Facility";
     $lang['Upload_Image']="Upload Image";
@@ -89,5 +89,9 @@
     $lang['divisions']="division";
     $lang['title_time']="Division timestamp overview resident";
     $lang['Division_Timestamp']="Division timestamp";
+    $lang['Worst_Topic']="Worst Topic";
+    $lang['Best_Topic']="Best Topic";
+    $lang['alert_box']='Alert box with special remarks of the resident';
+    $lang['Topic']='Topic';
 ?>
 

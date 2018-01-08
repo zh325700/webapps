@@ -7,16 +7,15 @@
          *Input:none
          *Output:the parsed Tab_template with the data provided.   */
         public function event_general(){
-            if($this->session->userdata('language')=='dutch'){
+            if($this->session->userdata('language')==='dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
             else{
                 $this->lang->load('english_lang','english');
             }
             $this->load->model('Overview_Model');
-            $this->lang->load('Dutch_lang','dutch');
             //Asking the data from the database-model for this controller
-            $results=$this->Overview_Model->get_scores();
+            $results=$this->Overview_Model->get_scores($this->session->userdata('language'));
             $row['thescores']=$results["avg_Scores"];
             $results2=$this->Overview_Model->get_elder_score();
             $row['theelder']=$results2["avg_Scores"];
@@ -29,8 +28,7 @@
                 "More_Info"=>"Meer informatie",
                 'division'=>"",
                 "RoomNumber"=>$this->lang->line('RoomNumber'),
-                "FirstName"=>$this->lang->line('FirstName'),
-                "LastName"=>$this->lang->line('LastName'),
+                "Name"=>$this->lang->line('Name'),
                 "Score"=>$this->lang->line('Score'),
                 "Question"=>$this->lang->line('Question'),
                 "avg_Score"=>$this->lang->line('avg_Score'),
@@ -128,21 +126,6 @@
             //$results=$this->Overview_Model->get_score_type($Type,$ID_elder);
             //$row['thescores']=$results["avg_Scores"];
             //generate the random data
-            $row['thescores']=array( 
-                            array("Timestamp" => "vorig jaar",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "zes maanden geleden",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "twee maanden geleden",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "vorige maand",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "deze maand",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "vorige week",
-                                "AvgScore" => mt_rand(1, 5)),
-                            array("Timestamp" => "deze week",
-                                "AvgScore" => mt_rand(1, 5)));
             echo(json_encode($row));
         }
         
@@ -195,7 +178,7 @@
             $division=$this->input->get('division');
             $this->load->model('Overview_Model');
             //asking the data from the databasemodel
-            $results=$this->Overview_Model->get_question_score_division($division);
+            $results=$this->Overview_Model->get_question_score_division($division,$this->session->userdata('language'));
             $row['thescores']=$results["avg_Scores"];
             $results2=$this->Overview_Model->get_elder_score_division($division);
             $row['theelder']=$results2["avg_Scores"];
@@ -207,8 +190,7 @@
                 //put the right link for the language placeholders
                 "division"=>$division,
                 "RoomNumber"=>$this->lang->line('RoomNumber'),
-                "FirstName"=>$this->lang->line('FirstName'),
-                "LastName"=>$this->lang->line('LastName'),
+                "Name"=>$this->lang->line('Name'),
                 "Score"=>$this->lang->line('Score'),
                 "Question"=>$this->lang->line('Question'),
                 "avg_Score"=>$this->lang->line('avg_Score'),
@@ -293,15 +275,12 @@
             $data= array(
                  "division"=>$division,
                 "RoomNumber"=>$this->lang->line('RoomNumber'),
-                "FirstName"=>$this->lang->line('FirstName'),
-                "LastName"=>$this->lang->line('LastName'),
+                "Name"=>$this->lang->line('Name'),
                 "Score"=>$this->lang->line('Score_Time'),
                 "title_tab1"=>$this->lang->line('title_time'),
-                "title_tab2"=>" No information to show",
-                "content_qes"=>"empty",
                 //parses the separete data into the different tabpanels
                 "content_res"=>$this->parser->parse('pages_caregiver/Time_Score_temp',$row,TRUE));
-            $this->parser->parse('pages_caregiver/Tab_template', $data);
+            $this->parser->parse('pages_caregiver/Tab_time_template', $data);
             
         }
 
@@ -319,7 +298,7 @@
                 $this->lang->load('english_lang','english');
             }
             $this->load->model('Language_model');
-            $data=$this->Language_model->DataOverview();
+            $data=$this->Language_model->DataElderChart();
             $ID_Elder=$this->input->get('ID_Elder');
             $this->load->model('Overview_Model');
             //asks the data(the different topics and the info about the elderly) from the databasemodel
@@ -349,7 +328,7 @@
                 $this->lang->load('english_lang','english');
             }
             $this->load->model('Language_model');
-            $data=$this->Language_model->DataOverview();
+            $data=$this->Language_model->DataTopicChart();
             $Topic=$this->input->get('Topic');
             $this->load->model('Overview_Model');
            //asks the data(the different divisions and the info about the questions) from the databasemodel

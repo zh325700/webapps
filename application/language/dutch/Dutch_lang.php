@@ -89,4 +89,8 @@ $lang['title_division2']=" vragenlijst resultaten overzicht";
 $lang['divisions']="Afdeling";
 $lang['title_time']=" overzicht laatste invultijden bewoners";
 $lang['Division_Timestamp']="Afdeling invuldatums";
+$lang['Worst Topic']="Slechtste categorie";
+$lang['Best_Topic']="Beste categorie";
+$lang['alert_box']='Opmerkingen van of over deze bewoner';
+$lang['Topic']='Categorie';
 ?>

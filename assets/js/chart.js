@@ -3,6 +3,8 @@ function  manageIntroData(divisions){
     datascore=[];
     data=[];
     time=[];
+    options["label"]=[];
+    options["visible"]=[];
     for(var div in divisions){
         input=collectDataIntro(divisions[div]);
         datascore[div]=[];
@@ -13,12 +15,30 @@ function  manageIntroData(divisions){
             }
         }
         data[divisions[div]["divisions"]]=datascore[div];
+        options["label"][div]=divisions[div]["divisions"];
+        options["visible"][divisions[div]["divisions"]]=false;
     }
     options["topicaverage"]=getTopicAverage(data);
     options["color"]=getColor(data);
+    options["type"]=getType("line");
+    options["timeaverage"]=0;
+    if(language==="Dutch"){
+        options["titletext"]="Algemeen overzicht van de afdelingen";
+    }
+    else{
+        options["titletext"]="General overview of the divisions";
+    }
     console.log(time);
     console.log(options["color"]);
     console.log(data);
+}
+
+function getType(typetext){
+    var type=[];
+    for(var value in data){
+        type[value]=typetext;
+    }
+    return type;
 }
 
 function manageElderData(topics,elder){
@@ -27,6 +47,7 @@ function manageElderData(topics,elder){
         datascore=[];//a temp array to store the scores
         data=[];// the array that will be send to the chartdrawer
         time=[];// the array with the different timepoints(x-axis)
+        options["label"]=[];
         //loops over every topic in the topic array
         for(var topic in topics){
             //calls a function to collect all the data from the server for each topic
@@ -44,12 +65,20 @@ function manageElderData(topics,elder){
             }
             //puts the scores from the temp array into the data array
             data[topics[topic]["Type"]]=datascore[topic];
+            options["label"][topic]=topics[topic]["Type"];
         }
         //cal several functions to set some options
         options["timeaverage"]=getTimeAverage(data);
         options["topicaverage"]=getTopicAverage(data);
-        options["colors"]=getColor(data,options);
+        options["color"]=getColor(data,options);
         options["visible"]=setVisibility(data,options);
+        options["type"]=getType("bar");
+        if(language==="Dutch"){
+            options["titletext"]="Overzicht bewoner";
+        }
+        else{
+            options["titletext"]="General overview of the resident";
+        }
         //console.log(data);
         //console.log(time);
 }
@@ -71,7 +100,7 @@ function manageTopicData(divisions,topic){
         console.log(data);
     }
     options["timeaverage"]=getTimeAverage(data);
-    options["colors"]=getColor(data,options);
+    options["color"]=getColor(data,options);
     console.log(datascore);
     console.log(data);
     console.log(time);
@@ -306,188 +335,104 @@ function convertData(data){
     return convertdata;
 }
 
-function drawIntroChart(){
-    getIntroData();
-    var xarray = time;
-    var arrayDivision0 = data["0"];
-    var arrayDivision1 = data["1"];
-    var arrayDivision2 = data["2"];
-    var arrayDivision3 = data["3"];
-    var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
-    var barChartData = {
-        labels: xarray,
-        datasets: [
-            {
-                type: "line",
-                label: "Division0",
-                borderColor: options["color"][0],
-                backgroundColor: options["color"][0],
-                pointHighlightFill: "#fff",
-                fill: false,
-                data: arrayDivision0
-            },
-            {
-                type: "line",
-                label: "Division1",
-                borderColor: options["color"][1],
-                backgroundColor: options["color"][1],
-                pointHighlightFill: "#fff",
-                fill: false,
-                data: arrayDivision1
-            },
-            {
-                type: "line",
-                label: "Division2",
-                borderColor: options["color"][2],
-                backgroundColor: options["color"][2],
-                pointHighlightFill: "#fff",
-                fill: false,
-                data: arrayDivision2
-            },
-            {
-                type: "line",
-                label: "Division3",
-                borderColor: options["color"][3],
-                backgroundColor: options["color"][3],
-                pointHighlightFill: "#fff",
-                fill: false,
-                data: arrayDivision3
-            }
-        ]
-    };
-    var myBar = new Chart(ctx, {
-        data: barChartData,
-        type: 'bar',
-        options: {
-            // adjust the size of chart 
-            responsive: true,
-
-            legend: {
-                position: 'top'
-            },
-            title: {
-                display: true,
-                text: 'General overview of the divisions'
-            },
-            scales:{
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        suggestedMax:5
-                    }
-                }],
-                xAxes:[{ticks: {mirror: true}}]
-            }
-        }
-    });   
-}
-function drawChart(elder,test){
-    getData(elder,test);
-    //console.log(time);
-    var xarray = time;
-    var arrayPrivacyData = data["Privacy"];
-    var arrayRelationData = data["PersonalRelationships"];
-    var arrayFandMData = data["FoodAndMeals"];
-    var arrayActivities = data["Activities"];
-    var arrayAutonomy = data["Autonomy"];
-    var arrayRespectByStaff = data["RespectByStaff"];
-    var arraySafetyAndSecurity = data["SafetyAndSecurity"];
-    var arrayStaffResidentBonding = data["StaffResidentBonding"];
-    var arrayStaffResponsiveness = data["StaffResponsiveness"];
-    var arrayAVG = options["timeaverage"];
-    var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
-    var barChartData = {
-        labels: xarray,
-        datasets: [
-            {
+function makedatasets(data,options){
+    
+    var datasets=[];
+    var value=0;
+    for(var dataset in data){
+        console.log(options["visible"][dataset]);
+        var dataset={type: options["type"][value],
+        label: options["label"][value],
+        borderColor: options["color"][dataset],
+        backgroundColor: options["color"][dataset],
+        pointHighlightFill: "#fff",
+        hidden:options["visible"][dataset],
+        fill: false,
+        data: data[dataset]};
+        datasets.push(dataset);
+        value++;
+    }
+    if(options["timeaverage"]!==0){
+        var dataset={
                 type: "line",
                 label: "AVG",
                 borderColor: 'Black',
                 backgroundColor: 'BSlack',
                 pointHighlightFill: "#fff",
                 fill: false,
-                data: arrayAVG
-            },{
-                label: "Privacy",
-                visible: false,
-                borderColor: "rgba(255, 99, 132,0.5)",
-                backgroundColor: options["colors"]["Privacy"],
-                hidden: options["visible"]["Privacy"],
-                data: arrayPrivacyData
+                data: options["timeaverage"]
+            };
+        datasets.push(dataset);
+    }
+    return datasets;
+}
 
-            }, {
-                label: "PersonalRelationships",
-                borderColor: 'rgba(54, 162, 235,0.5)',
-                backgroundColor: options["colors"]["PersonalRelationships"],
-                fill: false,
-                data: arrayRelationData,
-                hidden: options["visible"]["PersonalRelationships"]
-            },
-            {
-                label: "FoodAndMeals",
-                borderColor: 'rgba(0, 0, 255,0.5)',
-                backgroundColor: options["colors"]["FoodAndMeals"],
-                fill: false,
-                data: arrayFandMData,
-                hidden: options["visible"]["FoodAndMeals"]
-            },
-            {
-                label: "Activities",
-                borderColor: 'rgba(0, 255, 0,0.5)',
-                backgroundColor: options["colors"]["Activities"],
-                fill: false,
-                data: arrayActivities,
-                hidden: options["visible"]["Activities"]
-            },
-            {
-                label: "Autonomy",
-                borderColor: 'rgba(	255,165,0,0.5)',
-                backgroundColor: options["colors"]["Autonomy"],
-                fill: false,
-                data: arrayAutonomy,
-                hidden: options["visible"]["Autonomy"]
-            },
-            {
-                label: "RespectByStaff",
-                borderColor: 'rgba(54, 162, 235,0.5)',
-                backgroundColor: options["colors"]["RespectByStaff"],
-                fill: false,
-                data: arrayRespectByStaff,
-                hidden: options["visible"]["RespectByStaff"]
-            },
-            {
-                label: "SafetyAndSecurity",
-                borderColor: 'rgba(54, 162, 235,0.5)',
-                backgroundColor: options["colors"]["SafetyAndSecurity"],
-                fill: false,
-                data: arraySafetyAndSecurity,
-                hidden: options["visible"]["SafetyAndSecurity"]
-            },
-            {
-                label: "StaffResidentBonding",
-                borderColor: 'rgba(54, 162, 235,0.5)',
-                backgroundColor: options["colors"]["StaffResidentBonding"],
-                fill: false,
-                data: arrayStaffResidentBonding,
-                hidden: options["visible"]["StaffResidentBonding"]
-            },
-            {
-                label: "StaffResponsiveness",
-                borderColor: 'rgba(54, 162, 235,0.5)',
-                backgroundColor: options["colors"]["StaffResponsiveness"],
-                fill: false,
-                data: arrayStaffResponsiveness,
-                hidden: options["visible"]["StaffResponsiveness"]
-            }
-        ]
+
+function drawIntroChart(){
+    getIntroData();
+    var xarray = time;
+    var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
+    var barChartData = {
+        labels: xarray,
+        datasets: makedatasets(data,options)
+        /*datasets:[{
+                    backgroundColor: "DarkOrange",
+                    borderColor:"DarkOrange",
+                    data:[0, 0, 0, 0, 0, 2],
+                    fill:false,
+                    label:"0",
+                    pointHighlightFill:"#fff",
+                    type:"line"}]*/
     };
     var myBar = new Chart(ctx, {
         data: barChartData,
         type: 'bar',
         options: {
             // adjust the size of chart 
-            responsive: true,
-
+            maintainAspectRatio:false,
+            legend: {
+                position: 'top',
+                fontfamily: "myriad-pro-condensed, sans-serif",
+                fontstyle:"normal"
+            },
+            title: {
+                display: true,
+                text: options["titletext"],
+                fontfamily: "myriad-pro-condensed, sans-serif",
+                fontstyle:"normal"
+            },
+            scales:{
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        suggestedMax:5,
+                        fontfamily: "myriad-pro-condensed, sans-serif",
+                        fontstyle:"normal"
+                    }
+                }],
+                xAxes:[{ticks:{
+                            mirror: true,
+                            fontfamily: "myriad-pro-condensed, sans-serif",
+                            fontstyle:"normal"}}]
+            }
+        }
+    });   
+}
+function drawChart(elder,test){
+    getData(elder,test);
+    console.log(makedatasets(data,options));
+    var xarray = time;
+    var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
+    var barChartData = {
+        labels: xarray,
+        datasets: makedatasets(data,options)
+    };
+    var myBar = new Chart(ctx, {
+        data: barChartData,
+        type: 'bar',
+        options: {
+            // adjust the size of chart 
+            maintainAspectRatio:false,
             legend: {
                 position: 'top'
             },
@@ -499,7 +444,9 @@ function drawChart(elder,test){
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        suggestedMax:5
+                        suggestedMax:5,
+                        fontfamily: "myriad-pro-condensed, sans-serif",
+                        fontstyle:"normal"
                     }
                 }],
                 xAxes:[{ticks: {mirror: true}}]
@@ -576,7 +523,10 @@ function drawChartqes(ques,test){
             scales:{
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                         beginAtZero: true,
+                        suggestedMax:5,
+                        fontfamily: "myriad-pro-condensed, sans-serif",
+                        fontstyle:"normal"
                     }
                 }]
             }
@@ -641,7 +591,7 @@ function drawCharttopic(topic){
         type: 'bar',
         options: {
             // adjust the size of chart 
-            responsive: true,
+            maintainAspectRatio:false,
 
             legend: {
                 position: 'top'
@@ -653,7 +603,10 @@ function drawCharttopic(topic){
             scales:{
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                         beginAtZero: true,
+                        suggestedMax:5,
+                        fontfamily: "myriad-pro-condensed, sans-serif",
+                        fontstyle:"normal"
                     }
                 }]
             }

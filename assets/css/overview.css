@@ -96,6 +96,14 @@
 
 }
 
+button.badge{
+    color: #EDEEF4;
+    background-color: #404C86;
+    display: block;
+    text-decoration: none;
+    border-radius:5px;
+}
+
 button.tab{
     color: #EDEEF4;
     background-color: #404C86;
@@ -134,3 +142,9 @@ input.logout{
        color: #404C86;
     }
 
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 50vh;
+    width: 35vw;
+}

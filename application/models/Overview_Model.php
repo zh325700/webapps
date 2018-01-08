@@ -1,7 +1,12 @@
 <?php
     Class Overview_Model extends CI_Model{
-        public function get_scores(){
-            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Type_en Topic, Questions.Type_en Topictest');
+        public function get_scores($language){
+            if($language=='dutch'){
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Type_nl Topic, Questions.Type_nl Topictest');
+            }
+            else{
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Type_en Topic, Questions.Type_en Topictest');
+            }
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->group_by('Questions.Type_en');
             $this->db->order_by('AVG(Answers.Score)',"asc");
@@ -16,6 +21,7 @@
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->group_by('Answers.ID_Elder');
             $this->db->order_by('AVG(Answers.Score)',"asc");
+            $this->db->limit(10);
             $this->db->from('Answers');
             $query= $this->db->get();
             $data['avg_Scores']=$query->result();
@@ -23,7 +29,7 @@
         }
         
         public function get_elder_score_division($division){
-            $this->db->select('AVG(Answers.Score) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber ');
+            $this->db->select('AVG(Answers.Score) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber, Elder.ID_Elder Elder_ID ');
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->where('Elder.Division',$division);
             $this->db->group_by('Answers.ID_Elder');
@@ -34,12 +40,18 @@
             return $data;
         }
         
-        public function get_question_score_division($division){
-             $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_en Question, Answers.ID_Question ID_Question ');
+        public function get_question_score_division($division,$language){
+            if($language=='dutch'){
+                $this->db->select('AVG(Answers.Score) avg_Score, Questions.Type_nl Topic, Questions.Type_nl Topictest');  
+            }
+            else{
+                $this->db->select('AVG(Answers.Score) avg_Score, Questions.Type_en Topic, Questions.Type_en Topictest');  
+            }
+             
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->where('Division',$division);
-            $this->db->group_by('Answers.ID_Question');
+            $this->db->group_by('Questions.Type_en');
             $this->db->order_by('AVG(Answers.Score)',"asc");
             $this->db->from('Answers');
             $query= $this->db->get();

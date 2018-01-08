@@ -81,16 +81,26 @@
             $data['Find_Facility']=$this->lang->line('Find_Facility');
             $data['Add_Caregiver']=$this->lang->line('Add_Caregiver');
             $data['Division_Timestamp']=$this->lang->line('Division_Timestamp');
-            $data['FirstName']=$this->lang->line('FirstName');
-            $data['LastName']=$this->lang->line('LastName');
-            $data['Gender']=$this->lang->line('Gender');
-            $data['Member_Since']=$this->lang->line('Member_Since');
+            return $data;
+        }
+        
+        public function DataElderChart(){
+            $data['Name']=$this->lang->line('Name');
+            $data['Number_filled']=$this->lang->line('Number_filled');
+            $data['Average_Score']=$this->lang->line('Average_Score');
+            $data['RoomNumber']=$this->lang->line('RoomNumber');
+            $data['Worst_Topic']=$this->lang->line('Worst_Topic');
+            $data['Best_Topic']=$this->lang->line('Best_Topic');
+            $data['alert_box']=$this->lang->line('alert_box');
+            return $data;
+        }
+        
+        public function DataTopicChart(){
+            $data['Score']=$this->lang->line('Score');
             $data['Number_filled']=$this->lang->line('Number_filled');
             $data['Average_Score']=$this->lang->line('Average_Score');
             $data['Question']=$this->lang->line('Question');
-            $data['RoomNumber']=$this->lang->line('RoomNumber');
-            $data['Facility']=$this->lang->line('Facility');
-            $data['Birthday']=$this->lang->line('Birthday');
+            $data['Topic']=$this->lang->line('Topic');
             return $data;
         }
         

@@ -98,7 +98,7 @@ function makeTimeAlert(data,alerts){
              var text=data[value]['FirstName']+" "+data[value]['LastName']+" heeft de vragenlijst niet beantwoord sinds "+data[value]['Datestamp'];
         }
         else{
-             var text=data[value]['FirstName']+" "+data[value]['LastName']+" hasn' filled in her questions since "+data[value]['Datestamp'];
+             var text=data[value]['FirstName']+" "+data[value]['LastName']+" has not filled in her questions since "+data[value]['Datestamp'];
         }
         alerts.push(text);
     }
@@ -106,7 +106,7 @@ function makeTimeAlert(data,alerts){
 function makeElderAlert(data){
     makeQuestionAlertElder(data["question"],alerts);
     makeTimeAlertElder(data["time"],alerts);
-    console.log(alerts);
+    //console.log(alerts);
     for(text=0;text<10;text++){
         if(typeof alerts[text] !== 'undefined'){
             var parent=document.getElementById("alertElderList");
@@ -139,7 +139,7 @@ function makeTimeAlertElder(data,alerts){
             var text=" heeft de vragenlijst niet ingevuld sinds "+data[value]['Datestamp'];
         }
         else{
-            var text=" hasn' filled in her questions since "+data[value]['Datestamp'];
+            var text=" has not filled in her questions since "+data[value]['Datestamp'];
         }
         alerts.push(text);
     }
