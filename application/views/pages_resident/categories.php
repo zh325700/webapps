@@ -16,29 +16,29 @@
         
         <div class="row"  >
             <div class="col-sm-12">
-                <h2> Kies een categorie </h2>
+                <h2> {Please_category} </h2>
             </div>
         </div>
 
         <div class="row" data-step="1" data-intro="Click block with catagories you interested in to answer questions" data-position='top'>
             <div class="col-sm-3">
                 <button id = "newButton1"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=Privacy')">
-                    Privacy
+                    {Privacy}
                 </button> 
             </div>        
             <div class="col-sm-3">
                 <button id = "newButton6"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=FoodAndMeals')">
-                    Eten
+                    {Food}
                 </button>
             </div>
             <div class="col-sm-3">
                 <button id = "newButton2"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=Comfort')">
-                    Comfort
+                    {Comfort}
                 </button> 
             </div>
             <div class="col-sm-3">
                 <button id = "newButton2"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=Activities')">
-                    Activiteiten
+                    {Activities}
                 </button> 
             </div>
         </div>
@@ -46,22 +46,22 @@
         <div class="row" >
             <div class="col-sm-3">
                 <button id = "newButton3"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=PersonalRelationships')">
-                    Persoonlijke <br/> omvang
+                    {Personal} <br/> {relations}
                 </button>
             </div>
             <div class="col-sm-3">
                 <button id = "newButto3"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=DailyDecisions')">
-                    Dagelijks <br/> kiezen
+                    {Daily} <br/> {decisions}
                 </button>
             </div>
             <div class="col-sm-3">
                 <button id = "newButton"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=RespectByStaff')">
-                    Respect
+                    {Respect}
                 </button> 
             </div>
             <div class="col-sm-3">
                 <button id = "newButton5"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=SafetyAndSecurity')">
-                    Veiligheid
+                    {Safety}
                 </button> 
             </div>
         </div>
@@ -69,12 +69,12 @@
         <div class="row">
             <div class="col-sm-6">
                 <button id = "newButton4"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=StaffResponsiveness')">
-                    Reactievermogen van </br> het personeel
+                    {responsiveness} </br> {the_caregivers}
                 </button> 
             </div>
             <div class="col-sm-6">
                  <button id = "newButton"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=StaffResidentBonding')">
-                    Een band voelen met </br> wie hier werkt
+                    {bonding}</br> {Staff}
 
                 </button> 
             </div>
@@ -82,7 +82,7 @@
         
         <div class="row">
 		<div class="col-md-offset-10 col-sm-offset-9 col-sm-2">
-                   <a id = "link" type="button" class="btn btn-lg logout" onclick="loadPage('Welcome', 'Caregiver/overview')">Afmelden</a>          
+                   <a id = "link" type="button" class="btn btn-lg logout" onclick="loadPage('Welcome', 'Caregiver/overview')">{Log_out}</a>          
                 </div>     
 	</div>
 </div>

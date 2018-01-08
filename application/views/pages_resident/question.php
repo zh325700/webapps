@@ -99,28 +99,28 @@ if (login_check() == true) {
         
         <div class="row">
 		<div class="col-sm-2">
-                    <p >Nooit</p>
+                    <p >{Never}</p>
 		</div>
 		<div class="col-sm-2">
-                    <p>Zelden</p>
+                    <p>{Rarely}</p>
 		</div>
 		<div class="col-sm-2">
-                    <p>Soms</p>
+                    <p>{Sometimes}</p>
                 </div>
 		<div class="col-sm-2">
-                    <p>Meestal</p>
+                    <p>{Most_time}</p>
 		</div> 
 		<div class="col-sm-2">
-                    <p>Altijd</p>
+                    <p>{Always}</p>
 		</div>  
                 <div class="col-sm-2">
-                    <p>Ik weet </br>het niet</p>
+                    <p>{Ik_weet} </br>{het_niet}</p>
 		</div> 
         </div>
         
 	<div class="row">
             <div class="col-sm-offset-0 col-sm-3">
-                <a id = "previousBtn" type="button" class="btn btn-lg logout" onclick="javascript:previous()">Ga terug</a>          
+                <a id = "previousBtn" type="button" class="btn btn-lg logout" onclick="javascript:previous()">{Ga_terug}</a>          
             </div>     
 </div>
 

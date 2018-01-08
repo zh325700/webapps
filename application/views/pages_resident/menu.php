@@ -18,7 +18,7 @@
                     <img src="<?php echo base_url(); ?>/image/photos/<?= $this->session->userdata('picture')?>" alt="" class="align-left"/>
                 </div>
                 <div class="col-sm-5">
-                    <h2 class="par2">Welkom, <?= $this->session->userdata('firstname')?></h2>
+                    <h2 class="par2">{Welcome}, <?= $this->session->userdata('firstname')?></h2>
                 </div>
         </div>
 
@@ -26,7 +26,7 @@
                 <div class="col-sm-12" data-step="1" data-intro="Click here to answer the questionaire" data-position='top'>
                     <button id = "newButton" type="button" class="btn btn-lg question button btn-block" onclick="loadPage('Welcome','Resident/categories')">                      
                         <img src="<?php echo base_url(); ?>/image/pictograms/questions.png" class="align"/>
-                       Vragenlijst
+                       {Questionnaire}
                     </button>
                 </div>
         </div>
@@ -45,19 +45,19 @@
                     <button id = "newButton"  type="button" class="btn btn-lg button style btn-block family" 
                             data-step="3" data-intro="Watch video your familly sent you" data-position='top'>
                         <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="align family"/>
-                        Familie 
+                        {Family} 
                     </button>
                     <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block"
                             data-step="4" data-intro="Click here to see recent activities" data-position='top'>
                         <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>
-                        Activiteiten
+                        {Activities}
                     </button>
                 </div>
 	</div>
 
 	<div class="row">
 		<div class="col-sm-offset-9 col-md-offset-10 col-sm-2">
-                   <a id = "link" type="button" class="btn btn-lg style logout" onclick="loadPage('LoginResident', 'view')">Afmelden</a>          
+                   <a id = "link" type="button" class="btn btn-lg style logout" onclick="loadPage('LoginResident', 'view')">{Log_out}</a>          
                 </div>    
 	</div>
 </div>

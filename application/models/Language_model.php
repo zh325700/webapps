@@ -11,17 +11,17 @@
          *       elder: if is send, the ID of the elderly
          * Output: the language data to be filled in into the placeholders
          */
-        public function getData($language,$page,$elder=Null){
+        public function getData($language,$page,$elder=-1){
             $this->load->helper('form');
-            //$elder=$this->session->userdata('item');
-            if(isset($elder)){
-                $language=$this->getLanguage($elder);
+            if($elder!=-1){
+                $language=$this->getLanguage($elder)[0]->language;
             }
             if($language=='English'){
                $this->lang->load('english_lang','English');
             }
             elseif($language=='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
+                
             } 
             if($page == 'login'){
                 $data=$this->DataLogin();
@@ -61,6 +61,15 @@
             }
             elseif($page=='general'){
                 $data=$this->getDataGeneral();
+            }
+            elseif($page=='addcar'){
+                $data=$this->getDataAddCare();
+            }
+            elseif($page=='loginres'){
+                $data=$this->getDataLoginres();
+            }
+            elseif($page=='loginverres'){
+                $data=$this->getDataLoginverres();
             }
             return $data;
         }
@@ -140,6 +149,8 @@
             $data['RoomNumber']=$this->lang->line('RoomNumber');
             $data['Facility']=$this->lang->line('Facility');
             $data['MemberSince']=$this->lang->line('Member_Since');
+            $data['EDIT']=$this->lang->line('EDIT');
+            $data['DELETE']=$this->lang->line('DELETE');
             return $data;
         }
                 
@@ -183,6 +194,8 @@
             $data['Add_Street']=$this->lang->line('Add_Street');
             $data['Add_number']=$this->lang->line('Add_number');
             $data['Add_Facility']=$this->lang->line('Add_Facility'); 
+            $data['EDIT']=$this->lang->line('EDIT');
+            $data['DELETE']=$this->lang->line('DELETE');
             return $data;
         }
         
@@ -199,7 +212,7 @@
             $data['Daily']=$this->lang->line('Daily');
             $data['decisions']=$this->lang->line('decisions');
             $data['Respect']=$this->lang->line('Respect'); 
-            $data['by']=$this->lang->line('by');
+            $data['the_caregivers']=$this->lang->line('the_caregivers');
             $data['Staff']=$this->lang->line('Staff'); 
             $data['resident']=$this->lang->line('resident');
             $data['bonding']=$this->lang->line('bonding'); 
@@ -209,7 +222,7 @@
             return $data;
         }
         public function DataMen(){
-          $data['Weather_report']=$this->lang->line('Weather_report');
+          $data['Welcome']=$this->lang->line('Welcome');
           $data['Family']=$this->lang->line('Family');
           $data['Questionnaire']=$this->lang->line('Questionnaire');
           $data['Activities']=$this->lang->line('Activities');
@@ -233,6 +246,9 @@
           $data['Sometimes']=$this->lang->line('Sometimes');
           $data['Most_time']=$this->lang->line('Most_time');
           $data['Always']=$this->lang->line('Always');
+          $data['Ik_weet']=$this->lang->line('Ik_weet');
+          $data['het_niet']=$this->lang->line('het_niet');
+          $data['Ga_terug']=$this->lang->line('Ga_terug');
           return $data;
       }
       
@@ -256,6 +272,43 @@
             $data["avg_Score"]=$this->lang->line('avg_Score');
             $data["title_tab1"]=$this->lang->line('title_general1');
             $data["title_tab2"]=$this->lang->line('title_general2');
+            return $data;
+        }
+        public function getDataLoginres(){
+            $data['Login_resident']=$this->lang->line('Login_resident');
+            $data['Ik_ben_een']=$this->lang->line('Ik_ben_een');
+            $data['Vrouw']=$this->lang->line('Vrouw');
+            $data['Man']=$this->lang->line('Man');
+            $data['Selecteer_foto']=$this->lang->line('Selecteer_foto');
+            return $data;
+        }
+        
+        public function getDataLoginverres(){
+            $data['Login_verificatie']=$this->lang->line('Login_verificatie');
+            $data['Gelieve_geboortedag_vullen']=$this->lang->line('Gelieve_geboortedag_vullen');
+            $data['ik_niet']=$this->lang->line('ik_niet');
+            $data['Dit_ben']=$this->lang->line('Dit_ben');
+            $data['Birthday']=$this->lang->line('Birthday');
+            $data['delete']=$this->lang->line('delete');
+            return $data;
+        }
+        public function getDataAddCare(){
+            $data['Facility']=$this->lang->line('Facility');
+            $data['Select_Facility']=$this->lang->line('Select_Facility');
+            $data['Register_Caregiver']=$this->lang->line('Register_Caregiver');
+            $data['Welcome']=$this->lang->line('Welcome');
+            $data['Username']=$this->lang->line('Username');
+            $data['Email_address']=$this->lang->line('Email_address');
+            $data['Enter_email']=$this->lang->line('Enter_email');
+            $data['password']=$this->lang->line('password');
+            $data['Confirm_Password']=$this->lang->line('Confirm_Password');
+            $data['Type_Password_again']=$this->lang->line('Type_Password_again');
+            $data['Permission_level']=$this->lang->line('Select_Adminlevel');
+            $data['Select_Adminlevel']=$this->lang->line('Select_Adminlevel');
+            $data['Caregiver']=$this->lang->line('Caregiver');
+            $data['internship']=$this->lang->line('internship');
+            $data['Boss']=$this->lang->line('Boss');
+            $data['Create_Caregiver']=$this->lang->line('Create_Caregiver');
             return $data;
         }
     }

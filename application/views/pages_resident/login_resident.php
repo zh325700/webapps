@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-md-offset-1 col-sm-offset-1" style="padding-left: 17px">
                     <h1 style="margin-top:0.75%">
-                        Login resident
+                        {Login_resident}
                     </h1>
                 </div>
             </div>
@@ -83,25 +83,25 @@
             <div class="row" data-step="1" data-intro="Choose your gender" data-position='top'>
                 <div class="col-sm-4" style="margin-top: 2%; padding-left: 0">
                     <h1>
-                        Ik ben een :
+                        {Ik_ben_een} :
                     </h1>
                 </div>
 
                 <div class="col-md-4 col-sm-4" style="padding-left: 0" >
                     <button class="btn style btn-block" id="female_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/LoginResident/loadBySex?sex=F'">
-                        Vrouw
+                        {Vrouw}
                     </button>
                 </div>
                 <div class="col-md-4 col-sm-4" style="padding-right: 0">
                     <button class="btn style btn-block" id="male_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/LoginResident/loadBySex?sex=M'">
-                        Man
+                        {Man}
                     </button>
                 </div>
             </div> 
             <div class="row">
                 <div class="col-sm-12" style="padding-left: 0">
                     <h1>
-                        Selecteer uw foto:
+                        {Selecteer_foto}:
                     </h1>
                 </div>
             </div>

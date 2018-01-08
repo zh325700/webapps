@@ -44,12 +44,11 @@
                 $date = $resident['Birthday'];
                 $pic = $resident['Picture'];
             ?>
-                
                 <div class="container-fluid" style="height: 6%; width:100.3%">
                     <div class="row">
                         <div class="col-sm-offset-1" style="padding-left: 17px">
                             <h1 style="margin-top:0.75%">
-                                Login verificatie
+                                {Login_verificatie}
                             </h1>
                         </div>
                     </div>
@@ -61,18 +60,18 @@
                         </div>
                         
                         <div class="col-md-offset-1 col-md-6 col-sm-offset-1 col-sm-9">
-                            <h1 class="par2">Gelieve uw geboortedag in te vullen:</h1>
+                            <h1 class="par2">{Gelieve_geboortedag_vullen}:</h1>
                         </div>
                     </div>
                     <div class="row" style="margin-top:0%">
                         
                         <div class="col-sm-3" style="padding-left: 0">
                             <button class="btn button style small btn-block" onclick="loadPage('LoginResident', 'view')">
-                                Dit ben<br> ik niet</button>
+                                {Dit_ben}<br> {ik_niet}</button>
                         </div>
                             <form action="" id="form">
                                 <div class="col-md-2 col-sm-3">
-                                    <h2>Geboortedag: </h2>
+                                    <h2>{Birthday}: </h2>
                                 </div>
                                 <div class="col-md-4 col-sm-offset-1 col-sm-4"> 
                                     <h2>
@@ -133,7 +132,7 @@
                         </div>
                         <div class="col-md-2 col-sm-3">
                             <input type="button" class="btn btn-lg button style btn-block" style="height: 100%; border-radius: 10px; border: solid 2px #EDEEF4; background: #EDEEF4;"
-                                   name="Delete" value="delete" id="delete" onclick="addNumber(this);"/>
+                                   name="Delete" value="{delete}" id="delete" onclick="addNumber(this);"/>
                         </div>
                     </div>
 
