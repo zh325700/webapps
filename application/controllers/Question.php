@@ -35,7 +35,7 @@ class Question extends CI_Controller{
             echo json_encode("Failed to Save Data");
         } else {
             $this->db->trans_commit();
-            redirect('Welcome/Resident/menu'); //TODO UPDATE TO ACTUAL CONTROLLER
+            redirect('Welcome/LoadThankyou'); //TODO UPDATE TO ACTUAL CONTROLLER
         }
     }
 }

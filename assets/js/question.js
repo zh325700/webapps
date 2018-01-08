@@ -59,7 +59,6 @@ function previous(){
         }
     } else if (counter === 0){
         document.location.href = '../../index.php/Welcome/Resident/categories';
-        //here add animation
     }
 }
 
