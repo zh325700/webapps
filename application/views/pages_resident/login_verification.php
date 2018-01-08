@@ -1,3 +1,4 @@
+
 <html>
     <head>
 		<meta charset="utf-8">
@@ -43,6 +44,7 @@
                 $date = $resident['Birthday'];
                 $pic = $resident['Picture'];
             ?>
+                
                 <div class="container-fluid" style="height: 6%; width:100.3%">
                     <div class="row">
                         <div class="col-sm-offset-1" style="padding-left: 17px">

@@ -8,17 +8,19 @@
             </div>
             <div class="col-sm-6"></div>
             <div class="col-sm-1">
+                <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
                 <img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>
+                </a>
             </div>
         </div>
         
-        <div class="row">
+        <div class="row"  >
             <div class="col-sm-12">
                 <h2> Kies een categorie </h2>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" data-step="1" data-intro="Click block with catagories you interested in to answer questions" data-position='top'>
             <div class="col-sm-3">
                 <button id = "newButton1"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=Privacy')">
                     Privacy
@@ -41,7 +43,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" >
             <div class="col-sm-3">
                 <button id = "newButton3"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('Question','getQuestion?category=PersonalRelationships')">
                     Persoonlijke <br/> omvang
