@@ -20,14 +20,13 @@
 		<!--our css and less-->
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/pj_login_resident.less" />
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
+        
         <!--compile less files-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
 		<!--javascript includes-->
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/forms.js"></script>
-                <script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
 		
 		<!--load a page-->
 		<script>
@@ -46,45 +45,46 @@
                 $pic = $resident['Picture'];
             ?>
                 
-                <div class="container-fluid">
+                <div class="container-fluid" style="height: 6%; width:100.3%">
                     <div class="row">
-                        <div class="col-md-offset-2 col-sm-offset-1" style="padding:0">
-                            <h1>
+                        <div class="col-sm-offset-1" style="padding-left: 17px">
+                            <h1 style="margin-top:0.75%">
                                 Login verificatie
                             </h1>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-2 col-sm-2" style="margin-top: 3%" data-step="1" data-intro="Here is your picture" data-position='top'>
+                    <div class="row" style="margin-top:0.5%">
+                        <div class="col-md-2 col-sm-2" style="padding-left: 0">
                             <img src="../../image/photos/<?= $pic?>" alt="" style=" width: 100px" class="align-left"/>
                         </div>
                         
-                        <div class="col-md-offset-1 col-md-6 col-sm-offset-1 col-sm-9" >
-                            <h1 >Gelieve uw geboortedag in te vullen:</h1>
+                        <div class="col-md-offset-1 col-md-6 col-sm-offset-1 col-sm-9">
+                            <h1 class="par2">Gelieve uw geboortedag in te vullen:</h1>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top:0%">
                         
-                        <div class="col-sm-3" data-step="2" data-intro="Click this if picture is wrong" data-position='top'>
+                        <div class="col-sm-3" style="padding-left: 0">
                             <button class="btn button style small btn-block" onclick="loadPage('LoginResident', 'view')">
                                 Dit ben<br> ik niet</button>
                         </div>
                             <form action="" id="form">
-                                <div class="col-md-offset-3 col-md-2 col-sm-3">
+                                <div class="col-md-2 col-sm-3">
                                     <h2>Geboortedag: </h2>
                                 </div>
-                                <div class="col-sm-offset-1 col-md-4 col-sm-4"> 
-                                    <h2 data-step="3" data-intro="Enter your date of birth Using the keyboard below" data-position='top'>
-                                        <input id="date" type="text" placeholder="dd/mm/yyyy" 
-                                               pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d">
+                                <div class="col-md-4 col-sm-offset-1 col-sm-4"> 
+                                    <h2>
+                                        <input id="date" type="text" style="width:130%" placeholder="dd/mm/yyyy" 
+                                               pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" readonly="true">
                                     </h2>
                                 </div>
                             </form>
                         
                     </div>
-                    <div class="row" style="height: 10%">
+                    
+                      <div class="row" style="height: 10%">
                         <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3" >
                             <input type="button" class="btn btn-lg button style btn-block" style="height: 100%; border-radius: 10px; border: solid 2px #EDEEF4; background: #EDEEF4;"
                                    name="1" value="1" id="1" onclick="addNumber(this);"/>
@@ -98,7 +98,7 @@
                                    name="3" value="3" id="3" onclick="addNumber(this);"/>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 2%; height: 10%">
+                    <div class="row" style="margin-top: 0.5%; height: 10%">
                         <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
                             <input type="button" class="btn btn-lg button style btn-block" style="height: 100%; border-radius: 10px; border: solid 2px #EDEEF4; background: #EDEEF4;"
                                    name="4" value="4" id="4" onclick="addNumber(this);"/>
@@ -112,7 +112,7 @@
                                    name="6" value="6" id="6" onclick="addNumber(this);"/>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 2%; height: 10%">
+                    <div class="row" style="margin-top: 0.5%; height: 10%">
                         <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
                             <input type="button" class="btn btn-lg button style btn-block" style="height: 100%; border-radius: 10px; border: solid 2px #EDEEF4; background: #EDEEF4;"
                                    name="7" value="7" id="7" onclick="addNumber(this);"/>
@@ -126,7 +126,7 @@
                                    name="9" value="9" id="9" onclick="addNumber(this);"/>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: 2%; height: 10%">
+                    <div class="row" style="margin-top: 0.5%; height: 10%">
                         <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
                             <input type="button" class="btn btn-lg button style btn-block" style="height: 100%; border-radius: 10px; border: solid 2px #EDEEF4; background: #EDEEF4;"
                                    name="0" value="0" id="0" onclick="addNumber(this);"/>
@@ -136,6 +136,7 @@
                                    name="Delete" value="delete" id="delete" onclick="addNumber(this);"/>
                         </div>
                     </div>
+
                         </div>
                         
                         <script type = "text/javascript">
@@ -173,11 +174,15 @@
                                 var match = input.match(regExp);
                                 if (match) {
                                     if (input === date) {
-//                                        if (fontSize) {
+                                            <?php 
+                                                $this->session->set_userdata('idelder', $resident['ID_Elder']);
+                                                $this->session->set_userdata('idfacility', $resident['ID_facility']);
+                                                $this->session->set_userdata('firstname', $resident['FirstName']);
+                                                $this->session->set_userdata('lastname', $resident['LastName']);
+                                                $this->session->set_userdata('division', $resident['division']);
+                                                $this->session->set_userdata('picture', $resident['Picture']);
+                                            ?>
                                             loadPage('Welcome', 'Resident/menu');
-//                                        } else {
-//                                            loadPage('Fontsize_resident', 'index');
-//                                        }
                                     } else {
                                         document.getElementById('date').value = "";
                                         counter = 0;
@@ -198,3 +203,4 @@
                 </div>
         </body>
 </html>
+
