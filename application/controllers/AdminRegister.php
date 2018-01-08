@@ -1,4 +1,4 @@
-<?php
+<?php
 
 class AdminRegister extends CI_Controller {
 
@@ -10,16 +10,12 @@ class AdminRegister extends CI_Controller {
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
 
         $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('email', 'Email Address', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('ID_Facility', 'ID Facility', 'required');
-        $this->form_validation->set_rules('permission', 'Permission Level', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_admin/registerCaregiver', $data);
         } else {
             $email = $_POST["email"];
             $error_msg = "";
-            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            $password = filter_input(INPUT_POST, 'p', FILTER_SANITIZE_STRING);
             if (strlen($password) != 128) {
                 // The hashed pwd should be 128 characters long.
                 // If it's not, something really odd has happened

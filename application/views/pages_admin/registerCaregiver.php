@@ -14,26 +14,25 @@
         <div class="py-5 bg-primary text-white" >
             <div class="container">
                 <div class="row">
-
                     <div class="col-sm-6">
                         <h1 class="text-dark">Register Caregiver</h1>
                         <p class="text-dark">Welcome</p>
-                         <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
-                            <div class="form-group"> <label for="InputName" class="text-dark">Username</label>
-                                <input type="text" name="username" class="form-control" id="InputName" placeholder="Username"
-                                       value="<?php echo isset($_POST["username"]) ? $_POST["username"] : ''; ?>"> </div>
+                        <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
+                        <div class="form-group"> <label for="InputName" class="text-dark">Username</label>
+                            <input type="text" name="username" class="form-control" id="InputName" placeholder="Username"
+                                   value="<?php echo isset($_POST["username"]) ? $_POST["username"] : ''; ?>"> </div>
 
-                            <div class="form-group"> <label for="InputEmail1" class="text-dark">Email address</label>
-                                <input type="email" name="email" class="form-control" id="InputEmail1" placeholder="Enter email"
-                                       value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>"> </div>
+                        <div class="form-group"> <label for="InputEmail1" class="text-dark">Email address</label>
+                            <input type="email" name="email" class="form-control" id="InputEmail1" placeholder="Enter email"
+                                   value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>"> </div>
 
-                            <div class="form-group"> <label class="text-dark">Password</label>
-                                <input type="password" required="" id="password" name="password" class="form-control" placeholder="Password"> </div>
+                        <div class="form-group"> <label class="text-dark">Password</label>
+                            <input type="password" required="" id="password" name="password" class="form-control" placeholder="Password"> </div>
 
-                            <div class="form-group"> <label class="text-dark">Confirm  Password </label><span style="padding-left: 50px" id='message'></span>
-                                <input type="password" required="" id="confirm_password" name="confirm_password" class="form-control" placeholder="Type Password again"> </div>
+                        <div class="form-group"> <label class="text-dark">Confirm  Password </label><span style="padding-left: 50px" id='message'></span>
+                            <input type="password" required="" id="confirm_password" name="confirm_password" class="form-control" placeholder="Type Password again"> </div>
 
-                            <button type="submit" onclick="formhash(this.form, this.form.password);" class="btn btn-info w-100">Create Caregiver</button>
+                        
                     </div>
                     <div class="col-sm-6" style="margin-top: 11.2vh;">
                         <div class="form-group" > <label for="Facility" class="text-dark">Facility</label>
@@ -50,7 +49,7 @@
                                 <option value="2">Manager</option>
                                 <option value="3">Boss</option>
                             </select> </div>
-
+                        <button type="button" onclick="formhash(this.form, this.form.password)"  class="btn btn-info w-100">Create Caregiver</button>
                     </div>
                     </form>
                 </div>

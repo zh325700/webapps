@@ -8,7 +8,6 @@ class Admin_Model extends CI_Model {
             'username' => $this->input->post('username'), // this three should from the input area with name="username,admin,email"
             'permission' => $this->input->post('permission'),
             'email' => $this->input->post('email'),
-//            'salt' => $random_salt, //this three variable are generated
             'password' => $password,
             'salt' => $random_salt,
             'ID_facility' => $this->input->post('ID_Facility')
