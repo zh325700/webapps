@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <html>
@@ -22,7 +20,7 @@
 
 		<!--our css and less-->
        
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/login.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>assets/css/login.less" />
        
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
         
