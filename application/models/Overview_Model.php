@@ -217,6 +217,7 @@
             $this->db->select('COUNT(Answers.Score) NumberAnswers,Questions.Type_en Topic, AVG(Answers.Score) avg_score');
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('Questions.Type_en',$topic);
+            $this->db->or_where('Questions.Type_nl',$topic);
             $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
             $this->db->from('Questions');
             $query=$this->db->get();
@@ -228,6 +229,7 @@
             $this->db->select('Answers.Score avg_Score,Answers.DateStamp DateStamp');
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('Questions.Type_en',$topic);
+            $this->db->or_where('Questions.Type_nl',$topic);
             $this->db->where('Elder.division',$division);
             $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
@@ -303,14 +305,14 @@
         }
         
         public function getAlertResidentElder($datestamp,$elder){
-            $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_en question,Questions.Type_en type');
+            $this->db->select('Answers.Score avg_Score, Questions.Question_en question,Questions.Type_en type');
             $this->db->where('Answers.Datestamp >',$datestamp);
             $this->db->where('Elder.ID_Elder',$elder);
             $this->db->where("Answers.Score !=",-1);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->group_by('Questions.ID_Question');
-            $this->db->having('AVG(Answers.Score) <',2);
+            $this->db->having('Answers.Score <',2);
             $this->db->from('Answers');
             $query=$this->db->get();
             $data=$query->result();

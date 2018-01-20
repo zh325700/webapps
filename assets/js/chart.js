@@ -1,43 +1,62 @@
 /*
- * 
+ * Function: collects the data, managis it and prepare the right data and options for the charts
+ * Input: an array with all the divisions;
+ * Output: all the data and options needed for the chart
  * @param {type} divisions
  * @returns {undefined}
  */
 function  manageIntroData(divisions){
+    //initialising the arrays
     options=[];
     datascore=[];
     data=[];
     time=[];
     options["label"]=[];
     options["visible"]=[];
+    //loop over every division
     for(var div in divisions){
-        input=collectDataIntro(divisions[div]);
+        //call a method to collect the data for each division
+        var input=collectDataIntro(divisions[div]);
         datascore[div]=[];
+        //for ever value we got back
         for(var value in input){ 
+            //put the score in the score array
             datascore[div][value]=input[value][0];
+            //looks if the timestamp is already in the timearray
+            //if not add it
             if(time.indexOf(input[value][1])===-1){
                 time.push(input[value][1]);
             }
         }
+        //put the scorearray into the data array under the right index
         data[divisions[div]["divisions"]]=datascore[div];
+        //fill in some options, label is how the dataset is called in the legend
+        //visible is if the dataset is visible
         options["label"][div]=divisions[div]["divisions"];
         options["visible"][divisions[div]["divisions"]]=false;
     }
+    //call functions to determine the options
+    //color is the color of the graph and type is what kind of graph it should be
     options["topicaverage"]=getTopicAverage(data);
     options["color"]=getColor(data);
     options["type"]=getType("line");
     options["timeaverage"]=0;
+    //select a titletext based on the language
     if(language==="Dutch"){
         options["titletext"]="Algemeen overzicht van de afdelingen";
     }
     else{
         options["titletext"]="General overview of the divisions";
     }
-    console.log(time);
-    console.log(options["color"]);
-    console.log(data);
 }
 
+/*
+ * Function: fill in the type of the graph
+ * Input: the type of graph
+ * Output a filled in graph
+ * @param {type} typetext
+ * @returns {Array}
+ */
 function getType(typetext){
     var type=[];
     for(var value in data){
@@ -46,54 +65,112 @@ function getType(typetext){
     return type;
 }
 
+/*
+ * Function:collects the data, managis it and prepare the right data and options for the charts
+ * Input: an array with all the topics and the id of the elder;
+ * Output: all the data and options needed for the chart
+ * @param {type} topics
+ * @param {type} elder
+ * @returns {undefined}
+ */
 function manageElderData(topics,elder){
     //initializing the arrays
-        options=[];
-        datascore=[];//a temp array to store the scores
-        data=[];// the array that will be send to the chartdrawer
-        time=[];// the array with the different timepoints(x-axis)
-        options["label"]=[];
-        //loops over every topic in the topic array
-        for(var topic in topics){
-            //calls a function to collect all the data from the server for each topic
-            input=collectData(elder,topics[topic],value);
-            //initialize in the data array for each topic
-            datascore[topic]=[];
-            //loop over every value in the inout from the scores for each topic
-            for(var value in input){
-                //put every avgScore into the temp array on the right spot
-                datascore[topic][value]=input[value][0];
-                //checks if the timestamp is already on the x-axis if not adds it to it
-                if(time.indexOf(input[value][1])===-1){
-                    time.push(input[value][1]);
-                }
+    options=[];
+    var datascore=[];//a temp array to store the scores
+    data=[];// the array that will be send to the chartdrawer
+    time=[];// the array with the different timepoints(x-axis)
+    options["label"]=[];
+    //loops over every topic in the topic array
+    for(var topic in topics){
+        //calls a function to collect all the data from the server for each topic
+        var input=collectData(elder,topics[topic],value);
+        //initialize in the data array for each topic
+        datascore[topic]=[];
+        //loop over every value in the inout from the scores for each topic
+        for(var value in input){
+            //put every avgScore into the temp array on the right spot
+            datascore[topic][value]=input[value][0];
+            //checks if the timestamp is already on the x-axis if not adds it to it
+            if(time.indexOf(input[value][1])===-1){
+                time.push(input[value][1]);
             }
-            //puts the scores from the temp array into the data array
-            data[topics[topic]["Type"]]=datascore[topic];
-            options["label"][topic]=topics[topic]["Type"];
         }
-        //cal several functions to set some options
-        options["timeaverage"]=getTimeAverage(data);
-        options["topicaverage"]=getTopicAverage(data);
-        options["color"]=getColor(data,options);
-        options["visible"]=setVisibility(data,options);
-        options["type"]=getType("bar");
-        if(language==="Dutch"){
-            options["titletext"]="Overzicht bewoner";
-        }
-        else{
-            options["titletext"]="General overview of the resident";
-        }
-        //console.log(data);
-        //console.log(time);
+        //puts the scores from the temp array into the data array
+        data[topics[topic]["Type"]]=datascore[topic];
+        options["label"][topic]=topics[topic]["Type"];
+    }
+    //call several functions to set some options
+    options["timeaverage"]=getTimeAverage(data);
+    options["topicaverage"]=getTopicAverage(data);
+    options["color"]=getColor(data,options);
+    options["visible"]=setVisibility(data,options);
+    options["type"]=getType("bar");
+    if(language==="Dutch"){
+        options["titletext"]="Overzicht bewoner";
+    }
+    else{
+        options["titletext"]="General overview of the resident";
+    }
 }
+
+/*
+ * Function:collects the data, managis it and prepare the right data and options for the charts
+ * Input: an array with all the divisions and the specific topic;
+ * Output: all the data and options needed for the chart
+ * @param {type} divisions
+ * @param {type} topic
+ * @returns {undefined}
+ */
 function manageTopicData(divisions,topic){
+    //initialise the arrays
     datascore=[];
     data=[];
     time=[];
-    console.log(divisions);
+    //loop over every division
     for(var div in divisions){
+        //collect the data for every division
         input=collectDatatopic(topic,divisions[div]['divisions']);
+        datascore[div]=[];
+        //go over every value in the collectet data and put it in the right place
+        //also makes the time data
+        for(var value in input){
+            datascore[div][value]=input[value][0];
+            if(time.indexOf(input[value][1])===-1){
+                time.push(input[value][1]);
+            }
+        }
+        //stores the right dataset with the right key
+        data[divisions[div]["divisions"]]=datascore[div];
+        options["label"][div]=divisions[div]["divisions"]
+    }
+    //set some options for the graph
+    options["timeaverage"]=getTimeAverage(data);
+    options["topicaverage"]=getTopicAverage(data);
+    options["color"]=getColor(data,options);
+    options["visible"]=setVisibility(data,options);
+    options["type"]=getType("bar");
+    if(language==="Dutch"){
+        options["titletext"]="Overzicht categorie";
+    }
+    else{
+        options["titletext"]="General overview of the topic";
+    }
+}
+
+/*
+ * Function:collects the data, managis it and prepare the right data and options for the charts
+ * Input: an array with all the divisions and the specific topic and a specific question ID;
+ * Output: all the data and options needed for the chart
+ * @param {type} divisions
+ * @param {type} ques
+ * @returns {undefined}
+ */
+function manageQesData(divisions,question){
+    datascore=[];
+    data=[];
+    time=[];
+    for(var div in divisions){
+        input=collectDataqes(question,divisions[div]);
         datascore[div]=[];
         for(var value in input){
             datascore[div][value]=input[value][0];
@@ -102,37 +179,12 @@ function manageTopicData(divisions,topic){
             }
         }
         data[divisions[div]["divisions"]]=datascore[div];
-        console.log(data);
+        console.log(divisions[div]);
     }
-    options["timeaverage"]=getTimeAverage(data);
-    options["color"]=getColor(data,options);
-    console.log(datascore);
-    console.log(data);
-    console.log(time);
-}
-
-function manageQesData(divisions,ques){
-      datascore=[];
-        data=[];
-        time=[];
-        for(var div in divisions){
-            input=collectDataqes(ques,divisions[div]);
-            datascore[div]=[];
-            for(var value in input){
-                datascore[div][value]=input[value][0];
-                if(time.indexOf(input[value][1])===-1){
-                    time.push(input[value][1]);
-                }
-            }
-            data[divisions[div]["divisions"]]=datascore[div];
-            console.log(divisions[div]);
-        }
-        console.log(data);
-        console.log(time);
 }
 
 /*Function:calculates the average of each time set
-* 
+* input: the data set
 * @param {type} data
 * @returns {Array|avg}
 */
@@ -156,7 +208,6 @@ function getTimeAverage(data){
            }
        }
    }
-   //console.log(avg);
    return  avg;
 }
 
@@ -189,7 +240,6 @@ function getTopicAverage(data){
            average[topic]=0;
        }
    }
-   //console.log(average);
    return average;
 }
 
@@ -219,7 +269,6 @@ function setVisibility(data){
            }
        }
    }
-   //console.log(visible);
    return visible;
 }
 
@@ -229,9 +278,10 @@ function setVisibility(data){
 * @returns {Array|color}
 */
 function getColor(data){
+    console.log(options["topicaverage"]),
     //initialises values
-    var avg=0;
     color=[];
+    console.log(color);
     //loop through each topic
     for(var topic in data){
         //set the color based on the average topic score
@@ -253,11 +303,21 @@ function getColor(data){
         else{
             color[topic]="White";
         }
-        }
-return color;
+    }
+    console.log(color);
+    return color;
 }
 
+/*
+ * Function:convert the data collected in the required data for the graph
+ * Output: the data collected from the server
+ * Input: a converted data
+ * @param {type} data
+ * @returns {Array|convertdata}
+ */
 function convertData(data){
+    //console.log(data);
+    //first the y-axes labels are determined by the selected language
     if(language==="Dutch"){
         convertdata=[[0,"deze week"],
                     [0,"vorige week"],
@@ -274,14 +334,19 @@ function convertData(data){
                     [0,"previous six months"],
                     [0,"more then six months ago"]];
     }
+    //initiliasing the timestamps and the reference values
     var timenow=new Date();
     var week=1000*60*60*24*7;
     var month=1000*60*60*24*30;
     var years=1000*60*60*24*356;
+    //looks at every value in the data
     for(var values in data){
+        //gets the timestamp and the score out of the data
         var datestamp=Date.parse(data[values]["DateStamp"]);
         var score=parseInt(data[values]["avg_Score"]);
+        //calculate the time difference
         var difference=timenow.getTime()-datestamp;
+        //based on the timedifference the data is placed in its place in the converted array
         if(difference<week){ 
             var sum=convertdata[0][0]+score;
             if(convertdata[0][0]===0){
@@ -340,12 +405,18 @@ function convertData(data){
     return convertdata;
 }
 
+/*
+ * Function: makes the dataset for the charts based on the recieved data and options
+ * @param {type} data
+ * @param {type} options
+ * @returns {Array|makedatasets.datasets}
+ */
 function makedatasets(data,options){
-    
     var datasets=[];
     var value=0;
+    //loops over every dataset
     for(var dataset in data){
-        console.log(options["visible"][dataset]);
+        //set the right datasetvalues and options with the options of the chart
         var dataset={type: options["type"][value],
         label: options["label"][value],
         borderColor: options["color"][dataset],
@@ -357,6 +428,7 @@ function makedatasets(data,options){
         datasets.push(dataset);
         value++;
     }
+    //set an average dataset if selected in the options
     if(options["timeaverage"]!==0){
         var dataset={
                 type: "line",
@@ -372,7 +444,10 @@ function makedatasets(data,options){
     return datasets;
 }
 
-
+/*
+ * Function: call the function to collect the data and build the graph from the data
+ * @returns {undefined}
+ */
 function drawIntroChart(){
     getIntroData();
     var xarray = time;
@@ -380,14 +455,6 @@ function drawIntroChart(){
     var barChartData = {
         labels: xarray,
         datasets: makedatasets(data,options)
-        /*datasets:[{
-                    backgroundColor: "DarkOrange",
-                    borderColor:"DarkOrange",
-                    data:[0, 0, 0, 0, 0, 2],
-                    fill:false,
-                    label:"0",
-                    pointHighlightFill:"#fff",
-                    type:"line"}]*/
     };
     var myBar = new Chart(ctx, {
         data: barChartData,
@@ -443,7 +510,7 @@ function drawChart(elder,test){
             },
             title: {
                 display: true,
-                text: 'Average score of one topic'
+                text: options["titletext"]
             },
             scales:{
                 yAxes: [{
@@ -523,7 +590,9 @@ function drawChartqes(ques,test){
             },
             title: {
                 display: true,
-                text: 'Average score of one topic'
+                text: 'Average score of one topic',
+                fontfamily: "myriad-pro-condensed, sans-serif",
+                fontstyle:"normal"
             },
             scales:{
                 yAxes: [{
@@ -541,55 +610,11 @@ function drawChartqes(ques,test){
 
 function drawCharttopic(topic){
     getDatatopic(topic);
-    //console.log(time);
     var xarray = time;
-    var arraydivision0 = data["0"];
-    var arraydivision1 = data["1"];
-    var arraydivision2 = data["2"];
-    var arraydivision3 = data["3"];
-    //var arrayAVG = <?//php echo json_encode($arrayAvgScore); ?>;
     var ctx = document.getElementById("WeeklyTopicScore").getContext("2d");
     var barChartData = {
         labels: xarray,
-        datasets: [
-            {
-                label: "gelijkvloers",
-                borderColor: "rgb(128,128,128,0.5)",
-                backgroundColor: options["color"]["3"],
-                fill: false,
-                data: arraydivision0
-
-            },{
-                label: "verdieping 1",
-                borderColor: "rgba(255, 99, 132,0.5)",
-                backgroundColor:options["color"]["3"],
-                fill: false,
-                data: arraydivision2
-
-            }, {
-                label: "verdieping 2",
-                borderColor: 'rgba(184,0,0,0.5)',
-                backgroundColor: options["color"]["3"],
-                fill: false,
-                data: arraydivision1
-            },
-            {
-                label: "verdieping 3",
-                borderColor: 'rgba(54, 162, 235,0.5)',
-                backgroundColor: options["color"]["3"],
-                fill: false,
-                data: arraydivision3
-            },
-            {
-                type: "line",
-                label: "AVG",
-                borderColor: 'rgb(153, 102, 255)',
-                backgroundColor: 'rgb(153, 102, 255)',
-                pointHighlightFill: "#fff",
-                fill: false,
-                data: options["timeaverage"]
-            }
-        ]
+        datasets: makedatasets(data,options)
     };
     var myBar = new Chart(ctx, {
         data: barChartData,
@@ -603,7 +628,7 @@ function drawCharttopic(topic){
             },
             title: {
                 display: true,
-                text: 'Average score of one topic'
+                text: options["titletext"]
             },
             scales:{
                 yAxes: [{

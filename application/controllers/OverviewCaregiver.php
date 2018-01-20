@@ -145,12 +145,12 @@
                 $this->lang->load('english_lang','english');
             }
             $this->load->model('Language_model');
-            $data=$this->Language_model->DataElderChart();
-            $ID_elder=$this->input->get('ID_Elder');
+            $data=$this->Language_model->getDataElderChart();
+            $ID_elder=$this->input->get('ID_elder');
             $this->load->model('Overview_Model');
             //asks the data(the different topics and the info about the elderly) from the databasemodel
             $data['topics']=$this->Overview_Model->getTypes();
-            $data['info']=$this->Overview_Model->getElderEnfo($ID_elder);
+            $data['info']=$this->Overview_Model->getElderInfo($ID_elder);
             $data['question']=$this->Overview_Model->getElderQuestionInfo($ID_elder);
             $data['worsttopic']=$this->Overview_Model->getElderWorstTopicInfo($ID_elder);
             $data['besttopic']=$this->Overview_Model->getElderBestTopicInfo($ID_elder);
@@ -168,15 +168,15 @@
          */
         public function getChartTopic(){
             //loads in the models and the input
-            if($this->session->userdata('language')=='Dutch'){
+            if($this->session->userdata('language')==='Dutch'){
                 $this->lang->load('Dutch_lang','dutch');
             }
             else{
                 $this->lang->load('english_lang','english');
             }
             $this->load->model('Language_model');
-            $data=$this->Language_model->DataTopicChart();
-            $topic=$this->input->get('Topic');
+            $data=$this->Language_model->getDataTopicChart();
+            $topic=$this->input->get('topic');
             $this->load->model('Overview_Model');
            //asks the data(the different divisions and the info about the questions) from the databasemodel
             $data['info']=$this->Overview_Model->getTopicInfo($topic);
@@ -320,7 +320,7 @@
          */
         public function getAlertElder(){
             //load in the helper and model
-            $ID_elder=$this->input->get('ID_Elder');
+            $ID_elder=$this->input->get('ID_elder');
             $this->load->model('Overview_Model');
             //take the current time as a timestamp and make a second reference timestamp from one month ago
             $timestamp=date('Y-m-d H:i:s');

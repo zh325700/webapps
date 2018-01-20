@@ -104,9 +104,10 @@ function makeTimeAlert(data,alerts){
     }
 }
 function makeElderAlert(data){
+    alerts=[]; 
     makeQuestionAlertElder(data["question"],alerts);
     makeTimeAlertElder(data["time"],alerts);
-    //console.log(alerts);
+    console.log(alerts);
     for(text=0;text<10;text++){
         if(typeof alerts[text] !== 'undefined'){
             var parent=document.getElementById("alertElderList");

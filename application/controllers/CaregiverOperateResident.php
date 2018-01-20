@@ -4,7 +4,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function find() {
         $this->load->model('Language_model');
-        $data=$this->Language_model->getData($this->session->userdata('language'),'addfac');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'findres');
         $data['title'] = 'Overview of residents';
         $data['facilities'] = $this->Residents_model->get_facilities();
         $data['residents'] = $this->Residents_model->get_residents();

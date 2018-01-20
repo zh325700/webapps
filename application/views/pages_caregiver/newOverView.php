@@ -112,7 +112,6 @@
         </div>
         
     <link href='<?php echo base_url()?>/assets/css/fullcalendar.min.css' rel='stylesheet' />
-    <link href='<?php echo base_url()?>/assets/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> 
     <script src='<?php echo base_url()?>/assets/js/moment.js'></script>
     <script src='<?php echo base_url()?>/assets/js/fullcalendar.min.js'></script>
@@ -318,6 +317,7 @@
      * @returns {undefined}
      */
     function getAlerts(elder){
+        
         xmlhttp= new XMLHttpRequest();
             xmlhttp.onreadystatechange = function(){
                 if(xmlhttp.readyState === XMLHttpRequest.DONE){
@@ -326,9 +326,10 @@
             };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getAlertElder?ID_elder="+elder,false);
         xmlhttp.send();
+        console.log(input);
         data=jQuery.parseJSON(input);
-        console.log(data);
         makeElderAlert(data);
+        
     }
    
     
@@ -348,6 +349,7 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartTopic?topic="+topic,false);
         xmlhttp.send();
+        console.log(topic);
         //call the function to draw the chart
         drawQuestionScores(topic);
         drawCharttopic(topic);
@@ -482,11 +484,12 @@
                     input = xmlhttp.responseText;
                 }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getElderScores?type="+topic["type"]+"&ID_elder="+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getElderScores?type="+topic["Type"]+"&ID_elder="+elder,false);
         xmlhttp.send();
-        var cdata=jQuery.parseJSON(input);
+        cdata=jQuery.parseJSON(input);
         cdata=cdata["scores"];
         cdata=convertData(cdata);
+        
         return cdata;
     }
     
