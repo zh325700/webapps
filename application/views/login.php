@@ -1,8 +1,6 @@
 
 <div class="container-fluid">
-	
-        
-	<div class="cont">
+
             <div class="row">
                 <h2>Grace-AGE</h2>
                  
@@ -38,7 +36,7 @@
 			</div>	
 		</div> 
             </div>
-	</div>
+	
 	
 </div>
 

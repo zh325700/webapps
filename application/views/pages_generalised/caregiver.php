@@ -1,5 +1,5 @@
 
-<div class="container-flui header">
+<div class="container-fluid header">
   <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100.3%; height:auto" class=""/>
   <div class=" col-sm-12 par1">
        <h2 class="par1">Grace-AGE</h2>
