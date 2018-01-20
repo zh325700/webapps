@@ -9,12 +9,18 @@
     <link href="<?php echo base_url(); ?>assets/css/overview.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<!--    <div>-->
-        <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
-<!--        <div class="graceAge">
-            <h1> Fullscreen Hero image </h1>
-        </div>
-    </div>-->
+
+
+    <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:102%; height:auto" class=""/>
+          <div class=" col-sm-12 par1">
+               <h2 class="par1">Grace-AGE</h2>
+          </div>
+          <div>
+          <img class="top-right2" src="<?php echo base_url(); ?>/image/pictograms/logout.png" value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
+          </div>
+          <div>
+                <a id = "link" type="button" class="btn btn-lg top-right" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">LOG OUT</a>              
+          </div>
     <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
         <div class="container-fluid">
             <div id="wrapper">
@@ -105,9 +111,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" align="right">
-                    <input Type="button" class="btn logout btn-lg" Value="LOGOUT" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
-                </div>
+                
             </div>
         
         </div>
