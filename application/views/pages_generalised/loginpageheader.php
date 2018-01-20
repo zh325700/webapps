@@ -4,15 +4,6 @@
 
 <html>
 	<head>
-                <style > 
-                    body{ background-image: url(<?php echo base_url();?>/image/pictograms/loginpage.png);
-                           background-size: cover;
-                           background-repeat: no-repeat; 
-                           
-                          
-                      }
-                </style>
-                
 		<meta charset="utf-8">
 		<title>HCI</title>
 
@@ -31,7 +22,7 @@
 
 		<!--our css and less-->
        
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Caregiver.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/login.less" />
        
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
         
