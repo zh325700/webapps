@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -136,80 +135,76 @@
     xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getLanguage",false);
     //Sends the request to the server and then waits for a response
     xmlhttp.send();
-    /*init()
-     * Function:the initiations of the overview page, 
-     *          loads in the dropdown menu's and the statistics
-     * Input:none
-     * Output: the different dorpdown menu's and the statistics views
+    /*
+     * Function:the initiations of the intro page
+     *          shows the callender,chart and alerts
      * @returns 
      */
     function init() {
         //xmlhttp is a request that will be send to the server
         xmlhttp= new XMLHttpRequest();
             xmlhttp.onreadystatechange = function(){ //checks if the server is ready
-                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                        //responsetext is the output send by the server and is placed in the provided placeholder
-                        document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
-                    }
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    //responsetext is the output send by the server and is placed in the provided placeholder
+                    document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+                }
             };
-            //prepare the xmlhttp request, here it's calling a controller function for the statics
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getIntro",false);
-            //Sends the request to the server and then waits for a response
-            xmlhttp.send();
-            drawIntroChart();
-            drawIntroAlert();
-           $(document).ready(function() {
-                $('#calendar').fullCalendar({
-                  defaultView: 'listWeek',
-                  defaultDate: '2017-12-12',
-                  navLinks: true, // can click day/week names to navigate views
-                  editable: true,
-                  eventLimit: true, // allow "more" link when too many events
-                  events: [
+        //prepare the xmlhttp request, here it's calling a controller function for the statics
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getIntro",false);
+        //Sends the request to the server and then waits for a response
+        xmlhttp.send();
+        //call the function to draw the chart
+        drawIntroChart();
+        //call the function to make the alerts
+        drawIntroAlert();
+        //build the callender
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+              defaultView: 'listWeek',
+              defaultDate: '2017-12-12',
+              navLinks: true, // can click day/week names to navigate views
+              editable: true,
+              eventLimit: true, // allow "more" link when too many events
+              events: [
 
-                  ]
-                });
-              });
-            E_panels=document.getElementsByClassName("elder_tab");
-            E_value=[];
-            for(var i=0,length=E_panels.length;i<length;i++){
-               E_value[i]=E_panels[i].getAttribute("id");
-              // E_panels[i].addEventListener("click",function(){getChartElder(E_value[i]);}); 
-            }
-            Q_panels=document.getElementsByClassName("question");
-            for(var j=0,length=Q_panels.length;i<length;i++){
-                Q_value=Q_panels[i].getAttribute("id");
-               Q_panels[i].addEventListener("click",function(){getChartQuestion(Q_value);}); 
-            }
+              ]
+            });
+          });
+        //asks the server to build the dropdown menu's
         xmlhttp= new XMLHttpRequest();
             xmlhttp.onreadystatechange = function(){
-                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                        //select the element that has to change
-                        document.getElementById("dropdown_time").innerHTML = xmlhttp.responseText;
-                    }
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    //select the element that has to change
+                    document.getElementById("dropdown_time").innerHTML = xmlhttp.responseText;
+                }
             };
             //send the request for data to the server, notice that the path is the server side path
             //it also fetches the data, the keyword false is for synchronous action which means that it waits for the result before it returns
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_time_divisions",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTimeDivisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
-            document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
+            //changes the tag in the html to fit with the right title
+        document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
             
         xmlhttp= new XMLHttpRequest();
             //starts the function when the page is ready
             xmlhttp.onreadystatechange = function(){
-                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                        //select the element that has to change
-                        document.getElementById("dropdown_floors").innerHTML = xmlhttp.responseText;
-                    }
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    //select the element that has to change
+                    document.getElementById("dropdown_floors").innerHTML = xmlhttp.responseText;
+                }
             };
             //send the request for data to the server, notice that the path is the server side path
             //it also fetches the data, the keyword false is for synchronous action which means that it waits for the result before it returns
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_divisions",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDropdownDivisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
     }
     
+    /*
+     * Function: calls the server to ask for data and then calls a function to make the alerts
+     * 
+     */
     function drawIntroAlert(){
         alerts=[];
         xmlhttp= new XMLHttpRequest();
@@ -225,12 +220,10 @@
         makeAlert(data);
     }
 
-    /*getScores()
-     * Function: the action preformed when clicked on the general button
+    /*
+     *Function: the action preformed when clicked on the general button
      *          it generates a new view in the tabs by asking the server for the data
-     *Input: none
      *Output: the view is updated
-     * @returns 
      */
     function getScores(){
             xmlhttp= new XMLHttpRequest();
@@ -239,11 +232,11 @@
                             document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                     }
             };
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general");
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/eventGeneral");
             xmlhttp.send();
     }
     
-    /*getScoredDiv()
+    /*
      * Function: the action preformed when clicked on the division dropdown buttons
      *          it generates a new view in the tabs by asking the server for the data
      * Input: The division that is selected
@@ -251,18 +244,18 @@
      * @param {type} Div
      * @returns {undefined}
      */
-    function getScoresDiv(Div){
+    function getScoresDiv(div){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
                 if(xmlhttp.readyState === XMLHttpRequest.DONE){
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_division?division="+Div,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/eventDivision?division="+div,false);
         xmlhttp.send();
     }
     
-    /*getTimeDiv()
+    /*
      * Function: the action preformed when clicked on the time-filled in dropdown buttons
      *          it generates a new view in the tabs by asking the server for the data
      * Input: The selected division
@@ -270,18 +263,21 @@
      * @param {type} Div
      * @returns {undefined}
      */
-    function getTimeDiv(Div){
+    function getTimeDiv(div){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
                 if(xmlhttp.readyState === XMLHttpRequest.DONE){
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_time?division="+Div,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/eventTime?division="+div,false);
         xmlhttp.send();
     }
     
-    //is the function that asks the server for the timestamps and updates the tab with it
+    /*
+     * Function:
+     * @returns {undefined}
+     *
     function getTimestamps(){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -291,10 +287,10 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_time",false);
         xmlhttp.send();
-    }
+    }*/
     
 
-    /*getChartElder()
+    /*
      * Function: the action when you press the detail button in a tab, it update the view
      * Input: the elder ID
      * Output: the view is updated
@@ -304,35 +300,39 @@
     function getChartElder(elder){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                        document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
-                }
+            if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+            }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_elder="+elder,false);
         xmlhttp.send();
-        
+        //build all the alerts for the elderly
         getAlerts(elder);
         //call the function to draw the chart
         drawChart(elder,"elder");
     }
     
+    /*
+     *Function: gets the data from the server and then calls a function to build the alerts from it 
+     * @param {type} elder
+     * @returns {undefined}
+     */
     function getAlerts(elder){
-        alerts=[];
         xmlhttp= new XMLHttpRequest();
             xmlhttp.onreadystatechange = function(){
-                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                           input = xmlhttp.responseText;
-                    }
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    input = xmlhttp.responseText;
+                }
             };
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getAlertElder?ID_Elder="+elder,false);
-            xmlhttp.send();
-            data=jQuery.parseJSON(input);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getAlertElder?ID_elder="+elder,false);
+        xmlhttp.send();
+        data=jQuery.parseJSON(input);
         console.log(data);
         makeElderAlert(data);
     }
    
     
-     /*getChartQuestion()
+     /*
      * Function: the action when you press the detail button in a tab, it update the view
      * Input: the question ID
      * Output: the view is updated
@@ -342,58 +342,69 @@
     function getChartTopic(topic){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                        document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
-                }
+            if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+            }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartTopic?Topic="+topic,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartTopic?topic="+topic,false);
         xmlhttp.send();
         //call the function to draw the chart
         drawQuestionScores(topic);
         drawCharttopic(topic);
     }
     
-    function drawQuestionScores(charttopic){
+    /*
+     * Function: build the score list for each topic 
+     * Input:topic of which the questions should belong to
+     * Output: a html list with the uestions and scores
+     * @param {type} charttopic
+     * @returns {undefined}
+     */
+    function drawQuestionScores(topic){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
-                if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                        input= xmlhttp.responseText;
-                }
+            if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                input= xmlhttp.responseText;
+            }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTopicQuestions?Topic="+charttopic,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTopicQuestions?Topic="+topic,false);
         xmlhttp.send();
-        data=jQuery.parseJSON(input);
-        console.log(input);
+        //make from the input string an array again
+        var data=jQuery.parseJSON(input);
+        //get the parents object in the html
         var parentquestion=document.getElementById("questionlist");
         var parentscore=document.getElementById("scorelist");
-        for(value in data){
+        //for each value in the data slot a list item is made
+        for(var value in data){
+            //create the items
             var childquestion=document.createElement("p");
             var childscore=document.createElement("p");
+            //append the right child with the right data
             childquestion.appendChild(document.createTextNode(data[value]["Question"]));
             childscore.appendChild(document.createTextNode(data[value]["Avg_Score"]));
+            //append child with the right parrent
             parentquestion.appendChild(childquestion);
             parentscore.appendChild(childscore);
         }
     }
-    /*getData()
-     * Function: collects the data and put them in the right arrays, first it asks for the different topics
-     *           then it aks for the data for each topic
+    
+    /*
+     * Function: collects every topic and then calls a function that manages this data
      * Input: The elder id
-     * Output: an array with all the data needed in it
+     * Output: an array with all the topics
      * @param {type} elder
      * @returns {undefined}
      */
     function getData(elder){ 
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
-                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                             topics = xmlhttp.responseText;
-                    }
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    topics = xmlhttp.responseText;
+                }
             };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTypes",false);
         xmlhttp.send();
-        //reparse the data giving from the server from string into array
-        //topics is the array of every topic
+        //reparse the data giving from the server from string into array and call the managing function
         topics=jQuery.parseJSON(topics);
         manageElderData(topics,elder);
     }
@@ -401,25 +412,32 @@
     
     
     
-    /*getDataqes()
-     * 
+    /*
+     * Function: collects every division and then calls a function that manages this data
+     * Input: The question id
+     * Output: an array with all the divisions
      * @param {type} ques
      * @returns {undefined}
      */
-    function getDataqes(ques){ 
+    function getDataqes(question){ 
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
-                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                             divisions= xmlhttp.responseText;
-                    }
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    divisions= xmlhttp.responseText;
+                }
             };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
         xmlhttp.send();
         console.log(divisions);
         divisions=jQuery.parseJSON(divisions);
-        manageQesData(divisions,ques);
+        manageQesData(divisions,question);
     }
     
+    /*
+     * Function: collects every division and then calls a function that manages this data
+     * Input: The question id
+     * Output: an array with all the divisions
+     */
     function getDatatopic(topic){ 
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -433,6 +451,11 @@
         manageTopicData(divisions,topic);
     }
     
+    /*
+     * Function: collect the data from the server for a specific division of a specific topic
+     * Input: the specified division and topic
+     * Output: the data collected from the server
+     */
     function collectDatatopic(topic,divisions){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -440,44 +463,56 @@
                              input= xmlhttp.responseText;
                     }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTopicScores?Topic="+topic+"+&Division="+divisions,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTopicScores?topic="+topic+"+&Division="+divisions,false);
         xmlhttp.send();
-        cdata=jQuery.parseJSON(input);
+        var cdata=jQuery.parseJSON(input);
         cdata=convertData(cdata);
         return cdata;
     }
     
+    /*
+     * Function: collect the data from the server for a specific elder of a specific topic
+     * Input: the specified elder and topic
+     * Output: the data collected from the server
+     */
     function collectData(elder,topic){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
-                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                             input = xmlhttp.responseText;
-                    }
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    input = xmlhttp.responseText;
+                }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/test?type="+topic["Type"]+"&ID_elder="+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getElderScores?type="+topic["type"]+"&ID_elder="+elder,false);
         xmlhttp.send();
-        //console.log(input);
-        cdata=jQuery.parseJSON(input);
-        cdata=cdata["thescores"];
+        var cdata=jQuery.parseJSON(input);
+        cdata=cdata["scores"];
         cdata=convertData(cdata);
         return cdata;
     }
     
-    
-    function collectDataqes(qes,division){
+     /*
+     * Function: collect the data from the server for a specific question of a specific division
+     * Input: the specified question and division
+     * Output: the data collected from the server
+     */
+    function collectDataqes(question,division){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
                     if(xmlhttp.readyState === XMLHttpRequest.DONE){
                              input = xmlhttp.responseText;
                     }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getQuestionScore?division="+division+"&ID_Question"+qes,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getQuestionScore?division="+division+"&ID_question"+question,false);
         xmlhttp.send();
-        cdata=jQuery.parseJSON(input);
-        cdata=cdata["thescores"];
+        var cdata=jQuery.parseJSON(input);
+        cdata=cdata["scores"];
         return cdata;
     }
     
+     /*
+     * Function: collect all the division from the server and then call another method to manage the data
+     * Output: the data collected from the server
+     */
     function getIntroData(){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
@@ -488,20 +523,24 @@
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
         xmlhttp.send();
         divisions=jQuery.parseJSON(divisions);
-        console.log(divisions);
         manageIntroData(divisions); 
     }
     
+    /*
+     * Function: collect the data from the server for a specific division
+     * Input: the specified division
+     * Output: the data collected from the server
+     */
     function collectDataIntro(division){
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
-                    if(xmlhttp.readyState === XMLHttpRequest.DONE){
-                             input = xmlhttp.responseText;
-                    }
+                if(xmlhttp.readyState === XMLHttpRequest.DONE){
+                    input = xmlhttp.responseText;
+                }
             };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisionScore?division="+division["divisions"],false);
         xmlhttp.send();
-        cdata=jQuery.parseJSON(input);
+        var cdata=jQuery.parseJSON(input);
         cdata=convertData(cdata);
         return cdata;
     }

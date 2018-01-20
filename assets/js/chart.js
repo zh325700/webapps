@@ -1,3 +1,8 @@
+/*
+ * 
+ * @param {type} divisions
+ * @returns {undefined}
+ */
 function  manageIntroData(divisions){
     options=[];
     datascore=[];
@@ -270,13 +275,13 @@ function convertData(data){
                     [0,"more then six months ago"]];
     }
     var timenow=new Date();
-    var week=100*60*60*24*7;
-    var month=100*60*60*24*30;
-    var years=100*60*60*24*356;
+    var week=1000*60*60*24*7;
+    var month=1000*60*60*24*30;
+    var years=1000*60*60*24*356;
     for(var values in data){
         var datestamp=Date.parse(data[values]["DateStamp"]);
         var score=parseInt(data[values]["avg_Score"]);
-        var difference=timenow-datestamp;
+        var difference=timenow.getTime()-datestamp;
         if(difference<week){ 
             var sum=convertdata[0][0]+score;
             if(convertdata[0][0]===0){
