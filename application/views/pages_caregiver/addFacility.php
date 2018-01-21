@@ -2,75 +2,86 @@
 
 <div class="container-fluid flex">
 
-    <div class="row justify-content-md-center">
-        <div class="col col-md-2"></div>
-        <div class="col-md-6">
-            <h2 class=" text-center ">
-                Add New Facility
-            </h2>
+    <div id="blue" class="row">
+            <div class="col-sm-offset-0" style="padding-left: 2.5%">
+                <h2>
+                    Add New Facility
+                </h2>
+            </div>
         </div>
-    </div>
+
 
     <?php echo validation_errors(); ?>
     <?php echo form_open_multipart('CaregiverFacility/addfacility'); ?> <!--form_open_multipart so we can add image-->
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row insert-row">
-                    <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                       <label>Facility Name:</label> 
-                    </div>
-                    <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="Name" placeholder="Name" required>
-                    </div>                 
-                </div>
-                <div class="row insert-row">
-                    <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                        <label>City: </label> 
-                    </div>                
-                    <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="City" placeholder="City" required>
-                    </div>
-                </div>
-                <div class="row insert-row">
-                    <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                         <label>Post Code: </label> 
-                    </div>
-                    <div class="col-md-5 input-group">
-                         <input type="text" class="form-control" name="Postcode" placeholder="Post code" required>
-                    </div>
-                </div>
-                <div class="row insert-row">
-                    <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                        <label>Street: </label> 
-                    </div>
-                    <div class="col-md-5 input-group">
-                        <input type="text" class="form-control" name="Street" placeholder="Street" required>
-                    </div>
-                </div>
-                <div class="row insert-row">
-                    <div class="col col-md-1"></div>
-                    <div class="col col-md-5 ">
-                      <label>Number:</label> 
-                    </div>
-                    <div class="col-md-5 input-group">
-                       <input type="text" class="form-control" name="Number" placeholder="number" required>
-                    </div>
-                </div>
-            </div>
         
+    <div class="row">
+        <div id="forms" class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
+            <label>Facility Name:</label> 
         </div>
-        <div class="row insert-row"> 
-            <div class="col col-md-4"></div>
-            <div class="col col-md-2">
-              <button type="submit"class="btn btn-default btn-lg btn-block ">Add Facility</button>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+            <input id="formInput" type="text" class="form-control" name="Name" placeholder="Name" required>
+        </div> 
+    </div>    
+    
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
+            <label>City: </label> 
+        </div>
+    </div>
+     
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+            <input id="formInput" type="text" class="form-control" name="City" placeholder="City" required>
+        </div> 
+    </div> 
+    
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
+             <label>Post Code: </label> 
+        </div>
+    </div>
+     
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+            <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="Post code" required>
+        </div> 
+    </div> 
+    
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
+              <label>Street: </label> 
+        </div>
+    </div>
+     
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+            <input id="formInput" type="text" class="form-control" name="Street" placeholder="Street" required>
+        </div> 
+    </div>
+     
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
+              <label>Number:</label> 
+        </div>
+    </div>
+     
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+            <input id="formInput" type="text" class="form-control" name="Number" placeholder="number" required>
+        </div> 
+    </div>
+                
+    <div class="row">
+        <div class="col-sm-offset-0 col-sm-5" style="padding-left: 2.5%; padding-top: 2%">
+              <button type="submit"class="btn btn-lg btn-block button form-control">Add Facility</button>
            </div> 
-        </div>
-   
-</div>       
+    </div>        
+
+ </div>  
+    
 <script src="<?= base_url() ?>assets/js/jquery.js"></script>
 
 <?php else: ?>
