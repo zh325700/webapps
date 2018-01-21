@@ -1,10 +1,7 @@
-<head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
     <link href="<?php echo base_url(); ?>assets/css/overview.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
@@ -46,7 +43,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a  href="<?php echo base_url(); ?>index.php/LoginResident/view"  id="button_elderly">
+                                <a  href="<?php echo base_url(); ?>index.php/ResidentLogin/view"  id="button_elderly">
                                     <span class="fa fa-anchor solo">{Login_Resident}</span>
                                 </a>
                             </li>
@@ -57,7 +54,7 @@
                             </li>
                             <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/addfacility_control/find" id="button_resqes">
+                                    <a href="<?php echo base_url(); ?>index.php/CaregiverFacility/find" id="button_resqes">
                                         <span class="fa fa-anchor solo">{Find_Facility}</span>
                                     </a>
                                 </li>
@@ -69,7 +66,7 @@
                             <?php endif; ?>
                             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/addfacility_control/addfacility" id="button_resqes">
+                                    <a href="<?php echo base_url(); ?>index.php/CaregiverFacility/addfacility" id="button_resqes">
                                         <span class="fa fa-anchor solo">{Add_Facility}</span>
                                     </a>
                                 </li>
@@ -135,7 +132,7 @@
             }
     };
     //prepare the xmlhttp request, here it's calling a controller function for the statics
-    xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getLanguage",false);
+    xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getLanguage",false);
     //Sends the request to the server and then waits for a response
     xmlhttp.send();
     /*
@@ -153,7 +150,7 @@
                 }
             };
         //prepare the xmlhttp request, here it's calling a controller function for the statics
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getIntro",false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getIntro",false);
         //Sends the request to the server and then waits for a response
         xmlhttp.send();
         //call the function to draw the chart
@@ -183,7 +180,7 @@
             };
             //send the request for data to the server, notice that the path is the server side path
             //it also fetches the data, the keyword false is for synchronous action which means that it waits for the result before it returns
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTimeDivisions",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getTimeDivisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
             //changes the tag in the html to fit with the right title
@@ -199,7 +196,7 @@
             };
             //send the request for data to the server, notice that the path is the server side path
             //it also fetches the data, the keyword false is for synchronous action which means that it waits for the result before it returns
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDropdownDivisions",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getDropdownDivisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
     }
@@ -216,7 +213,7 @@
                            input = xmlhttp.responseText;
                     }
             };
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getAlert",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getAlert",false);
             xmlhttp.send();
         data=jQuery.parseJSON(input);
         //console.log(data);
@@ -235,7 +232,7 @@
                             document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                     }
             };
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/eventGeneral");
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/eventGeneral");
             xmlhttp.send();
     }
     
@@ -254,7 +251,7 @@
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/eventDivision?division="+div,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/eventDivision?division="+div,false);
         xmlhttp.send();
     }
     
@@ -273,7 +270,7 @@
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/eventTime?division="+div,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/eventTime?division="+div,false);
         xmlhttp.send();
     }
     
@@ -288,7 +285,7 @@
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_time",false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/event_time",false);
         xmlhttp.send();
     }*/
     
@@ -307,7 +304,7 @@
                     document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_elder="+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getChartElder?ID_elder="+elder,false);
         xmlhttp.send();
         //build all the alerts for the elderly
         getAlerts(elder);
@@ -328,7 +325,7 @@
                     input = xmlhttp.responseText;
                 }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getAlertElder?ID_elder="+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getAlertElder?ID_elder="+elder,false);
         xmlhttp.send();
         console.log(input);
         data=jQuery.parseJSON(input);
@@ -351,7 +348,7 @@
                 document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartTopic?topic="+topic,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getChartTopic?topic="+topic,false);
         xmlhttp.send();
         console.log(topic);
         //call the function to draw the chart
@@ -373,7 +370,7 @@
                 input= xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTopicQuestions?Topic="+topic,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getTopicQuestions?Topic="+topic,false);
         xmlhttp.send();
         //make from the input string an array again
         var data=jQuery.parseJSON(input);
@@ -408,7 +405,7 @@
                     topics = xmlhttp.responseText;
                 }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTypes",false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getTypes",false);
         xmlhttp.send();
         //reparse the data giving from the server from string into array and call the managing function
         topics=jQuery.parseJSON(topics);
@@ -432,7 +429,7 @@
                     divisions= xmlhttp.responseText;
                 }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getDivisions",false);
         xmlhttp.send();
         console.log(divisions);
         divisions=jQuery.parseJSON(divisions);
@@ -451,7 +448,7 @@
                     divisions= xmlhttp.responseText;
                 }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getDivisions",false);
         xmlhttp.send();
         divisions=jQuery.parseJSON(divisions);
         manageTopicData(divisions,topic);
@@ -469,7 +466,7 @@
                              input= xmlhttp.responseText;
                     }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getTopicScores?topic="+topic+"+&Division="+divisions,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getTopicScores?topic="+topic+"+&Division="+divisions,false);
         xmlhttp.send();
         var cdata=jQuery.parseJSON(input);
         cdata=convertData(cdata);
@@ -488,7 +485,7 @@
                     input = xmlhttp.responseText;
                 }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getElderScores?type="+topic["Type"]+"&ID_elder="+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getElderScores?type="+topic["Type"]+"&ID_elder="+elder,false);
         xmlhttp.send();
         cdata=jQuery.parseJSON(input);
         cdata=cdata["scores"];
@@ -509,7 +506,7 @@
                              input = xmlhttp.responseText;
                     }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getQuestionScore?division="+division+"&ID_question"+question,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getQuestionScore?division="+division+"&ID_question"+question,false);
         xmlhttp.send();
         var cdata=jQuery.parseJSON(input);
         cdata=cdata["scores"];
@@ -527,7 +524,7 @@
                     divisions= xmlhttp.responseText;
                 }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisions",false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getDivisions",false);
         xmlhttp.send();
         divisions=jQuery.parseJSON(divisions);
         manageIntroData(divisions); 
@@ -545,7 +542,7 @@
                     input = xmlhttp.responseText;
                 }
             };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getDivisionScore?division="+division["divisions"],false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getDivisionScore?division="+division["divisions"],false);
         xmlhttp.send();
         var cdata=jQuery.parseJSON(input);
         cdata=convertData(cdata);

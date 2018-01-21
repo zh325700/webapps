@@ -57,7 +57,7 @@
 
 	<div class="row">
 		<div class="col-sm-offset-9 col-md-offset-10 col-sm-2">
-                   <a id = "link" type="button" class="btn btn-lg style logout" onclick="loadPage('LoginResident', 'view')">{Log_out}</a>          
+                   <a id = "link" type="button" class="btn btn-lg style logout" onclick="loadPage('ResidentLogin', 'view')">{Log_out}</a>          
                 </div>    
 	</div>
 </div>

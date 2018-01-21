@@ -1,14 +1,6 @@
-
-<!DOCTYPE html>
-<html>
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-        <link href="<?php echo base_url(); ?>assets/css/care_reg.css" rel="stylesheet" type="text/css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    </head>
+       <link href="<?php echo base_url(); ?>assets/css/care_reg.css" rel="stylesheet" type="text/css"/>
+   
+  </head>
     <body>
         <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
         <div class="py-5 bg-primary text-white" >
@@ -16,7 +8,6 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <h1 class="text-dark">{Register_Caregiver}</h1>
-                        <p class="text-dark">{Welcome}</p>
                         <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
                         <div class="form-group"> <label for="InputName" class="text-dark">{Username}</label>
                             <input type="text" name="username" class="form-control" id="InputName" placeholder="{Username}"
@@ -70,9 +61,3 @@
         <script src="<?php echo base_url() ?>assets/js/forms.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>assets/js/sha512.js" type="text/javascript"></script>
 
-    </body>
-    <div class="container">
-        <center><p style="font-size:15px;">Copyright: HCI/webapps project-team 2 &copy; 2017</p></center>
-    </div>
-
-</html>

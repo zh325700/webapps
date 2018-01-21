@@ -21,7 +21,7 @@
 			<label class="facility"><?php echo($text["Number"]); ?>: {facility}{Number}{/facility} </label></br>
             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
             <a class="btn btn-outline-primary pull-left" href="edit/{ID_facility}"><label class="facility" style=" text-decoration: underline;"><?php echo($text["EDIT"]); ?></label></a>
-            <p><a class="btn btn-link match" href="<?php echo site_url('addfacility_control/delete/{ID_facility}'); ?>"><b style=" text-decoration: underline;"> <?php echo($text["DELETE"]); ?></b></a></p>
+            <p><a class="btn btn-link match" href="<?php echo site_url('CaregiverFacility/delete/{ID_facility}'); ?>"><b style=" text-decoration: underline;"> <?php echo($text["DELETE"]); ?></b></a></p>
             <?php endif; ?>
             </div>
         

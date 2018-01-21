@@ -29,7 +29,7 @@
 			</div>
 			</br>
 			<div>
-				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('LoginResident', 'view')" >Login Resident</button> 
+				<button class="btn btn-default btn-lg btn-block" id="button_elderly"  onclick="loadPage('ResidentLogin', 'view')" >Login Resident</button> 
 			</div>
 			</br>
 			<div>
@@ -38,7 +38,7 @@
 			</br>
 			<?php //if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 				<div>
-					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'find')">{Find_Facility}</button> 
+					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('CaregiverFacility', 'find')">{Find_Facility}</button> 
 				</div>
 			</br>
 			<div>
@@ -48,7 +48,7 @@
 			<?php //endif; ?>
 			<?php //if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
 				<div>
-					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('addfacility_control', 'addfacility')">{Add_Facility}</button> 
+					<button class="btn btn-default btn-lg btn-block" id="button_addelderly" onclick="loadPage('CaregiverFacility', 'addfacility')">{Add_Facility}</button> 
 				</div>
 			</br>
 			<?php //endif; ?>
@@ -106,7 +106,7 @@
                             document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                     }
             };
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/event_general",false);
             xmlhttp.send();
             E_panels=document.getElementsByClassName("elder_tab");
             E_value=[];
@@ -128,7 +128,7 @@
             };
             //send the request for data to the server, notice that the path is the server side path
             //it also fetches the data, the keyword false is for synchronous action which means that it waits for the result before it returns
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_divisions",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/get_divisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
             document.getElementById('dropdown_floors_button').firstChild.data="{Division_Timestamp}";
@@ -142,7 +142,7 @@
             };
             //send the request for data to the server, notice that the path is the server side path
             //it also fetches the data, the keyword false is for synchronous action which means that it waits for the result before it returns
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/get_divisions",false);
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/get_divisions",false);
             //sends the new data to the server and update the page
             xmlhttp.send();
             //loops over every made button by the server
@@ -158,7 +158,7 @@
                             document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                     }
             };
-            xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_general");
+            xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/event_general");
             xmlhttp.send();
     }
     //is the function that asks the server for the scores and updates the tab with it
@@ -169,7 +169,7 @@
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_division?division="+Div,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/event_division?division="+Div,false);
         xmlhttp.send();
     }
     
@@ -180,7 +180,7 @@
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_time?division="+Div,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/event_time?division="+Div,false);
         xmlhttp.send();
     }
     //is the function that asks the server for the timestamps and updates the tab with it
@@ -191,7 +191,7 @@
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/event_time",false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/event_time",false);
         xmlhttp.send();
     }
     
@@ -203,7 +203,7 @@
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartElder?ID_Elder="+elder,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getChartElder?ID_Elder="+elder,false);
         xmlhttp.send();
         console.log(document.getElementById("st").getAttribute("class").split(","));
         //var xarray = document.getElementById("tt").getAttribute("class").split(",",3);
@@ -264,7 +264,7 @@
                         document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
                 }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/OverviewCaregiver/getChartQuestion?ID_Question="+ques,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getChartQuestion?ID_Question="+ques,false);
         xmlhttp.send();
         var xarray = [1,2,3,4,5];
         var arrayfoodData = [3,4,5,5,4];

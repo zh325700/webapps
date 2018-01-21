@@ -135,12 +135,14 @@ class Functions_model extends CI_Model{
 						exit();
 					}
 					
+					echo "<script> alert('Wrong password!'); </script>";
 					return false;
 				}
 			}
 		} else {
 			//user does not exist or failed to get information
-			echo "database error: failed to fetch information from database or user does not exist";
+			//~ echo "database error: failed to fetch information from database or user does not exist";
+            echo "<script> alert('failed to fetch information from database or user does not exist!'); </script>";
 			return false;
 		}	
 	}
