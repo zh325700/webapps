@@ -10,7 +10,7 @@ class CaregiverFacility extends CI_Controller {
 
 		$this->load->view('pages_generalised/header');
 		$this->load->view('pages_generalised/caregiver');
-        $this->parser->parse('pages_caregiver/viewfacility', $data);
+        $this->parser->parse('pages_caregiver/viewFacility', $data);
         $this->load->view('pages_generalised/footer');
     }
      public function view($ID_facility = NULL) {
@@ -24,7 +24,7 @@ class CaregiverFacility extends CI_Controller {
 		$data['$ID_facility'] = $data['facility']['ID_facility'];
 		$this->load->view('pages_generalised/header');
 		$this->load->view('pages_generalised/caregiver');
-		$this->parser->parse('pages_caregiver/viewfacility', $data);
+		$this->parser->parse('pages_caregiver/viewFacility', $data);
 		$this->load->view('pages_generalised/footer');
     }
        
@@ -62,7 +62,7 @@ class CaregiverFacility extends CI_Controller {
 		$data['title'] = 'Edit Facility';
 		$this->load->view('pages_generalised/header');
 		$this->load->view('pages_generalised/caregiver');
-		$this->load->view('pages_caregiver/editfacility', $data);
+		$this->load->view('pages_caregiver/editFacility', $data);
 		$this->load->view('pages_generalised/footer');
     }
 
@@ -74,7 +74,7 @@ class CaregiverFacility extends CI_Controller {
         if ($this->form_validation->run() === FALSE) {
 			$this->load->view('pages_generalised/header');
 			$this->load->view('pages_generalised/caregiver');
-			$this->load->view('pages_caregiver/editfacility',$data);
+			$this->load->view('pages_caregiver/editFacility',$data);
 			$this->load->view('pages_generalised/footer');
         } else {
                        
