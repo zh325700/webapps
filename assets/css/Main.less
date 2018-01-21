@@ -9,20 +9,105 @@
 @sober-color-dark: black;
 @fontsize-elder:50px;
 
+
+@accent: #61B749;
+
 body{
-    background-color:@sober-color-light;
+    background-color:white;
     font-family: myriad-pro-condensed, sans-serif;
     font-style: normal;
     flex-direction: column;
     align-items: center;
 }
 
+    .header{
+        position: relative;
+    }
+img.top-right2 {
+    top: 2%;
+    width: 4.5%;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+#log{
+    right:8%;
+    width:5%;
+    position: absolute;
+}
+
+#home{
+    right: 2%;
+    position: absolute;
+}
+
+.top-right {
+    top: 9%;
+    width: 8%;
+    color: white;
+    opacity: 0.7;
+    font-size:14px;
+}
+
+#link{
+    /* laptop: right:9%;*/
+    right:8%;
+    position: absolute;
+}
+
+#link2{
+    right: 0.5%;
+    position: absolute;
+}
+
+.top-right:active{
+        color: #404C86;
+    }
+    
+.top-right2:active{
+         background-color: #404C86;
+         opacity: 0.7;
+    }
+    
+.top-right3:active{
+         background-color: #404C86;
+         opacity: 0.7;
+    }    
+    
+.par1{
+    position:absolute;
+    top:1%;
+    /*laptop-> top: 4%*/
+    font-size: 40px;
+    color: white;
+    left:2%;
+    /*laptop-> left: 1.5%*/
+    }
+
 body.flex{
     display: flex;
 }
- 
+
+#blue{
+    background-color: @primary-color-dark;
+    
+    h2{
+        color: white;
+        font-size: 25px;
+         
+    }
+}
+
+#forms{
+    padding-left: 2.5%;
+    padding-top: 3%;
+}
+
+#formInput{
+    border-color:@primary-color-dark;
+}
 .container-fluid{
-    background-color: @sober-color-light;
+    background-color: white;
     
     h1{
         padding:3%;
@@ -32,7 +117,7 @@ body.flex{
         border-radius: 5px;
     }
     
-    h2{
+    /*h2{
         background-color:@primary-color-mid;
         width: 150%;
         padding-top: 2%;
@@ -42,12 +127,12 @@ body.flex{
         right: 80px;
         color:#fff;
         
-    }
+    }*/
     
-    h2.bar3{
+    /*h2.bar3{
         width:100%;
         border-radius: 5px;
-    }
+    }*/
     
     h3{
         background-color:@primary-color-mid;
@@ -60,25 +145,25 @@ body.flex{
     }
     
     button{
-        color:@sober-color-dark;
+        color:white;
         border-radius: 10px;
-        border-color:@secondary-color-dark;
-        border-bottom-width: 5px;
-        border-top-width: 5px;
-        border-left-width: 5px;
-        border-right-width: 5px;
+        background-color:@accent;
         position: relative;
-        font-family:Myriad Pro Bold;
         word-wrap: break-word;
+        font-size: 24px;
+        height:60px;
+    }
+    button:hover{
+        color:white;
     }
    
     
-    .button:hover{
+    /*.button:hover{
         background-color:@secondary-color-light;
         color:@sober-color-mid;
         cursor: pointer;
         background-color:@sober-color-light;
-    }
+    }*/
     img{
         position:relative; 
     }
@@ -102,7 +187,7 @@ body.flex{
  }
 
 .container{
-    background-color: @sober-color-light;
+    background-color: white;
     
     h1{
         padding:3%;
@@ -112,7 +197,7 @@ body.flex{
         border-radius: 5px;
     }
     
-    h2{
+    /*h2{
         background-color:@primary-color-mid;
         width: 150%;
         padding-top: 2%;
@@ -125,7 +210,7 @@ body.flex{
     h2.bar3{
         width:100%;
         border-radius: 5px;
-    }
+    }*/
     
     h3{
         background-color: @primary-color-light;
@@ -166,3 +251,9 @@ body.flex{
     }
   
  }
+.footer{
+        
+        font-size:15px;
+        color: @primary-color-dark;
+        opacity: 0.8;
+}
