@@ -75,7 +75,7 @@
     </div>
                 
     <div class="row">
-        <div class="col-sm-offset-0 col-sm-5" style="padding-left: 2.5%; padding-top: 2%">
+        <div class="col-sm-offset-0 col-sm-5" style="padding-left: 2.5%; padding-top: 2%; padding-right:0%">
               <button type="submit"class="btn btn-lg btn-block button form-control">Add Facility</button>
            </div> 
     </div>        

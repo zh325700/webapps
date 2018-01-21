@@ -1,10 +1,10 @@
 <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 
  <div class="container-fluid">
-    <div class="row justify-content-md-center">
-         <div class="col col-md-2"></div>
-         <div class="col-md-6">
-            <h2 class=" text-center">
+    <div id="blue" class="row">
+         
+         <div class="col-sm-offset-0" style="padding-left:2.5%">
+            <h2>
                 <?= $title ?>
             </h2>
         </div>
@@ -13,15 +13,21 @@
     <div class="row"> 
         
         <form method="post">         
-          <div class="col-md-4">  
-			<h3 class="text-center"><b>{facility}{Name}{/facility}</b></h3>
+          <div id="forms" class="col-sm-offset-0">  
+                        
+			<h3><b>{facility}{Name}{/facility}</b></h3>
 			<label class="facility"><?php echo($text["City"]); ?> {facility}{City}{/facility}  </label></br>
 			<label class="facility"><?php echo($text["Post"]); ?> {facility}{Postcode}{/facility}</label></br> 
 			<label class="facility"><?php echo($text["Street"]); ?>: {facility}{Street}{/facility} </label></br>
 			<label class="facility"><?php echo($text["Number"]); ?>: {facility}{Number}{/facility} </label></br>
             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
-            <a class="btn btn-outline-primary pull-left" href="edit/{ID_facility}"><label class="facility" style=" text-decoration: underline;"><?php echo($text["EDIT"]); ?></label></a>
-            <p><a class="btn btn-link match" href="<?php echo site_url('CaregiverFacility/delete/{ID_facility}'); ?>"><b style=" text-decoration: underline;"> <?php echo($text["DELETE"]); ?></b></a></p>
+            
+            <div class="col-sm-offset-0 col-md-5 col-sm-5" style="padding-bottom:6%; padding-top: 2%;padding-left:0%; padding-right:2.5%">
+              <button class="btn btn-lg btn-block button" href="edit/{ID_facility}"> <?php echo($text["EDIT"]); ?></button>
+           </div> 
+            <div class="col-md-offset-2 col-sm-offset-2 col-md-5 col-sm-5" style="padding-bottom:6%; padding-top: 2%; padding-right:2.5%;padding-left:0%">
+              <button id="delete" class="btn btn-lg btn-block button" href="<?php echo site_url('CaregiverFacility/delete/{ID_facility}'); ?>"> <?php echo($text["DELETE"]); ?></button>
+           </div>                                    
             <?php endif; ?>
             </div>
         
