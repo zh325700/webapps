@@ -40,6 +40,7 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');
+            $this->load->view('pages_generalised/caregiver');
             $this->parser->parse('pages_caregiver/createResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
@@ -85,6 +86,7 @@ class CaregiverOperateResident extends CI_Controller {
             show_404();
         }
         $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/caregiver');
         $this->parser->parse('pages_caregiver/editResident', $data);
         $this->load->view('pages_generalised/footer');
     }
@@ -100,6 +102,7 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
 			$this->load->view('pages_generalised/header');
+                        $this->load->view('pages_generalised/caregiver');
 			$this->parser->parse('pages_caregiver/editResident', $data);
 			$this->load->view('pages_generalised/footer');
         } else {
