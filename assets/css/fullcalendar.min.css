@@ -5,7 +5,8 @@
  */
 
 .fc button,.fc table,body .fc{font-size:1em}
- .fc{direction:ltr;text-align:left}
+ .fc{direction:ltr;
+    text-align:left}
  .fc-rtl{text-align:right}
  .fc th,.fc-basic-view td.fc-week-number,.fc-icon,.fc-toolbar{text-align:center}
  .fc-highlight{background:#bce8f1;
@@ -21,13 +22,20 @@
            height:2.1em;
            padding:0 .6em;
            white-space:nowrap;
+           color: #EDEEF4;
+            background-color: #404C86;
+            text-decoration: none;
+            border-radius:5px;
            cursor:pointer}
   /*active and hover states button css */
   /*nadat de today button gedrukt is*/
  .fc-state-active,.fc-state-disabled,.fc-state-down,.fc-state-hover{color:#333;
                                                                     background-color:#e6e6e6}
- .fc-state-hover{color:#333;
-                 text-decoration:none;
+ .fc-state-hover{
+                 color: #222;
+                background-color: #61B749;
+                text-decoration: none;
+                cursor: pointer;
                 background-position:0 -15px;
                 -webkit-transition:background-position .1s linear;
                 -moz-transition:background-position .1s linear;

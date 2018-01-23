@@ -36,6 +36,8 @@
             elseif($page==='addcar'){$data=$this->getDataAddCare();}
             elseif($page==='loginres'){$data=$this->getDataLoginres();}
             elseif($page==='loginverres'){$data=$this->getDataLoginverres();}
+            $data['header']=$this->getDataHeader();
+            $data['footer']=$this->getDataFooter();
             return $data;
         }
         
@@ -61,6 +63,7 @@
             $data['Find_Facility']=$this->lang->line('Find_Facility');
             $data['Add_Caregiver']=$this->lang->line('Add_Caregiver');
             $data['Division_Timestamp']=$this->lang->line('Division_Timestamp');
+            $data['Log_out']=$this->lang->line('Log_out');
             return $data;
         }
         
@@ -178,8 +181,9 @@
          */
         public function getDataAddFac(){
            $data['Facility_Name']=$this->lang->line('Facility_Name');
+           $data['Name']=$this->lang->line('Name');
            $data['City']=$this->lang->line('City');
-           $data['Post']=$this->lang->line('Postcode');
+           $data['Postcode']=$this->lang->line('Postcode');
            $data['Street']=$this->lang->line('Street');
            $data['Number']=$this->lang->line('Number');
            $data['Add_New_Facility']=$this->lang->line('Add_New_Facility');
@@ -337,6 +341,23 @@
             $data['internship']=$this->lang->line('internship');
             $data['Boss']=$this->lang->line('Boss');
             $data['Create_Caregiver']=$this->lang->line('Create_Caregiver');
+            return $data;
+        }
+        
+        /*
+        * Output: the right values to the keys for the header 
+        */
+        public function getDataHeader(){
+            $data['HOME']=$this->lang->line('HOME');
+            $data['Log_out']=$this->lang->line('Log_out');
+            return $data;
+        }
+        
+        /*
+        * Output: the right values to the keys for the footer 
+        */
+        public function getDataFooter(){
+            $data['Copyright']=$this->lang->line('Copyright');
             return $data;
         }
         

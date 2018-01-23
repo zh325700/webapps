@@ -15,7 +15,7 @@
           <img class="top-right2" src="<?php echo base_url(); ?>/image/pictograms/logout.png" value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
           </div>
           <div>
-                <a id = "link" type="button" class="btn btn-lg top-right" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">LOG OUT</a>              
+                <a id = "link" type="button" class="btn btn-lg top-right" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>              
           </div>
     <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
         <div class="container-fluid">

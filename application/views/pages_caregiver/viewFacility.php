@@ -17,7 +17,7 @@
                         
 			<h3><b>{facility}{Name}{/facility}</b></h3>
 			<label class="facility"><?php echo($text["City"]); ?> {facility}{City}{/facility}  </label></br>
-			<label class="facility"><?php echo($text["Post"]); ?> {facility}{Postcode}{/facility}</label></br> 
+			<label class="facility"><?php echo($text["Postcode"]); ?> {facility}{Postcode}{/facility}</label></br> 
 			<label class="facility"><?php echo($text["Street"]); ?>: {facility}{Street}{/facility} </label></br>
 			<label class="facility"><?php echo($text["Number"]); ?>: {facility}{Number}{/facility} </label></br>
             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>

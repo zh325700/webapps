@@ -4,7 +4,7 @@
             <canvas style="width:60px; height:70px;" id="WeeklyTopicScore"></canvas>
         </div>
         <div class="row">
-            <div style="height:100px;" id='calendar'></div>
+            <div id='calendar'></div>
         </div>
     </div>
     <div class="col-sm-6">

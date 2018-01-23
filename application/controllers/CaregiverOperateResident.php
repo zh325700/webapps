@@ -9,9 +9,9 @@ class CaregiverOperateResident extends CI_Controller {
         $data['facilities'] = $this->Residents_model->get_facilities();
         $data['residents'] = $this->Residents_model->get_residents();
         $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/caregiver');
+        $this->parser->parse('pages_generalised/caregiver',$data['header']);
         $this->parser->parse('pages_caregiver/findResident', $data);
-        $this->load->view('pages_generalised/footer');
+        $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
 
     public function view($ID_Elder = NULL) {
@@ -24,9 +24,9 @@ class CaregiverOperateResident extends CI_Controller {
         }
         $data['$ID_Elder'] = $data['residents']['ID_Elder'];
         $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/caregiver');
+        $this->parser->parse('pages_generalised/caregiver',$data['header']);
         $this->parser->parse('pages_caregiver/viewResident', $data);
-        $this->load->view('pages_generalised/footer');
+        $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
 
     public function create() {
@@ -40,9 +40,9 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');
-            $this->load->view('pages_generalised/caregiver');
+            $this->parser->parse('pages_generalised/caregiver',$data['header']);
             $this->parser->parse('pages_caregiver/createResident', $data);
-            $this->load->view('pages_generalised/footer');
+            $this->parser->parse('pages_generalised/footer',$data['footer']);
         } else {
             //upload image
 
@@ -86,9 +86,9 @@ class CaregiverOperateResident extends CI_Controller {
             show_404();
         }
         $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/caregiver');
+        $this->parser->parse('pages_generalised/caregiver',$data['header']);
         $this->parser->parse('pages_caregiver/editResident', $data);
-        $this->load->view('pages_generalised/footer');
+        $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
 
     public function update() {
@@ -101,10 +101,10 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
-			$this->load->view('pages_generalised/header');
-                        $this->load->view('pages_generalised/caregiver');
-			$this->parser->parse('pages_caregiver/editResident', $data);
-			$this->load->view('pages_generalised/footer');
+            $this->load->view('pages_generalised/header');
+            $this->parser->parse('pages_generalised/caregiver',$data['header']);
+            $this->parser->parse('pages_caregiver/editResident', $data);
+            $this->parser->parse('pages_generalised/footer',$data['footer']);
         } else {
             $config['upload_path'] = './image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';

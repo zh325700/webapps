@@ -12,7 +12,7 @@ class ResidentQuestion extends CI_Controller{
         $data['category'] = $category;
         $this->load->view('pages_generalised/header');
         $this->parser->parse('pages_resident/question', $data);
-        $this->load->view('pages_generalised/footer');
+        $this->parse->parse('pages_generalised/footer',$data['footer']);
     }
     
     public function insertScore(){

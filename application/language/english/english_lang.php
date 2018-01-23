@@ -11,7 +11,7 @@
     $lang['Add_Caregiver']='Add Caregiver';
     $lang['Select_Facility']='Select Facility';
     $lang['Score_Time']='Latest fill-in time';
-    $lang['FIND']="FIND";
+    $lang['FIND']="Find";
     $lang['Add_New_Resident']='Add New Resident';
     $lang['FirstName']="FirstName";
     $lang['LastName']="LastName";
@@ -45,8 +45,8 @@
     $lang['Add_Street']="Add Street";
     $lang['Add_number']="Add number";
     $lang['Member_Since']="Member Since";
-    $lang['EDIT']="EDIT";
-    $lang['DELETE']="DELETE";
+    $lang['EDIT']="Edit";
+    $lang['DELETE']="Delete";
     $lang['Please_category']="Please choose a categorie";
     $lang['Privacy']="Privacy";
     $lang['Food']="Food";
@@ -80,22 +80,22 @@
     $lang['Most_time']="Most of the time";   
     $lang['Always']="Always";
     $lang['Can_message']="Can you read the message below";
-    $lang['maximum_font']="you have reached the maximum fontsize";
+    $lang['maximum_font']="You have reached the maximum fontsize";
     $lang['Text_Message']="Test Message";
     $lang['Confirm']="Confirm";
     $lang['title_general1']="General overview results residents";
     $lang['title_general2']="General overview results questions";
     $lang['title_divisions1']=" residents results overview ";
-    $lang['title_divisions2']=" question results overview";
-    $lang['divisions']="division";
+    $lang['title_divisions2']=" Ruestion results overview";
+    $lang['divisions']="Division";
     $lang['title_time']="Division timestamp overview resident";
     $lang['Division_Timestamp']="Division timestamp";
     $lang['Worst_Topic']="Worst Topic";
     $lang['Best_Topic']="Best Topic";
     $lang['alert_box']='Alert box with special remarks of the resident';
     $lang['Topic']='Topic';
-    $lang['DELETE']="DELETE";
-    $lang['EDIT']="EDIT";
+    $lang['DELETE']="Delete";
+    $lang['EDIT']="Edit";
     $lang['Register_Caregiver']="Register Caregiver";
     $lang['Welcome']="Welcome";
     $lang['Username']='Username';
@@ -106,7 +106,7 @@
     $lang['Permission_level']="Permission level";
     $lang['Select_Adminlevel']="Select a Admin Level";
     $lang['Create_Caregiver']="Create Caregiver";
-    $lang['internship']="internship";
+    $lang['internship']="Internship";
     $lang['Caregiver']="Caregiver";
     $lang['Boss']="Boss";
     $lang['Ik_ben_een']="I am a";
@@ -121,5 +121,7 @@
     $lang['Ik_weet']="I don't";
     $lang['het_niet']="know it";
     $lang['Ga_terug']="Go back";
+    $lang['HOME']="Home";
+    $lang['Copyright']="Copyright: HCI/webapps project-team 2"
 ?>
 
