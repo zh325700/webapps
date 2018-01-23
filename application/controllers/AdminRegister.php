@@ -16,7 +16,7 @@ class AdminRegister extends CI_Controller {
             $this->load->view('pages_generalised/header');
             $this->parser->parse('pages_generalised/caregiver',$data['header']);
             $this->parser->parse('pages_admin/registerCaregiver', $data);
-            $this->pasrer->parse('pages_generalised/footer',$data['footer']);
+            $this->parser->parse('pages_generalised/footer',$data['footer']);
         } else {
             $email = $_POST["email"];
             $error_msg = "";

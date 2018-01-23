@@ -23,7 +23,7 @@
             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
             
             <div class="col-sm-offset-0 col-md-5 col-sm-5" style="padding-bottom:6%; padding-top: 2%;padding-left:0%; padding-right:2.5%">
-              <button class="btn btn-lg btn-block button" href="edit/{ID_facility}"> <?php echo($text["EDIT"]); ?></button>
+              <button class="btn btn-lg btn-block button" href="<?php echo site_url('CaregiverFacility/edit/{ID_facility}');?>"> <?php echo($text["EDIT"]); ?></button>
            </div> 
             <div class="col-md-offset-2 col-sm-offset-2 col-md-5 col-sm-5" style="padding-bottom:6%; padding-top: 2%; padding-right:2.5%;padding-left:0%">
               <button id="delete" class="btn btn-lg btn-block button" href="<?php echo site_url('CaregiverFacility/delete/{ID_facility}'); ?>"> <?php echo($text["DELETE"]); ?></button>
