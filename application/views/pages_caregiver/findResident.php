@@ -78,36 +78,29 @@
                             <?php endforeach; ?>
                         </select></div>
                     
-                    <div class="form-group"> <label for="Gender" class="text-dark">{Gender}</label><br>
-                        <label style="padding-left: 10vh">
-                            <div>
-                                <img src="https://cdn2.iconfinder.com/data/icons/person-gender-hairstyle-clothes-variations/48/Female-Side-comb-O-neck-512.png" style="width:40px;height:40px;">
+                    <div class="form-group" > 
+                        <label for="Gender" class="text-dark" style="padding-bottom:0%">{Gender}</label><br>
+                        <label style="padding-left: 10vh; padding-top:0%">
+                            <div >
+                                <img src="<?php echo base_url(); ?>/image/pictograms/female.png" style="width:40px;height:40px;">
 
                                 <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px">
                             </div>
                         </label>
                         <label style="padding-left: 20vh">
                             <div >
-                                <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/user-male-icon.png" style="width:40px;height:40px;">
+                                <img src="<?php echo base_url(); ?>/image/pictograms/male.png" style="width:40px;height:40px;">
 
                                 <input   type="checkbox"name="Sex" value="M" style="width:15px;height:15px">
                             </div>
                         </label>
                     </div>
 
-
-
-
-
-
-
-
-                    <div class="form-group"><button class="btn btn-lg btn-block form-control button"
-                                                    type="submit" value="{FIND}" name="findres" />{FIND}</button>
+                    <div class="form-group"><button class="btn btn-lg btn-block form-control button" type="submit" value="{FIND}" name="findres" />{FIND}</button>
                     </div>
                 </form>
             </div>
-            <div class="col-sm-8" style="overflow:scroll;height:490px;width: 66%; padding-top: 3%">
+            <div class="col-sm-8" style="overflow:scroll; padding-top: 3%" height="260" width="240">
 
                 <!--Add general function here-->
                 <?php
@@ -136,8 +129,8 @@
                             $id = $fArray['ID_Elder'];
                             $lastname = $fArray['LastName'];
                             ?>
-                            <div style="display: inline-block">
-                                <img onclick="loadPage('CaregiverOperateResident', 'view/<?php echo $id; ?>')" src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>" alt="<?php echo $lastname ?>" style="width:300px;height:300px;border:10px blue;">
+                            <div style="display: inline-block" class="col-sm-offset-2">
+                                <img onclick="loadPage('CaregiverOperateResident', 'view/<?php echo $id; ?>')" src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>" alt="<?php echo $lastname ?>" style="border:10px blue;" width="240" heigth="240">
                                 <figcaption class="text-center"><?php echo $lastname; ?></figcaption>
                             </div>
                             <?php

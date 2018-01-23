@@ -16,60 +16,60 @@
         
     <div class="row">
         <div id="forms" class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
-            <label>{Facility_Name}:</label> 
+            <label>{Facility_Name}</label> 
         </div>
     </div>
     
     <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
             <input id="formInput" type="text" class="form-control" name="Name" placeholder="{Name}" required>
         </div> 
     </div>    
     
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
-            <label>{City}: </label> 
+            <label>{City}</label> 
         </div>
     </div>
      
     <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
             <input id="formInput" type="text" class="form-control" name="City" placeholder="{City}" required>
         </div> 
     </div> 
     
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
-             <label>{Postcode}: </label> 
+             <label>{Postcode}</label> 
         </div>
     </div>
      
     <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
             <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="{Postcode}" required>
         </div> 
     </div> 
     
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
-              <label>{Street}: </label> 
+              <label>{Street}</label> 
         </div>
     </div>
      
     <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
             <input id="formInput" type="text" class="form-control" name="Street" placeholder="{Street}" required>
         </div> 
     </div>
      
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
-              <label>{Number}:</label> 
+              <label>{Number}</label> 
         </div>
     </div>
      
     <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 input-group" style="padding-left:2.5%">
+        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
             <input id="formInput" type="text" class="form-control" name="Number" placeholder="{Number}" required>
         </div> 
     </div>
