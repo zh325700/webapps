@@ -4,8 +4,7 @@ class CaregiverFacility extends CI_Controller {
 
     public function find() {
         $this->load->model('Language_model');
-        $data['text']=$this->Language_model->getData($this->session->userdata('language'),'addfac');
-        $data['title'] = 'Overview of facility';
+        $data['text']=$this->Language_model->getData($this->session->userdata('language'),'findfac');
         $data['facility'] = $this->Addfacility_model->get_facility();
 
         $this->load->view('pages_generalised/header');

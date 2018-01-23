@@ -32,31 +32,43 @@
     $lang['Average_Score']="Average Score";
     $lang['Worst_Topic']="Worst Topic";
     $lang['Best_Topic']="Best Topic";
-    
-    $lang['Select_Facility']='Select Facility';
-   
+    //overview-topicchart
+    $lang['Question_statistic']="Topic statistics of ";
+   //find resident
     $lang['FIND']="Find";
-    $lang['Add_New_Resident']='Add New Resident';
     $lang['FirstName']="FirstName";
     $lang['LastName']="LastName";
-    $lang['Gender']="Geslacht";
-
-
-    $lang['Member_Since']="Member Since";
-    $lang['Add_FirstName']="Add FirstName";
-    $lang['Add_LastName']="Add LastName";
-    $lang['Birthday']="Birthday";
-
-    $lang['Add_Roomnumber']="Add Roomnumber";
+    $lang['Gender']="Gender";
+    $lang['Select_Facility']='Select a facility';
     $lang['Facility']="Facility";
-    $lang['Upload_Image']="Upload Image";
-    $lang['Edit_Residents']='Edit Residents';
-    $lang['Overview_facility']="Overview of facility";
-    $lang['Save']="Save";
+    //view resident
+    $lang['Information_resident']="Information resident";
+    $lang['Birthday']="Birthday";
+    $lang['Member_Since']="Resident since";
+    $lang['EDIT']="Edit";
+    $lang['DELETE']="Delete";
+    //edit resident
+    $lang['Edit_Residents']='Edit resident';
+    $lang['Upload_Image']="Upload image";
+    $lang['Add_New_Resident']='Add New Resident';
+    //view facility
+    $lang['Overview_Facility']="Overview facility";
     $lang['City']="City:";
     $lang['Postcode']="Postcode:";
-    $lang['Street']="Street";
-    $lang['Number']="Number";
+    $lang['Street']="Street:";
+    $lang['Number']="Number:";
+    
+    $lang['Add_FirstName']="Add FirstName";
+    $lang['Add_LastName']="Add LastName";
+    
+
+    $lang['Add_Roomnumber']="Add Roomnumber";
+   
+    
+    
+    $lang['Overview_facility']="Overview of facility";
+    $lang['Save']="Save";
+    
     $lang['Read_More']="Read more...";
     $lang['Add_New_Facility']="Voeg nieuwe faciliteit toe";
     
@@ -67,8 +79,7 @@
     $lang['Add_Street']="Add Street";
     $lang['Add_number']="Add number";
     $lang['Member_Since']="Member Since";
-    $lang['EDIT']="Edit";
-    $lang['DELETE']="Delete";
+
     $lang['Please_category']="Please choose a categorie";
     $lang['Privacy']="Privacy";
     $lang['Food']="Food";

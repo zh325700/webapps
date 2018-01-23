@@ -5,7 +5,7 @@
          
          <div class="col-sm-offset-0" style="padding-left:2.5%">
             <h2>
-                <?= $title ?>
+               <?php echo($text["Overview_Facility"]);?>
             </h2>
         </div>
     </div> 
@@ -18,12 +18,12 @@
 			<h3><b>{facility}{Name}{/facility}</b></h3>
 			<label class="facility"><?php echo($text["City"]); ?> {facility}{City}{/facility}  </label></br>
 			<label class="facility"><?php echo($text["Postcode"]); ?> {facility}{Postcode}{/facility}</label></br> 
-			<label class="facility"><?php echo($text["Street"]); ?>: {facility}{Street}{/facility} </label></br>
-			<label class="facility"><?php echo($text["Number"]); ?>: {facility}{Number}{/facility} </label></br>
+			<label class="facility"><?php echo($text["Street"]); ?> {facility}{Street}{/facility} </label></br>
+			<label class="facility"><?php echo($text["Number"]); ?> {facility}{Number}{/facility} </label></br>
             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
             
             <div class="col-sm-offset-0 col-md-5 col-sm-5" style="padding-bottom:6%; padding-top: 2%;padding-left:0%; padding-right:2.5%">
-              <button class="btn btn-lg btn-block button" onclick="loadPage('CaregiverFacility', 'edit/1')"> <?php echo($text["EDIT"]); ?></button>
+                <button class="btn btn-lg btn-block button" onclick="<?php echo site_url('/CaregiverFacility/edit/1');?>"> <?php echo($text["EDIT"]); ?></button>
            </div> 
             <div class="col-md-offset-2 col-sm-offset-2 col-md-5 col-sm-5" style="padding-bottom:6%; padding-top: 2%; padding-right:2.5%;padding-left:0%">
               <button id="delete" class="btn btn-lg btn-block button" onclick="<?php echo site_url('CaregiverFacility/delete/1'); ?>"> <?php echo($text["DELETE"]); ?></button>

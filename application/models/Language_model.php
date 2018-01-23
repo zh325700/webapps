@@ -37,6 +37,7 @@
             elseif($page==='loginres'){$data=$this->getDataLoginres();}
             elseif($page==='loginverres'){$data=$this->getDataLoginverres();}
             elseif($page=='elderchart'){$data=$this->getDataElderChart();}
+            elseif($page=='topicchart'){$data=$this->getDataTopicChart();}
             $data['header']=$this->getDataHeader();
             $data['footer']=$this->getDataFooter();
             return $data;
@@ -93,6 +94,8 @@
             $data['Average_Score']=$this->lang->line('Average_Score');
             $data['Question']=$this->lang->line('Question');
             $data['Topic']=$this->lang->line('Topic');
+            $data['Back']=$this->lang->line('Back');
+            $data['Question_statistic']=$this->lang->line('Question_statistic');
             return $data;
         }
         
@@ -126,7 +129,7 @@
           $data['Add_LastName']=$this->lang->line('Add_LastName');
           $data['Select_Facility']=$this->lang->line('Select_Facility');
           $data['Add_Roomnumber']=$this->lang->line('Add_Roomnumber');
-          $data['Upload_Image']=$this->lang->line('Upload_Image');  
+          $data['Upload_Image']=$this->lang->line('Upload_Image');
           return $data;
         }
         
@@ -143,6 +146,8 @@
             $data['MemberSince']=$this->lang->line('Member_Since');
             $data['EDIT']=$this->lang->line('EDIT');
             $data['DELETE']=$this->lang->line('DELETE');
+            $data['MemberSince']=$this->lang->line('Member_Since');
+            $data['Information_resident']=$this->lang->line('Information_resident');
             return $data;
         }
                 
@@ -175,7 +180,9 @@
             $data['Postcode']=$this->lang->line('Postcode');
             $data['Street']=$this->lang->line('Street');
             $data['Number']=$this->lang->line('Number');
-            $data['Read_More']=$this->lang->line('Read_More');
+            $data['Overview_Facility']=$this->lang->line('Overview_Facility');
+            $data['EDIT']=$this->lang->line('EDIT');
+            $data['DELETE']=$this->lang->line('DELETE');
             return $data;
         }
         

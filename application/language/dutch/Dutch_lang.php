@@ -32,31 +32,43 @@ $lang['Number_filled']="Aantal keren ingevuld";
 $lang['Average_Score']="Gemiddelde score";
 $lang['Worst_Topic']="Slechtste categorie";
 $lang['Best_Topic']="Beste categorie";
-
-$lang['Select_Facility']='Selecteer een resedentie';
-
+//overview-topicchart
+$lang['Question_statistic']="Categorie statistieken van ";
+//find resident
 $lang['FIND']="Zoek";
-$lang['Add_New_Resident']='Voeg nieuwe bewoner toe';
 $lang['FirstName']='Voornaam';
 $lang['LastName']="Familienaam";
 $lang['Gender']="Geslacht";
-
-
-$lang['Member_Since']="Lid sinds";
-$lang['Add_FirstName']="Voeg voornaam toe";
-$lang['Add_LastName']="Voeg familienaam toe";
-$lang['Birthday']="GeboorteDatum";
-
-$lang['Add_Roomnumber']="Voeg kamernummer toe";
-$lang['Facility']="residentie";
-$lang['Upload_Image']="Voeg Afbeelding toe";
-$lang['Edit_Residents']='Pas bewoonersinformatie aan';
-$lang['Overview_facility']="Overzicht van de residentie";
-$lang['Save']="Opslaan";
+$lang['Facility']="Residentie";
+$lang['Select_Facility']='Selecteer een residentie';
+//view resident
+$lang['Information_resident']="Informatie bewoner";
+$lang['Birthday']="Geboortedatum";
+$lang['Member_Since']="Bewoner sinds";
+$lang['EDIT']="Aanpassen";
+$lang['DELETE']="Verwijder";
+//edit resident
+$lang['Edit_Residents']='Bewonersinformatie aanpassen';
+$lang['Upload_Image']="Afbeelding toevoegen";
+//view facility
+$lang['Overview_Facility']="Overzicht residentie";
 $lang['City']="Stad:";
 $lang['Postcode']="Postcode:";
-$lang['Street']="Straat";
-$lang['Number']="Nummer";
+$lang['Street']="Straat:";
+$lang['Number']="Nummer:";
+
+$lang['Add_New_Resident']='Voeg nieuwe bewoner toe';
+$lang['Add_FirstName']="Voeg voornaam toe";
+$lang['Add_LastName']="Voeg familienaam toe";
+
+
+$lang['Add_Roomnumber']="Voeg kamernummer toe";
+
+
+
+$lang['Overview_facility']="Overzicht van de residentie";
+$lang['Save']="Opslaan";
+
 $lang['Read_More']="Lees meer...";
 $lang['Add_New_Facility']="Voeg nieuwe residentie toe";
 
@@ -67,8 +79,7 @@ $lang['Add_Postcode']="Voeg postcode toe";
 $lang['Add_Street']="Voeg straat toe";
 $lang['Add_number']="Voeg nummer toe";
 $lang['Member_Since']="Bewoner sinds";
-$lang['EDIT']="Aanpassen";
-$lang['DELETE']="Delete";
+
 $lang['Please_category']="Kies een categorie";
 $lang['Privacy']="Privacy";
 $lang['Food']="Eten";
@@ -115,8 +126,6 @@ $lang['title_general2']="Algemeen resultaten overzicht vragenlijst";
 
 $lang['alert_box']='Opmerkingen van of over deze bewoner';
 $lang['Topic']='Categorie';
-$lang['DELETE']='Verwijder';
-$lang['EDIT']='Pas aan';
 $lang['Register_Caregiver']="Registreer verzorger";
 $lang['Welcome']="Welkom";
 $lang['Username']='Gebruikersnaam';

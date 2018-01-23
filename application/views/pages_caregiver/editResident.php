@@ -43,7 +43,7 @@
                             <input  required="" type="text" class="form-control" name="RoomNumber" 
                                     placeholder="{Add_Roomnumber}" value="<?php echo $resident['RoomNumber']; ?>">
                         </div>
-                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Resident}</button>
+                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Edit_Residents}</button>
 
                     </div>
                     <div class="col-sm-6" style="margin-top: 6.5vh;">

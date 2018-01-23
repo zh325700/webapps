@@ -162,14 +162,8 @@
          */
         public function getChartTopic(){
             //loads in the models and the input
-            if($this->session->userdata('language')==='Dutch'){
-                $this->lang->load('Dutch_lang','dutch');
-            }
-            else{
-                $this->lang->load('english_lang','english');
-            }
             $this->load->model('Language_model');
-            $data=$this->Language_model->getDataTopicChart();
+            $data=$this->Language_model->getData($this->session->userdata('language'),'topicchart');
             $topic=$this->input->get('topic');
             $this->load->model('Overview_Model');
            //asks the data(the different divisions and the info about the questions) from the databasemodel
