@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/trexr/Documents/groept/webapps/a17_webapps02/assets/css/overview.css</file>
+            <file>file:/C:/Users/trexr/Documents/groept/webapps/a17_webapps02/application/config/config.php</file>
+            <file>file:/C:/Users/trexr/Documents/groept/webapps/a17_webapps02/application/controllers/OverviewCaregiver.php</file>
+            <file>file:/C:/Users/trexr/Documents/groept/webapps/a17_webapps02/application/views/pages_caregiver/overviewIntro.php</file>
+            <file>file:/C:/Users/trexr/Documents/groept/webapps/a17_webapps02/application/views/pages_caregiver/newOverView.php</file>
+            <file>file:/C:/Users/trexr/Documents/groept/webapps/a17_webapps02/assets/css/care_reg.css</file>
+        </group>
     </open-files>
 </project-private>

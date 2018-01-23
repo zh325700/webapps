@@ -82,7 +82,7 @@ $db['default'] = array(
 	//~ 'database' 		=> 'a17_webapps02',
     'hostname'		=> 'localhost',
 	'username' 		=> 'root',
-	'password' 		=> 'fun',
+	'password' 		=> 'root',
 	'database' 		=> 'hci',
 	
 	'dbdriver' 		=> 'mysqli',
