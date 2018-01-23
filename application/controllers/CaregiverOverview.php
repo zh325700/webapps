@@ -301,6 +301,7 @@
             $this->load->helper('date');
             $this->load->model('Overview_Model');
             //take the current time as a timestamp and make a second reference timestamp from one month ago
+            date_default_timezone_set('Europe/Brussels');
             $timestamp=date('Y-m-d H:i:s');
             $datetime=new DateTime($timestamp);
             $date=$datetime->modify('-1 month');
@@ -323,6 +324,7 @@
             $ID_elder=$this->input->get('ID_elder');
             $this->load->model('Overview_Model');
             //take the current time as a timestamp and make a second reference timestamp from one month ago
+            date_default_timezone_set('Europe/Brussels');
             $timestamp=date('Y-m-d H:i:s');
             $datetime=new DateTime($timestamp);
             $date=$datetime->modify('-1 month');

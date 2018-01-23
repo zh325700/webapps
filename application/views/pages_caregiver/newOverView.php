@@ -215,8 +215,8 @@
             };
             xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getAlert",false);
             xmlhttp.send();
-        data=jQuery.parseJSON(input);
         console.log(input);
+        data=jQuery.parseJSON(input);
         makeAlert(data);
     }
 
