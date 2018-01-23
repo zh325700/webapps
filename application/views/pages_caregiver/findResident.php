@@ -4,9 +4,9 @@
     <div class="container-fluid">
         <div id ="blue" class="row ">
             <div class="col-sm-offset-0" style="padding-left: 2.5%">
-            <h2 style="width: 100%">
-                {Find_Residents}
-            </h2>
+                <h2 style="width: 100%">
+                    {Find_Residents}
+                </h2>
             </div>
         </div>
         <style>
@@ -67,17 +67,39 @@
         <div class="row">
             <div id="forms" class="col-sm-offset-0 col-sm-4">
                 <form   action='' method='post'>
-                    <div class="form-group"><label >{LastName}: </label><input id="formInput" type='text' name='LastName' value='' class='autoLastName form-control'></div>
-                    <div class="form-group"><label >{FirstName}: </label><input id="formInput" type='text' name='FirstName' value='' class='autoFirstname form-control'></div>
-                    <div class="form-group"><label >{RoomNumber}: </label><input id="formInput" type='text' name='RoomNumber' value='' class='autoRoom form-control'></div>
-                    <div class="form-group"><label >{Facility}: </label>
+                    <div class="form-group"><label >{LastName} </label><input id="formInput" type='text' name='LastName' placeholder="{LastName}" class='autoLastName form-control'></div>
+                    <div class="form-group"><label >{FirstName} </label><input id="formInput" type='text' name='FirstName' placeholder="{FirstName}"  class='autoFirstname form-control'></div>
+                    <div class="form-group"><label >{RoomNumber} </label><input id="formInput" type='text' name='RoomNumber' placeholder="{RoomNumber}" class='autoRoom form-control'></div>
+                    <div class="form-group"><label >{Facility} </label>
                         <select name="ID_facility" id="formInput" class="form-control">
                             <option value=""> - {Select_Facility} - </option>
                             <?php foreach ($facilities as $fac): ?>
                                 <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                             <?php endforeach; ?>
                         </select></div>
-                    <div class="form-group"><label class="fontsize">{Gender}: </label><input id="formInput" type='text' name='Sex' value='' class='autoSex form-control'></div>
+                    
+                    <div class="form-group"> <label for="Gender" class="text-dark">{Gender}</label><br>
+                        <label style="padding-left: 10vh">
+                            <div>
+                                <img src="https://cdn2.iconfinder.com/data/icons/person-gender-hairstyle-clothes-variations/48/Female-Side-comb-O-neck-512.png" style="width:40px;height:40px;">
+
+                                <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px">
+                            </div>
+                        </label>
+                        <label style="padding-left: 20vh">
+                            <div >
+                                <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/user-male-icon.png" style="width:40px;height:40px;">
+
+                                <input   type="checkbox"name="Sex" value="M" style="width:15px;height:15px">
+                            </div>
+                        </label>
+                    </div>
+
+
+
+
+
+
 
 
                     <div class="form-group"><button class="btn btn-lg btn-block form-control button"
@@ -134,6 +156,13 @@
             </div>
         </div>
     </div>
+
+    <script>   // allow to only check one sex 
+        $('input[type="checkbox"]').on('change', function () {
+            $('input[name="Sex"]').not(this).prop('checked', false);
+        });
+    </script>
+
 
 <?php else: ?>
     <p>
