@@ -14,16 +14,16 @@
         <div class="col-md-offset-0 col-sm-3" data-step="1" data-intro="Here is the image of the resident">
             <img class="" height="260" width="240" style="padding-top: 10%; padding-left:5%" src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
         </div>
-        <div id="forms" class="col-md-offset-1 col-sm-offset-1 col-sm-3" style="padding-left:0%" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
-            <label>{LastName}:</label> <br> <label class="lab">&emsp;&emsp;&emsp;&emsp;<?php echo $residents['LastName']; ?></label><br>
-            <label>{FirstName}:</label> <br> <label class="lab">&emsp;&emsp;&emsp;&emsp;<?php echo $residents['FirstName']; ?></label><br>
-            <label>{Gender}:</label> <br> <label class="lab">&emsp;&emsp;&emsp;&emsp;<?php echo $residents['Sex']; ?></label><br>
-            <label>{Birthday}:</label> <br> <label class="lab">&emsp;&emsp;&emsp;&emsp;<?php echo $residents['Birthday']; ?></label>
+        <div id="forms" class="col-sm-offset-1 col-sm-3" style="padding-left:0%" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
+            <label>{LastName}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['LastName']; ?></label><br>
+            <label>{FirstName}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['FirstName']; ?></label><br>
+            <label>{Gender}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Sex']; ?></label><br>
+            <label>{Birthday}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Birthday']; ?></label>
 	</div>
-	<div id="forms" class="col-md-offset-0 col-sm-offset-0 col-sm-4">
-            <label>{RoomNumber}:</label> <br> <label class="lab">&emsp;&emsp;&emsp;&emsp;<?php echo $residents['RoomNumber']; ?></label><br>
-            <label>{Facility}:</label> <br> <label class="lab">&emsp;&emsp;&emsp;&emsp;<?php echo $fac_name['Name']; ?></label><br>
-            <label>{MemberSince}:</label> <br> <label class="lab">&emsp;&emsp;&emsp;&emsp;<?php echo $residents['Member_Since']; ?></label>
+	<div id="forms" class="col-sm-offset-1 col-sm-4">
+            <label>{RoomNumber}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['RoomNumber']; ?></label><br>
+            <label>{Facility}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $fac_name['Name']; ?></label><br>
+            <label>{MemberSince}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Member_Since']; ?></label>
 	</div>
     
     </div>
@@ -33,7 +33,7 @@
         <div class="col-sm-offset-4 col-md-offset-4 col-md-2 col-sm-3" style="padding-left:0%;padding-right:0%">
             <button class="btn btn-lg btn-block button" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')"/>{EDIT}</button>
         </div>
-        <div class="col-sm-offset-0 col-md-offset-1 col-sm-4 col-md-3" style="padding-left:2.5%; padding-right:6%">
+        <div class="col-sm-offset-1 col-md-offset-2 col-sm-4 col-md-3" style="padding-left:2.5%; padding-right:6%">
             
             <?php echo form_open('CaregiverOperateResident/delete/' . $residents['ID_Elder']); /* if we click it it goes to /post/delete/3 */ ?>    
 

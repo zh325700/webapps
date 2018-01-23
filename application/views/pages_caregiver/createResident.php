@@ -1,7 +1,4 @@
-
-    </head>
-    <body>            
-        
+               
     <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
             <div class="container-fluid">              
                 <div id="blue" class="row">
@@ -26,16 +23,16 @@
                                    value="<?php echo isset($_POST["FirstName"]) ? $_POST["FirstName"] : ''; ?>"> </div>
 
                         <div class="form-group"> <label for="Gender" class="text-dark">{Gender}</label>
-                            <label style="padding-left: 10vh">
+                            <label style="padding-left: 5vh">
                                 <div>
-                                    <img src="https://cdn2.iconfinder.com/data/icons/person-gender-hairstyle-clothes-variations/48/Female-Side-comb-O-neck-512.png" style="width:40px;height:40px;">
+                                    <img src="<?php echo base_url(); ?>/image/pictograms/female.png" style="width:40px;height:40px;">
 
                                     <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px">
                                 </div>
                             </label>
-                            <label style="padding-left: 20vh">
+                            <label style="padding-left: 10vh">
                                 <div >
-                                    <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/user-male-icon.png" style="width:40px;height:40px;">
+                                    <img src="<?php echo base_url(); ?>/image/pictograms/male.png" style="width:40px;height:40px;">
 
                                     <input   type="checkbox"name="Sex" value="M" style="width:15px;height:15px">
                                 </div>
