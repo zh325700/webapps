@@ -107,7 +107,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm-8" style="overflow:scroll;height:490px;width: 66%; padding-top: 3%">
+            <div class="col-sm-8" style="overflow:scroll; padding-top: 3%" height="260" width="240">
 
                 <!--Add general function here-->
                 <?php

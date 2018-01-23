@@ -55,9 +55,7 @@
 
                     </div>
                     <div id="forms" class="col-sm-6">
-                                              
-                        
-                        <div class="form-group" > <label for="ID_Facility" class="text-dark">{Facility}</label>
+                      <div class="form-group" > <label for="ID_Facility" class="text-dark">{Facility}</label>
                             <select required="" name="ID_Facility" class="form-control">
                                 <option disabled selected value> -- {Select_Facility} -- </option>
                                 <?php foreach ($facilities as $fac): ?>

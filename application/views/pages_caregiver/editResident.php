@@ -1,13 +1,18 @@
-        <link href="<?php echo base_url(); ?>assets/css/care_reg.css" rel="stylesheet" type="text/css"/>
-    </head>
-
-    <body>            
+<body>            
 <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
-        <div class="py-5 bg-primary text-white" >
-            <div class="container">
+
+            <div class="container-fluid">
+                <div id="blue" class="row">
+         
+                <div class="col-sm-offset-0" style="padding-left:2.5%">
+                   <h2>
+                       {Edit_Residents}
+                   </h2>
+               </div>
+                </div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <h1 class="text-dark">{Edit_Residents}</h1>
+                    <div  id="forms" class="col-sm-offset-0 col-sm-6" style="padding-left:2.5%">
+                        
                         <?php echo validation_errors(); ?>
                         <?php echo form_open('CaregiverOperateResident/update'); ?>
                         <input type="hidden" name="ID_Elder" value="<?php echo $resident['ID_Elder']; ?>" >
@@ -43,10 +48,10 @@
                             <input  required="" type="text" class="form-control" name="RoomNumber" 
                                     placeholder="{Add_Roomnumber}" value="<?php echo $resident['RoomNumber']; ?>">
                         </div>
-                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Resident}</button>
+                        
 
                     </div>
-                    <div class="col-sm-6" style="margin-top: 6.5vh;">
+                    <div id="forms" class="col-sm-6">
 
                         <div class="form-group" > <label for="ID_facility" class="text-dark">{Facility}</label>
                             <select required="" name="ID_facility" class="form-control">
@@ -58,7 +63,7 @@
                         </div>
                         <div class="form-group" > <label for="Add Image" class="text-dark">{Upload_Image}</label><br>
                             <input required="" class="inputfile" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
-                            <img  id="output" width="300px" hight="400px">
+                            <img  id="output" width="300px" height="170px">
                             <script>
                                 var loadFile = function (event) {
                                     var output = document.getElementById('output');
@@ -66,6 +71,11 @@
                                 };
                             </script>
                         </div>
+                        <div class="row">
+                              <div class="col-sm-offset-0 col-md-offset-0 col-md-12" >
+                            <button type="submit" class="btn btn-lg btn-block button">{Add_Resident}</button>
+                        </div>
+                        
 
                         </form>
                     </div>
@@ -74,7 +84,7 @@
 
             </div>
 
-        </div>
+
 
         <script>   // allow to only check one sex 
             $('input[type="checkbox"]').on('change', function () {
