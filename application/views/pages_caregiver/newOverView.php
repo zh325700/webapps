@@ -7,7 +7,7 @@
 <body>
 
 
-    <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:102%; height:auto" class=""/>
+    <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
           <div class=" col-sm-12 par1">
                <h2 class="par1">Grace-AGE</h2>
           </div>

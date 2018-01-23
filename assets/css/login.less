@@ -16,6 +16,7 @@ and open the template in the editor.
 @secondary-color-dark:#61b749;
 @gray: #EDEEF4;
 @accent: #61B749;
+@primary: #404C86;
 
 
 body{
@@ -77,6 +78,7 @@ body{
                      border-top-width: 0px;
                      border-left-width: 0px;
                      border-right-width:0px;
+                     transition:0s 1s;
                      
                          
                 }
@@ -86,7 +88,8 @@ body{
                      font-size: 24px;
                      border-radius: 10px;
                      background-color: @gray;                                                       
-                     color:@primary-color-dark;                    
+                     color:@primary;    
+                     transition:0s 0s;
                          
                 }
                 .input-group{
@@ -116,7 +119,7 @@ body{
 
 .footer{
         font-size:15px;
-        color: @primary-color-dark;
+        color: @primary;
         opacity: 0.8;
         margin-top:2%;
 }

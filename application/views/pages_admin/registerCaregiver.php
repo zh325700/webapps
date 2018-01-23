@@ -1,13 +1,17 @@
-       <link href="<?php echo base_url(); ?>assets/css/care_reg.css" rel="stylesheet" type="text/css"/>
-   
+
   </head>
     <body>
-        <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
-        <div class="py-5 bg-primary text-white" >
-            <div class="container">
+            <div class="container-fluid">
+                <div id="blue" class="row">
+                    <div class="col-sm-offset-0" style="padding-left:2.5%">
+                    <h2>
+                        <h2 class="text-dark">{Register_Caregiver}</h2>
+                    </h2>
+                    </div>
+                </div> 
                 <div class="row">
-                    <div class="col-sm-6">
-                        <h1 class="text-dark">{Register_Caregiver}</h1>
+                    <div id="forms" class="col-sm-6">
+                        
                         <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
                         <div class="form-group"> <label for="InputName" class="text-dark">{Username}</label>
                             <input type="text" name="username" class="form-control" id="InputName" placeholder="{Username}"
@@ -25,7 +29,7 @@
 
                         
                     </div>
-                    <div class="col-sm-6" style="margin-top: 11.2vh;">
+                    <div id="forms" class="col-sm-6" style="padding-right:2.5%">
                         <div class="form-group" > <label for="Facility" class="text-dark">{Facility}</label>
                             <select required="" name="ID_Facility" class="form-control">
                                 <option disabled selected value> -- {Select_Facility} -- </option>
@@ -40,12 +44,19 @@
                                 <option value="2">{Caregiver}</option>
                                 <option value="3">{Boss}</option>
                             </select> </div>
-                        <button type="button" onclick="formhash(this.form, this.form.password)"  class="btn btn-info w-100">{Create_Caregiver}</button>
+                        
+                        <div class="row">
+                        <div class="col-sm-offset-0 col-md-offset-0 col-md-12" style="padding-bottom:5%;padding-top: 23.5%;padding-left:2.5%; padding-right: 3%">
+                            <button type="button" onclick="formhash(this.form, this.form.password)"  class="btn btn-lg btn-block button">{Create_Caregiver}</button>
+                        </div>
+                    </div>
+                    
+                      </div>
                     </div>
                     </form>
-                </div>
+                
             </div>
-        </div>
+
 
         <script> // confirm password 
             $('#password, #confirm_password').on('keyup', function () {

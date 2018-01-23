@@ -14,6 +14,7 @@ class AdminRegister extends CI_Controller {
         $this->form_validation->set_rules('username', 'Username', 'required');
         if ($this->form_validation->run() === FALSE) {
 			$this->load->view('pages_generalised/header');
+                        $this->load->view('pages_generalised/caregiver');
             $this->parser->parse('pages_admin/registerCaregiver', $data);
 			$this->load->view('pages_generalised/footer');
         } else {
