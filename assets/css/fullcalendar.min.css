@@ -1,0 +1,97 @@
+/*!
+ * FullCalendar v3.8.0
+ * Docs & License: https://fullcalendar.io/
+ * (c) 2017 Adam Shaw
+ */
+
+.fc button,.fc table,body .fc{font-size:1em}
+ .fc{direction:ltr;text-align:left}
+ .fc-rtl{text-align:right}
+ .fc th,.fc-basic-view td.fc-week-number,.fc-icon,.fc-toolbar{text-align:center}
+ .fc-highlight{background:#bce8f1;
+                opacity:.3}
+ .fc-bgevent{background:#8fdf82;
+            opacity:.3}
+ .fc-nonbusiness{background:#d7d7d7}
+ /*general button css */
+ .fc button{-moz-box-sizing:border-box;
+           -webkit-box-sizing:border-box;
+           box-sizing:border-box;
+           margin:0;
+           height:2.1em;
+           padding:0 .6em;
+           white-space:nowrap;
+           cursor:pointer}
+  /*active and hover states button css */
+  /*nadat de today button gedrukt is*/
+ .fc-state-active,.fc-state-disabled,.fc-state-down,.fc-state-hover{color:#333;
+                                                                    background-color:#e6e6e6}
+ .fc-state-hover{color:#333;
+                 text-decoration:none;
+                background-position:0 -15px;
+                -webkit-transition:background-position .1s linear;
+                -moz-transition:background-position .1s linear;
+                -o-transition:background-position .1s linear;
+                transition:background-position .1s linear}
+ /*active states*/
+ .fc-state-active,.fc-state-down{background-color:red;
+                                background-image:none;
+                                box-shadow:inset 0 2px 4px rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.05)}
+ .fc-state-disabled{cursor:default;
+                   background-image:none;
+                   opacity:.65;box-shadow:none}
+
+ /*splits the body and the head of the callender*/
+ .fc-clear{clear:both}
+
+/*border color body*/
+ .fc-unthemed .fc-content,.fc-unthemed .fc-list-view,.fc-unthemed tbody,.fc-unthemed td,.fc-unthemed th,.fc-unthemed thead{border-color:#ddd}
+
+ /*icon of the arrows*/
+ .fc-icon{height:1em;
+         line-height:1em;
+         font-size:1em;
+         font-family:"Courier New",Courier,monospace;
+         -webkit-user-select:none;
+         -moz-user-select:none;
+         -ms-user-select:none;
+         user-select:none}
+ .fc-icon-left-single-arrow:after{content:"\2039";
+       font-weight:700;
+       font-size:200%;
+       top:-7%}
+ .fc-icon-right-single-arrow:after{content:"\203A";
+       font-weight:700;
+       font-size:200%;
+       top:-7%}
+
+
+ /*the header settings*/
+ .fc-toolbar.fc-header-toolbar{margin-bottom:1em}
+ .fc-toolbar.fc-footer-toolbar{margin-top:1em}
+ .fc-toolbar .fc-left{float:left}
+ .fc-toolbar .fc-right{float:right}
+ .fc .fc-toolbar>*>*{float:left;margin-left:.75em}
+ .fc .fc-toolbar>*>:first-child{margin-left:0}
+ .fc-toolbar h2{margin:0}
+ .fc-toolbar .fc-state-hover,.fc-toolbar .ui-state-hover{z-index:2}
+ .fc-toolbar .fc-state-down{z-index:3}
+ fc-toolbar .fc-state-active,.fc-toolbar .ui-state-active{z-index:4}
+ .fc-toolbar button:focus{z-index:5}
+ 
+/*positions the body*/
+ .fc-view,.fc-view>table{position:relative;
+                        z-index:1}
+
+/*empty list options*/
+ .fc-list-empty-wrap2{position:absolute;
+                    top:0;left:0;
+                    right:0;
+                    bottom:0}
+ .fc-list-empty-wrap1{width:100%;
+                     height:100%;
+                     display:table}
+ .fc-list-empty{display:table-cell;
+               vertical-align:middle;
+               text-align:center}
+ .fc-unthemed .fc-list-empty{background-color:#eee}

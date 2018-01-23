@@ -1,49 +1,14 @@
 
-<?php
-/*
-if (login_check() == true) {
-    $logged = 'in';
-} else {
-    $logged = 'out';
-}*/
-?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>HCI</title>
-
-		<!-- Latest compiled and minified bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-
-		<!-- optional theme-->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-
 		<!--our css and less-->
-                <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/pj_login_resident.less" />
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
-                <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/pj_login_resident.less" />
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
+        
         <!--compile less files-->
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
 		<!--javascript includes-->
-		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
-		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/forms.js"></script>
 		<script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
-		<!--load a page-->
-		<script>
-			function loadPage(controller, page){
-				location.href = "<?php echo base_url();?>index.php/" + controller + "/" + page;
-			}
-		</script>
+		
 	</head>
 	<body>
 		<?php
@@ -99,28 +64,28 @@ if (login_check() == true) {
         
         <div class="row">
 		<div class="col-sm-2">
-                    <p >Nooit</p>
+                    <p >{Never}</p>
 		</div>
 		<div class="col-sm-2">
-                    <p>Zelden</p>
+                    <p>{Rarely}</p>
 		</div>
 		<div class="col-sm-2">
-                    <p>Soms</p>
+                    <p>{Sometimes}</p>
                 </div>
 		<div class="col-sm-2">
-                    <p>Meestal</p>
+                    <p>{Most_time}</p>
 		</div> 
 		<div class="col-sm-2">
-                    <p>Altijd</p>
+                    <p>{Always}</p>
 		</div>  
                 <div class="col-sm-2">
-                    <p>Ik weet </br>het niet</p>
+                    <p>{Ik_weet} </br>{het_niet}</p>
 		</div> 
         </div>
         
 	<div class="row">
             <div class="col-sm-offset-0 col-sm-3">
-                <a id = "previousBtn" type="button" class="btn btn-lg logout" onclick="javascript:previous()">Ga terug</a>          
+                <a id = "previousBtn" type="button" class="btn btn-lg logout" onclick="javascript:previous()">{Ga_terug}</a>          
             </div>     
 </div>
 

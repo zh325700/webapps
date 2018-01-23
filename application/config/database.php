@@ -75,10 +75,16 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'			=> '',
+	
 	'hostname'		=> 'studev.groept.be',
 	'username' 		=> 'a17_webapps02',
 	'password' 		=> 'wk9yzu0z',
 	'database' 		=> 'a17_webapps02',
+    /*'hostname'		=> 'localhost',
+	'username' 		=> 'root',
+	'password' 		=> 'root',
+	'database' 		=> 'hci',*/
+	
 	'dbdriver' 		=> 'mysqli',
 	'dbprefix' 		=> '',
 	'pconnect' 		=> FALSE,

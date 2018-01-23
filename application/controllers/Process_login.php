@@ -6,7 +6,6 @@ class Process_login extends CI_Controller{
         $user=$this->input->post('email');
         $password=$this->input->post('p');//The hashed password
         if(isset($user,$password)){
-            
             if($this->functions_model->login($user,$password,$language)==true){
                 //login succes
                 redirect('Welcome/Overview/newOverView','refresh'); 

@@ -1,12 +1,3 @@
-<?php
-/*
-if (login_check() == true) {
-    $logged = 'in';
-} else {
-    $logged = 'out';
-}*/
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,23 +12,17 @@ if (login_check() == true) {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
 		<!-- optional theme-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-
-		<!--our css and less-->
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Main.less" />
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Caregiver.less" />
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url();?>/assets/css/Resident.less" />
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  <!--autcompletion-->
-        
-        <!--compile less files-->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
 		<!--javascript includes-->
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
 		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/forms.js"></script>
+		
+		<!--autcompletion-->
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  
 		
 		<!--load a page-->
 		<script>
@@ -45,8 +30,3 @@ if (login_check() == true) {
 				location.href = "<?php echo base_url();?>index.php/" + controller + "/" + page;
 			}
 		</script>
-	</head>
-	<body>
-		<?php
-		defined('BASEPATH') OR exit('No direct script access allowed');
-		?>

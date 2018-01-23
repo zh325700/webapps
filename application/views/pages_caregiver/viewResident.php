@@ -23,13 +23,13 @@
 		<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
         <div class="col-sm-6"></div>
         <div class="col-sm-2">
-            <button class="btn btn-default btn-lg btn-block" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')"/>Edit</button>
+            <button class="btn btn-default btn-lg btn-block" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')"/>{EDIT}</button>
         </div>
         <div class="col-sm-2">
             
             <?php echo form_open('CaregiverOperateResident/delete/' . $residents['ID_Elder']); /* if we click it it goes to /post/delete/3 */ ?>    
 
-            <button class="btn btn-default btn-lg btn-block" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')"/>Delete</button>
+            <button class="btn btn-default btn-lg btn-block" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')"/>{DELETE}</button>
         </div>
 		<?php endif; ?>
 

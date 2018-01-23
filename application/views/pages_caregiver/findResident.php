@@ -2,10 +2,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 
     <div class="container-fluid">
-        <div class="row justify-content-md-center">
-            <h2 style="margin-left: 0vh; width: 100%; right: 0vh;" class=" text-center" style="width: 100%">
+        <div id ="blue" class="row ">
+            <div class="col-sm-offset-0" style="padding-left: 2.5%">
+            <h2 style="width: 100%">
                 {Find_Residents}
             </h2>
+            </div>
         </div>
         <style>
             label { display: table-cell; }
@@ -63,27 +65,28 @@
             });
         </script>
         <div class="row">
-            <div class="col-md-4">
+            <div id="forms" class="col-sm-offset-0 col-sm-4">
                 <form   action='' method='post'>
-                    <div class="form-group"><label >{LastName}: </label><input type='text' name='LastName' value='' class='autoLastName form-control'></div>
-                    <div class="form-group"><label >{FirstName}: </label><input type='text' name='FirstName' value='' class='autoFirstname form-control'></div>
-                    <div class="form-group"><label >{RoomNumber}: </label><input type='text' name='RoomNumber' value='' class='autoRoom form-control'></div>
+                    <div class="form-group"><label >{LastName}: </label><input id="formInput" type='text' name='LastName' value='' class='autoLastName form-control'></div>
+                    <div class="form-group"><label >{FirstName}: </label><input id="formInput" type='text' name='FirstName' value='' class='autoFirstname form-control'></div>
+                    <div class="form-group"><label >{RoomNumber}: </label><input id="formInput" type='text' name='RoomNumber' value='' class='autoRoom form-control'></div>
                     <div class="form-group"><label >{Facility}: </label>
-                        <select name="ID_facility" class="form-control">
+                        <select name="ID_facility" id="formInput" class="form-control">
                             <option value=""> - {Select_Facility} - </option>
                             <?php foreach ($facilities as $fac): ?>
                                 <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                             <?php endforeach; ?>
                         </select></div>
-                    <div class="form-group"><label class="fontsize">{Gender}: </label><input type='text' name='Sex' value='' class='autoSex form-control'></div>
+                    <div class="form-group"><label class="fontsize">{Gender}: </label><input id="formInput" type='text' name='Sex' value='' class='autoSex form-control'></div>
 
 
-                    <div class="form-group"><button class="btn  btn-lg btn-block form-control"
-                                                    type="submit" value="{FIND}" name="findres" style="height:120%; background-color:#61B749" />{FIND}</button>
+                    <div class="form-group"><button class="btn btn-lg btn-block form-control button"
+                                                    type="submit" value="{FIND}" name="findres" />{FIND}</button>
                     </div>
                 </form>
             </div>
-            <div class="col-md-8" style="overflow:scroll;height:700px;width: 66%;">
+            <div class="col-sm-8" style="overflow:scroll;height:490px;width: 66%; padding-top: 3%">
+
                 <!--Add general function here-->
                 <?php
                 $array = array();

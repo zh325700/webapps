@@ -3,6 +3,8 @@
 class AdminRegister extends CI_Controller {
 
     public function register_caregiver($error = null) {
+        $this->load->model('Language_model');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'addcar');
         if($error){
             $new = str_replace( '%20',' ', $error);
             echo "<script type='text/javascript'>alert(\"$new\");</script>";
@@ -11,7 +13,10 @@ class AdminRegister extends CI_Controller {
 
         $this->form_validation->set_rules('username', 'Username', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('pages_admin/registerCaregiver', $data);
+			$this->load->view('pages_generalised/header');
+                        $this->load->view('pages_generalised/caregiver');
+            $this->parser->parse('pages_admin/registerCaregiver', $data);
+			$this->load->view('pages_generalised/footer');
         } else {
             $email = $_POST["email"];
             $error_msg = "";

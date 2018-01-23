@@ -1,14 +1,7 @@
-<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
-
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link href="<?php echo base_url(); ?>assets/css/care_reg.css" rel="stylesheet" type="text/css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>            
+<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
         <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
 
         <div class="py-5 bg-primary text-white" >
@@ -17,7 +10,7 @@
                     <div class="col-sm-12">
                         <h1 class="text-dark">Add Activity</h1>
                         <?php echo validation_errors(); ?>
-                        <?php echo form_open_multipart('OperateActivity/addActivity'); ?> <!--form_open_multipart so we can add image-->
+                        <?php echo form_open_multipart('CaregiverOperateActivity/addActivity'); ?> <!--form_open_multipart so we can add image-->
                         <div class="form-group"> <label for="Title" class="text-dark">{Title}</label>
                             <input required="" type="text" name="Title" class="form-control" id="InputTitle" placeholder="{Add_Activity_Title}"
                                    value="<?php echo isset($_POST["Title"]) ? $_POST["Title"] : ''; ?>"> </div>

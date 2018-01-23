@@ -16,7 +16,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function view($ID_Elder = NULL) {
         $this->load->model('Language_model');
-        $data=$this->Language_model->getData($this->session->userdata('language'),'viewres');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'addfac');
         $data['residents'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
         $data['fac_name'] = $this->Residents_model->get_FacilityName_by_ElderID($ID_Elder);
         if (empty($data['residents'])) {
@@ -39,8 +39,8 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
-//            $this->load->view('pages_generalised/header');
-//            $this->load->view('pages_generalised/caregiver');
+            $this->load->view('pages_generalised/header');
+            $this->load->view('pages_generalised/caregiver');
             $this->parser->parse('pages_caregiver/createResident', $data);
             $this->load->view('pages_generalised/footer');
         } else {
@@ -85,10 +85,10 @@ class CaregiverOperateResident extends CI_Controller {
         if (empty($data['resident'])) {
             show_404();
         }
-//        $this->load->view('pages_generalised/header');
-//        $this->load->view('pages_generalised/caregiver');
+        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/caregiver');
         $this->parser->parse('pages_caregiver/editResident', $data);
-//        $this->load->view('pages_generalised/footer');
+        $this->load->view('pages_generalised/footer');
     }
 
     public function update() {
@@ -101,10 +101,10 @@ class CaregiverOperateResident extends CI_Controller {
         $this->form_validation->set_rules('FirstName', 'FirstName', 'required');
         $this->form_validation->set_rules('Sex', 'Sex', 'required');
         if ($this->form_validation->run() === FALSE) {
-//            $this->load->view('pages_generalised/header');
-//            $this->load->view('pages_generalised/caregiver');
-            $this->parser->parse('pages_caregiver/editResident', $data);
-//            $this->load->view('pages_generalised/footer');
+			$this->load->view('pages_generalised/header');
+                        $this->load->view('pages_generalised/caregiver');
+			$this->parser->parse('pages_caregiver/editResident', $data);
+			$this->load->view('pages_generalised/footer');
         } else {
             $config['upload_path'] = './image/photos/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
