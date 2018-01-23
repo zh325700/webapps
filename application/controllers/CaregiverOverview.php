@@ -138,12 +138,6 @@
          */
         public function getChartElder(){
             //load in the needed models and inuts
-           if($this->session->userdata('language')=='Dutch'){
-                $this->lang->load('Dutch_lang','dutch');
-            }
-            else{
-                $this->lang->load('english_lang','english');
-            }
             $this->load->model('Language_model');
             $data=$this->Language_model->getDataElderChart();
             $ID_elder=$this->input->get('ID_elder');
@@ -151,12 +145,12 @@
             //asks the data(the different topics and the info about the elderly) from the databasemodel
             $data['topics']=$this->Overview_Model->getTypes();
             $data['info']=$this->Overview_Model->getElderInfo($ID_elder);
-            $data['question']=$this->Overview_Model->getElderQuestionInfo($ID_elder);
-            $data['worsttopic']=$this->Overview_Model->getElderWorstTopicInfo($ID_elder);
-            $data['besttopic']=$this->Overview_Model->getElderBestTopicInfo($ID_elder);
+            $data['question']=$this->Overview_Model->getElderQuestionInfo($ID_elder,$this->session->userdata('language'));
+            $data['worsttopic']=$this->Overview_Model->getElderWorstTopicInfo($ID_elder,$this->session->userdata('language'));
+            $data['besttopic']=$this->Overview_Model->getElderBestTopicInfo($ID_elder,$this->session->userdata('language'));
             //asks the average scores and timestamps for each topic seperatly
             for($i=0;$i<sizeof($data['topics']);$i++){
-                $data['score'][$data['topics'][$i]->Type]=$this->Overview_Model->getScoreType($data['topics'][$i]->Type,$ID_elder);
+                $data['score'][$data['topics'][$i]->Type]=$this->Overview_Model->getScoreType($data['topics'][$i]->Type,$ID_elder,$this->session->userdata('language'));
             }
             $this->parser->parse('pages_caregiver/chartView', $data);
         }
@@ -179,7 +173,7 @@
             $topic=$this->input->get('topic');
             $this->load->model('Overview_Model');
            //asks the data(the different divisions and the info about the questions) from the databasemodel
-            $data['info']=$this->Overview_Model->getTopicInfo($topic);
+            $data['info']=$this->Overview_Model->getTopicInfo($topic,$this->session->userdata('language'));
             $this->parser->parse('pages_caregiver/chartViewQes', $data);
         }
         
@@ -188,7 +182,15 @@
          * output: the intro page
          */
         public function getIntro(){
-            $this->load->view('pages_caregiver/overviewIntro');
+            //loads in the models and the input
+            if($this->session->userdata('language')==='Dutch'){
+                $this->lang->load('Dutch_lang','dutch');
+            }
+            else{
+                $this->lang->load('english_lang','english');
+            }
+            $data['Alert_box']=$this->lang->line('Alert_box');
+            $this->parser->parse('pages_caregiver/overviewIntro',$data);
         }
         
         /*
@@ -254,7 +256,7 @@
             $ID_elder=$this->input->get('ID_elder');
             $this->load->model('Overview_Model');
             //ask and retrieve the data from the databasemodel
-            $results=$this->Overview_Model->getScoreType($type,$ID_elder);
+            $results=$this->Overview_Model->getScoreType($type,$ID_elder,$this->session->userdata('language'));
             $row['scores']=$results;
             echo(json_encode($row));
         }
@@ -306,9 +308,9 @@
             $datetime=new DateTime($timestamp);
             $date=$datetime->modify('-1 month');
             //asks the databasemodel to check for the different alert each depended on the datestamp
-            $data["division"]=$this->Overview_Model->getAlertDivision($date->format('Y-m-d H:i:s'));
-            $data["resident"]=$this->Overview_Model->getAlertResident($date->format('Y-m-d H:i:s'));
-            $data["question"]=$this->Overview_Model->getAlertQuestion($date->format('Y-m-d H:i:s'));
+            $data["division"]=$this->Overview_Model->getAlertDivision($date->format('Y-m-d H:i:s'),$this->session->userdata('language'));
+            $data["resident"]=$this->Overview_Model->getAlertResident($date->format('Y-m-d H:i:s'),$this->session->userdata('language'));
+            $data["question"]=$this->Overview_Model->getAlertQuestion($date->format('Y-m-d H:i:s'),$this->session->userdata('language'));
             $data["time"]=$this->Overview_Model->getAlertTime($date->format('Y-m-d H:i:s'));
             //returns the data as an encoded array
             echo(json_encode($data));
@@ -329,7 +331,7 @@
             $datetime=new DateTime($timestamp);
             $date=$datetime->modify('-1 month');
             //asks the databasemodel to check for the different alert each depended on the datestamp
-            $data["question"]=$this->Overview_Model->getAlertResidentElder($date->format('Y-m-d H:i:s'),$ID_elder);
+            $data["question"]=$this->Overview_Model->getAlertResidentElder($date->format('Y-m-d H:i:s'),$ID_elder,$this->session->userdata('language'));
             $data["time"]=$this->Overview_Model->getAlertTimeElder($date->format('Y-m-d H:i:s'),$ID_elder);
             //returns the data as an encoded array
             echo(json_encode($data));
@@ -347,7 +349,7 @@
             $topic=$this->input->get('topic');
             $this->load->model('Overview_Model');
             //ask the data from the model and return it as an ecoded array
-            $data=$this->Overview_Model->getTopicQuestions($topic);
+            $data=$this->Overview_Model->getTopicQuestions($topic,$this->session->userdata('language'));
             echo(json_encode($data));
         }
         

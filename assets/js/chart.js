@@ -422,6 +422,7 @@ function makedatasets(data,options){
         borderColor: options["color"][dataset],
         backgroundColor: options["color"][dataset],
         pointHighlightFill: "#fff",
+        hoverBackgroundColor: options["color"][dataset],
         hidden:options["visible"][dataset],
         fill: false,
         data: data[dataset]};
@@ -431,13 +432,13 @@ function makedatasets(data,options){
     //set an average dataset if selected in the options
     if(options["timeaverage"]!==0){
         var dataset={
-                type: "line",
-                label: "AVG",
-                borderColor: 'Black',
-                backgroundColor: 'BSlack',
-                pointHighlightFill: "#fff",
-                fill: false,
-                data: options["timeaverage"]
+            type: "line",
+            label: "AVG",
+            borderColor: 'Black',
+            backgroundColor: 'BSlack',
+            pointHighlightFill: "#fff",
+            fill: false,
+            data: options["timeaverage"]
             };
         datasets.push(dataset);
     }

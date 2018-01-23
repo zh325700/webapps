@@ -123,4 +123,5 @@ $lang['Ik_weet']="Ik weet";
 $lang['het_niet']="het niet";
 $lang['HOME']="Start";
 $lang['Copyright']="Auteursrechten: HCI/webapps project-team 2";
+$lang['Alert_box']="Waarschuwingen!";
 ?>

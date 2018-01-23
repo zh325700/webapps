@@ -122,6 +122,7 @@
     $lang['het_niet']="know it";
     $lang['Ga_terug']="Go back";
     $lang['HOME']="Home";
-    $lang['Copyright']="Copyright: HCI/webapps project-team 2"
+    $lang['Copyright']="Copyright: HCI/webapps project-team 2";
+    $lang['Alert_box']="Alert_box!";
 ?>
 

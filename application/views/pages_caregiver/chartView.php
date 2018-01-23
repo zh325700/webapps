@@ -71,7 +71,7 @@
 </div>
 <div class="row">
     <ul class="list-group" id="alertElderList">
-        <li class="list-group-item"> <span>{alert_box}</span></li>
+        <li class="list-group-item">{Alert_box} <span></span></li>
     </ul>
 </div>
 </div>

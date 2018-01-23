@@ -77,7 +77,7 @@
             $data['RoomNumber']=$this->lang->line('RoomNumber');
             $data['Worst_Topic']=$this->lang->line('Worst_Topic');
             $data['Best_Topic']=$this->lang->line('Best_Topic');
-            $data['alert_box']=$this->lang->line('alert_box');
+            $data['Alert_box']=$this->lang->line('Alert_box');
             return $data;
         }
         

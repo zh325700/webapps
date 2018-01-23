@@ -9,7 +9,7 @@
     </div>
     <div class="col-sm-6">
         <ul class="list-group" id="alertList">
-            <li class="list-group-item"> <span class="badge"></span></li>
+            <li class="list-group-item"> {Alert_box} <span class="badge"></span></li>
         </ul>
     </div>
 </div>
