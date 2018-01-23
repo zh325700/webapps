@@ -14,7 +14,7 @@ class ResidentLogin extends CI_Controller {
         $data['residents'] = $this->Residents_model->get_residents_by_sex($sex);
         $this->load->view('pages_generalised/header');
         $this->parser->parse('pages_resident/login_resident.php', $data);
-        $this->load->view('pages_generalised/footer');
+        $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
     
     public function loadBySex(){
@@ -35,6 +35,6 @@ class ResidentLogin extends CI_Controller {
         $data['resident'] = $this->Residents_model->get_residents($id);
         $this->load->view('pages_generalised/header.php');
         $this->parser->parse('pages_resident/login_verification.php', $data);
-        $this->load->view('pages_generalised/footer');
+        $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
 }

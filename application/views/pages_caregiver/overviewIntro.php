@@ -4,12 +4,12 @@
             <canvas style="width:60px; height:70px;" id="WeeklyTopicScore"></canvas>
         </div>
         <div class="row">
-            <div style="height:100px;" id='calendar'></div>
+            <div id='calendar'></div>
         </div>
     </div>
     <div class="col-sm-6">
         <ul class="list-group" id="alertList">
-            <li class="list-group-item"> <span class="badge"></span></li>
+            <li class="list-group-item"> {Alert_box} <span class="badge"></span></li>
         </ul>
     </div>
 </div>

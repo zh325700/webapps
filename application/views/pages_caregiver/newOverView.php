@@ -15,7 +15,7 @@
           <img class="top-right2" src="<?php echo base_url(); ?>/image/pictograms/logout.png" value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
           </div>
           <div>
-                <a id = "link" type="button" class="btn btn-lg top-right" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">LOG OUT</a>              
+                <a id = "link" type="button" class="btn btn-lg top-right" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>              
           </div>
     <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
         <div class="container-fluid">
@@ -350,7 +350,6 @@
         };
         xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getChartTopic?topic="+topic,false);
         xmlhttp.send();
-        console.log(topic);
         //call the function to draw the chart
         drawQuestionScores(topic);
         drawCharttopic(topic);
@@ -364,14 +363,16 @@
      * @returns {undefined}
      */
     function drawQuestionScores(topic){
+        console.log(topic);
         xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
             if(xmlhttp.readyState === XMLHttpRequest.DONE){
                 input= xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getTopicQuestions?Topic="+topic,false);
+        xmlhttp.open("GET","<?php echo base_url();?>index.php/CaregiverOverview/getTopicQuestions?topic="+topic,false);
         xmlhttp.send();
+        console.log("test: "+input);
         //make from the input string an array again
         var data=jQuery.parseJSON(input);
         //get the parents object in the html
