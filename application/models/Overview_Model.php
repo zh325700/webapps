@@ -220,8 +220,13 @@
             return $data;
         }
         
-        public function getTypes(){
-            $this->db->select('DISTINCT(Type_en) Type');
+        public function getTypes($language){
+            if($language==='Dutch'){
+                $this->db->select('DISTINCT(Type_nl) Type');
+            }
+            else{
+                $this->db->select('DISTINCT(Type_en) Type');
+            }
             $this->db->from('Questions');
             $query=$this->db->get();
             $data=$query->result();

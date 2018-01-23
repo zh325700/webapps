@@ -1,29 +1,52 @@
 <?php
+    //login
     $lang['username/email']='Username/email';
     $lang['password']='Password';
     $lang['login']='Login';
+    //overview-sidebar
     $lang['general']='General overview';
-    $lang['Find_Resident']='Find Resident';
-    $lang['Add_Resident']='Add Resident';
+    $lang['divisions']="Division";
+    $lang['Division_Timestamp']="Division timestamp";
     $lang['Login_Resident']='Login Resident';
-    $lang['Add_Facility']='Add Facility';
-    $lang['Find_Facility']='Find Facility';
+    $lang['Find_Resident']='Find Resident';
+    $lang['Find_Facility']='Overview Facility';
+    $lang['Add_Resident']='Add Resident';
+    $lang['Add_Facility']='Add facility';
     $lang['Add_Caregiver']='Add Caregiver';
-    $lang['Select_Facility']='Select Facility';
+    //overview-intropage
+    $lang['Alert_box']="Alert box!";
+    //overview-division
+    $lang['title_divisions1']=" residents results overview ";
+    $lang['title_divisions2']=" Ruestion results overview";
+    $lang['RoomNumber']="Roomnumber";
+    $lang['Name']="Name";
+    $lang['Score']="Score";
+    $lang['Question']="Vraag";
+    //overview-timestamp
+    $lang['title_time']="Division timestamp overview resident";
     $lang['Score_Time']='Latest fill-in time';
+    //overview-elderchart
+    $lang['Back']="Back";
+    $lang['Resident_statistic']="Resident statistics of ";
+    $lang['Number_filled']="Number of times Filled-In";
+    $lang['Average_Score']="Average Score";
+    $lang['Worst_Topic']="Worst Topic";
+    $lang['Best_Topic']="Best Topic";
+    
+    $lang['Select_Facility']='Select Facility';
+   
     $lang['FIND']="Find";
     $lang['Add_New_Resident']='Add New Resident';
     $lang['FirstName']="FirstName";
     $lang['LastName']="LastName";
     $lang['Gender']="Geslacht";
-    $lang['Question']="Vraag";
-    $lang['Number_filled']="Number of times Filled-In";
-    $lang['Average_Score']="Average Score";
+
+
     $lang['Member_Since']="Member Since";
     $lang['Add_FirstName']="Add FirstName";
     $lang['Add_LastName']="Add LastName";
     $lang['Birthday']="Birthday";
-    $lang['RoomNumber']="Roomnumber";
+
     $lang['Add_Roomnumber']="Add Roomnumber";
     $lang['Facility']="Facility";
     $lang['Upload_Image']="Upload Image";
@@ -36,8 +59,7 @@
     $lang['Number']="Number";
     $lang['Read_More']="Read more...";
     $lang['Add_New_Facility']="Voeg nieuwe faciliteit toe";
-    $lang['Name']="Name";
-    $lang['Score']="Score";
+    
     $lang['Facility_Name']="Facility Name";
     $lang['Add_Name']="Add Name";
     $lang['Add_City']="Add City";
@@ -85,13 +107,11 @@
     $lang['Confirm']="Confirm";
     $lang['title_general1']="General overview results residents";
     $lang['title_general2']="General overview results questions";
-    $lang['title_divisions1']=" residents results overview ";
-    $lang['title_divisions2']=" Ruestion results overview";
-    $lang['divisions']="Division";
-    $lang['title_time']="Division timestamp overview resident";
-    $lang['Division_Timestamp']="Division timestamp";
-    $lang['Worst_Topic']="Worst Topic";
-    $lang['Best_Topic']="Best Topic";
+
+    
+
+    
+
     $lang['alert_box']='Alert box with special remarks of the resident';
     $lang['Topic']='Topic';
     $lang['DELETE']="Delete";
@@ -123,6 +143,6 @@
     $lang['Ga_terug']="Go back";
     $lang['HOME']="Home";
     $lang['Copyright']="Copyright: HCI/webapps project-team 2";
-    $lang['Alert_box']="Alert_box!";
+
 ?>
 

@@ -16,8 +16,8 @@
             $this->load->helper('form');
             if($elder!=-1){$language=$this->getLanguage($elder)[0]->language;}
             //loads the right language file according to the selected language
-            if($language==='English'){$this->lang->load('english_lang','English');}
-            elseif($language==='Dutch'){$this->lang->load('Dutch_lang','dutch');}
+            if($language==='Dutch'){$this->lang->load('Dutch_lang','Dutch');}
+            else{$this->lang->load('english_lang','english');}
             //calls the right method according to the selected page
             if($page==='login'){$data=$this->getDataLogin();}
             elseif($page==='newOverView'){$data=$this->getDataOverview();}
@@ -36,6 +36,7 @@
             elseif($page==='addcar'){$data=$this->getDataAddCare();}
             elseif($page==='loginres'){$data=$this->getDataLoginres();}
             elseif($page==='loginverres'){$data=$this->getDataLoginverres();}
+            elseif($page=='elderchart'){$data=$this->getDataElderChart();}
             $data['header']=$this->getDataHeader();
             $data['footer']=$this->getDataFooter();
             return $data;
@@ -78,6 +79,8 @@
             $data['Worst_Topic']=$this->lang->line('Worst_Topic');
             $data['Best_Topic']=$this->lang->line('Best_Topic');
             $data['Alert_box']=$this->lang->line('Alert_box');
+            $data['Back']=$this->lang->line('Back');
+            $data['Resident_statistic']=$this->lang->line('Resident_statistic');
             return $data;
         }
         

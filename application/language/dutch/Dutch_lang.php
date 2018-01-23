@@ -1,30 +1,53 @@
 <?php
+//login
 $lang['username/email']='Gebruikersnaam/e-mail';
 $lang['password']='Wachtwoord';
 $lang['login']='Login';
+//overview-sidebar
 $lang['general']='Algemeen overzicht';
-$lang['Find_Resident']='Zoek bewoner';
-$lang['Add_Resident']='Voeg bewoner toe';
+$lang['divisions']="Afdeling";
+$lang['Division_Timestamp']="Afdeling invuldatums";
 $lang['Login_Resident']='Inlogpagina bewoner';
+$lang['Find_Resident']='Zoek bewoner';
+$lang['Find_Facility']='Overzicht residentie';
+$lang['Add_Resident']='Voeg bewoner toe';
 $lang['Add_Facility']='Voeg residentie toe';
-$lang['Find_Facility']='Zoek residentie';
 $lang['Add_Caregiver']='Voeg verzorger toe';
-$lang['Select_Facility']='Selecteer een resedentie';
+//overview-intropage
+$lang['Alert_box']="Mededelingen";
+//overview-division
+$lang['title_division']=" Bewoners resultaten overzicht";
+$lang['title_division2']=" Vragenlijst resultaten overzicht";
+$lang['RoomNumber']="Kamernummer";
+$lang['Name']="Naam";
+$lang['Score']="Score";
+$lang['Question']="Vraag";
+//overview-timestamp
+$lang['title_time']=" Overzicht laatste invultijden bewoners";
 $lang['Score_Time']='Laatst ingevulde datum';
+//overview-elderchart
+$lang['Back']="Terug";
+$lang['Resident_statistic']="Bewoners statistieken van ";
+$lang['Number_filled']="Aantal keren ingevuld";
+$lang['Average_Score']="Gemiddelde score";
+$lang['Worst_Topic']="Slechtste categorie";
+$lang['Best_Topic']="Beste categorie";
+
+$lang['Select_Facility']='Selecteer een resedentie';
+
 $lang['FIND']="Zoek";
 $lang['Add_New_Resident']='Voeg nieuwe bewoner toe';
 $lang['FirstName']='Voornaam';
 $lang['LastName']="Familienaam";
 $lang['Gender']="Geslacht";
-$lang['Question']="Vraag";
-$lang['Number_filled']="Aantal keren ingevuld";
-$lang['Average_Score']="Gemiddelde score";
+
+
 $lang['Member_Since']="Lid sinds";
 $lang['Add_FirstName']="Voeg voornaam toe";
 $lang['Add_LastName']="Voeg familienaam toe";
 $lang['Birthday']="GeboorteDatum";
-$lang['RoomNumber']="Kamernummer";
-$lang['Add_Roomnumber']="Voeg kammernummer toe";
+
+$lang['Add_Roomnumber']="Voeg kamernummer toe";
 $lang['Facility']="residentie";
 $lang['Upload_Image']="Voeg Afbeelding toe";
 $lang['Edit_Residents']='Pas bewoonersinformatie aan';
@@ -36,8 +59,7 @@ $lang['Street']="Straat";
 $lang['Number']="Nummer";
 $lang['Read_More']="Lees meer...";
 $lang['Add_New_Facility']="Voeg nieuwe residentie toe";
-$lang['Name']="Naam";
-$lang['Score']="Score";
+
 $lang['Facility_Name']="residenties naam";
 $lang['Add_Name']="Voeg naam toe";
 $lang['Add_City']="Voeg stad toe";
@@ -86,13 +108,11 @@ $lang['Text_Message']="Goededag";
 $lang['Confirm']="Bevestig";
 $lang['title_general1']="Algemeen resultaten overzicht bewoners";
 $lang['title_general2']="Algemeen resultaten overzicht vragenlijst";
-$lang['title_division']=" Bewoners resultaten overzicht";
-$lang['title_division2']=" Vragenlijst resultaten overzicht";
-$lang['divisions']="Afdeling";
-$lang['title_time']=" Overzicht laatste invultijden bewoners";
-$lang['Division_Timestamp']="Afdeling invuldatums";
-$lang['Worst Topic']="Slechtste categorie";
-$lang['Best_Topic']="Beste categorie";
+
+
+
+
+
 $lang['alert_box']='Opmerkingen van of over deze bewoner';
 $lang['Topic']='Categorie';
 $lang['DELETE']='Verwijder';
@@ -123,5 +143,5 @@ $lang['Ik_weet']="Ik weet";
 $lang['het_niet']="het niet";
 $lang['HOME']="Start";
 $lang['Copyright']="Auteursrechten: HCI/webapps project-team 2";
-$lang['Alert_box']="Waarschuwingen!";
+
 ?>

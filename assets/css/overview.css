@@ -1,7 +1,7 @@
 
-    .header{
-        position: relative;
-    }
+.header{
+    position: relative;
+}
 img.top-right2 {
     position: absolute;
     top: 2%;
@@ -137,11 +137,19 @@ img.top-right2 {
 }
 
 button.badge{
-    color: #EDEEF4;
-    background-color: #404C86;
-    display: block;
-    text-decoration: none;
-    border-radius:5px;
+    background-color: #EDEEF4;
+    color: #404C86;
+    text-align: center;
+    border-radius: 10px;
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    word-wrap: break-word;
+    font-size:15px;
+    padding-right: 5px;
+}
+
+button.badge:hover{
+    color:white;
 }
 
 button.tab{
@@ -164,6 +172,11 @@ button.tab{
     background-color: #8EA1C7;
     display: block;
     text-decoration: none;
+}
+
+.panel-collapse{
+    overflow-y: scroll; 
+    height: 595px;
 }
 
 .panel .panel-heading:hover,
@@ -193,4 +206,11 @@ input.logout{
     color: #324868;
     opacity: 0.8;
     margin-top: 19%;
+}
+
+.list-group-item{
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    word-wrap: break-word;
+    font-size:15px;
 }
