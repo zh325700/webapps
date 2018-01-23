@@ -2,20 +2,22 @@
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
 
-    <div class="container-fluid flex">
+    <div class="container-fluid">
+        <div id="blue" class="row">
+            <div class="col-sm-offset-0" style="padding-left:2.5%">
+                <h2>
+                    {Activity information}
+                </h2>
+            </div>
+        </div> 
         <div class="row">
-            <div class=" col-sm-4">
-            </div>
-            <div class=" col-sm-4" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
-                <p style="padding-top: 20px; font-size: 30px; font-family: italic" >{Title}:&emsp;&ensp;<br> <?php echo $activity['Title']; ?></p>
-                <p style="padding-top: 20px; font-size: 30px; font-family: italic" >{Time}:&emsp;&ensp;<br> <?php echo $activity['Time']; ?></p>
-                <p style="padding-top: 20px; font-size: 30px; font-family: italic" >{Number_Of_Participants}:&emsp;&ensp;<br> <?php echo $count; ?></p>
-                <p readonly rows="4" cols="50" style="padding-top: 20px; font-size: 30px; font-family: italic" >
-                        {Description}<br>
-                        <?php echo $activity['Description']; ?>
-                </p>
-            </div>
-            <div class=" col-sm-4">
+            <div class=" col-sm-offset-0 col-sm-5" id="forms" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
+                <label >{Title}:</label> <br> <label class="lab" style="padding-left: 5%"><?php echo $activity['Title']; ?></label><br>
+                <label >{Time}:</label> <br> <label class="lab" style="padding-left: 5%"><?php echo $activity['Time']; ?></label><br>
+                <label >{Number_Of_Participants}:</label> <br> <label class="lab" style="padding-left: 5%"><?php echo $count; ?></label><br>
+                <label readonly rows="4" cols="50" >
+                        {Description}</label> <br> 
+                <label class="lab col-sm-offset-0" style="padding-left: 5%"><?php echo $activity['Description']; ?></label>
             </div>
         </div>
         <div class="row">
@@ -23,11 +25,11 @@
                 <div class="col-sm-6"></div>
                 <div class="col-sm-2">
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-offset-6 col-sm-6" style="padding-bottom:3%; padding-right:2.5%; padding-top:2%">
 
                     <?php echo form_open('CaregiverOperateActivity/deleteActivity/' . $activity['ID_Activity']); /* if we click it it goes to /post/delete/3 */ ?>    
 
-                    <button class="btn btn-default btn-lg btn-block" value="DELETE" onclick="loadPage('CaregiverOperateActivity', 'deleteActivity/<?php echo $activity['ID_Activity']; ?>')"/>{DELETE}</button>
+                    <button id="delete" class="btn btn-lg btn-block button" value="DELETE" onclick="loadPage('CaregiverOperateActivity', 'deleteActivity/<?php echo $activity['ID_Activity']; ?>')"/>{DELETE}</button>
                 </div>
             <?php endif; ?>
 
