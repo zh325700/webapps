@@ -16,8 +16,8 @@
             $this->load->helper('form');
             if($elder!=-1){$language=$this->getLanguage($elder)[0]->language;}
             //loads the right language file according to the selected language
-            if($language==='English'){$this->lang->load('english_lang','English');}
-            elseif($language==='Dutch'){$this->lang->load('Dutch_lang','dutch');}
+            if($language==='Dutch'){$this->lang->load('Dutch_lang','Dutch');}
+            else{$this->lang->load('english_lang','english');}
             //calls the right method according to the selected page
             if($page==='login'){$data=$this->getDataLogin();}
             elseif($page==='newOverView'){$data=$this->getDataOverview();}
@@ -36,6 +36,11 @@
             elseif($page==='addcar'){$data=$this->getDataAddCare();}
             elseif($page==='loginres'){$data=$this->getDataLoginres();}
             elseif($page==='loginverres'){$data=$this->getDataLoginverres();}
+            elseif($page=='elderchart'){$data=$this->getDataElderChart();}
+            elseif($page=='topicchart'){$data=$this->getDataTopicChart();}
+            elseif($page==='editfac'){$data=$this->getDataEditFac();}
+            elseif($page==='addact'){$data=$this->getDataAddAct();}
+            elseif($page==='wieawect'){$data=$this->getDataViewAct();}
             $data['header']=$this->getDataHeader();
             $data['footer']=$this->getDataFooter();
             return $data;
@@ -52,6 +57,34 @@
         }
        
         /*
+         * Output: the right values to the keys for the overview activities screen
+         */
+        public function getDataViewAct() {
+            $data['Activity_information']=$this->lang->line('Activity_information');
+            $data['Title']=$this->lang->line('Title');
+            $data['Time']=$this->lang->line('Time');
+            $data['Number_Of_Participants']=$this->lang->line('Number_Of_Participants');
+            $data['Description']=$this->lang->line('Description');
+            $data['EDIT']=$this->lang->line('EDIT');
+            return $data;
+        }
+        
+        /*
+         * Output: the right values to the keys for the add activities screen
+         */
+        public function getDataAddAct() {
+            $data['Add_Activity']=$this->lang->line('Add_Activity');
+            $data['Title']=$this->lang->line('Title');
+            $data['Time']=$this->lang->line('Time');
+            $data['Number_Of_Participants']=$this->lang->line('Number_Of_Participants');
+            $data['Description']=$this->lang->line('Description');
+            $data['Add_Time']=$this->lang->line('Add_Time');
+            $data['Add_Activity_Title']=$this->lang->line('Add_Activity_Title');
+            $data['Add_Activity_description']=$this->lang->line('Add_Activity_description');
+            return $data;
+        }
+        
+        /*
          * Output: the right values to the keys for the Data overview screen
          */
         public function getDataOverview(){
@@ -63,6 +96,7 @@
             $data['Find_Facility']=$this->lang->line('Find_Facility');
             $data['Add_Caregiver']=$this->lang->line('Add_Caregiver');
             $data['Division_Timestamp']=$this->lang->line('Division_Timestamp');
+            $data['Add_Activity']=$this->lang->line('Add_Activity');
             $data['Log_out']=$this->lang->line('Log_out');
             return $data;
         }
@@ -78,6 +112,8 @@
             $data['Worst_Topic']=$this->lang->line('Worst_Topic');
             $data['Best_Topic']=$this->lang->line('Best_Topic');
             $data['Alert_box']=$this->lang->line('Alert_box');
+            $data['Back']=$this->lang->line('Back');
+            $data['Resident_statistic']=$this->lang->line('Resident_statistic');
             return $data;
         }
         
@@ -90,6 +126,8 @@
             $data['Average_Score']=$this->lang->line('Average_Score');
             $data['Question']=$this->lang->line('Question');
             $data['Topic']=$this->lang->line('Topic');
+            $data['Back']=$this->lang->line('Back');
+            $data['Question_statistic']=$this->lang->line('Question_statistic');
             return $data;
         }
         
@@ -123,10 +161,29 @@
           $data['Add_LastName']=$this->lang->line('Add_LastName');
           $data['Select_Facility']=$this->lang->line('Select_Facility');
           $data['Add_Roomnumber']=$this->lang->line('Add_Roomnumber');
-          $data['Upload_Image']=$this->lang->line('Upload_Image');  
+          $data['Upload_Image']=$this->lang->line('Upload_Image');
+          $data['Day/Month/Year']=$this->lang->line('Day/Month/Year');
           return $data;
         }
         
+        public function getDataEditFac(){
+            $data['Facility_Name']=$this->lang->line('Facility_Name');
+            $data['Name']=$this->lang->line('Name');
+            $data['City']=$this->lang->line('City');
+            $data['Postcode']=$this->lang->line('Postcode');
+            $data['Street']=$this->lang->line('Street');
+            $data['Number']=$this->lang->line('Number');
+            $data['Edit_Facility']=$this->lang->line('Edit_Facility');
+            $data['Add_Name']=$this->lang->line('Add_Name');
+            $data['Add_City']=$this->lang->line('Add_City');
+            $data['Add_Postcode']=$this->lang->line('Add_Postcode');
+            $data['Add_Street']=$this->lang->line('Add_Street');
+            $data['Add_Number']=$this->lang->line('Add_number');
+            $data['Add_Facility']=$this->lang->line('Add_Facility'); 
+            $data['EDIT']=$this->lang->line('EDIT');
+        }
+
+
         /*
          * Output: the right values to the keys for the view residents screen
          */
@@ -140,6 +197,8 @@
             $data['MemberSince']=$this->lang->line('Member_Since');
             $data['EDIT']=$this->lang->line('EDIT');
             $data['DELETE']=$this->lang->line('DELETE');
+            $data['MemberSince']=$this->lang->line('Member_Since');
+            $data['Information_resident']=$this->lang->line('Information_resident');
             return $data;
         }
                 
@@ -147,7 +206,6 @@
          * Output: the right values to the keys for the edit residents screen
          */
         public function getDataEditRes(){
-            $data['Add_Resident']=$this->lang->line('Add_Resident');
             $data['FirstName']=$this->lang->line('FirstName');
             $data['LastName']=$this->lang->line('LastName');
             $data['Gender']=$this->lang->line('Gender');
@@ -160,7 +218,8 @@
             $data['Add_Roomnumber']=$this->lang->line('Add_Roomnumber');
             $data['Upload_Image']=$this->lang->line('Upload_Image'); 
             $data['Edit_Residents']=$this->lang->line('Edit_Residents');
-            $data['Edit_Resident']=$this->lang->line('Edit_Residents');
+            $data['Day/Month/Year']=$this->lang->line('Day/Month/Year');
+            $data['EDIT']=$this->lang->line('EDIT');
             return $data;
         }
         
@@ -172,7 +231,9 @@
             $data['Postcode']=$this->lang->line('Postcode');
             $data['Street']=$this->lang->line('Street');
             $data['Number']=$this->lang->line('Number');
-            $data['Read_More']=$this->lang->line('Read_More');
+            $data['Overview_Facility']=$this->lang->line('Overview_Facility');
+            $data['EDIT']=$this->lang->line('EDIT');
+            $data['DELETE']=$this->lang->line('DELETE');
             return $data;
         }
         
@@ -191,7 +252,7 @@
            $data['Add_City']=$this->lang->line('Add_City');
            $data['Add_Postcode']=$this->lang->line('Add_Postcode');
            $data['Add_Street']=$this->lang->line('Add_Street');
-           $data['Add_number']=$this->lang->line('Add_number');
+           $data['Add_Number']=$this->lang->line('Add_number');
            $data['Add_Facility']=$this->lang->line('Add_Facility'); 
            $data['EDIT']=$this->lang->line('EDIT');
            $data['DELETE']=$this->lang->line('DELETE');
@@ -221,6 +282,7 @@
             $data['responsiveness']=$this->lang->line('responsiveness');
             $data['Safety']=$this->lang->line('Safety'); 
             $data['Security']=$this->lang->line('Security');
+            $data['Log_out']=$this->lang->line('Log_out');
             return $data;
         }
         
@@ -317,7 +379,8 @@
             $data['ik_niet']=$this->lang->line('ik_niet');
             $data['Dit_ben']=$this->lang->line('Dit_ben');
             $data['Birthday']=$this->lang->line('Birthday');
-            $data['delete']=$this->lang->line('delete');
+            $data['Delete']=$this->lang->line('delete');
+            $data['Clear']=$this->lang->line('Clear');
             return $data;
         }
         
@@ -328,10 +391,12 @@
             $data['Facility']=$this->lang->line('Facility');
             $data['Select_Facility']=$this->lang->line('Select_Facility');
             $data['Register_Caregiver']=$this->lang->line('Register_Caregiver');
-            $data['Welcome']=$this->lang->line('Welcome');
+            $data['Add_Username']=$this->lang->line('Add_Username');
+            $data['Username']=$this->lang->line('Username');
+            $data['Add_password']=$this->lang->line('Add_password');
             $data['Username']=$this->lang->line('Username');
             $data['Email_address']=$this->lang->line('Email_address');
-            $data['Enter_email']=$this->lang->line('Enter_email');
+            $data['Add_Email']=$this->lang->line('Add_Email');
             $data['password']=$this->lang->line('password');
             $data['Confirm_Password']=$this->lang->line('Confirm_Password');
             $data['Type_Password_again']=$this->lang->line('Type_Password_again');

@@ -5,7 +5,7 @@
     <div id="blue" class="row">
         <div class="col-sm-offset-0" style="padding-left:2.5%">
             <h2>
-                Edit Facility
+                {Edit_Facility}
             </h2>
         </div>
     </div>
@@ -19,19 +19,19 @@
             <label>{Facility_Name}</label> 
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input type="text" class="form-control" name="Name" placeholder="Add Name" value="<?php echo $facility['Name']; ?>" required>
+            <input type="text" class="form-control" name="Name" placeholder="{Add_Name}" value="<?php echo $facility['Name']; ?>" required>
         </div>
         <div class="row" style="padding-left:2.5%">
             <label>{City}</label> 
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input type="text" class="form-control" name="City" placeholder="Add City" value="<?php echo $facility['City']; ?>" required>
+            <input type="text" class="form-control" name="City" placeholder="{Add_City}" value="<?php echo $facility['City']; ?>" required>
         </div>
         <div class="row" style="padding-left:2.5%">
             <label>{Postcode}</label>  
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input type="text" class="form-control" name="Postcode" placeholder="Add Postcode" value="<?php echo $facility['Postcode']; ?>" required>        </div>
+            <input type="text" class="form-control" name="Postcode" placeholder="{Add_Postcode}" value="<?php echo $facility['Postcode']; ?>" required>        </div>
     </div>
     
     <div class="col-sm-offset-2 col-sm-5" style="padding-right:2.5%">
@@ -40,16 +40,16 @@
             <label>{Street}</label> 
         </div>
         <div class="row">
-            <input type="text" class="form-control" name="Street" placeholder="Add Street" value="<?php echo $facility['Street']; ?>" required>
+            <input type="text" class="form-control" name="Street" placeholder="{Add_Street}" value="<?php echo $facility['Street']; ?>" required>
         </div>
         <div class="row">
             <label>{Number}</label> 
         </div>
         <div class="row">
-            <input type="text" class="form-control" name="Number" placeholder="Add number" value="<?php echo $facility['Number']; ?>" required>
+            <input type="text" class="form-control" name="Number" placeholder="{Add_Number}" value="<?php echo $facility['Number']; ?>" required>
         </div>
         <div class="row insert-row" style="padding-bottom:30%">
-           <button class="btn btn-lg btn-block button"  onclick="loadPage('CaregiverFacility', 'update/<?php echo $facility['ID_facility']; ?>')">Edit</button>
+           <button class="btn btn-lg btn-block button"  onclick="loadPage('CaregiverFacility', 'update/<?php echo $facility['ID_facility']; ?>')">{Edit}</button>
         </div>
     </div>      
 </div>    

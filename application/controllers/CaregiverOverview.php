@@ -139,11 +139,11 @@
         public function getChartElder(){
             //load in the needed models and inuts
             $this->load->model('Language_model');
-            $data=$this->Language_model->getDataElderChart();
+            $data=$this->Language_model->getData($this->session->userdata('language'),'elderchart');
             $ID_elder=$this->input->get('ID_elder');
             $this->load->model('Overview_Model');
             //asks the data(the different topics and the info about the elderly) from the databasemodel
-            $data['topics']=$this->Overview_Model->getTypes();
+            $data['topics']=$this->Overview_Model->getTypes($this->session->userdata('language'));
             $data['info']=$this->Overview_Model->getElderInfo($ID_elder);
             $data['question']=$this->Overview_Model->getElderQuestionInfo($ID_elder,$this->session->userdata('language'));
             $data['worsttopic']=$this->Overview_Model->getElderWorstTopicInfo($ID_elder,$this->session->userdata('language'));
@@ -162,14 +162,8 @@
          */
         public function getChartTopic(){
             //loads in the models and the input
-            if($this->session->userdata('language')==='Dutch'){
-                $this->lang->load('Dutch_lang','dutch');
-            }
-            else{
-                $this->lang->load('english_lang','english');
-            }
             $this->load->model('Language_model');
-            $data=$this->Language_model->getDataTopicChart();
+            $data=$this->Language_model->getData($this->session->userdata('language'),'topicchart');
             $topic=$this->input->get('topic');
             $this->load->model('Overview_Model');
            //asks the data(the different divisions and the info about the questions) from the databasemodel
@@ -208,7 +202,7 @@
         public function getTypes(){
             //Load in the databasemodel
             $this->load->model('Overview_Model');
-            $results=$this->Overview_Model->getTypes();
+            $results=$this->Overview_Model->getTypes($this->session->userdata('language'));
             echo(json_encode($results));
         }
         

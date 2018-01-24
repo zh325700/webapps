@@ -31,7 +31,7 @@
                                                 <option value="English">Engels</option>
                                             </select>
                                         </div>
-					<button class="btn-outline-primary btn-lg btn-block login-button"  onclick="formhash(this.form, this.form.password);" > LOGIN </button>
+					<button class="btn-outline-primary btn-lg btn-block login-button"  onclick="formhash(this.form, this.form.password);" > Login </button>
 				</form>
 			</div>	
 		</div> 
