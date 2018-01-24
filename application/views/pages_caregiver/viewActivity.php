@@ -12,6 +12,7 @@
                 <p style="padding-top: 20px; font-size: 30px; font-family: italic" >{Number_Of_Participants}:&emsp;&ensp;<br> <?php echo $count; ?></p>
                 <p readonly rows="4" cols="50" style="padding-top: 20px; font-size: 30px; font-family: italic" >
                         {Description}<br>
+                        <?php echo sizeof($num_of_activity)?>
                         <?php echo $activity['Description']; ?>
                 </p>
             </div>
