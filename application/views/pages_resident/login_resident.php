@@ -1,30 +1,12 @@
-        <!--our css and less-->
-        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url(); ?>/assets/css/pj_login_resident.less" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
-
-        <!--compile less files-->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
-
-        <!--javascript includes-->
-        <script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
-    </head>
-    <body>
-        <?php
-        defined('BASEPATH') OR exit('No direct script access allowed');
-        ?>
-
-
-        <div class="container-fluid" style="height: 6%; width:100.3%">
-            <div class="row">
-                <div class="col-md-offset-1 col-sm-offset-1" style="padding-left: 17px">
-                    <h1 style="margin-top:0.75%">
-                        {Login_resident}
-                    </h1>
-                </div>
-            </div>
+ <div class="container-fluid">
+    <div id="blue" class="row">
+        <div class="col-sm-offset-0" style="padding-left: 3.5%">
+            <h1>
+                {Login_resident}
+            </h1>
         </div>
+    </div>      
 
-        <div class="container">
             <!--                    <div class="row">
                                     <div class="col-sm-4">
                                         <h1>
@@ -45,31 +27,31 @@
                                     </div>
                                 </div>-->
             <div class="row" data-step="1" data-intro="Choose your gender" data-position='top'>
-                <div class="col-sm-4" style="margin-top: 2%; padding-left: 0">
+                <div class="col-sm-4" style="margin-top: 1%; padding-left: 3.5%">
                     <h1>
                         {Ik_ben_een} :
                     </h1>
                 </div>
 
-                <div class="col-md-4 col-sm-4" style="padding-left: 0" >
+                <div class="col-md-4 col-sm-4" style="padding-left: 2.5%" >
                     <button class="btn style btn-block" id="female_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/ResidentLogin/loadBySex?sex=F'">
                         {Vrouw}
                     </button>
                 </div>
-                <div class="col-md-4 col-sm-4" style="padding-right: 0">
+                <div class="col-md-4 col-sm-4" style="padding-right: 2.5%">
                     <button class="btn style btn-block" id="male_btn" onclick="location.href = '<?php echo base_url(); ?>index.php/ResidentLogin/loadBySex?sex=M'">
                         {Man}
                     </button>
                 </div>
             </div> 
             <div class="row">
-                <div class="col-sm-12" style="padding-left: 0">
+                <div class="col-sm-12" style="padding-left: 3.5%">
                     <h1>
                         {Selecteer_foto}:
                     </h1>
                 </div>
             </div>
-            <div class="row" data-step="2" data-intro="Choose your picture" data-position='top'>
+            <div class="row" data-step="2" data-intro="Choose your picture" data-position='top' style="padding-left:3.5%; padding-right:2.5%">
                 <div id="overviewResidents" class="col-md-12 border-style " style="overflow-y: scroll; height: 50%;">
                     <?php
                     foreach ($residents as $res) {

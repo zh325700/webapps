@@ -23,85 +23,96 @@ body{
     font-style: normal;
 }
 
+/*** HEADER ***/
 
-
-#homebutton{
-    position: fixed;
-    margin-top: 60px;
-    margin-right: 10px;
+/* Home icon */
+img.topIcon {
+    opacity: 0.7;
+    top:3.5%;
+    width:4.5%;
+    border-radius: 10px;
+    transition:0s 1s;
 }
 
-#info{
-    position: fixed;
+.topIcon:active{
+    background-color: @primary;
+    opacity: 0.7;
+    transition:0s 0s;
 }
 
+#home{
+    left:2.5%;
+    position: absolute;
+    opacity: 0.8;
+    width:4%;
+}
 
-#logo{
-    position: fixed;
-    color:white;
-    margin-top: 60px;
-    margin-right: 10px;
-    h2{
-        font-size: 40px;
-        color:white;
+.top {
+    width: 8%;
+    color: white;
+    opacity: 0.7;
+    font-size:14px;
+    transition:0s 1s;
+    top:9%;
+    position: absolute;
+}
+.top:active{
+    color: @primary;
+    transition:0s 0s;
+}
+
+#homeLink{
+    left:3%;
+} 
+
+/* Info icon */
+img.top-right {
+    position: absolute;
+    top: 3.5%;
+    right:2.5%;
+    width: 5%;
+    opacity: 0.75;
+    border-radius: 10px;
+}
+    
+/* Grace Age logo */    
+.par1{
+    position:absolute;
+    top:1%;
+    /*laptop-> top: 4%*/
+    font-size: 40px;
+    color: white;
+    /*laptop-> left: 1.5%*/
+    transition:0s 1;
+}
+
+.par1:active{
+    color: primary;
+    transition:0s 0s;
+}
+
+/** PAGES Login resident, Login verification **/
+    
+/* Blue bar with title */    
+#blue{
+    background-color: @primary;
+    h1{
+        color: white;
+        font-size: 25px;
+        margin-top:0.75%;
     }
 }
 
 .container-fluid{
-    
-    background-color: @primary-color-dark;
-    
-    h1{
-        color: white;
-        font-size: 25px;
-         
-    }   
-    img.align{
-        width: 40px;
-        float: left;
-        opacity: 0.8;
-        margin-top: 20px;
-        margin-right:10px;
-    }
-    .header{
-        position: relative;
-    }
-    
-}
-.par1{
-        position:absolute;
-        top: 8px;
-        font-size: 40px;
-        color: white;
-    }
-img.top-right2 {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    width: 60px;
-    opacity: 0.7;
-    border-radius: 10px;
-}
-
-img.top-right {
-    position: absolute;
-    top: 30px;
-    right: 110px;
-    width: 60px;
-    opacity: 0.75;
-    border-radius: 10px;
-}
-
-.container{
    
-    padding-left: 0;
     h1{
-        color: @primary;
         font-size: 25px;
     }
     h1.par2{
             margin-top: 10%;
     }
+    
+    /* */
     button{
         color: white;
         border-radius: 10px;
@@ -191,4 +202,10 @@ img.top-right {
     }
 }
 
-
+/** FOOTER **/
+.footer{
+        
+        font-size:15px;
+        color: @primary;
+        opacity: 0.8;
+}
