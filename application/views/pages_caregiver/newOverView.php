@@ -209,7 +209,49 @@
                     //sends the new data to the server and update the page
                     xmlhttp.send();
                 }
-
+                
+                function drawCallendar(){
+                    xmlhttp = new XMLHttpRequest();
+                    //starts the function when the page is ready
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState === XMLHttpRequest.DONE) {
+                            //select the element that has to change
+                            input = xmlhttp.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity/", false);
+                    //sends the new data to the server and update the page
+                    xmlhttp.send();
+                    data = jQuery.parseJSON(input);
+                    for(value in data){
+                        var parent=document.getElementById("callendarList");
+                        var child=document.createElement("li");
+                        var span=document.createElement("span");
+                        var button=document.createElement("button");
+                        var row=document.createElement("div");
+                        row.setAttribute('class','row');
+                        var column1=document.createElement("div");
+                        column1.setAttribute('class','col-sm-4');
+                        var column2=document.createElement("div");
+                        column2.setAttribute('class','col-sm-8');
+                        button.setAttribute('id',text);
+                        button.appendChild(document.createTextNode("details"));
+                        button.setAttribute('class','badge');
+                        button.addEventListener("click",function(){load('CaregiverOperateActivity/viewActivity/'+data[value]['ID_Activity'])});
+                        child.setAttribute('id',parent.value);
+                        child.setAttribute('class',"list-group-item");
+                        span.appendChild(document.createTextNode(data[value]['text']));
+                        column2.appendChild(span);
+                        row.appendChild(column2);
+                        column1.appendChild(button);
+                        row.appendChild(column1);
+                        child.appendChild(row);
+                        parent.appendChild(child);
+                        
+                    }
+                }
+                
+                
                 /*
                  * Function: calls the server to ask for data and then calls a function to make the alerts
                  * 

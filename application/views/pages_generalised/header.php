@@ -17,8 +17,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 		<!--javascript includes-->
-		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
-		<script type="text/JavaScript" src="<?php echo base_url();?>/assets/js/forms.js"></script>
+		<script src="<?php echo base_url();?>/assets/js/sha512.js"></script> 
+		<script src="<?php echo base_url();?>/assets/js/forms.js"></script>
 		
 		<!--autcompletion-->
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />  
