@@ -30,7 +30,7 @@
                     <nav id="spy">
                         <ul class="sidebar-nav nav">
                             <li>
-                                <a href="#anch2" id="btn_general">
+                                <a href="#" id="btn_general">
                                     <span class="fa fa-home solo">{general}</span>
                                 </a>
                             </li>
@@ -129,7 +129,7 @@
         <script src='<?php echo base_url() ?>/assets/js/chart.js'></script>
         <script type="text/javascript">
                 //makes the eventlisteners for the two buttons
-                document.getElementById("btn_general").addEventListener("click", init);
+                document.getElementById("btn_general").addEventListener("click", intro);
                 language = "Dutch";
                 //change the styling of this body
                 document.body.style.display = 'inline';
@@ -209,6 +209,38 @@
                     //sends the new data to the server and update the page
                     xmlhttp.send();
                 }
+                
+                function intro(){
+                    xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () { //checks if the server is ready
+                        if (xmlhttp.readyState === XMLHttpRequest.DONE) {
+                            //responsetext is the output send by the server and is placed in the provided placeholder
+                            document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    //prepare the xmlhttp request, here it's calling a controller function for the statics
+                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOverview/getIntro", false);
+                    //Sends the request to the server and then waits for a response
+                    xmlhttp.send();
+                    //call the function to draw the chart
+                    drawIntroChart();
+                    //call the function to make the alerts
+                    drawIntroAlert();
+                    //build the callender
+                    $(document).ready(function () {
+                        $('#calendar').fullCalendar({
+                            defaultView: 'listWeek',
+                            defaultDate: '2017-12-12',
+                            navLinks: true, // can click day/week names to navigate views
+                            editable: true,
+                            eventLimit: true, // allow "more" link when too many events
+                            events: [
+
+                            ]
+                        });
+                    });
+                }
+                
                 
                 function drawCallendar(){
                     xmlhttp = new XMLHttpRequest();
