@@ -4,15 +4,14 @@ class CaregiverOperateActivity extends CI_Controller {
 
     public function addActivity() {
         $this->load->model('Language_model');
-        $data = $this->Language_model->getData($this->session->userdata('language'), 'addres');
-        $data = $this->Language_model->getData('Dutch', 'addres');
+        $data = $this->Language_model->getData($this->session->userdata('language'), 'addact');
         $data['title'] = 'Create Activity';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
         $this->form_validation->set_rules('Title', 'Title', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');
             $this->parser->parse('pages_caregiver/createActivity', $data);
-            $this->load->view('pages_generalised/footer');
+            $this->parser->parse('pages_generalised/footer',$data['footer']);
         } else {
             $this->Activity_Model->create_activity();
             $uri = base_url() . "index.php/Welcome/Overview/newOverView";
@@ -23,7 +22,7 @@ class CaregiverOperateActivity extends CI_Controller {
     public function viewActivity($ID_Activity = 2) {  // by default I make it 2 just to test
         $this->load->model('Language_model');
         $this->load->model('Activity_Model');
-        $data = $this->Language_model->getData($this->session->userdata('language'), 'addfac');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'viewact');
         $data['activity'] = $this->Activity_Model->get_Activity($ID_Activity); // use post_model to get the data in the database
         $data['count'] = $this->Activity_Model->get_numOfParticipants($ID_Activity);
         if (empty($data['activity'])) {

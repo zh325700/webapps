@@ -1,52 +1,125 @@
 <?php
+//login
 $lang['username/email']='Gebruikersnaam/e-mail';
 $lang['password']='Wachtwoord';
 $lang['login']='Login';
+//overview-sidebar
 $lang['general']='Algemeen overzicht';
-$lang['Find_Resident']='Zoek bewoner';
-$lang['Add_Resident']='Voeg bewoner toe';
+$lang['divisions']="Afdeling";
+$lang['Division_Timestamp']="Afdeling invuldatums";
 $lang['Login_Resident']='Inlogpagina bewoner';
-$lang['Add_Facility']='Voeg residentie toe';
-$lang['Find_Facility']='Zoek residentie';
-$lang['Add_Caregiver']='Voeg verzorger toe';
-$lang['Select_Facility']='Selecteer een resedentie';
+$lang['Find_Resident']='Zoek bewoner';
+$lang['Find_Facility']='Overzicht residentie';
+$lang['Add_Resident']='Bewoner toevoegen';
+$lang['Add_Facility']='Resedentie toevoegen';
+$lang['Add_Caregiver']='Verzorger toevoegen';
+$lang['Show_Activity']='Overzicht activiteiten';
+//overview-intropage
+$lang['Alert_box']="Mededelingen";
+//overview-division
+$lang['title_division']=" Bewoners resultaten overzicht";
+$lang['title_division2']=" Vragenlijst resultaten overzicht";
+$lang['RoomNumber']="Kamernummer";
+$lang['Name']="Naam";
+$lang['Score']="Score";
+$lang['Question']="Vraag";
+//overview-timestamp
+$lang['title_time']=" Overzicht laatste invultijden bewoners";
 $lang['Score_Time']='Laatst ingevulde datum';
+//overview-elderchart
+$lang['Back']="Terug";
+$lang['Resident_statistic']="Bewoners statistieken van ";
+$lang['Number_filled']="Aantal keren ingevuld";
+$lang['Average_Score']="Gemiddelde score";
+$lang['Worst_Topic']="Slechtste categorie";
+$lang['Best_Topic']="Beste categorie";
+//overview-topicchart
+$lang['Question_statistic']="Categorie statistieken van ";
+//find resident
 $lang['FIND']="Zoek";
-$lang['Add_New_Resident']='Voeg nieuwe bewoner toe';
 $lang['FirstName']='Voornaam';
 $lang['LastName']="Familienaam";
 $lang['Gender']="Geslacht";
-$lang['Question']="Vraag";
-$lang['Number_filled']="Aantal keren ingevuld";
-$lang['Average_Score']="Gemiddelde score";
-$lang['Member_Since']="Lid sinds";
-$lang['Add_FirstName']="Voeg voornaam toe";
-$lang['Add_LastName']="Voeg familienaam toe";
-$lang['Birthday']="GeboorteDatum";
-$lang['RoomNumber']="Kamernummer";
-$lang['Add_Roomnumber']="Voeg kammernummer toe";
-$lang['Facility']="residentie";
-$lang['Upload_Image']="Voeg Afbeelding toe";
-$lang['Edit_Residents']='Pas bewoonersinformatie aan';
-$lang['Overview_facility']="Overzicht van de residentie";
-$lang['Save']="Opslaan";
-$lang['City']="Stad:";
-$lang['Postcode']="Postcode:";
-$lang['Street']="Straat";
-$lang['Number']="Nummer";
-$lang['Read_More']="Lees meer...";
-$lang['Add_New_Facility']="Voeg nieuwe residentie toe";
-$lang['Name']="Naam";
-$lang['Score']="Score";
-$lang['Facility_Name']="residenties naam";
-$lang['Add_Name']="Voeg naam toe";
-$lang['Add_City']="Voeg stad toe";
-$lang['Add_Postcode']="Voeg postcode toe";
-$lang['Add_Street']="Voeg straat toe";
-$lang['Add_number']="Voeg nummer toe";
+$lang['Facility']="Residentie";
+$lang['Select_Facility']='Selecteer een residentie';
+//view resident
+$lang['Information_resident']="Informatie bewoner";
+$lang['Birthday']="Geboortedatum";
 $lang['Member_Since']="Bewoner sinds";
 $lang['EDIT']="Aanpassen";
-$lang['DELETE']="Delete";
+$lang['DELETE']="Verwijder";
+//edit resident
+$lang['Edit_Residents']='Bewonersinformatie aanpassen';
+$lang['Upload_Image']="Afbeelding toevoegen";
+//view facility
+$lang['Overview_Facility']="Overzicht residentie";
+$lang['City']="Stad";
+$lang['Postcode']="Postcode";
+$lang['Street']="Straat";
+$lang['Number']="Huisummer";
+//add resident
+$lang['Add_FirstName']="Voornaam toevoegen";
+$lang['Add_LastName']="Familienaam toevoegen";
+$lang['Add_Roomnumber']="Kamernummer toevoegen";
+$lang['Day/Month/Year']="Dag/Maand/Jaar";
+//add facility
+$lang['Facility_Name']="Naam";
+$lang['Add_Name']="Naam toevoegen";
+$lang['Add_City']="Stad toevoegen";
+$lang['Add_Postcode']="Postcode toevoegen";
+$lang['Add_Street']="Straat toevoegen";
+$lang['Add_number']="Huisnummer toevoegen";
+//add caregiver
+$lang['Register_Caregiver']="Verzorger toevoegen";
+$lang['Username']='Gebruikersnaam';
+$lang['Add_Username']="Gebruikersnaam toevoegen";
+$lang['Email_address']='E-mail adress';
+$lang['Add_Email']="E-mail toevoegen";
+$lang['Add_password']="Wachtwoord toevoegen";
+$lang['Confirm_Password']="Bevestig wachtwoord";
+$lang['Type_Password_again']="Wachtwoord herinvoeren";
+$lang['Permission_level']="Bevoegdheid level";
+$lang['Select_Adminlevel']="Selecteer een bevoegdheid";
+$lang['Create_Caregiver']="Verzorger toevoegen";
+$lang['internship']="Stagair/interim";
+$lang['Caregiver']="Verzorger";
+$lang['Boss']="Baas";
+//login residents
+$lang['Login_resident']="Inlogpagina bewoners";
+$lang['Ik_ben_een']="Ik ben een";
+$lang['Vrouw']="Vrouw";
+$lang['Man']="Man";
+$lang['Selecteer_foto']="Selecteer uw foto";
+//login verification
+$lang['Login_verificatie']="Login bevestiging";
+$lang['Gelieve_geboortedag_vullen']="Gelieve uw geboortedatum in te vullen";
+$lang['Dit_ben']="Dit ben";
+$lang['ik_niet']="ik niet";
+$lang['delete']="Verwijder";
+$lang['Clear']="Leegmaken";
+//add facility
+$lang['Edit_Facility']="Residentie aanpassen";
+//view activities
+$lang['Activity_information']="Overzicht activiteiten";
+$lang['Title']="Naam";
+$lang['Time']="Tijd";
+$lang['Number_Of_Participants']="Aantal deelnemers";
+$lang['Description']="Beschrijving";
+//add activity
+$lang['Add_Activity']="Activiteit toevoegen";
+$lang['Add_Time']="Tijd toevoegen";
+$lang['Add_Activity_Title']="Naam toevoegen";
+$lang['Add_Activity_description']="Beschrijving toevoegen";
+
+$lang['Overview_facility']="Overzicht van de residentie";
+$lang['Save']="Opslaan";
+
+$lang['Read_More']="Lees meer...";
+$lang['Add_New_Facility']="Voeg nieuwe residentie toe";
+
+
+$lang['Member_Since']="Bewoner sinds";
+
 $lang['Please_category']="Kies een categorie";
 $lang['Privacy']="Privacy";
 $lang['Food']="Eten";
@@ -86,42 +159,23 @@ $lang['Text_Message']="Goededag";
 $lang['Confirm']="Bevestig";
 $lang['title_general1']="Algemeen resultaten overzicht bewoners";
 $lang['title_general2']="Algemeen resultaten overzicht vragenlijst";
-$lang['title_division']=" Bewoners resultaten overzicht";
-$lang['title_division2']=" Vragenlijst resultaten overzicht";
-$lang['divisions']="Afdeling";
-$lang['title_time']=" Overzicht laatste invultijden bewoners";
-$lang['Division_Timestamp']="Afdeling invuldatums";
-$lang['Worst Topic']="Slechtste categorie";
-$lang['Best_Topic']="Beste categorie";
+
+
+
+
+
 $lang['alert_box']='Opmerkingen van of over deze bewoner';
 $lang['Topic']='Categorie';
-$lang['DELETE']='Verwijder';
-$lang['EDIT']='Pas aan';
-$lang['Register_Caregiver']="Registreer verzorger";
+
 $lang['Welcome']="Welkom";
-$lang['Username']='Gebruikersnaam';
-$lang['Email_address']='E-mail';
-$lang['Enter_email']="Typ email in";
-$lang['Confirm_Password']="Bevestig Wachtwoord";
-$lang['Type_Password_again']="Typ het Wachtwoord terug";
-$lang['Permission_level']="Bevoegdheidslevel";
-$lang['Select_Adminlevel']="Selecteer een admin level";
-$lang['Create_Caregiver']="Creeër verzorger";
-$lang['internship']="Stagair/interim";
-$lang['Caregiver']="Verzorger";
-$lang['Boss']="Baas";
-$lang['Ik_ben_een']="Ik ben een";
-$lang['Vrouw']="Vrouw";
-$lang['Man']="Man";
-$lang['Selecteer_foto']="Selecteer uw foto";
-$lang['Login_verificatie']="Login verification";
-$lang['Gelieve_geboortedag_vullen']="Gelieve uw geboortedatum in te vullen";
-$lang['Dit_ben']="Dit ben";
-$lang['ik_niet']="ik niet";
-$lang['delete']="Verwjder";
+
+
+
+
+
 $lang['Ik_weet']="Ik weet";
 $lang['het_niet']="het niet";
 $lang['HOME']="Start";
 $lang['Copyright']="Auteursrechten: HCI/webapps project-team 2";
-$lang['Alert_box']="Waarschuwingen!";
+
 ?>

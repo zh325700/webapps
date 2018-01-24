@@ -211,6 +211,7 @@
             }
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('Questions.Type_en',$type);
+            $this->db->or_where('Questions.Type_nl',$type);
             $this->db->where('Answers.ID_elder',$ID_elder);
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->group_by('Answers.DateStamp');
@@ -220,8 +221,13 @@
             return $data;
         }
         
-        public function getTypes(){
-            $this->db->select('DISTINCT(Type_en) Type');
+        public function getTypes($language){
+            if($language==='Dutch'){
+                $this->db->select('DISTINCT(Type_nl) Type');
+            }
+            else{
+                $this->db->select('DISTINCT(Type_en) Type');
+            }
             $this->db->from('Questions');
             $query=$this->db->get();
             $data=$query->result();

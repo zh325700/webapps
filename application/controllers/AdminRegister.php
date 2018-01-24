@@ -9,8 +9,8 @@ class AdminRegister extends CI_Controller {
             $new = str_replace( '%20',' ', $error);
             echo "<script type='text/javascript'>alert(\"$new\");</script>";
         }
-        $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
-
+        $data['facilities'] = $this->Residents_model->get_facilities();   // get the names of facility
+        
         $this->form_validation->set_rules('username', 'Username', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');

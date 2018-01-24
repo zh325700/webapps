@@ -431,9 +431,15 @@ function makedatasets(data,options){
     }
     //set an average dataset if selected in the options
     if(options["timeaverage"]!==0){
+        if(language==="Dutch"){
+            var titleavg="Gem"
+        }
+        else{
+            var titleavg="Avg"
+        }
         var dataset={
             type: "line",
-            label: "AVG",
+            label: titleavg,
             borderColor: 'Black',
             backgroundColor: 'BSlack',
             pointHighlightFill: "#fff",
@@ -507,7 +513,7 @@ function drawChart(elder,test){
             // adjust the size of chart 
             maintainAspectRatio:false,
             legend: {
-                position: 'top'
+                position: 'right'
             },
             title: {
                 display: true,

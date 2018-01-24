@@ -4,6 +4,28 @@
  * (c) 2017 Adam Shaw
  */
 
+
+ /*the header settings*/
+ .fc-toolbar.fc-header-toolbar{margin-bottom:1em}
+ .fc-toolbar.fc-footer-toolbar{margin-top:1em}
+ .fc-toolbar .fc-left{float:left}
+ .fc-toolbar .fc-right{float:right}
+ .fc .fc-toolbar>*>*{float:left;
+                    padding-left:20px;
+                    font-family: myriad-pro-condensed, sans-serif;
+                    font-style: normal;
+                    word-wrap: break-word;
+                    }
+ .fc .fc-toolbar>*>:first-child{margin-left:5}
+ .fc-toolbar h2{margin:0;
+                font-size:20px;}
+ .fc-toolbar .fc-state-hover,.fc-toolbar .ui-state-hover{z-index:2}
+ .fc-toolbar .fc-state-down{z-index:3}
+ fc-toolbar .fc-state-active,.fc-toolbar .ui-state-active{z-index:4}
+ .fc-toolbar button:focus{z-index:5}
+
+
+
 .fc button,.fc table,body .fc{font-size:1em}
  .fc{direction:ltr;
     text-align:left}
@@ -16,23 +38,25 @@
  .fc-nonbusiness{background:#d7d7d7}
  /*general button css */
  .fc button{-moz-box-sizing:border-box;
-           -webkit-box-sizing:border-box;
-           box-sizing:border-box;
-           margin:0;
-           height:2.1em;
-           padding:0 .6em;
-           white-space:nowrap;
-           color: #EDEEF4;
-            background-color: #404C86;
-            text-decoration: none;
-            border-radius:5px;
-           cursor:pointer}
+            -webkit-box-sizing:border-box;
+            box-sizing:border-box;
+            margin:0;
+            height:2.1em;
+            padding:0 .6em;
+            background-color: #EDEEF4;
+            color: #404C86;
+            text-align: center;
+            border-radius: 10px;
+            font-family: myriad-pro-condensed, sans-serif;
+            font-style: normal;
+            word-wrap: break-word;
+            font-size:15px;}
   /*active and hover states button css */
   /*nadat de today button gedrukt is*/
  .fc-state-active,.fc-state-disabled,.fc-state-down,.fc-state-hover{color:#333;
                                                                     background-color:#e6e6e6}
  .fc-state-hover{
-                 color: #222;
+                color: #222;
                 background-color: #61B749;
                 text-decoration: none;
                 cursor: pointer;
@@ -74,32 +98,26 @@
        top:-7%}
 
 
- /*the header settings*/
- .fc-toolbar.fc-header-toolbar{margin-bottom:1em}
- .fc-toolbar.fc-footer-toolbar{margin-top:1em}
- .fc-toolbar .fc-left{float:left}
- .fc-toolbar .fc-right{float:right}
- .fc .fc-toolbar>*>*{float:left;margin-left:.75em}
- .fc .fc-toolbar>*>:first-child{margin-left:0}
- .fc-toolbar h2{margin:0}
- .fc-toolbar .fc-state-hover,.fc-toolbar .ui-state-hover{z-index:2}
- .fc-toolbar .fc-state-down{z-index:3}
- fc-toolbar .fc-state-active,.fc-toolbar .ui-state-active{z-index:4}
- .fc-toolbar button:focus{z-index:5}
+
  
 /*positions the body*/
  .fc-view,.fc-view>table{position:relative;
-                        z-index:1}
+                        z-index:1;}
 
 /*empty list options*/
- .fc-list-empty-wrap2{position:absolute;
+ .fc-list-empty-wrap2{position:relative;
                     top:0;left:0;
                     right:0;
-                    bottom:0}
+                    bottom:0;
+                    padding-left:20px;}
  .fc-list-empty-wrap1{width:100%;
                      height:100%;
                      display:table}
  .fc-list-empty{display:table-cell;
-               vertical-align:middle;
-               text-align:center}
- .fc-unthemed .fc-list-empty{background-color:#eee}
+                vertical-align:middle;
+                text-align:center;
+                width:60px;
+                height:70px;
+                }
+ .fc-unthemed .fc-list-empty{background-color:#EDEEF4;}
+ 
