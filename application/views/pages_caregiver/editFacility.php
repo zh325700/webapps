@@ -49,8 +49,9 @@
             <input type="text" class="form-control" name="Number" placeholder="Add number" value="<?php echo $facility['Number']; ?>" required>
         </div>
         <div class="row insert-row" style="padding-bottom:30%">
-           <button class="btn btn-lg btn-block button"  onclick="loadPage('CaregiverFacility', 'update/<?php echo $facility['ID_facility']; ?>')">Edit</button>
+           <button class="btn btn-lg btn-block button" type="submit" >Edit</button>
         </div>
+        </form>
     </div>      
 </div>    
 
