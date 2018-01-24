@@ -116,10 +116,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/loginverification.js"></script>
 
     <script type="text/javascript">
-                           setDate("<?php echo $date ?>", $resident['ID_Elder'], 
-                           $resident['ID_facility'], $resident['FirstName'], 
-                           $resident['LastName'], $resident['division'], 
-                           $resident['Picture']);
+                           setDate("<?php echo $date ?>");
     </script>
 
 </body>
