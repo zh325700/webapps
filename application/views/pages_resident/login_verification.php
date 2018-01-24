@@ -12,6 +12,11 @@
 
     <?php
     $date = $resident['Birthday'];
+    $idelder = $resident['ID_Elder'];
+    $idfacility = $resident['ID_facility'];
+    $firstname = $resident['FirstName'];
+    $lastname = $resident['LastName'];
+    $division = $resident['Division'];
     $pic = $resident['Picture'];
     ?>
     <div class="container-fluid" style="height: 6%; width:100.3%">
@@ -116,7 +121,9 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/loginverification.js"></script>
 
     <script type="text/javascript">
-                           setDate("<?php echo $date ?>");
+                    setDate("<?=$date ?>", "<?=$idelder ?>", "<?=$idfacility ?>", 
+                    "<?=$firstname ?>", "<?=$lastname ?>", "<?=$division ?>", 
+                    "<?=$pic ?>");
     </script>
 
 </body>

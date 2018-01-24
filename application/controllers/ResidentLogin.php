@@ -37,4 +37,18 @@ class ResidentLogin extends CI_Controller {
         $this->parser->parse('pages_resident/login_verification.php', $data);
         $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
+    
+    public function startSession(){
+        $userdata = json_decode($_GET['userData']);
+        $userDataArray = array(
+            "ID_Elder" => $userdata->ID_Elder,
+            "ID_Facility" => $userdata->ID_facility,
+            "Firstname" => $userdata->Firstname,
+            "Lastname" => $userdata->Lastname,
+            "Division" => $userdata->Division,
+            "Picture" => $userdata->Picture
+        );
+        $this->session->set_userdata($userDataArray);
+        redirect('Welcome/Resident/menu');
+    }
 }

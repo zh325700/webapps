@@ -15,10 +15,10 @@
 
         <div class="row">
                 <div class="col-sm-1">
-                    <img src="<?php echo base_url(); ?>/image/photos/<?= $this->session->userdata('picture')?>" alt="" class="align-left"/>
+                    <img src="<?php echo base_url(); ?>/image/photos/<?= $this->session->userdata('Picture')?>" alt="" class="align-left"/>
                 </div>
                 <div class="col-sm-5">
-                    <h2 class="par2">{Welcome}, <?= $this->session->userdata('firstname')?></h2>
+                    <h2 class="par2">{Welcome}, <?= $this->session->userdata('Firstname')?></h2>
                 </div>
         </div>
 
