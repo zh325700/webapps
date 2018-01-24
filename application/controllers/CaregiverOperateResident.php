@@ -16,7 +16,7 @@ class CaregiverOperateResident extends CI_Controller {
 
     public function view($ID_Elder = NULL) {
         $this->load->model('Language_model');
-        $data=$this->Language_model->getData($this->session->userdata('language'),'addfac');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'viewres');
         $data['residents'] = $this->Residents_model->get_residents($ID_Elder); // use post_model to get the data in the database
         $data['fac_name'] = $this->Residents_model->get_FacilityName_by_ElderID($ID_Elder);
         if (empty($data['residents'])) {
@@ -32,7 +32,6 @@ class CaregiverOperateResident extends CI_Controller {
     public function create() {
         $this->load->model('Language_model');
         $data=$this->Language_model->getData($this->session->userdata('language'),'addres');
-        $data = $this->Language_model->getData('Dutch', 'addres');
         $data['title'] = 'Create Residents';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
         $this->form_validation->set_rules('LastName', 'LastName', 'required');

@@ -4,7 +4,7 @@
                 <div id="blue" class="row">
                     <div class="col-sm-offset-0" style="padding-left:2.5%">
                     <h2>
-                        <?= $title ?>
+                        {Add_Resident}
                     </h2>
                     </div>
                 </div> 
@@ -41,7 +41,7 @@
                         
                         <div class="form-group"> <label for="Birthday" class="text-dark">{Birthday}</label>
                             <input required="" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday"
-                                   placeholder="Day/Month/Year" value="<?php echo isset($_POST["Birthday"]) ? $_POST["Birthday"] : ''; ?>">
+                                   placeholder="{Day/Month/Year}" value="<?php echo isset($_POST["Birthday"]) ? $_POST["Birthday"] : ''; ?>">
                         </div>
 
                         <div class="form-group"> <label for="RoomNumber" class="text-dark">{RoomNumber}</label>
@@ -51,7 +51,7 @@
 
 
                     </div>
-                    <div id="forms" class="col-sm-6">
+                    <div id="forms" class="col-sm-6" style="padding-right:2.5%">
                       <div class="form-group" > <label for="ID_Facility" class="text-dark">{Facility}</label>
                             <select required="" name="ID_Facility" class="form-control">
                                 <option disabled selected value> -- {Select_Facility} -- </option>

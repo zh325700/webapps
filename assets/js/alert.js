@@ -14,9 +14,9 @@ function makeAlert(data){
             var row=document.createElement("div");
             row.setAttribute('class','row');
             var column1=document.createElement("div");
-            column1.setAttribute('class','col-sm-3');
+            column1.setAttribute('class','col-sm-4');
             var column2=document.createElement("div");
-            column2.setAttribute('class','col-sm-9');
+            column2.setAttribute('class','col-sm-8');
             button.setAttribute('id',text);
             button.appendChild(document.createTextNode("delete"));
             button.setAttribute('class','badge');

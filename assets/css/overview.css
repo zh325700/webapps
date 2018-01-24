@@ -1,42 +1,69 @@
 
-    .header{
-        position: relative;
-    }
-img.top-right2 {
-    position: absolute;
-    top: 2%;
-    /* laptop-> right: 6%;*/
-    right: 4%;
-    width: 4.5%;
-    opacity: 0.7;
-    border-radius: 10px;
+.header{
+    position: relative;
 }
 
-.top-right {
+img.topIcon {
+    opacity: 0.7;
+    top:3.5%;
+    width:4.5%;
+    border-radius: 10px;
+    transition:0s 1s;
+}
+
+#log{
     position: absolute;
-    top: 9%;
-    right: 4.5%;
+}
+
+#home{
+   
+    left:2.5%;
+    position: absolute;
+    opacity: 0.8;
+    width: 4%;
+}
+
+.top {
     width: 8%;
     color: white;
     opacity: 0.7;
+    font-size:14px;
+    transition:0s 1s;
+    top:9%;
+   
+    position: absolute;
 }
-.top-right:active{
+
+
+.top:active{
         color: #404C86;
+        transition:0s 0s;
     }
     
-.top-right2:active{
+    #logLink{
+        right:0.5%;
+    }
+    
+.topIcon:active{
          background-color: #404C86;
          opacity: 0.7;
+         transition:0s 0s;
     }
+    
     
 .par1{
     position:absolute;
-    top:1%;
+    top:0%;
     /*laptop-> top: 4%*/
     font-size: 40px;
     color: white;
-    left:2%;
+    padding-left:1%;
     /*laptop-> left: 1.5%*/
+    transition:0s 1;
+    }
+    .par1:active{
+        color: #404C86;
+        transition:0s 0s;
     }
 
 #wrapper {
@@ -137,18 +164,30 @@ img.top-right2 {
 }
 
 button.badge{
-    color: #EDEEF4;
-    background-color: #404C86;
-    display: block;
-    text-decoration: none;
-    border-radius:5px;
+    background-color: #EDEEF4;
+    color: #404C86;
+    text-align: center;
+    border-radius: 10px;
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    word-wrap: break-word;
+    font-size:15px;
+    padding-right: 5px;
+}
+
+button.badge:hover{
+    color:white;
 }
 
 button.tab{
-    color: #EDEEF4;
-    background-color: #404C86;
+    background-color: #EDEEF4;
+    color: #404C86;
     display: block;
     text-decoration: none;
+    border-radius: 10px;
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    word-wrap: break-word;
 }
 
 .button.tab:hover,
@@ -160,10 +199,18 @@ button.tab{
 }
 
 .panel .panel-heading{
-    color: #EDEEF4;
-    background-color: #8EA1C7;
+    background-color: #EDEEF4;
+    color: #404C86;
     display: block;
     text-decoration: none;
+    border-radius: 10px;
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+}
+
+.panel-collapse{
+    overflow-y: scroll; 
+    height: 620px;
 }
 
 .panel .panel-heading:hover,
@@ -193,4 +240,11 @@ input.logout{
     color: #324868;
     opacity: 0.8;
     margin-top: 19%;
+}
+
+.list-group-item{
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    word-wrap: break-word;
+    font-size:15px;
 }

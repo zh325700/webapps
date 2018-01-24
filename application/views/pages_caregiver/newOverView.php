@@ -8,15 +8,19 @@
 
 
     <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
-    <div class=" col-sm-12 par1">
-        <h2 class="par1">Grace-AGE</h2>
+    <div class ="row">
+        <div class="col-sm-offset-0">
+            <img id="home" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/home.png"  Value="HOME" />
+        </div>
+        <div class="col-sm-offset-1">
+            <h2 class="par1" >Grace-AGE</h2>
+        </div>
+        <div class="col-sm-offset-11">
+            <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  value="Log_out" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
+            <a id="logLink" class="top" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>              
+        </div>
     </div>
-    <div>
-        <img class="top-right2" src="<?php echo base_url(); ?>/image/pictograms/logout.png" value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
-    </div>
-    <div>
-        <a id = "link" type="button" class="btn btn-lg top-right" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>              
-    </div>
+    
     <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
         <div class="container-fluid">
             <div id="wrapper">
@@ -76,8 +80,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/CaregiverOperateActivity/viewActivity" >
-                                        <span class="fa fa-anchor solo">Show_Activity</span>
+                                    <a href="<?php echo base_url(); ?>index.php/CaregiverOperateActivity/addActivity" >
+                                        <span class="fa fa-anchor solo">{Add_Activity}</span>
                                     </a>
                                 </li>
                             <?php endif; ?>
@@ -125,7 +129,7 @@
         <script src='<?php echo base_url() ?>/assets/js/chart.js'></script>
         <script type="text/javascript">
                 //makes the eventlisteners for the two buttons
-                document.getElementById("btn_general").addEventListener("click", getScores);
+                document.getElementById("btn_general").addEventListener("click", init);
                 language = "Dutch";
                 //change the styling of this body
                 document.body.style.display = 'inline';
@@ -205,7 +209,49 @@
                     //sends the new data to the server and update the page
                     xmlhttp.send();
                 }
-
+                
+                function drawCallendar(){
+                    xmlhttp = new XMLHttpRequest();
+                    //starts the function when the page is ready
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState === XMLHttpRequest.DONE) {
+                            //select the element that has to change
+                            input = xmlhttp.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity/", false);
+                    //sends the new data to the server and update the page
+                    xmlhttp.send();
+                    data = jQuery.parseJSON(input);
+                    for(value in data){
+                        var parent=document.getElementById("callendarList");
+                        var child=document.createElement("li");
+                        var span=document.createElement("span");
+                        var button=document.createElement("button");
+                        var row=document.createElement("div");
+                        row.setAttribute('class','row');
+                        var column1=document.createElement("div");
+                        column1.setAttribute('class','col-sm-4');
+                        var column2=document.createElement("div");
+                        column2.setAttribute('class','col-sm-8');
+                        button.setAttribute('id',text);
+                        button.appendChild(document.createTextNode("details"));
+                        button.setAttribute('class','badge');
+                        button.addEventListener("click",function(){load('CaregiverOperateActivity/viewActivity/'+data[value]['ID_Activity'])});
+                        child.setAttribute('id',parent.value);
+                        child.setAttribute('class',"list-group-item");
+                        span.appendChild(document.createTextNode(data[value]['text']));
+                        column2.appendChild(span);
+                        row.appendChild(column2);
+                        column1.appendChild(button);
+                        row.appendChild(column1);
+                        child.appendChild(row);
+                        parent.appendChild(child);
+                        
+                    }
+                }
+                
+                
                 /*
                  * Function: calls the server to ask for data and then calls a function to make the alerts
                  * 

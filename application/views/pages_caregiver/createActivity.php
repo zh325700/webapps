@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1 class="text-dark">Add Activity</h1>
+                        <h1 class="text-dark">{Add_Activity}</h1>
                         <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('CaregiverOperateActivity/addActivity'); ?> <!--form_open_multipart so we can add image-->
                         <div class="form-group"> <label for="Title" class="text-dark">{Title}</label>
@@ -21,7 +21,7 @@
                         <div class="form-group"> <label for="Description" class="text-dark">{Description}</label>
                             <textarea class="form-control"  name="Description" id="InputDescription" rows="10" placeholder="{Add_Activity_description}"></textarea>
                                       </div>
-                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Resident}</button>
+                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Activity}</button>
                     </div>
                     </form>
                 </div>

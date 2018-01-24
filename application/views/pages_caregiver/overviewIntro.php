@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-6 ">
         <div class="chart-container">  
-            <canvas style="width:60px; height:70px;" id="WeeklyTopicScore"></canvas>
+            <canvas id="WeeklyTopicScore"></canvas>
         </div>
         <div class="row">
             <div id='calendar'></div>

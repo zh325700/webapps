@@ -6,7 +6,7 @@
     <div id ="blue" class="row ">
             <div class="col-sm-offset-0" style="padding-left: 2.5%">
                 <h2 style="width: 100%">
-                    Information resident
+                    {Information_resident}
                 </h2>
             </div>
         </div>

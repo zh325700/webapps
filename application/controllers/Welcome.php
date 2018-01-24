@@ -10,7 +10,7 @@ class Welcome extends CI_Controller {
         $this->load->view('pages_generalised/header');
         $this->load->view('pages_generalised/loginpage');
         $this->parser->parse($page, $data);
-        $this->load->view('pages_generalised/footer');
+        $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
 
     public function Caregiver($page) {
@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
         $this->load->model('Language_model');
         $data = $this->Language_model->getData('Dutch', $page);
         $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/residents');
+        $this->load->view('pages_generalised/residentMenu');
         $this->parser->parse('pages_resident/' . $page, $data);
         $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
