@@ -16,6 +16,7 @@ $lang['Add_Caregiver']='Verzorger toevoegen';
 $lang['Show_Activity']='Overzicht activiteiten';
 //overview-intropage
 $lang['Alert_box']="Mededelingen";
+$lang['Callendar']="Kalender";
 //overview-division
 $lang['title_division']=" Bewoners resultaten overzicht";
 $lang['title_division2']=" Vragenlijst resultaten overzicht";

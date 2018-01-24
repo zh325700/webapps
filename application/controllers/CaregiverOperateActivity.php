@@ -43,6 +43,7 @@ class CaregiverOperateActivity extends CI_Controller {
     public function getNewActivities(){
          $this->load->model('Activity_Model');
          $data = $this->Activity_Model->get_fewActivities(5);
+         echo(json_encode($data));
     }
 
 }

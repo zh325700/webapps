@@ -166,6 +166,8 @@
                     drawIntroChart();
                     //call the function to make the alerts
                     drawIntroAlert();
+                    
+                    drawCallendar();
                     //build the callender
                     $(document).ready(function () {
                         $('#calendar').fullCalendar({
@@ -226,6 +228,8 @@
                     drawIntroChart();
                     //call the function to make the alerts
                     drawIntroAlert();
+                    
+                    drawCallendar();
                     //build the callender
                     $(document).ready(function () {
                         $('#calendar').fullCalendar({
@@ -251,11 +255,13 @@
                             input = xmlhttp.responseText;
                         }
                     };
-                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity", false);
+                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity/getNewActivities", false);
                     //sends the new data to the server and update the page
                     xmlhttp.send();
                     data = jQuery.parseJSON(input);
+                    console.log(data[1]);
                     for(value in data){
+                        var text=data[value]['Time']+":"+data[value]["Title"];
                         var parent=document.getElementById("callendarList");
                         var child=document.createElement("li");
                         var span=document.createElement("span");
@@ -269,10 +275,10 @@
                         button.setAttribute('id',text);
                         button.appendChild(document.createTextNode("details"));
                         button.setAttribute('class','badge');
-                        button.addEventListener("click",function(){load('CaregiverOperateActivity/viewActivity/'+data[value]['ID_Activity'])});
+                        button.addEventListener("click",function(){window.location.href = '<?php echo base_url(); ?>index.php/CaregiverOperateActivity/viewActivity/'+data[value]['ID_Activity'];});
                         child.setAttribute('id',parent.value);
                         child.setAttribute('class',"list-group-item");
-                        span.appendChild(document.createTextNode(data[value]['text']));
+                        span.appendChild(document.createTextNode(text));
                         column2.appendChild(span);
                         row.appendChild(column2);
                         column1.appendChild(button);

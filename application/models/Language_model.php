@@ -40,7 +40,7 @@
             elseif($page=='topicchart'){$data=$this->getDataTopicChart();}
             elseif($page==='editfac'){$data=$this->getDataEditFac();}
             elseif($page==='addact'){$data=$this->getDataAddAct();}
-            elseif($page==='wieawect'){$data=$this->getDataViewAct();}
+            elseif($page==='viewact'){$data=$this->getDataViewAct();}
             $data['header']=$this->getDataHeader();
             $data['footer']=$this->getDataFooter();
             return $data;
@@ -65,7 +65,7 @@
             $data['Time']=$this->lang->line('Time');
             $data['Number_Of_Participants']=$this->lang->line('Number_Of_Participants');
             $data['Description']=$this->lang->line('Description');
-            $data['EDIT']=$this->lang->line('EDIT');
+            $data['DELETE']=$this->lang->line('DELETE');
             return $data;
         }
         

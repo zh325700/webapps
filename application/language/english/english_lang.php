@@ -16,6 +16,7 @@
     $lang['Show_Activity']="Overview activities";
     //overview-intropage
     $lang['Alert_box']="Alert box";
+    $lang['Callendar']="Calendar";
     //overview-division
     $lang['title_division']=" residents results overview ";
     $lang['title_division2']=" Question results overview";

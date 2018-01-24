@@ -4,6 +4,7 @@
             <canvas id="WeeklyTopicScore"></canvas>
         </div>
         <div class="row">
+            <li class="list-group-item"> {Callendar} </li>
             <div class="list-group" id='callendarList'></div>
         </div>
     </div>
