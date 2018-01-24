@@ -7,7 +7,7 @@
                 </div> 
                 <div class="row">
                     <div id="forms" class="col-sm-6">
-                        
+                        <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
                         <div class="form-group"> <label for="InputName" class="text-dark">{Username}</label>
                             <input type="text" name="username" class="form-control" id="InputName" placeholder="{Username}"
@@ -49,14 +49,14 @@
                     
                       </div>
                     </div>
-                    </form>
+    
                 
             </div>
 
 
         <script> // confirm password 
             $('#password, #confirm_password').on('keyup', function () {
-                if ($('#password').val() == $('#confirm_password').val()) {
+                if ($('#password').val() === $('#confirm_password').val()) {
                     $('#message').html('Matching').css('color', 'green');
                 } else
                     $('#message').html('Not Matching').css('color', 'red');
@@ -67,3 +67,4 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script src="<?php echo base_url() ?>assets/js/forms.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>assets/js/sha512.js" type="text/javascript"></script>
+</body>

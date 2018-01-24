@@ -8,15 +8,19 @@
 
 
     <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
-    <div class=" col-sm-12 par1">
-        <h2 class="par1">Grace-AGE</h2>
+    <div class ="row">
+        <div class="col-sm-offset-0">
+            <img id="home" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/home.png"  Value="HOME" />
+        </div>
+        <div class="col-sm-offset-1">
+            <h2 class="par1" >Grace-AGE</h2>
+        </div>
+        <div class="col-sm-offset-11">
+            <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  value="Log_out" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
+            <a id="logLink" class="top" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>              
+        </div>
     </div>
-    <div>
-        <img class="top-right2" src="<?php echo base_url(); ?>/image/pictograms/logout.png" value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
-    </div>
-    <div>
-        <a id = "link" type="button" class="btn btn-lg top-right" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>              
-    </div>
+    
     <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
         <div class="container-fluid">
             <div id="wrapper">
