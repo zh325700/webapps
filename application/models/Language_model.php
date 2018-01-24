@@ -16,7 +16,7 @@
             $this->load->helper('form');
             if($elder!=-1){$language=$this->getLanguage($elder)[0]->language;}
             //loads the right language file according to the selected language
-            if($language==='Dutch'){$this->lang->load('Dutch_lang','Dutch');}
+            if($language==='Dutch'){$this->lang->load('Dutch_lang','dutch');}
             else{$this->lang->load('english_lang','english');}
             //calls the right method according to the selected page
             if($page==='login'){$data=$this->getDataLogin();}
