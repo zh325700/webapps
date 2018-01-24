@@ -219,7 +219,7 @@
                             input = xmlhttp.responseText;
                         }
                     };
-                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity/", false);
+                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity", false);
                     //sends the new data to the server and update the page
                     xmlhttp.send();
                     data = jQuery.parseJSON(input);

@@ -4,7 +4,7 @@
             <canvas id="WeeklyTopicScore"></canvas>
         </div>
         <div class="row">
-            <div id='calendar'></div>
+            <div class="list-group" id='callendarList'></div>
         </div>
     </div>
     <div class="col-sm-6">
