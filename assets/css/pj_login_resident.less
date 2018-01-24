@@ -138,7 +138,7 @@ img.top-right {
             margin-top: 10%;
     }
     
-    /* */
+    /* Primary buttons */
     button{
         color: white;
         border-radius: 10px;
@@ -149,21 +149,23 @@ img.top-right {
         margin-bottom: 10px;
         margin-top: 20px;
     }
+    
     button.style{
         background-color: @gray;
         color: @primary;
         text-align: center;
     }
     
-    
     .style:active {
             background-color: @accent;
             color: white;
         }
-    
+        
     button.small{
         font-size: 25px;
-    }    
+        width:100%;
+    }  
+    
         
     figcaption{
         font-family: myriad-pro-condensed, sans-serif;
@@ -174,7 +176,16 @@ img.top-right {
         font-size: 25px;
         margin-top: 50px;
         margin-bottom: 50px;
-        color: @primary;
+        color: black;
+    }
+    
+    /* Birthday form */
+    
+    .forms{
+        width: 100%;
+        padding-right:5%;
+        border-radius: 10px;
+        border-color: @primary;
     }
     
     p{
@@ -184,8 +195,6 @@ img.top-right {
         float:none;
         text-align: center;
         margin-top: 10px;
-        //padding-left: 20px;
-        
     }
 
     .logout{

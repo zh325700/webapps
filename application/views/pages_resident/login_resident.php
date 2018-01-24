@@ -1,6 +1,6 @@
  <div class="container-fluid">
     <div id="blue" class="row">
-        <div class="col-sm-offset-0" style="padding-left: 3.5%">
+        <div class="col-sm-offset-0" style="padding-left: 2.5%">
             <h1>
                 {Login_resident}
             </h1>
@@ -27,7 +27,7 @@
                                     </div>
                                 </div>-->
             <div class="row" data-step="1" data-intro="Choose your gender" data-position='top'>
-                <div class="col-sm-4" style="margin-top: 1%; padding-left: 3.5%">
+                <div class="col-sm-4" style="margin-top: 1%; padding-left: 2.5%">
                     <h1>
                         {Ik_ben_een} :
                     </h1>
@@ -45,13 +45,13 @@
                 </div>
             </div> 
             <div class="row">
-                <div class="col-sm-12" style="padding-left: 3.5%">
+                <div class="col-sm-12" style="padding-left: 2.5%">
                     <h1>
                         {Selecteer_foto}:
                     </h1>
                 </div>
             </div>
-            <div class="row" data-step="2" data-intro="Choose your picture" data-position='top' style="padding-left:3.5%; padding-right:2.5%">
+            <div class="row" data-step="2" data-intro="Choose your picture" data-position='top' style="padding-left:2.5%; padding-right:2.5%">
                 <div id="overviewResidents" class="col-md-12 border-style " style="overflow-y: scroll; height: 50%;">
                     <?php
                     foreach ($residents as $res) {
@@ -65,7 +65,7 @@
                                  src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>"
                                  alt="<?php echo $lName ?>" 
                                  style="width:200px ;height:200px;border:10px blue;">
-                            <figcaption class="col-sm-2"><?= $fName; ?> <?= $lName; ?> </figcaption>
+                            <figcaption class="col-sm-6"><?= $fName; ?> <?= $lName; ?> </figcaption>
                         </div>
                         <?php
                     }

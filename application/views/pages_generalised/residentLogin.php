@@ -16,7 +16,7 @@
 	<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto"/>	
         
         <div class ="row">
-            <div class="col-sm-offset-0" style="padding-left:4.5%">
+            <div class="" style="padding-left:3%">
                 <h2 class="par1">Grace-AGE</h2>
             </div>
             <div class="col-sm-offset-11">
