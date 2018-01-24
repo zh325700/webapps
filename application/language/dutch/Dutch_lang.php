@@ -56,7 +56,7 @@ $lang['Overview_Facility']="Overzicht residentie";
 $lang['City']="Stad";
 $lang['Postcode']="Postcode";
 $lang['Street']="Straat";
-$lang['Number']="Nummer";
+$lang['Number']="Huisummer";
 //add resident
 $lang['Add_FirstName']="Voornaam toevoegen";
 $lang['Add_LastName']="Familienaam toevoegen";
@@ -72,7 +72,10 @@ $lang['Add_number']="Huisnummer toevoegen";
 //add caregiver
 $lang['Register_Caregiver']="Verzorger toevoegen";
 $lang['Username']='Gebruikersnaam';
-$lang['Email_address']='E-mail toevoegen';
+$lang['Add_Username']="Gebruikersnaam toevoegen";
+$lang['Email_address']='E-mail adress';
+$lang['Add_Email']="E-mail toevoegen";
+$lang['Add_password']="Wachtwoord toevoegen";
 $lang['Confirm_Password']="Bevestig wachtwoord";
 $lang['Type_Password_again']="Wachtwoord herinvoeren";
 $lang['Permission_level']="Bevoegdheid level";
@@ -82,6 +85,7 @@ $lang['internship']="Stagair/interim";
 $lang['Caregiver']="Verzorger";
 $lang['Boss']="Baas";
 //login residents
+$lang['Login_resident']="Inlogpagina bewoners";
 $lang['Ik_ben_een']="Ik ben een";
 $lang['Vrouw']="Vrouw";
 $lang['Man']="Man";

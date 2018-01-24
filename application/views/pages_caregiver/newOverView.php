@@ -76,8 +76,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/CaregiverOperateActivity/viewActivity" >
-                                        <span class="fa fa-anchor solo">{Show_Activity}</span>
+                                    <a href="<?php echo base_url(); ?>index.php/CaregiverOperateActivity/addActivity" >
+                                        <span class="fa fa-anchor solo">{Add_Activity}</span>
                                     </a>
                                 </li>
                             <?php endif; ?>

@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group"> <label for="Birthday" class="text-dark">{Birthday}</label>
                             <input required="" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday"
-                                   placeholder="Day/Month/Year" value="<?php echo $resident['Birthday']; ?>">
+                                   placeholder="{Day/Month/Year}" value="<?php echo $resident['Birthday']; ?>">
                         </div>
 
                         <div class="form-group"> <label for="RoomNumber" class="text-dark">{RoomNumber}</label>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="row">
                               <div class="col-sm-offset-0 col-md-offset-0 col-md-12" >
-                            <button type="submit" class="btn btn-lg btn-block button">{Add_Resident}</button>
+                            <button type="submit" class="btn btn-lg btn-block button">{EDIT}</button>
                         </div>
                         
 

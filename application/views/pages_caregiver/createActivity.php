@@ -21,7 +21,7 @@
                         <div class="form-group"> <label for="Description" class="text-dark">{Description}</label>
                             <textarea class="form-control"  name="Description" id="InputDescription" rows="10" placeholder="{Add_Activity_description}"></textarea>
                                       </div>
-                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Resident}</button>
+                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Activity}</button>
                     </div>
                     </form>
                 </div>

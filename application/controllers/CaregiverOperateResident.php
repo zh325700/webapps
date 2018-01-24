@@ -32,7 +32,6 @@ class CaregiverOperateResident extends CI_Controller {
     public function create() {
         $this->load->model('Language_model');
         $data=$this->Language_model->getData($this->session->userdata('language'),'addres');
-        $data = $this->Language_model->getData('Dutch', 'addres');
         $data['title'] = 'Create Residents';
         $data['facilities'] = $this->Residents_model->get_facilities();   // gte the names of facility
         $this->form_validation->set_rules('LastName', 'LastName', 'required');

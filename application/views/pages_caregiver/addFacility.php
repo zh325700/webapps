@@ -19,19 +19,19 @@
             <label>{Facility_Name}</label> 
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Name" placeholder="{Name}" required>
+            <input id="formInput" type="text" class="form-control" name="Name" placeholder="{Add_Name}" required>
         </div>
         <div class="row" style="padding-left:2.5%">
             <label>{City}</label> 
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="City" placeholder="{City}" required>
+            <input id="formInput" type="text" class="form-control" name="City" placeholder="{Add_City}" required>
         </div>
         <div class="row" style="padding-left:2.5%">
             <label>{Postcode}</label>  
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="{Postcode}" required>
+            <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="{Add_Postcode}" required>
          </div>
     </div>
     
@@ -40,13 +40,13 @@
             <label>{Street}</label> 
         </div>
         <div class="row">
-            <input id="formInput" type="text" class="form-control" name="Street" placeholder="{Street}" required>
+            <input id="formInput" type="text" class="form-control" name="Street" placeholder="{Add_Street}" required>
         </div>
         <div class="row">
             <label>{Number}</label> 
         </div>
         <div class="row">
-            <input id="formInput" type="text" class="form-control" name="Number" placeholder="{Number}" required>
+            <input id="formInput" type="text" class="form-control" name="Number" placeholder="{Add_Number}" required>
         </div>
         <div class="row insert-row" style="padding-bottom:30%">
               <button type="submit"class="btn btn-lg btn-block button form-control">{Add_Facility}</button>

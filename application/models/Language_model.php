@@ -96,7 +96,7 @@
             $data['Find_Facility']=$this->lang->line('Find_Facility');
             $data['Add_Caregiver']=$this->lang->line('Add_Caregiver');
             $data['Division_Timestamp']=$this->lang->line('Division_Timestamp');
-            $data['Show_Activity']=$this->lang->line('Show_Activity');
+            $data['Add_Activity']=$this->lang->line('Add_Activity');
             $data['Log_out']=$this->lang->line('Log_out');
             return $data;
         }
@@ -206,7 +206,6 @@
          * Output: the right values to the keys for the edit residents screen
          */
         public function getDataEditRes(){
-            $data['Add_Resident']=$this->lang->line('Add_Resident');
             $data['FirstName']=$this->lang->line('FirstName');
             $data['LastName']=$this->lang->line('LastName');
             $data['Gender']=$this->lang->line('Gender');
@@ -219,7 +218,8 @@
             $data['Add_Roomnumber']=$this->lang->line('Add_Roomnumber');
             $data['Upload_Image']=$this->lang->line('Upload_Image'); 
             $data['Edit_Residents']=$this->lang->line('Edit_Residents');
-            $data['Edit_Resident']=$this->lang->line('Edit_Residents');
+            $data['Day/Month/Year']=$this->lang->line('Day/Month/Year');
+            $data['EDIT']=$this->lang->line('EDIT');
             return $data;
         }
         
@@ -390,10 +390,12 @@
             $data['Facility']=$this->lang->line('Facility');
             $data['Select_Facility']=$this->lang->line('Select_Facility');
             $data['Register_Caregiver']=$this->lang->line('Register_Caregiver');
-            $data['Welcome']=$this->lang->line('Welcome');
+            $data['Add_Username']=$this->lang->line('Add_Username');
+            $data['Username']=$this->lang->line('Username');
+            $data['Add_password']=$this->lang->line('Add_password');
             $data['Username']=$this->lang->line('Username');
             $data['Email_address']=$this->lang->line('Email_address');
-            $data['Enter_email']=$this->lang->line('Enter_email');
+            $data['Add_Email']=$this->lang->line('Add_Email');
             $data['password']=$this->lang->line('password');
             $data['Confirm_Password']=$this->lang->line('Confirm_Password');
             $data['Type_Password_again']=$this->lang->line('Type_Password_again');

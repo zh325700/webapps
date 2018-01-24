@@ -15,10 +15,10 @@
 </style>
 
 <div class="row" style="text-align:center">
-    <div class=" col-md-2">
+    <div class=" col-sm-2">
     <button class="btn tab" onclick="getScores()" style="margin-top:10px; margin-left: 10px"> {Back} </button>
     </div>
-    <div class=" col-md-10">
+    <div class=" col-sm-10">
     <p style="font-size:25px; color:#404C86"> {Question_statistic}</p>
     </div>
 </div>

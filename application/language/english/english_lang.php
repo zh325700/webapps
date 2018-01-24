@@ -7,18 +7,18 @@
     $lang['general']='General overview';
     $lang['divisions']="Division";
     $lang['Division_Timestamp']="Division timestamp";
-    $lang['Login_Resident']='Login Resident';
-    $lang['Find_Resident']='Find Resident';
-    $lang['Find_Facility']='Overview Facility';
-    $lang['Add_Resident']='Add Resident';
+    $lang['Login_Resident']='Login resident';
+    $lang['Find_Resident']='Find resident';
+    $lang['Find_Facility']='Overview facility';
+    $lang['Add_Resident']='Add resident';
     $lang['Add_Facility']='Add facility';
-    $lang['Add_Caregiver']='Add Caregiver';
+    $lang['Add_Caregiver']='Add caregiver';
     $lang['Show_Activity']="Overview activities";
     //overview-intropage
-    $lang['Alert_box']="Alert box!";
+    $lang['Alert_box']="Alert box";
     //overview-division
-    $lang['title_divisions1']=" residents results overview ";
-    $lang['title_divisions2']=" Ruestion results overview";
+    $lang['title_division']=" residents results overview ";
+    $lang['title_division2']=" Question results overview";
     $lang['RoomNumber']="Roomnumber";
     $lang['Name']="Name";
     $lang['Score']="Score";
@@ -29,16 +29,16 @@
     //overview-elderchart
     $lang['Back']="Back";
     $lang['Resident_statistic']="Resident statistics of ";
-    $lang['Number_filled']="Number of times Filled-In";
-    $lang['Average_Score']="Average Score";
-    $lang['Worst_Topic']="Worst Topic";
-    $lang['Best_Topic']="Best Topic";
+    $lang['Number_filled']="Number of times filled-in";
+    $lang['Average_Score']="Average score";
+    $lang['Worst_Topic']="Worst topic";
+    $lang['Best_Topic']="Best topic";
     //overview-topicchart
     $lang['Question_statistic']="Topic statistics of ";
    //find resident
     $lang['FIND']="Find";
-    $lang['FirstName']="FirstName";
-    $lang['LastName']="LastName";
+    $lang['FirstName']="Firstname";
+    $lang['LastName']="Lastname";
     $lang['Gender']="Gender";
     $lang['Select_Facility']='Select a facility';
     $lang['Facility']="Facility";
@@ -56,7 +56,7 @@
     $lang['City']="City";
     $lang['Postcode']="Postcode";
     $lang['Street']="Street";
-    $lang['Number']="Number";
+    $lang['Number']="House number";
     //add resident
     $lang['Add_FirstName']="Add firstname";
     $lang['Add_LastName']="Add lastname";
@@ -68,12 +68,14 @@
     $lang['Add_City']="Add city";
     $lang['Add_Postcode']="Add postcode";
     $lang['Add_Street']="Add street";
-    $lang['Add_number']="Add housenumber";
+    $lang['Add_number']="Add house number";
     //add caregiver
     $lang['Register_Caregiver']="Register Caregiver";
      $lang['Username']='Username';
-    $lang['Email_address']='Email address';
-    $lang['Enter_email']="Add email";
+    $lang['Add_Username']="Add username";
+    $lang['Email_address']='E-mail adress';
+    $lang['Add_Email']="Add e-mail asress";
+    $lang['Add_password']="Add password";
     $lang['Confirm_Password']="Confirm password";
     $lang['Type_Password_again']="Type password ";
     $lang['Permission_level']="Permission level";
@@ -99,8 +101,12 @@
     $lang['Add_Time']="Add time";
     $lang['Add_Activity_Title']="Add title";
     $lang['Add_Activity_description']="Add description";
-    
-    $lang['Member_Since']="Member Since";
+    //login residents
+    $lang['Login_resident']="Login residents";
+    $lang['Ik_ben_een']="I am a";
+    $lang['Vrouw']="Female";
+    $lang['Man']="Male";
+    $lang['Selecteer_foto']="Select your picture";
 
     $lang['Please_category']="Please choose a categorie";
     $lang['Privacy']="Privacy";
@@ -152,10 +158,7 @@
 
     $lang['Welcome']="Welcome";
    
-    $lang['Ik_ben_een']="I am a";
-    $lang['Vrouw']="Female";
-    $lang['Man']="Male";
-    $lang['Selecteer_foto']="Select your picture";
+    
     $lang['Login_verificatie']="Login verification";
     $lang['Gelieve_geboortedag_vullen']="Please fill in your birthdate";
     $lang['Dit_ben']="I'm not";
