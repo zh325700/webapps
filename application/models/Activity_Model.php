@@ -43,7 +43,21 @@ class Activity_Model extends CI_Model {
         $this->db->where('ID_Activity', $ID_Activity);
         $query = $this->db->get();
         return $query->num_rows();
-        
+    }
+
+    public function get_fewActivities($Num_Activity = 1) {
+        $this->db->order_by('Activity.ID_Activity', 'DESC'); // order by ID Descending 
+        $query = $this->db->get('Activity'); // get every data in the elder tabel into the query
+        $allArray = $query->result_array();
+        $newArray = array();
+        foreach ($allArray as $oneActivity) {
+            $time = strtotime($oneActivity['Time']);
+            $curtime = time();
+            if (($curtime - $time) < 0 && $Num_Activity> sizeof($newArray)) {   
+                $newArray[] = $oneActivity;
+            }
+        }
+        return $newArray;
     }
 
 }
