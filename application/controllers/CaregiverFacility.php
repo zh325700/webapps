@@ -79,7 +79,7 @@ class CaregiverFacility extends CI_Controller {
         } else {
                        
             $this->Addfacility_model->update_facility();
-            redirect('addfacility_control/find'); //redirects
+            redirect('CaregiverFacility/find'); //redirects
            
         }
     }
