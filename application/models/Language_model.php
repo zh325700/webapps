@@ -379,7 +379,8 @@
             $data['ik_niet']=$this->lang->line('ik_niet');
             $data['Dit_ben']=$this->lang->line('Dit_ben');
             $data['Birthday']=$this->lang->line('Birthday');
-            $data['delete']=$this->lang->line('delete');
+            $data['Delete']=$this->lang->line('delete');
+            $data['Clear']=$this->lang->line('Clear');
             return $data;
         }
         

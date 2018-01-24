@@ -91,10 +91,10 @@
                 <button class="btn button style small btn-block" onclick="javascript:addNumber('0');"> 0 </button>
             </div>
             <div class="col-md-2 col-sm-3">
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('delete');"> Delete </button>
+                <button class="btn button style small btn-block" onclick="javascript:addNumber('delete');"> {Delete} </button>
             </div>
             <div class="col-md-2 col-sm-3">                            
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('clear');"> Clear </button>
+                <button class="btn button style small btn-block" onclick="javascript:addNumber('clear');"> {Clear} </button>
             </div>
         </div>
 

@@ -96,6 +96,7 @@ $lang['Gelieve_geboortedag_vullen']="Gelieve uw geboortedatum in te vullen";
 $lang['Dit_ben']="Dit ben";
 $lang['ik_niet']="ik niet";
 $lang['delete']="Verwijder";
+$lang['Clear']="Leegmaken";
 //add facility
 $lang['Edit_Facility']="Residentie aanpassen";
 //view activities

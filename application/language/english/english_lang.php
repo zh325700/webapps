@@ -107,7 +107,8 @@
     $lang['Vrouw']="Female";
     $lang['Man']="Male";
     $lang['Selecteer_foto']="Select your picture";
-
+    //login verification
+    $lang['Clear']="Clear";
     $lang['Please_category']="Please choose a categorie";
     $lang['Privacy']="Privacy";
     $lang['Food']="Food";
