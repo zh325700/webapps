@@ -35,7 +35,7 @@ class Welcome extends CI_Controller {
         $this->load->model('Language_model');
         $this->lang->load('Dutch_lang', 'dutch');
         $data = $this->Language_model->getData($this->session->userdata('language'), 'newOverView');
-        $this->parser->parse('pages_generalised/header',$data['header']);
+        $this->parser->parse('pages_generalised/header',$data);
         $this->parser->parse('pages_caregiver/' . $page,$data);
         $this->parser->parse('pages_generalised/footer',$data['footer']);
     }

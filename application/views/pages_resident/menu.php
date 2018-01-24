@@ -1,8 +1,8 @@
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-5">
+            <div class="col-sm-ofsset-0 col-sm-5">
                 <h2 class="par1">Grace-AGE</h2>
             </div>
             <div class="col-sm-6"></div>
@@ -25,7 +25,7 @@
         <div class="row">
                 <div class="col-sm-12" data-step="1" data-intro="Click here to answer the questionaire" data-position='top'>
                     <button id = "newButton" type="button" class="btn btn-lg question button btn-block" onclick="loadPage('Welcome','Resident/categories')">                      
-                        <img src="<?php echo base_url(); ?>/image/pictograms/questions.png" class="align"/>
+                        <!--<img src="<?php echo base_url(); ?>/image/pictograms/questions.png" class="align"/>-->
                        {Questionnaire}
                     </button>
                 </div>
@@ -44,12 +44,12 @@
                 <div class="col-sm-6">
                     <button id = "newButton"  type="button" class="btn btn-lg button style btn-block family" 
                             data-step="3" data-intro="Watch video your familly sent you" data-position='top'>
-                        <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="align family"/>
+                        <!--<img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="align family"/>-->
                         {Family} 
                     </button>
                     <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block"
                             data-step="4" data-intro="Click here to see recent activities" data-position='top'>
-                        <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>
+                       <!-- <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>-->
                         {Activities}
                     </button>
                 </div>
