@@ -26,7 +26,6 @@ class CaregiverOperateActivity extends CI_Controller {
         $data = $this->Language_model->getData($this->session->userdata('language'), 'addfac');
         $data['activity'] = $this->Activity_Model->get_Activity($ID_Activity); // use post_model to get the data in the database
         $data['count'] = $this->Activity_Model->get_numOfParticipants($ID_Activity);
-        $data['num_of_activity'] = $this->Activity_Model->get_fewActivities(2);
         if (empty($data['activity'])) {
             show_404();
         }

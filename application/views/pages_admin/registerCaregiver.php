@@ -1,12 +1,8 @@
 
-  </head>
-    <body>
             <div class="container-fluid">
                 <div id="blue" class="row">
                     <div class="col-sm-offset-0" style="padding-left:2.5%">
-                    <h2>
                         <h2 class="text-dark">{Register_Caregiver}</h2>
-                    </h2>
                     </div>
                 </div> 
                 <div class="row">
@@ -71,4 +67,3 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script src="<?php echo base_url() ?>assets/js/forms.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>assets/js/sha512.js" type="text/javascript"></script>
-
