@@ -1,12 +1,12 @@
 <?php
-//~ define("HOST", "studev.groept.be"); 			// The host you want to connect to. 
-//~ define("USER", "a17_webapps02"); 				// The database username. 
-//~ define("PASSWORD", "wk9yzu0z"); 				// The database password.
-//~ define("DATABASE", "a17_webapps02");			// The database name.
-define("HOST", "localhost"); 				// The host you want to connect to. 
-define("USER", "root"); 					// The database username. 
-define("PASSWORD", "fun"); 					// The database password. Oorspronkelijk =  4Fa98xkHVd2XmnfK
-define("DATABASE", "hci");					// The database name.
+define("HOST", "studev.groept.be"); 			// The host you want to connect to. 
+define("USER", "a17_webapps02"); 				// The database username. 
+define("PASSWORD", "wk9yzu0z"); 				// The database password.
+define("DATABASE", "a17_webapps02");			// The database name.
+//~ define("HOST", "localhost"); 				// The host you want to connect to. 
+//~ define("USER", "root"); 					// The database username. 
+//~ define("PASSWORD", "fun"); 					// The database password. Oorspronkelijk =  4Fa98xkHVd2XmnfK
+//~ define("DATABASE", "hci");					// The database name.
 
 
 echo "start\n"; 
@@ -26,6 +26,8 @@ $query_DropTables = ("
 						SET FOREIGN_KEY_CHECKS=0;
 						DROP TABLE IF EXISTS Answers;
 						DROP TABLE IF EXISTS Questions;
+						DROP TABLE IF EXISTS ActivityLink;
+						DROP TABLE IF EXISTS Activity;
 						DROP TABLE IF EXISTS Elder;
 						DROP TABLE IF EXISTS LOG;
 						DROP TABLE IF EXISTS login_attempts;
@@ -80,6 +82,21 @@ $query_Elder = ("	CREATE TABLE Elder(						ID_Elder INT UNSIGNED NOT NULL AUTO_I
 															FontSize INT,
 															Division VARCHAR(30),
 															Language VARCHAR(30) DEFAULT 'Dutch');");
+															
+$query_Activity = ("	CREATE TABLE Activity(				ID_Activity INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+															ID_facility INT UNSIGNED NOT NULL,
+															FOREIGN KEY (ID_facility) REFERENCES Facility(ID_facility),
+															Title VARCHAR(30) NOT NULL,
+															Description text NOT NULL,
+															Time TIMESTAMP NOT NULL
+															);");
+													
+$query_ActivityLink = ("	CREATE TABLE ActivityLink(		ID_ActivityLink INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+															ID_Activity INT UNSIGNED NOT NULL,
+															FOREIGN KEY (ID_Activity) REFERENCES Activity(ID_Activity),
+															ID_Elder INT UNSIGNED NOT NULL,
+															FOREIGN KEY (ID_Elder) REFERENCES Elder(ID_Elder)
+															);");
 
 $query_Questions = ("	CREATE TABLE Questions(				ID_Question INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 															Type_en VARCHAR(30) NOT NULL,
@@ -151,8 +168,10 @@ $query_Questions = ("	CREATE TABLE Questions(				ID_Question INT UNSIGNED NOT NU
 						");
 						
 $query_TestData = ("	INSERT INTO Facility(Name, City, Postcode, Street, Number) VALUES('Remy', 'Leuven', '3000', 'Blijde inkomststraat', '5 ofzo');
+						
 						INSERT INTO Caregiver(email, password, salt, username, permission, ID_facility) VALUES('remy1@leuven.be', 'c3d48e73883fe272b125919bd0bed9e459e11f5ee7d38d5359f7a3d67ecff293a4b348153be6ad29309994d0322b4f9b889b262c1e87eaf87750b655502b922e', '4aa49ad51ef623ce845c1c3e6046850beb5741a641a9ccf9b54ba06f94b30c531745954ee87846f9133aa69fb906f858bd041c2984ee711ad886a8d4ada72e0d', 'Remy', '1', '1');
 						INSERT INTO Caregiver(email, password, salt, username, permission, ID_facility) VALUES('remy3@leuven.be', 'c3d48e73883fe272b125919bd0bed9e459e11f5ee7d38d5359f7a3d67ecff293a4b348153be6ad29309994d0322b4f9b889b262c1e87eaf87750b655502b922e', '4aa49ad51ef623ce845c1c3e6046850beb5741a641a9ccf9b54ba06f94b30c531745954ee87846f9133aa69fb906f858bd041c2984ee711ad886a8d4ada72e0d', 'Remy', '3', '1');
+						
 						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Marie'		, 'Nagels'		, 'F', '102', '14/09/1944', '1', 'marienagels.jpg');
 						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Jose'		, 'Tielemans'	, 'F', '308', '06/06/1959', '3', 'josetielemans.jpg');
 						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Juliet'		, 'Helem'		, 'F', '238', '21/04/1935', '2', 'juliethelem.jpg');
@@ -195,38 +214,112 @@ $query_TestData = ("	INSERT INTO Facility(Name, City, Postcode, Street, Number) 
 						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('11'	, '6'	, '3');
 						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('16'	, '6'	, '5');
 						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('14'	, '6'	, '1');
-						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('15'	, '6'	, '1');");
+						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('15'	, '6'	, '1');
+						
+						INSERT INTO Activity(ID_facility, Title, Description, Time) VALUES('1', 'BingoNight', 'We spelen bingo tot we er bij neervallen!', '2018-02-14 20:00:00');
+						INSERT INTO Activity(ID_facility, Title, Description, Time) VALUES('1', 'Kaartspel', 'Verscheidenen kaartspelen ter uwer beschikking.', '2018-02-22 13:00:00');
+						INSERT INTO Activity(ID_facility, Title, Description, Time) VALUES('1', 'Wandelen', 'Korte wandelling door Leuven.', '2018-02-08 10:00:00');
+						INSERT INTO Activity(ID_facility, Title, Description, Time) VALUES('1', 'Nachtmis', 'Om middernacht gaan we naar de kerk.', '2018-02-16 23:59:59');
+						INSERT INTO Activity(ID_facility, Title, Description, Time) VALUES('1', 'Kerkbezoek', 'We kijken achter de schermen naar hoe een kerk werkt.', '2018-02-28 16:00:00');
+						INSERT INTO Activity(ID_facility, Title, Description, Time) VALUES('1', 'Aqua gym', 'We doen onze energie op in leuke water activiteiten.', '2018-02-01 15:00:00');
+						
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('1', '1');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('1', '12');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('1', '13');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('1', '4');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('1', '15');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('1', '6');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('1', '7');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('1', '8');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('2', '9');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('2', '10');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('2', '11');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('2', '5');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('2', '4');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('2', '6');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('2', '15');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('3', '16');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('3', '8');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('3', '13');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('3', '5');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('3', '1');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('3', '3');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('3', '12');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('3', '16');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('4', '1');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('4', '12');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('4', '13');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('4', '4');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('4', '15');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('4', '6');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('4', '7');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('4', '8');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('5', '9');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('5', '10');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('5', '11');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('5', '5');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('5', '4');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('5', '6');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('5', '15');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('6', '16');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('6', '8');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('6', '13');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('6', '5');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('6', '1');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('6', '3');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('6', '12');
+						INSERT INTO ActivityLink(ID_Activity, ID_Elder) VALUES('6', '16');
+						
+						");
 
 echo "running querrys\n";	
 
 $result = mysqli_multi_query($mysqli, $query_DataBase);
 	if ( false===$result ){printf("error making database: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_select_db($mysqli, $dbname);
 	if ( false===$result ){printf("error selecting database: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_DropTables);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error dropping tables: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_Facility);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error making Facility: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_Caregiver);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error making Caregiver: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_login_attempts);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error making login_attempts: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_LOG);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error making LOG: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_Elder);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error making Elder: %s\n", mysqli_error($mysqli));}
+
+$result = mysqli_multi_query($mysqli, $query_Activity);
+	while(mysqli_next_result($mysqli)){;}
+	if ( false===$result ){printf("error making Activity: %s\n", mysqli_error($mysqli));}
+
+$result = mysqli_multi_query($mysqli, $query_ActivityLink);
+	while(mysqli_next_result($mysqli)){;}
+	if ( false===$result ){printf("error making ActivityLink: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_Questions);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error making Questions: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_Answers);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error making Answers: %s\n", mysqli_error($mysqli));}
+
 $result = mysqli_multi_query($mysqli, $query_TestData);
 	while(mysqli_next_result($mysqli)){;}
 	if ( false===$result ){printf("error making TestData: %s\n", mysqli_error($mysqli));}
