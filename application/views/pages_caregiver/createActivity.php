@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1 class="text-dark">Add Activity</h1>
+                        <h1 class="text-dark">{Add_Activity}</h1>
                         <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('CaregiverOperateActivity/addActivity'); ?> <!--form_open_multipart so we can add image-->
                         <div class="form-group"> <label for="Title" class="text-dark">{Title}</label>

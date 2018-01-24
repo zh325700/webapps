@@ -13,10 +13,10 @@
       }
 </style>
 <div class="row" style="text-align:center">
-    <div class=" col-md-2">
-    <button class="btn tab" onclick="getScores()" style="margin-top:10px; margin-left: 10px"> {Back} </button>
+    <div class=" col-sm-2">
+    <button class="btn tab" onclick="getScores()" style="margin-top:10px;"> {Back} </button>
     </div>
-    <div class=" col-md-10">
+    <div class=" col-sm-10">
     <p style="font-size:25px; color:#404C86"> {Resident_statistic} <?php echo $info['info'][0]->FirstName; ?> <?php echo $info['info'][0]->LastName; ?> </p>
     </div>
 </div>
@@ -26,51 +26,32 @@
     </div>
     <div class="col-sm-10">
         <div class="row">
-            <div class=" col-sm-3" data-step="2" >
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;"  >{Name}:&emsp;&ensp;</p></div>
+            <div class=" col-sm-6" data-step="2" >
+                <p style="padding-top: 5px; font-size: 15px;"  >{Name}: <?php echo $info['info'][0]->FirstName; ?> <?php echo $info['info'][0]->LastName; ?></p>
+               
             </div>
-            <div class=" col-sm-3" data-step="2">
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;"  ><?php echo $info['info'][0]->FirstName; ?> <?php echo $info['info'][0]->LastName; ?></p></div>
-            </div>
-            <div class=" col-sm-3" data-step="2" data-position='left'>
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;" >{RoomNumber}: </p></div>
-            </div>
-            <div class=" col-sm-3" data-step="2" data-position='right'>
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;" > <?php echo $info["info"][0]->RoomNumber; ?></p></div>
+            <div class=" col-sm-6" data-step="2" data-position='left'>
+                <p style="padding-top: 5px; font-size: 15px;" >{RoomNumber}: <?php echo $info["info"][0]->RoomNumber; ?> </p>
             </div>
         </div>
         <div class="row">
-            <div class=" col-sm-3" data-step="2" >
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;"  >{Average_Score}:&emsp;&ensp;</p></div>            
+            <div class=" col-sm-6" data-step="2" >
+                <p style="padding-top: 5px; font-size: 15px;"  >{Average_Score}: <?php echo $question['question'][0]->avgScore; ?></p>         
             </div>
-            <div class=" col-sm-3" data-step="2">
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;"  ><?php echo $question['question'][0]->avgScore; ?> </p></div>
-            </div>
-            <div class=" col-sm-3" data-step="2" data-position='left'>
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;" >{Number_filled} : </p></div>
-            </div>
-            <div class=" col-sm-3" data-step="2" data-position='right'>
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;" > <?php echo $question["question"][0]->numberFilled; ?></p></div>
+            <div class=" col-sm-6" data-step="2" data-position='left'>
+                <p style="padding-top: 5px; font-size: 15px;" >{Number_filled}: <?php echo $question["question"][0]->numberFilled; ?></p>
             </div>
         </div>
         <div class="row">
-            <div class=" col-sm-3" data-step="2">
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;"  >{Worst_Topic}:&emsp;&ensp;</p></div> 
-            </div>
-            <div class=" col-sm-3" data-step="2">
-                 <div class="row"><p style="padding-top: 10px; font-size: 14px;"  ><?php echo $worsttopic['worsttopic'][0]->WorstTopic; ?> <?php echo $worsttopic['worsttopic'][0]->WorstScore; ?> </p></div>
-            </div>
-            <div class=" col-sm-3" data-step="2" data-position='left'>
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;" >{Best_Topic}: </p></div>
-            </div>
-            <div class=" col-sm-3" data-step="2" data-position='right'>
-                <div class="row"><p style="padding-top: 10px; font-size: 14px;" > <?php echo $besttopic["besttopic"][0]->typeBest; ?> <?php echo $besttopic["besttopic"][0]->avg_ScoreBest; ?></p></div>
-            </div>
+            <p style="padding-top: 5px; padding-left:15px; font-size: 15px;"  >{Worst_Topic} <?php echo $worsttopic['worsttopic'][0]->WorstTopic; ?></p>
         </div> 
+        <div class="row">
+            <p style="padding-top: 5px; padding-left:15px; font-size: 15px;" >{Best_Topic} <?php echo $besttopic["besttopic"][0]->typeBest; ?></p>
+        </div>
     </div>
 </div>
 <div class="row">
-    <ul class="list-group" id="alertElderList">
+    <ul class="list-group" id="alertElderList" style="padding-top: 5px; padding-left:25px; font-size: 20px;"> 
         <li class="list-group-item">{Alert_box} <span></span></li>
     </ul>
 </div>

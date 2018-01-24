@@ -513,7 +513,7 @@ function drawChart(elder,test){
             // adjust the size of chart 
             maintainAspectRatio:false,
             legend: {
-                position: 'top'
+                position: 'right'
             },
             title: {
                 display: true,

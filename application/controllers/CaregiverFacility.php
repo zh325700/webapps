@@ -54,15 +54,16 @@ class CaregiverFacility extends CI_Controller {
 
     public function edit($ID_facility) {
         $data['facility'] = $this->Addfacility_model->get_facility($ID_facility); // use post_model to get the data in the database
-        
+        $this->load->model('Language_model');
+        $data=$this->Language_model->getData($this->session->userdata('language'),'addfac');
         if (empty($data['facility'])) {
             show_404();
         }
             $data['title'] = 'Edit Facility';
             $this->load->view('pages_generalised/header');
-            $this->load->view('pages_generalised/caregiver');
-            $this->load->view('pages_caregiver/editFacility', $data);
-            $this->load->view('pages_generalised/footer');
+            $this->parser->parse('pages_generalised/caregiver',$data['header']);
+            $this->parser->parse('pages_caregiver/editFacility', $data);
+            $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
 
     public function update($ID_facility) {

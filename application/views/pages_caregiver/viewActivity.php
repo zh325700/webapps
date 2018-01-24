@@ -6,7 +6,7 @@
         <div id="blue" class="row">
             <div class="col-sm-offset-0" style="padding-left:2.5%">
                 <h2>
-                    {Activity information}
+                    {Activity_information}
                 </h2>
             </div>
         </div> 

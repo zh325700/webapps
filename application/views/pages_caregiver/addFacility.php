@@ -5,7 +5,7 @@
     <div id="blue" class="row">
             <div class="col-sm-offset-0" style="padding-left: 2.5%">
                 <h2>
-                    {Add_New_Facility}
+                    {Add_Facility}
                 </h2>
             </div>
         </div>
@@ -22,7 +22,7 @@
     
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Name" placeholder="{Name}" required>
+            <input id="formInput" type="text" class="form-control" name="Name" placeholder="{Add_Name}" required>
         </div> 
     </div>    
     
@@ -34,7 +34,7 @@
      
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="City" placeholder="{City}" required>
+            <input id="formInput" type="text" class="form-control" name="City" placeholder="{Add_City}" required>
         </div> 
     </div> 
     
@@ -46,7 +46,7 @@
      
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="{Postcode}" required>
+            <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="{Add_Postcode}" required>
         </div> 
     </div> 
     
@@ -58,7 +58,7 @@
      
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Street" placeholder="{Street}" required>
+            <input id="formInput" type="text" class="form-control" name="Street" placeholder="{Add_Street}" required>
         </div> 
     </div>
      
@@ -70,7 +70,7 @@
      
     <div class="row">
         <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Number" placeholder="{Number}" required>
+            <input id="formInput" type="text" class="form-control" name="Number" placeholder="{Add_Number}" required>
         </div> 
     </div>
                 

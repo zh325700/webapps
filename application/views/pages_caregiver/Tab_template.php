@@ -10,9 +10,10 @@
         </div>
         <div id="panel_element_1" class="panel-collapse collapse in">
             <div class="panel-body">   
-                <row id="question_template" style="font-size:18px">
-                   <p><div class="col-sm-3"><?php echo($text["RoomNumber"]);?></div><div class="col-sm-3"><span class="text-nowrap"><?php echo($text["Name"]);?></span></div>
-                   <div class="col-sm-6"> <?php echo($text["Score"]);?></div></p>
+                <row id="question_template" style="font-size:15px">
+                   <div class="col-sm-3"><?php echo($text["RoomNumber"]);?></div>
+                   <div class="col-sm-3"><?php echo($text["Name"]);?></div>
+                   <div class="col-sm-6"> <?php echo($text["Score"]);?></div>
                 </row>   
                {content_res}
             </div>

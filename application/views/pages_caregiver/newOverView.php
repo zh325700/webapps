@@ -77,7 +77,7 @@
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url(); ?>index.php/CaregiverOperateActivity/viewActivity" >
-                                        <span class="fa fa-anchor solo">Show_Activity</span>
+                                        <span class="fa fa-anchor solo">{Show_Activity}</span>
                                     </a>
                                 </li>
                             <?php endif; ?>
@@ -125,7 +125,7 @@
         <script src='<?php echo base_url() ?>/assets/js/chart.js'></script>
         <script type="text/javascript">
                 //makes the eventlisteners for the two buttons
-                document.getElementById("btn_general").addEventListener("click", getScores);
+                document.getElementById("btn_general").addEventListener("click", init);
                 language = "Dutch";
                 //change the styling of this body
                 document.body.style.display = 'inline';

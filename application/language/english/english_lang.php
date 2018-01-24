@@ -13,6 +13,7 @@
     $lang['Add_Resident']='Add Resident';
     $lang['Add_Facility']='Add facility';
     $lang['Add_Caregiver']='Add Caregiver';
+    $lang['Show_Activity']="Overview activities";
     //overview-intropage
     $lang['Alert_box']="Alert box!";
     //overview-division
@@ -50,34 +51,55 @@
     //edit resident
     $lang['Edit_Residents']='Edit resident';
     $lang['Upload_Image']="Upload image";
-    $lang['Add_New_Resident']='Add New Resident';
     //view facility
     $lang['Overview_Facility']="Overview facility";
-    $lang['City']="City:";
-    $lang['Postcode']="Postcode:";
-    $lang['Street']="Street:";
-    $lang['Number']="Number:";
-    
-    $lang['Add_FirstName']="Add FirstName";
-    $lang['Add_LastName']="Add LastName";
-    
-
-    $lang['Add_Roomnumber']="Add Roomnumber";
-   
-    
-    
+    $lang['City']="City";
+    $lang['Postcode']="Postcode";
+    $lang['Street']="Street";
+    $lang['Number']="Number";
+    //add resident
+    $lang['Add_FirstName']="Add firstname";
+    $lang['Add_LastName']="Add lastname";
+    $lang['Add_Roomnumber']="Add roomnumber";
+    $lang['Day/Month/Year']="Day/Month/Year";
+   //add facility
+    $lang['Facility_Name']="Facility name";
+    $lang['Add_Name']="Add name";
+    $lang['Add_City']="Add city";
+    $lang['Add_Postcode']="Add postcode";
+    $lang['Add_Street']="Add street";
+    $lang['Add_number']="Add housenumber";
+    //add caregiver
+    $lang['Register_Caregiver']="Register Caregiver";
+     $lang['Username']='Username';
+    $lang['Email_address']='Email address';
+    $lang['Enter_email']="Add email";
+    $lang['Confirm_Password']="Confirm password";
+    $lang['Type_Password_again']="Type password ";
+    $lang['Permission_level']="Permission level";
+    $lang['Select_Adminlevel']="Select a permission";
+    $lang['Create_Caregiver']="Create caregiver";
+    $lang['internship']="Internship";
+    $lang['Caregiver']="Caregiver";
+    $lang['Boss']="Boss";
+    //add facility
+    $lang['Edit_Facility']="Edit facility";
     $lang['Overview_facility']="Overview of facility";
     $lang['Save']="Save";
-    
+    //view activities
+    $lang['Activity_information']="Overview activities";
+    $lang['Title']="Title";
+    $lang['Time']="Time";
+    $lang['Number_Of_Participants']="Number of participants";
+    $lang['Description']="Description";
     $lang['Read_More']="Read more...";
     $lang['Add_New_Facility']="Voeg nieuwe faciliteit toe";
+    //add activity
+    $lang['Add_Activity']="Add activity";
+    $lang['Add_Time']="Add time";
+    $lang['Add_Activity_Title']="Add title";
+    $lang['Add_Activity_description']="Add description";
     
-    $lang['Facility_Name']="Facility Name";
-    $lang['Add_Name']="Add Name";
-    $lang['Add_City']="Add City";
-    $lang['Add_Postcode']="Add Postcode";
-    $lang['Add_Street']="Add Street";
-    $lang['Add_number']="Add number";
     $lang['Member_Since']="Member Since";
 
     $lang['Please_category']="Please choose a categorie";
@@ -127,19 +149,9 @@
     $lang['Topic']='Topic';
     $lang['DELETE']="Delete";
     $lang['EDIT']="Edit";
-    $lang['Register_Caregiver']="Register Caregiver";
+
     $lang['Welcome']="Welcome";
-    $lang['Username']='Username';
-    $lang['Email_address']='Email address';
-    $lang['Enter_email']="Enter email";
-    $lang['Confirm_Password']="Confirm Password";
-    $lang['Type_Password_again']="Type Password again";
-    $lang['Permission_level']="Permission level";
-    $lang['Select_Adminlevel']="Select a Admin Level";
-    $lang['Create_Caregiver']="Create Caregiver";
-    $lang['internship']="Internship";
-    $lang['Caregiver']="Caregiver";
-    $lang['Boss']="Boss";
+   
     $lang['Ik_ben_een']="I am a";
     $lang['Vrouw']="Female";
     $lang['Man']="Male";

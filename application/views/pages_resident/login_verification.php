@@ -102,10 +102,9 @@
                         </div>
                         <div class="col-md-2 col-sm-3">
                             <input type="button" class="btn btn-lg button style btn-block" style="height: 100%; border-radius: 10px; border: solid 2px #EDEEF4; background: #EDEEF4;"
-                                   name="Delete" value="{delete}" id="delete" onclick="addNumber(this);"/>
+                                   name="Delete" value="delete" id="delete" onclick="addNumber(this);"/>
                         </div>
                     </div>
-
                         </div>
                         
                         <script type = "text/javascript">
