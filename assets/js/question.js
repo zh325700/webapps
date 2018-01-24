@@ -35,7 +35,7 @@ function getQuestion(score) {
     answers.push(answer);
     counter++;
     if(counter > Object.keys(questions).length){
-        document.location.href = '../../index.php/Question/insertScore/?answers='+JSON.stringify(answers);
+        document.location.href = '../../index.php/ResidentQuestion/insertScore/?answers='+JSON.stringify(answers);
     } else {
         var question = questions[counter - 1];
         document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
