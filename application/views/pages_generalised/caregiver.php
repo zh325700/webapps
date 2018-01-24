@@ -17,7 +17,7 @@
                 <div class ="row">
                     <div class="col-sm-offset-0">
                         <img id="home" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/home.png"  Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Overview/newOverView'"/>
-                        <a id="homeLink" class="top " Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Overview/newOverView'">{HOME}</a>              
+                        <a id="homeLink" class=" top " Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Overview/newOverView'">{HOME}</a>              
                     </div>
                     <div class="col-sm-offset-1">
                         <h2 class="par1" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Overview/newOverView'">Grace-AGE</h2>

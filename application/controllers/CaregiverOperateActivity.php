@@ -39,5 +39,10 @@ class CaregiverOperateActivity extends CI_Controller {
         $this->Activity_Model->delete_activity($ID_Activity);
         redirect('Welcome/Overview/newOverView'); // after click delete button you redirect to post page
     }
+    
+    public function getNewActivities(){
+         $this->load->model('Activity_Model');
+         $data = $this->Activity_Model->get_fewActivities(5);
+    }
 
 }

@@ -23,85 +23,122 @@ body{
     font-style: normal;
 }
 
+/*** HEADER ***/
 
-
-#homebutton{
-    position: fixed;
-    margin-top: 60px;
-    margin-right: 10px;
-}
-
-#info{
-    position: fixed;
-}
-
-
-#logo{
-    position: fixed;
-    color:white;
-    margin-top: 60px;
-    margin-right: 10px;
-    h2{
-        font-size: 40px;
-        color:white;
-    }
-}
-
-.container-fluid{
-    
-    background-color: @primary-color-dark;
-    
-    h1{
-        color: white;
-        font-size: 25px;
-         
-    }   
-    img.align{
-        width: 40px;
-        float: left;
-        opacity: 0.8;
-        margin-top: 20px;
-        margin-right:10px;
-    }
-    .header{
-        position: relative;
-    }
-    
-}
-.par1{
-        position:absolute;
-        top: 8px;
-        font-size: 40px;
-        color: white;
-    }
-img.top-right2 {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    width: 60px;
+/* Home icon */
+img.topIcon {
     opacity: 0.7;
+    top:3.5%;
+    width:4.5%;
     border-radius: 10px;
+    transition:0s 1s;
 }
 
+.topIcon:active{
+    background-color: @primary;
+    opacity: 0.7;
+    transition:0s 0s;
+}
+
+#home{
+    left:2.5%;
+    position: absolute;
+    opacity: 0.8;
+    width:4%;
+}
+
+.top {
+    width: 8%;
+    color: white;
+    opacity: 0.7;
+    font-size:14px;
+    transition:0s 1s;
+    top:9%;
+    position: absolute;
+}
+.top:active{
+    color: @primary;
+    transition:0s 0s;
+}
+
+#homeLink{
+    left:3%;
+} 
+
+/* Info icon */
 img.top-right {
     position: absolute;
-    top: 30px;
-    right: 110px;
-    width: 60px;
+    top: 3.5%;
+    right:2.5%;
+    width: 5%;
     opacity: 0.75;
     border-radius: 10px;
 }
+    
+/* Grace Age logo */    
+.par1{
+    position:absolute;
+    top:1%;
+    /*laptop-> top: 4%*/
+    font-size: 40px;
+    color: white;
+    /*laptop-> left: 1.5%*/
+    transition:0s 1;
+}
 
-.container{
-   
-    padding-left: 0;
+.par1:active{
+    color: primary;
+    transition:0s 0s;
+}
+
+/** PAGES Login resident, Login verification **/
+    
+/* Blue bar with title */    
+#blue{
+    background-color: @primary;
     h1{
-        color: @primary;
+        color: white;
+        font-size: 25px;
+        margin-top:0.75%;
+    }
+
+    #homeLink{
+        left:3%;
+    } 
+    
+.topIcon:active{
+         background-color: #404C86;
+         opacity: 0.7;
+         transition:0s 0s;
+    }
+
+.par1{
+    position:absolute;
+    top:1%;
+    /*laptop-> top: 4%*/
+    font-size: 40px;
+    color: white;
+    padding-left:1%;
+    /*laptop-> left: 1.5%*/
+    transition:0s 1;
+    }
+    .par1:active{
+        color: #404C86;
+        transition:0s 0s;
+    }
+}
+
+
+.container-fluid{
+   
+    h1{
         font-size: 25px;
     }
     h1.par2{
             margin-top: 10%;
     }
+    
+    /* Primary buttons */
     button{
         color: white;
         border-radius: 10px;
@@ -112,21 +149,23 @@ img.top-right {
         margin-bottom: 10px;
         margin-top: 20px;
     }
+    
     button.style{
         background-color: @gray;
         color: @primary;
         text-align: center;
     }
     
-    
     .style:active {
             background-color: @accent;
             color: white;
         }
-    
+        
     button.small{
         font-size: 25px;
-    }    
+        width:100%;
+    }  
+    
         
     figcaption{
         font-family: myriad-pro-condensed, sans-serif;
@@ -137,7 +176,16 @@ img.top-right {
         font-size: 25px;
         margin-top: 50px;
         margin-bottom: 50px;
-        color: @primary;
+        color: black;
+    }
+    
+    /* Birthday form */
+    
+    .forms{
+        width: 100%;
+        padding-right:5%;
+        border-radius: 10px;
+        border-color: @primary;
     }
     
     p{
@@ -147,8 +195,6 @@ img.top-right {
         float:none;
         text-align: center;
         margin-top: 10px;
-        //padding-left: 20px;
-        
     }
 
     .logout{
@@ -191,4 +237,10 @@ img.top-right {
     }
 }
 
-
+/** FOOTER **/
+.footer{
+        
+        font-size:15px;
+        color: @primary;
+        opacity: 0.8;
+}

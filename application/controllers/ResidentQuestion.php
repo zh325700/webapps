@@ -11,8 +11,9 @@ class ResidentQuestion extends CI_Controller{
         $data['first_question'] = $this->Questionnaire_model->getFirstQuestion($category);
         $data['category'] = $category;
         $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/residents');
         $this->parser->parse('pages_resident/question', $data);
-        $this->parse->parse('pages_generalised/footer',$data['footer']);
+        $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
     
     public function insertScore(){
