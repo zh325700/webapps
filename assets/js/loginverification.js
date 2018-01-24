@@ -7,14 +7,14 @@ var lastname;
 var division;
 var picture;
 
-function setDate(d, idE, idF, first, last, div, pic) {
+function setDate(d) {
     date = d;
-    idelder = idE;
+    /*idelder = idE;
     idfacility = idF;
     firstname = first;
     lastname = last;
     division = div;
-    picture = pic;
+    picture = pic;*/
 }
 
 function addNumber(element) {
@@ -53,7 +53,9 @@ function validateDate() {
     var match = input.match(regExp);
     if (match) {
         if (input === date) {
-            document.location.href = '../../index.php/Welcome/Resident/menu';
+            /*var userData = {ID_Elder:idelder, ID_facility:idfacility, 
+                Firstname:firstname, Lastname:lastname, division:division, Picture:picture};*/
+            document.location.href = '../../index.php/Welcome/Resident/menu/?userData='; /*+ JSON.stringify(userData);*/
             //loadPage('Welcome', 'Resident/menu');
         } else {
             alert("Datum klopt niet.");
