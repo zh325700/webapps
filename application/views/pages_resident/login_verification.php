@@ -47,46 +47,58 @@
 
         <div class="row" style="height: 10%">
             <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3" >
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('1');"> 1 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('1');"> 1 </button>
             </div>
             <div class="col-md-2 col-sm-3">
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('2');"> 2 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('2');"> 2 </button>
             </div>
-            <div class="col-md-2 col-sm-3">                            
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('3');"> 3 </button>
+            <div class="col-md-2 col-sm-3">                           
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('3');"> 3 </button>
             </div>
         </div>
         <div class="row" style="margin-top: 0.5%; height: 10%">
             <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('4');"> 4 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('4');"> 4 </button>
             </div>
             <div class="col-md-2 col-sm-3">
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('5');"> 5 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('5');"> 5 </button>
             </div>
             <div class="col-md-2 col-sm-3">                            
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('6');"> 6 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('6');"> 6 </button>
             </div>
         </div>
         <div class="row" style="margin-top: 0.5%; height: 10%">
             <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('7');"> 7 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('7');"> 7 </button>
             </div>
             <div class="col-md-2 col-sm-3">
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('8');"> 8 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('8');"> 8 </button>
             </div>
             <div class="col-md-2 col-sm-3">                            
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('9');"> 9 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('9');"> 9 </button>
             </div>
         </div>
         <div class="row" style="margin-top: 0.5%; height: 10%">
             <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('0');"> 0 </button>
+                <button class="btn button style btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('0');"> 0 </button>
             </div>
             <div class="col-md-2 col-sm-3">
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('delete');"> {Delete} </button>
+                <button class="btn button style small btn-block" style="margin-top: 0;"
+                        onclick="javascript:addNumber('delete');"> {Delete} </button>
             </div>
             <div class="col-md-2 col-sm-3">                            
-                <button class="btn button style small btn-block" onclick="javascript:addNumber('clear');"> {Clear} </button>
+                <button class="btn button style small btn-block" style="margin-top: 0"
+                        onclick="javascript:addNumber('clear');"> {Clear} </button>
             </div>
         </div>
 
