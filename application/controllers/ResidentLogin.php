@@ -13,6 +13,7 @@ class ResidentLogin extends CI_Controller {
         $data['division'] = "Kies een verdieping";
         $data['residents'] = $this->Residents_model->get_residents_by_sex($sex);
         $this->load->view('pages_generalised/header');
+        $this->parser->parse('pages_generalised/residentLogin',$data['header']);
         $this->parser->parse('pages_resident/login_resident.php', $data);
         $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
@@ -24,6 +25,7 @@ class ResidentLogin extends CI_Controller {
         $sex = $_GET['sex'];
         $data['residents'] = $this->Residents_model->get_residents_by_sex($sex);
         $this->load->view('pages_generalised/header.php');
+        $this->parser->parse('pages_generalised/residentLogin',$data['header']);        
         $this->parser->parse('pages_resident/login_resident.php', $data);
         $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
@@ -36,6 +38,7 @@ class ResidentLogin extends CI_Controller {
         $data=$this->Language_model->getData($this->session->userdata('language'),'loginverres',$idvalue);
         $data['resident'] = $this->Residents_model->get_residents($id);
         $this->load->view('pages_generalised/header.php');
+        $this->parser->parse('pages_generalised/residentLogin',$data['header']);
         $this->parser->parse('pages_resident/login_verification.php', $data);
         $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
