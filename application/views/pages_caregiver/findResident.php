@@ -1,10 +1,9 @@
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 
     <div class="container-fluid">
         <div id ="blue" class="row ">
             <div class="col-sm-offset-0" style="padding-left: 2.5%">
-                <h2 style="width: 100%">
+                <h2 >
                     {Find_Residents}
                 </h2>
             </div>
@@ -78,29 +77,29 @@
                             <?php endforeach; ?>
                         </select></div>
                     
-                    <div class="form-group" > 
-                        <label for="Gender" class="text-dark" style="padding-bottom:0%">{Gender}</label><br>
-                        <label style="padding-left: 10vh; padding-top:0%">
-                            <div >
-                                <img src="<?php echo base_url(); ?>/image/pictograms/female.png" style="width:40px;height:40px;">
+                    <div class="form-group"> <label for="Gender" class="text-dark">{Gender}</label>
+                            <label style="padding-left: 5vh">
+                                <div>
+                                    <img src="<?php echo base_url(); ?>/image/pictograms/female.png" style="width:40px;height:40px;">
 
-                                <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px">
-                            </div>
-                        </label>
-                        <label style="padding-left: 20vh">
-                            <div >
-                                <img src="<?php echo base_url(); ?>/image/pictograms/male.png" style="width:40px;height:40px;">
+                                    <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px">
+                                </div>
+                            </label>
+                            <label style="padding-left: 10vh">
+                                <div >
+                                    <img src="<?php echo base_url(); ?>/image/pictograms/male.png" style="width:40px;height:40px;">
 
-                                <input   type="checkbox"name="Sex" value="M" style="width:15px;height:15px">
-                            </div>
-                        </label>
-                    </div>
+                                    <input   type="checkbox"name="Sex" value="M" style="width:15px;height:15px">
+                                </div>
+                            </label>
+                        </div>
 
-                    <div class="form-group"><button class="btn btn-lg btn-block form-control button" type="submit" value="{FIND}" name="findres" />{FIND}</button>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-block form-control button" type="submit" value="{FIND}" name="findres" />{FIND}</button>
                     </div>
                 </form>
             </div>
-            <div class="col-sm-8" style="overflow:scroll; padding-top: 3%" height="260" width="240">
+            <div class="col-sm-8" style="overflow:scroll; padding-top: 3%" height="320" width="320">
 
                 <!--Add general function here-->
                 <?php
@@ -130,7 +129,7 @@
                             $lastname = $fArray['LastName'];
                             ?>
                             <div style="display: inline-block" class="col-sm-offset-2">
-                                <img onclick="loadPage('CaregiverOperateResident', 'view/<?php echo $id; ?>')" src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>" alt="<?php echo $lastname ?>" style="border:10px blue;" width="240" heigth="240">
+                                <img onclick="loadPage('CaregiverOperateResident', 'view/<?php echo $id; ?>')" src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>" alt="<?php echo $lastname ?>" style="width:200px; height:200px; border:10px blue;" >
                                 <figcaption class="text-center"><?php echo $lastname; ?></figcaption>
                             </div>
                             <?php

@@ -14,13 +14,12 @@ class CaregiverOperateActivity extends CI_Controller {
             $this->parser->parse('pages_generalised/footer',$data['footer']);
         } else {
             $this->Activity_Model->create_activity();
-            $uri = base_url()."index.php/Welcome/Overview/newOverView";
-            echo "<script>javascript:alert('successfully add new activity'); window.location = '".$uri."'</script>";
-
+            $uri = base_url() . "index.php/Welcome/Overview/newOverView";
+            echo "<script>javascript:alert('successfully add new activity'); window.location = '" . $uri . "'</script>";
         }
     }
-    
-        public function viewActivity($ID_Activity = 2) {  // by default I make it 2 just to test
+
+    public function viewActivity($ID_Activity = 2) {  // by default I make it 2 just to test
         $this->load->model('Language_model');
         $this->load->model('Activity_Model');
         $data=$this->Language_model->getData($this->session->userdata('language'),'viewact');
@@ -31,13 +30,14 @@ class CaregiverOperateActivity extends CI_Controller {
         }
         $data['$ID_Activity'] = $data['activity']['ID_Activity'];
         $this->load->view('pages_generalised/header');
-        $this->parser->parse('pages_generalised/caregiver',$data['header']);
+        $this->parser->parse('pages_generalised/caregiver', $data['header']);
         $this->parser->parse('pages_caregiver/viewActivity', $data);
-        $this->parser->parse('pages_generalised/footer',$data['footer']);
+        $this->parser->parse('pages_generalised/footer', $data['footer']);
     }
-        public function deleteActivity($ID_Activity){
+
+    public function deleteActivity($ID_Activity) {
         $this->Activity_Model->delete_activity($ID_Activity);
         redirect('Welcome/Overview/newOverView'); // after click delete button you redirect to post page
-        }
+    }
 
 }

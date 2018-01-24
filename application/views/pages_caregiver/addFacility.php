@@ -13,74 +13,48 @@
 
     <?php echo validation_errors(); ?>
     <?php echo form_open_multipart('CaregiverFacility/addfacility'); ?> <!--form_open_multipart so we can add image-->
-        
-    <div class="row">
-        <div id="forms" class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
+       
+    <div class="col-sm-offset-0 col-sm-5">
+        <div id="forms" class="row">
             <label>{Facility_Name}</label> 
         </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Name" placeholder="{Add_Name}" required>
-        </div> 
-    </div>    
-    
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
+        <div class="row" style="padding-left:2.5%">
+            <input id="formInput" type="text" class="form-control" name="Name" placeholder="{Name}" required>
+        </div>
+        <div class="row" style="padding-left:2.5%">
             <label>{City}</label> 
         </div>
+        <div class="row" style="padding-left:2.5%">
+            <input id="formInput" type="text" class="form-control" name="City" placeholder="{City}" required>
+        </div>
+        <div class="row" style="padding-left:2.5%">
+            <label>{Postcode}</label>  
+        </div>
+        <div class="row" style="padding-left:2.5%">
+            <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="{Postcode}" required>
+         </div>
     </div>
-     
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="City" placeholder="{Add_City}" required>
-        </div> 
-    </div> 
     
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
-             <label>{Postcode}</label> 
+    <div class="col-sm-offset-2 col-sm-5" style="padding-right:2.5%">
+        <div id="forms" class="row" style="padding-left:0%">
+            <label>{Street}</label> 
         </div>
-    </div>
-     
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="{Add_Postcode}" required>
-        </div> 
-    </div> 
-    
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
-              <label>{Street}</label> 
+        <div class="row">
+            <input id="formInput" type="text" class="form-control" name="Street" placeholder="{Street}" required>
         </div>
-    </div>
-     
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Street" placeholder="{Add_Street}" required>
-        </div> 
-    </div>
-     
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5 " style="padding-left:2.5%">
-              <label>{Number}</label> 
+        <div class="row">
+            <label>{Number}</label> 
         </div>
-    </div>
-     
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%">
-            <input id="formInput" type="text" class="form-control" name="Number" placeholder="{Add_Number}" required>
-        </div> 
-    </div>
-                
-    <div class="row">
-        <div class="col-sm-offset-0 col-sm-5" style="padding-left: 2.5%; padding-top: 2%; padding-right:0%">
+        <div class="row">
+            <input id="formInput" type="text" class="form-control" name="Number" placeholder="{Number}" required>
+        </div>
+        <div class="row insert-row" style="padding-bottom:30%">
               <button type="submit"class="btn btn-lg btn-block button form-control">{Add_Facility}</button>
-           </div> 
-    </div>        
+        </div>
+    </div>      
+</div>
 
- </div>  
+
     
 <script src="<?= base_url() ?>assets/js/jquery.js"></script>
 
