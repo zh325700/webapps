@@ -1,4 +1,5 @@
 
+
     <?php
     $date = $resident['Birthday'];
     $idelder = $resident['ID_Elder'];
