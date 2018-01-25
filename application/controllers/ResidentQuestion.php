@@ -1,4 +1,5 @@
 <?php
+$category = "";
 
 class ResidentQuestion extends CI_Controller{
     public function getQuestion(){
@@ -36,6 +37,7 @@ class ResidentQuestion extends CI_Controller{
             echo json_encode("Failed to Save Data");
         } else {
             $this->db->trans_commit();
+            $this->session->set_userdata($category, "Done");
             redirect('Welcome/LoadThankyou'); //TODO UPDATE TO ACTUAL CONTROLLER
         }
     }

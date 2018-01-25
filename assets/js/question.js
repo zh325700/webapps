@@ -10,6 +10,7 @@ var id;
 var offset;
 
 function loadQuestions(all_questions, this_category, id_elder){
+    category = this_category;
     calculateOffset(this_category);
     id = id_elder;
     all_questions_array = JSON.parse(all_questions);
@@ -35,7 +36,8 @@ function getQuestion(score) {
     answers.push(answer);
     counter++;
     if(counter > Object.keys(questions).length){
-        document.location.href = '../../index.php/ResidentQuestion/insertScore/?answers='+JSON.stringify(answers);
+        document.location.href = '../../index.php/ResidentQuestion/insertScore/?answers='+JSON.stringify(answers)+'&category='+category;
+        console.log(category);
     } else {
         var question = questions[counter - 1];
         document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;

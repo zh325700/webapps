@@ -98,7 +98,7 @@ $pic = $resident['Picture'];
                     onclick="javascript:addNumber('delete');"> {Delete} </button>
         </div>
         <div class="col-md-2 col-sm-3">                            
-            <button class="btn button style numpad btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block"
                     onclick="javascript:addNumber('clear');"> {Clear} </button>
         </div>
     </div>
