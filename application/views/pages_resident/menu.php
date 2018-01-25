@@ -49,7 +49,7 @@
 	<div class="row" style="padding-top:0%">
                 <div class="col-sm-offset-0 col-sm-6">
                     <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block"
-                            data-step="4" data-intro="Click here to see recent activities" data-position='top'>
+                            data-step="4" data-intro="Click here to see recent activities" data-position='top' onclick="loadPage('CaregiverOperateActivity','ActivityList')">
                        <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>
                         {Activities}
                     </button>
