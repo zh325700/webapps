@@ -1,5 +1,5 @@
 
-<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '1' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
 
 
 <div class="container-fluid flex">

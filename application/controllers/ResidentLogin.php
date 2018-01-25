@@ -10,6 +10,7 @@ class ResidentLogin extends CI_Controller {
         if (isset($_GET['sex'])){
             $sex = $_GET['sex'];
         }
+        $this->session->set_userdata('allow_Caregiver', 'deny');
         $data['division'] = "Kies een verdieping";
         $data['residents'] = $this->Residents_model->get_residents_by_sex($sex);
         $this->load->view('pages_generalised/header');

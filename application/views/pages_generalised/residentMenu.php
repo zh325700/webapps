@@ -1,5 +1,6 @@
         <!--our css and less-->
         <link rel="stylesheet/less" type="text/css" href="<?php echo base_url(); ?>/assets/css/residentsLore.less" />
+
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
         
         <!--compile less files-->

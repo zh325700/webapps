@@ -1,4 +1,4 @@
-<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '3' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
 
 <div class="container-fluid flex">
 

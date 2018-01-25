@@ -5,8 +5,6 @@
 <link href="<?php echo base_url(); ?>assets/css/overview.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-
-
     <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class="" alt="header"/>
     <div class ="row">
         <div class="col-sm-offset-0">
@@ -21,7 +19,7 @@
         </div>
     </div>
     
-    <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+    <?php if (htmlentities($this->session->userdata('permission')) >= '1' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
         <div class="container-fluid">
             <div id="wrapper">
 
