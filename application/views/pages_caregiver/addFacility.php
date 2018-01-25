@@ -14,28 +14,28 @@
     <?php echo validation_errors(); ?>
     <?php echo form_open_multipart('CaregiverFacility/addfacility'); ?> <!--form_open_multipart so we can add image-->
        
-    <div class="col-sm-offset-0 col-sm-5">
-        <div id="forms" class="row">
+    <div class="col-sm-offset-0 col-sm-5" style="padding-left:2.5%; padding-top: 1%">
+        <div id="forms" class="row" style="padding-left:0%">
             <label>{Facility_Name}</label> 
         </div>
-        <div class="row" style="padding-left:2.5%">
+        <div class="row" >
             <input id="formInput_N" type="text" class="form-control" name="Name" placeholder="{Add_Name}" required>
         </div>
-        <div class="row" style="padding-left:2.5%">
+        <div class="row" >
             <label>{City}</label> 
         </div>
-        <div class="row" style="padding-left:2.5%">
+        <div class="row">
             <input id="formInput_C" type="text" class="form-control" name="City" placeholder="{Add_City}" required>
         </div>
-        <div class="row" style="padding-left:2.5%">
+        <div class="row">
             <label>{Postcode}</label>  
         </div>
-        <div class="row" style="padding-left:2.5%">
+        <div class="row">
             <input id="formInput_P" type="text" class="form-control" name="Postcode" placeholder="{Add_Postcode}" required>
          </div>
     </div>
     
-    <div class="col-sm-offset-2 col-sm-5" style="padding-right:2.5%">
+    <div class="col-sm-offset-2 col-sm-5" style="padding-right:2.5%; padding-top:2%">
         <div id="forms_2" class="row" style="padding-left:0%">
             <label>{Street}</label> 
         </div>

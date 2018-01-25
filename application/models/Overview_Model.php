@@ -14,7 +14,7 @@
             else{
                 $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Type_en Topic');
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->group_by('Questions.Type_en');
             $this->db->order_by('AVG(Answers.Score)',"asc");
@@ -32,7 +32,7 @@
          */
         public function getElderScore(){
             $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber, Elder.ID_Elder Elder_ID ');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->group_by('Answers.ID_Elder');
             $this->db->order_by('AVG(Answers.Score)',"asc");
@@ -45,7 +45,7 @@
         
         public function getElderScoreDivision($division){
             $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber, Elder.ID_Elder Elder_ID ');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->where('Elder.Division',$division);
             $this->db->group_by('Answers.ID_Elder');
@@ -63,7 +63,7 @@
             else{
                 $this->db->select('AVG(Answers.Score) avg_Score, Questions.Type_en Topic, Questions.Type_en Topictest');  
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->where('Division',$division);
@@ -77,7 +77,7 @@
         
         public function getElderScoreQuestion($ID_elder){
             $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question Question Answers.ID_Elder ID_Elder ');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->where('Answers.ID_Elder',$ID_elder);
             $this->db->group_by('Answers.ID_Question');
@@ -90,7 +90,7 @@
         
         public function getElderScoreRecords($ID_elder){
             $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question Question ');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->where('Answers.ID_Elder',$ID_elder);
             $this->db->order_by('Answers.DateStamp');
@@ -102,7 +102,7 @@
         
         public function getQuestionScoreElders($ID_question){
             $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber ');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->where('Answers.ID_Question',$ID_question);
             $this->db->group_by('Answers.ID_Elder');
@@ -114,7 +114,7 @@
         }
         public function getQuestionScoreRecords($ID_question){
             $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber ');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->where('Answers.ID_Question',$ID_question);
             $this->db->from('Answers');
@@ -156,7 +156,7 @@
         
         public function getElderquestioninfo($ID_elder){
             $this->db->select('AVG(Score) avgScore,COUNT(Score) numberFilled');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('ID_Elder',$ID_elder);
             $this->db->from("Answers");
             $query=$this->db->get();
@@ -171,7 +171,7 @@
             else{
                 $this->db->select('ROUND(AVG(Answers.Score),2) WorstScore,Questions.Type_en WorstTopic');
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('ID_Elder',$ID_elder);
             $this->db->join('Questions','Answers.ID_Question=Questions.ID_Question');
             $this->db->group_by('Questions.Type_en');
@@ -190,7 +190,7 @@
             else{
                 $this->db->select('ROUND(AVG(Answers.Score),2) avg_ScoreBest,Questions.Type_en typeBest');
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('ID_Elder',$ID_elder);
             $this->db->join('Questions','Answers.ID_Question=Questions.ID_Question');
             $this->db->group_by('Questions.Type_en');
@@ -209,7 +209,7 @@
             else{
                 $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score,Answers.DateStamp DateStamp,Questions.Question_en question');
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Questions.Type_en',$type);
             $this->db->or_where('Questions.Type_nl',$type);
             $this->db->where('Answers.ID_elder',$ID_elder);
@@ -241,7 +241,7 @@
             else{
                 $this->db->select('COUNT(Answers.Score) NumberAnswers,Questions.Type_en Topic, ROUND(AVG(Answers.Score),2) avg_score');
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Questions.Type_en',$topic);
             $this->db->or_where('Questions.Type_nl',$topic);
             $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
@@ -253,7 +253,7 @@
         
         public function getTopicScores($topic,$division){
             $this->db->select('Answers.Score avg_Score,Answers.DateStamp DateStamp');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Questions.Type_en',$topic);
             $this->db->or_where('Questions.Type_nl',$topic);
             $this->db->where('Elder.division',$division);
@@ -272,7 +272,7 @@
             else{
                 $this->db->select('Answers.Score Avg_Score,Questions.Question_en Question,Questions.ID_Question ID_Question');
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Questions.Type_en',$topic);
             $this->db->or_where('Questions.Type_nl',$topic);
             $this->db->join('Answers','Questions.ID_Question=Answers.ID_Question');
@@ -285,7 +285,7 @@
         
         public function getScoreDivision($division,$ID_question){
             $this->db->select('AVG(Answers.Score) avg_Score, Answers.DateStamp DateStamp,Elder.division division');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Answers.ID_Question',$ID_question);
             $this->db->where('Elder.division',$division);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
@@ -298,7 +298,7 @@
         
         public function getDivisionScore($division){
             $this->db->select('AVG(Answers.Score) avg_Score, Answers.DateStamp DateStamp');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Elder.Division',$division);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->group_by('Answers.DateStamp');
@@ -315,7 +315,7 @@
             else{
                 $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score,Questions.Type_en type, Elder.division division');
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Answers.Datestamp >',$datestamp);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
@@ -334,7 +334,7 @@
             else{
                  $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_en question,Questions.Type_en type, Elder.FirstName FirstName, Elder.LastName LastName');
             }
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Answers.Datestamp >',$datestamp);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
@@ -355,7 +355,7 @@
             }
             $this->db->where('Answers.Datestamp >',$datestamp);
             $this->db->where('Elder.ID_Elder',$elder);
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->group_by('Questions.ID_Question');
@@ -374,7 +374,7 @@
                 $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_en question,Questions.Type_en type, Count(Answers.Score) count');
             }
             $this->db->where('Answers.Datestamp >',$datestamp);
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->group_by('Elder.ID_Elder');
@@ -387,7 +387,7 @@
         
         public function getAlertTime($datestamp){
             $this->db->select('MIN(Answers.DateStamp) Datestamp,Elder.FirstName FirstName, Elder.LastName LastName');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->group_by('Elder.ID_Elder');
             $this->db->having('MIN(Answers.DateStamp) <',$datestamp);
@@ -399,7 +399,7 @@
         
         public function getAlertTimeElder($datestamp,$elder){
             $this->db->select('MIN(Answers.DateStamp) Datestamp');
-            $this->db->where("Answers.Score !=",-1);
+            $this->db->where("Answers.Score !=",6);
             $this->db->where('Elder.ID_Elder',$elder);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->group_by('Elder.ID_Elder');

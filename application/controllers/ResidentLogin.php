@@ -52,7 +52,19 @@ class ResidentLogin extends CI_Controller {
             "Firstname" => $userdata->Firstname,
             "Lastname" => $userdata->Lastname,
             "Division" => $userdata->Division,
-            "Picture" => $userdata->Picture
+            "Picture" => $userdata->Picture,
+            
+            "Activities" => '0',
+            "Autonomy" => '0',
+            "Comfort" => '0',
+            "FoodAndMeals" => '0',
+            "InformationOfTheHome" => '0',
+            "PersonalRelationships" => '0',
+            "Privacy" => '0',
+            "RespectByStaff" => '0',
+            "SafetyAndSecurity" => '0',
+            "StaffResidentBonding" => '0',
+            "StaffResponsiveness" => '0'
         );
         $this->session->set_userdata($userDataArray);
         redirect('Welcome/Resident/menu');

@@ -10,14 +10,10 @@
                     </h2>
                     </div>
                 </div> 
-                <div class="row">
+                <div class="row" style="padding-top:2%">
                     <?php echo validation_errors(); ?>
-                        <?php echo form_open_multipart('CaregiverOperateResident/create'); ?> <!--form_open_multipart so we can add image-->
-                    <div id="forms1" class="col-sm-6">
-
-                        
-                        
-
+                    <?php echo form_open_multipart('CaregiverOperateResident/create'); ?> <!--form_open_multipart so we can add image-->
+                    <div id="forms1" class="col-sm-6" style="padding-left:2.5%">
                         <div class="form-group"> <label for="LastName" class="text-dark">{LastName}</label>
                             <input required="" type="text" name="LastName" class="form-control" id="LastName" placeholder="{Add_LastName}"
                                    value="<?php echo isset($_POST["LastName"]) ? $_POST["LastName"] : ''; ?>"> </div>

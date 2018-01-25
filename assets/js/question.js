@@ -10,6 +10,7 @@ var id;
 var offset;
 
 function loadQuestions(all_questions, this_category, id_elder){
+    category = this_category;
     calculateOffset(this_category);
     id = id_elder;
     all_questions_array = JSON.parse(all_questions);
@@ -23,7 +24,7 @@ function loadQuestions(all_questions, this_category, id_elder){
     }
     total_question_count = questions.length;
     var question = questions[0];
-    document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+    document.getElementById("question_number").innerHTML =category + " (vraag " + counter + "/" + total_question_count + ")";
     document.getElementById("question_content").innerHTML = question.Question_nl;
     console.log(questions);
 }
@@ -35,10 +36,11 @@ function getQuestion(score) {
     answers.push(answer);
     counter++;
     if(counter > Object.keys(questions).length){
-        document.location.href = '../../index.php/ResidentQuestion/insertScore/?answers='+JSON.stringify(answers);
+        document.location.href = '../../index.php/ResidentQuestion/insertScore/?answers='+JSON.stringify(answers)+'&category='+category;
+        console.log(category);
     } else {
         var question = questions[counter - 1];
-        document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+        document.getElementById("question_number").innerHTML = category + " (vraag " + counter + "/" + total_question_count + ")";
         document.getElementById("question_content").innerHTML = question.Question_nl;
         document.getElementById("previousBtn").innerHTML = "Vorige vraag";
         console.log(answers);
@@ -51,7 +53,7 @@ function previous(){
     counter--;
     if(counter >= 1){
         var question = questions[counter - 1];
-        document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+        document.getElementById("question_number").innerHTML = category + " (vraag " + counter + "/" + total_question_count + ")";
         document.getElementById("question_content").innerHTML = question.Question_nl;
         console.log(counter);
         if (counter === 1){

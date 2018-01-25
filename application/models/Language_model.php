@@ -246,6 +246,7 @@
          * Output: the right values to the keys for the add facility screen
          */
         public function getDataAddFac(){
+           $data['Edit_Facility']=$this->lang->line('Edit_Facility');
            $data['Facility_Name']=$this->lang->line('Facility_Name');
            $data['Name']=$this->lang->line('Name');
            $data['City']=$this->lang->line('City');

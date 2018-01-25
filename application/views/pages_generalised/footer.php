@@ -1,6 +1,6 @@
-        <div class="container">
+        <div id="foot" class="container">
             
-                <div class="col-md-offset-3 col-sm-offset-2 col-md-5 col-sm-7">
+                <div  class="col-md-offset-3 col-sm-offset-2 col-md-5 col-sm-8">
                     <p class="footer " >{Copyright} &copy; 2017</p>
                 </div>
                 <div class="col-sm-2">

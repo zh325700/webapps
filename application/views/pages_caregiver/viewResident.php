@@ -11,42 +11,102 @@
                 </h2>
             </div>
         </div>
-    <div class="row">
-        <div class="col-md-offset-0 col-sm-3" data-step="1" data-intro="Here is the image of the resident">
-            <img class="" height="260" alt="resident" width="240" style="padding-top: 10%; padding-left:5%" src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
-        </div>
-
-        <div id="forms1" class="col-sm-offset-1 col-sm-3" style="padding-left:0%" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
-
-            <label>{LastName}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['LastName']; ?></label><br>
-            <label>{FirstName}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['FirstName']; ?></label><br>
-            <label>{Gender}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Sex']; ?></label><br>
-            <label>{Birthday}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Birthday']; ?></label>
-	</div>
-
-	<div id="forms2" class="col-sm-offset-1 col-sm-4">
-            <label>{RoomNumber}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['RoomNumber']; ?></label><br>
-            <label>{Facility}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $fac_name['Name']; ?></label><br>
-            <label>{MemberSince}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Member_Since']; ?></label>
-	</div>
     
+    <div class="row">
+         <div class="col-sm-offset-0 col-sm-2" data-step="1" data-intro="Here is the image of the resident">
+            <img class="" height="140" width="140" alt="resident" style="padding-top: 9%; padding-left:8%; padding-bottom:0%" src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
+        </div>
     </div>
-    <div class="row" style="padding-bottom: 4%; padding-top: 2%">
-		<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 
-        <div class="col-sm-offset-4 col-md-offset-4 col-md-2 col-sm-3" style="padding-left:0%;padding-right:0%">
+    <div id="forms" class="row" style="padding-top:0%">
+        
+
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-1" style="padding-top:0.5%">
+                <label>{LastName}</label> <br>
+            </div>
+            <div class="col-sm-offset-8">
+                <label>{RoomNumber}</label> <br>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-2">
+                <label class="lab"><?php echo $residents['LastName']; ?></label><br>
+            </div>
+            <div class="col-sm-offset-8">
+                <label class="lab"><?php echo $residents['RoomNumber']; ?></label><br>
+            </div>
+        </div>
+        
+        <div class="row" >
+            <div class="col-sm-offset-4 col-sm-2" style="padding-top:0.5%">
+                <label>{FirstName}</label> <br>
+            </div>
+            <div class="col-sm-offset-8">
+                <label>{Facility}</label> <br>
+            </div>
+        </div>
+        
+        <div class="row" >
+            <div class="col-sm-offset-4 col-sm-2">
+                <label class="lab"><?php echo $residents['FirstName']; ?></label><br>
+            </div>
+            <div class="col-sm-offset-8">
+                <label class="lab"><?php echo $fac_name['Name']; ?></label><br>
+            </div>
+        </div>
+        
+        <div class="row" >
+            <div class="col-sm-offset-4 col-sm-2" style="padding-top:0.5%">
+                <label>{Gender}</label> <br>
+            </div>
+            <div class="col-sm-offset-8">
+                <label>{MemberSince}</label> <br>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-2">
+                <label class="lab"><?php echo $residents['Sex']; ?></label><br>
+            </div>
+            <div class="col-sm-offset-8">
+                <label class="lab"><?php echo $residents['Member_Since']; ?></label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-2" style="padding-top:0.5%">
+                <label>{Birthday}</label> <br>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-offset-4 col-sm-2">
+                <label class="lab"><?php echo $residents['Birthday']; ?></label>
+            </div>
+        </div>
+        
+
+    </div>
+    <div class="row" style="padding-bottom: 0%; padding-top: 1%">
+		<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+        <div class="col-sm-offset-4 col-md-3 col-sm-4" style="padding-left:2.5%;">
             <button class="btn btn-lg btn-block button" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')">{EDIT}</button>
         </div>
-        <div class="col-sm-offset-1 col-md-offset-2 col-sm-4 col-md-3" style="padding-left:2.5%; padding-right:6%">
+        <div class="col-sm-offset-1 col-sm-4 col-md-3" style="padding-right:2.5%">
             
             <?php echo form_open('CaregiverOperateResident/delete/' . $residents['ID_Elder']); /* if we click it it goes to /post/delete/3 */ ?>    
 
             <button id="delete" class="btn btn-lg btn-block button" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')">{DELETE}</button>
             <?php echo form_close(); ?>
         </div>
-		<?php endif; ?>
-
+        
+       <?php endif; ?>
+		
     </div>
+    
+    
 </div>
 <!--Javascript libraries--> 
 <script src="<?php echo base_url(); ?>/assets/js/jquery.js"></script>

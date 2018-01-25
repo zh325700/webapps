@@ -1,4 +1,5 @@
 
+/** HEADER **/
 .header{
     position: relative;
 }
@@ -10,17 +11,25 @@ img.topIcon {
     border-radius: 10px;
     transition:0s 1s;
 }
+.topIcon:active{
+    background-color: #404C86;
+    opacity: 0.7;
+    transition:0s 0s;
+}
 
 #log{
     position: absolute;
 }
 
-#home{
-   
+#home{   
     left:2.5%;
     position: absolute;
     opacity: 0.8;
     width: 4%;
+}
+
+#logLink{
+    right:0.5%;
 }
 
 .top {
@@ -30,42 +39,36 @@ img.topIcon {
     font-size:14px;
     transition:0s 1s;
     top:9%;
-   
     position: absolute;
 }
-
 
 .top:active{
         color: #404C86;
         transition:0s 0s;
     }
     
-    #logLink{
-        right:0.5%;
-    }
+   
     
-.topIcon:active{
-         background-color: #404C86;
-         opacity: 0.7;
-         transition:0s 0s;
-    }
-    
-    
+/* Logo */  
 .par1{
     position:absolute;
-    top:0%;
     /*laptop-> top: 4%*/
     font-size: 40px;
     color: white;
     padding-left:1%;
     /*laptop-> left: 1.5%*/
-    transition:0s 1;
-    }
+    transition:0s 1s;
+    top:0.2%;
+}
+
     .par1:active{
         color: #404C86;
         transition:0s 0s;
-    }
+}
 
+
+
+/** SIDE BAR **/
 #wrapper {
     padding-left: 250px;
     transition: all 0.4s ease 0s;
@@ -163,6 +166,8 @@ img.topIcon {
 
 }
 
+/** BUTTONS **/
+
 button.badge{
     background-color: #EDEEF4;
     color: #404C86;
@@ -198,6 +203,8 @@ button.tab{
     cursor: pointer;
 }
 
+/** PANEL **/
+
 .panel .panel-heading{
     background-color: #EDEEF4;
     color: #404C86;
@@ -208,6 +215,15 @@ button.tab{
     font-style: normal;
 }
 
+.alertgroup{
+    overflow-y: auto; 
+    height: 700px;
+}
+
+.callendargroup{
+    overflow-y: auto; 
+    height: 350px;
+}
 .panel-collapse{
     overflow-y: scroll; 
     height: 620px;
@@ -250,6 +266,10 @@ input.logout{
         opacity: 0.8;
 }
 
+#foot{
+    padding-top:0%;
+}
+
 #link{
     font-size:15px;
     opacity: 0.8;
@@ -257,3 +277,33 @@ input.logout{
     padding-top:0%;
     padding-left:0%;
 }
+
+
+/** RESPONSIVE DESIGN **/
+@media only screen and (min-width: 768px) {
+    #home{
+        top:5%;
+    }
+    
+    .par1{
+        top:3%;
+    }
+    
+    /*#log{
+        top:5%;
+    }*/
+    
+    #logLink{
+        top: 10%;
+        right: 0%;
+    }
+    
+    #foot{
+        padding-top:5%;
+    }
+    
+    
+}
+
+
+

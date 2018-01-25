@@ -1,16 +1,19 @@
-<link href="<?php echo base_url(); ?>assets/css/care_reg.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>            
+          
     <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
-        <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class="" alt="header"/>
 
-        <div class="py-5 bg-primary text-white" >
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1 class="text-dark">{Add_Activity}</h1>
-                        <?php echo validation_errors(); ?>
-                        <?php echo form_open_multipart('CaregiverOperateActivity/addActivity'); ?> <!--form_open_multipart so we can add image-->
+     
+            <div class="container-fluid">
+                <div id="blue" class="row" style="padding-bottom: 0%">
+                    <div class="col-sm-offset-0" style="padding-left:2.5%">
+                        <h2>
+                            {Add_Activity}
+                        </h2>
+                    </div>
+                </div>
+                <div  class="row" style="padding-top: 0%">
+                    <?php echo validation_errors(); ?>
+                    <?php echo form_open_multipart('CaregiverOperateActivity/addActivity'); ?> <!--form_open_multipart so we can add image-->
+                    <div id="forms" class="col-sm-6" >
                         <div class="form-group"> <label for="Title" class="text-dark">{Title}</label>
                             <input required="" type="text" name="Title" class="form-control" id="InputTitle" placeholder="{Add_Activity_Title}"
                                    value="<?php echo isset($_POST["Title"]) ? $_POST["Title"] : ''; ?>"> </div>
@@ -22,17 +25,18 @@
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                         </div>
+                    </div>
+                    <div id="forms_2" class="col-sm-6" style="padding-top:3%;padding-right:2.5%;padding-bottom: 8%">    
                         <div class="form-group"> <label for="Description" class="text-dark">{Description}</label>
                             <textarea class="form-control"  name="Description" id="InputDescription" rows="10" placeholder="{Add_Activity_description}"></textarea>
                         </div>
-
-                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Activity}</button>
-                        <?php echo form_close() ?>
+                        <button type="submit" class="btn btn-lg button btn-block">{Add_Activity}</button>
                     </div>
+                    <?php echo form_close() ?>
                 </div>
             </div>
 
-        </div>
+
 
 
 

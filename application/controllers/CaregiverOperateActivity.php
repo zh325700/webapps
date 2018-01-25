@@ -10,6 +10,7 @@ class CaregiverOperateActivity extends CI_Controller {
         $this->form_validation->set_rules('Title', 'Title', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages_generalised/header');
+             $this->parser->parse('pages_generalised/caregiver', $data['header']);
             $this->parser->parse('pages_caregiver/createActivity', $data);
             $this->parser->parse('pages_generalised/footer',$data['footer']);
         } else {

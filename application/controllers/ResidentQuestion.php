@@ -1,4 +1,5 @@
 <?php
+$category = "";
 
 class ResidentQuestion extends CI_Controller{
     public function getQuestion(){
@@ -18,6 +19,7 @@ class ResidentQuestion extends CI_Controller{
     
     public function insertScore(){
         $data = $_GET['answers'];
+        $category = $_GET['category'];
         $this->load->model('Questionnaire_model');
         //$this->Questionnaire_model->insertScore($answers);
         
@@ -36,6 +38,7 @@ class ResidentQuestion extends CI_Controller{
             echo json_encode("Failed to Save Data");
         } else {
             $this->db->trans_commit();
+            $this->session->set_userdata($category, "1");
             redirect('Welcome/LoadThankyou'); //TODO UPDATE TO ACTUAL CONTROLLER
         }
     }
