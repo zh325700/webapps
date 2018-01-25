@@ -43,7 +43,7 @@
                     <img src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(5)" alt="" class="smiley" usemap="#map"/>
                 </div>    
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(-1)" alt="" class="smiley" usemap="#map"/>
+                    <img src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(6)" alt="" class="smiley" usemap="#map"/>
                 </div> 
             </div>
 
