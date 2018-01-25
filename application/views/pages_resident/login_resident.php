@@ -72,12 +72,6 @@
                     ?>
                 </div>
             </div>
-            <div class="row" >
-                <div class="col-sm-offset-10 col-md-offset-11 col-sm-2" data-step="3" data-intro="Signout Here" data-position="top" >
-                    <a id = "link" type="button" class="btn btn-lg style logout" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">Afmelden</a>          
-                </div>    
-            </div>
-
         </div>
     </body>
 

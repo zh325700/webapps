@@ -1,4 +1,5 @@
 
+
 <?php if (htmlentities($this->session->userdata('permission')) >= '1' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
 
 
@@ -14,13 +15,16 @@
         <div class="col-md-offset-0 col-sm-3" data-step="1" data-intro="Here is the image of the resident">
             <img class="" height="260" width="240" style="padding-top: 10%; padding-left:5%" src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
         </div>
-        <div id="forms" class="col-sm-offset-1 col-sm-3" style="padding-left:0%" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
+
+        <div id="forms1" class="col-sm-offset-1 col-sm-3" style="padding-left:0%" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
+
             <label>{LastName}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['LastName']; ?></label><br>
             <label>{FirstName}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['FirstName']; ?></label><br>
             <label>{Gender}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Sex']; ?></label><br>
             <label>{Birthday}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Birthday']; ?></label>
 	</div>
-	<div id="forms" class="col-sm-offset-1 col-sm-4">
+
+	<div id="forms2" class="col-sm-offset-1 col-sm-4">
             <label>{RoomNumber}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['RoomNumber']; ?></label><br>
             <label>{Facility}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $fac_name['Name']; ?></label><br>
             <label>{MemberSince}</label> <br> <label class="lab" style="padding-left:10%"><?php echo $residents['Member_Since']; ?></label>
@@ -53,5 +57,5 @@
 <span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
 </center>
 <br><br><br>
-</p>
+</p>git 
 <?php endif; ?>

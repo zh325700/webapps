@@ -6,15 +6,15 @@
                     </div>
                 </div> 
                 <div class="row">
-                    <div id="forms" class="col-sm-6">
+                    <div id="forms1" class="col-sm-6">
                         <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
                         <div class="form-group"> <label for="InputName" class="text-dark">{Username}</label>
-                            <input type="text" name="username" class="form-control" id="InputName" placeholder="{Add_Username}"
+                            <input type="text" id="InputName" name="username" class="form-control" id="InputName" placeholder="{Add_Username}"
                                    value="<?php echo isset($_POST["username"]) ? $_POST["username"] : ''; ?>"> </div>
 
                         <div class="form-group"> <label for="InputEmail1" class="text-dark">{Email_address}</label>
-                            <input type="email" name="email" class="form-control" id="InputEmail1" placeholder="{Add_Email}"
+                            <input type="email" id="InputEmail1" name="email" class="form-control" id="InputEmail1" placeholder="{Add_Email}"
                                    value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>"> </div>
 
                         <div class="form-group"> <label class="text-dark">{password}</label>
@@ -25,16 +25,16 @@
 
                         
                     </div>
-                    <div id="forms" class="col-sm-6" style="padding-right:2.5%">
+                    <div id="forms2" class="col-sm-6" style="padding-right:2.5%">
                         <div class="form-group" > <label for="Facility" class="text-dark">{Facility}</label>
-                            <select required="" name="ID_Facility" class="form-control">
+                            <select required="" id="Facility" name="ID_Facility" class="form-control">
                                 <option disabled selected value> -- {Select_Facility} -- </option>
                                 <?php foreach ($facilities as $fac): ?>
                                     <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                                 <?php endforeach; ?>
                             </select></div>
                         <div class="form-group"> <label for="InputAdminLevel" class="text-dark">{Permission_level}</label>
-                            <select required="" id="admin" name="permission" class="form-control">
+                            <select required="" id="InputAdminLevel" name="permission" class="form-control">
                                 <option disabled selected value> -- {Select_Adminlevel} -- </option>
                                 <option value="1">{internship}</option>
                                 <option value="2">{Caregiver}</option>
@@ -68,3 +68,4 @@
         <script src="<?php echo base_url() ?>assets/js/forms.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>assets/js/sha512.js" type="text/javascript"></script>
 </body>
+

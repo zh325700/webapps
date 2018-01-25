@@ -87,7 +87,7 @@ img.top-right {
 }
 
 .par1:active{
-    color: primary;
+    color: @primary;
     transition:0s 0s;
 }
 
@@ -201,11 +201,12 @@ img.top-right {
     p{
         font-size: 24px;
         color: @primary;
-        opacity: 0.8;
+        opacity: 1;
         float:none;
-        text-align: center;
         margin-top: 10px;
     }
+    
+   
 
     .logout{
        float:none;
@@ -241,7 +242,7 @@ img.top-right {
     }
     
     .logout{
-       font-size: 20px;
+       font-size: 15px;
        color: @primary;
        opacity: 0.7;
     }
@@ -250,8 +251,15 @@ img.top-right {
 
 /** FOOTER **/
 .footer{
-        
         font-size:15px;
         color: @primary;
         opacity: 0.8;
+}
+
+#link{
+    font-size:15px;
+    opacity: 0.8;
+    color:@primary;
+    padding-top:0%;
+    padding-left:0%;
 }

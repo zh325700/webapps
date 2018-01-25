@@ -1,12 +1,23 @@
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
-<table>
+<div class="container-fluid" style="padding-bottom:2%" >
+    
+    <div id="blue" class="row" style="padding-left: 2.5%">
+               
+                <div class="col-sm-offset-0" >
+                    <h1>
+                        {Wil_activiteit}
+                    </h1>
+                </div>
+    </div> 
+    <div class="row" style="padding-left:2.5%; padding-right:2.5%;padding-top:2%">
+<table id="activity">
   <tr>
-    <th>Time</th>
-    <th>Event</th>
-    <th>Description</th>
-    <th>Participate or no</th>
-    <th>already participates?</th>
+    <th>{Time}</th>
+    <th>{Event}</th>
+    <th>{Description}</th>
+    <th>{Participate_no}</th>
+    <th>{already_participates}</th>
   </tr>
 <?php
 foreach($events as $event)
@@ -30,7 +41,7 @@ foreach($events as $event)
 			$link = $link . base_url();
 			$link = $link . "index.php/CaregiverOperateActivity/ActivityList/";
 			$link = $link . $event['ID_Activity'];
-			$link = $link . '">Participate</a>';
+			$link = $link . '">{Participate}</a>';
 			echo $link;
 		echo '</td>';
 		echo '<td>';
@@ -40,6 +51,10 @@ foreach($events as $event)
 }
 ?>
 </table>
+        
+    </div>
+    
+</div>
 
 
 <?php else: ?>
