@@ -1,6 +1,6 @@
 <?php
 
-class addfacility_model extends CI_Model {
+class Addfacility_model extends CI_Model {
 
     public function get_facility($ID_facility = FALSE) {
         if ($ID_facility === FALSE) {

@@ -1,14 +1,18 @@
-<link href="<?php echo base_url(); ?>assets/css/care_reg.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>            
+          
     <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
-        <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class="" alt="header"/>
 
-        <div class="py-5 bg-primary text-white" >
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1 class="text-dark">{Add_Activity}</h1>
+     
+            <div class="container-fluid">
+                <div id="blue" class="row" style="padding-bottom: 0%">
+                    <div class="col-sm-offset-0" style="padding-left:2.5%">
+                        <h2>
+                            {Add_Activity}
+                        </h2>
+                    </div>
+                </div>
+                <div  class="row" style="padding-top: 0%">
+                    <div id="forms" class="col-sm-6" >
+                        
                         <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('CaregiverOperateActivity/addActivity'); ?> <!--form_open_multipart so we can add image-->
                         <div class="form-group"> <label for="Title" class="text-dark">{Title}</label>
@@ -22,16 +26,18 @@
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
                         </div>
+                    </div>
+                    <div id="forms" class="col-sm-6" style="padding-right:2.5%;padding-bottom: 8%">    
                         <div class="form-group"> <label for="Description" class="text-dark">{Description}</label>
                             <textarea class="form-control"  name="Description" id="InputDescription" rows="10" placeholder="{Add_Activity_description}"></textarea>
                         </div>
 
-                        <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Activity}</button>
+                        <button  type="submit" class="btn btn-lg button btn-block" >{Add_Activity}</button>
                     </div>
                 </div>
             </div>
 
-        </div>
+
 
 
 

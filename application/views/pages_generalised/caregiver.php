@@ -14,7 +14,7 @@
 		?>
      
                 <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto"/>
-                <div class ="row">
+                <div class ="row ">
                     <div class="col-sm-offset-0">
                         <img id="home" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/home.png"  Value="HOME" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Overview/newOverView'"/>
                         <a id="homeLink" class=" top " Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Overview/newOverView'">{HOME}</a>              
