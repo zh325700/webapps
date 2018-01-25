@@ -73,11 +73,8 @@
         </div>
     </div>
 </div>
-</body>
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<!-- Javascript libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Javascript libraries -->
 <?php
 if (isset($js_to_load)) {
     foreach ($js_to_load as $js_lib):
@@ -87,7 +84,5 @@ if (isset($js_to_load)) {
     endforeach;
 }
 ?>
-
-<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/loginResident.js"></script>
-</html>
+<script src="<?php echo base_url(); ?>/assets/js/loginResident.js"></script>
 

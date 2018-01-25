@@ -6,15 +6,15 @@
                     </div>
                 </div> 
                 <div class="row">
+                    <?php echo validation_errors(); ?>
+                    <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
                     <div id="forms1" class="col-sm-6" style="padding-left:2.5%; padding-top:2%">
-                        <?php echo validation_errors(); ?>
-                        <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
                         <div class="form-group"> <label for="InputName" class="text-dark">{Username}</label>
-                            <input type="text" id="InputName" name="username" class="form-control" id="InputName" placeholder="{Add_Username}"
+                            <input type="text" id="InputName" name="username" class="form-control" placeholder="{Add_Username}"
                                    value="<?php echo isset($_POST["username"]) ? $_POST["username"] : ''; ?>"> </div>
 
                         <div class="form-group"> <label for="InputEmail1" class="text-dark">{Email_address}</label>
-                            <input type="email" id="InputEmail1" name="email" class="form-control" id="InputEmail1" placeholder="{Add_Email}"
+                            <input type="email" id="InputEmail1" name="email" class="form-control" placeholder="{Add_Email}"
                                    value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>"> </div>
 
                         <div class="form-group"> <label class="text-dark">{password}</label>
@@ -48,7 +48,8 @@
                     </div>
                     
                       </div>
-                    </div>
+                    <?php echo form_close(); ?>
+                </div>
     
                 
             </div>
@@ -65,7 +66,6 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url() ?>assets/js/forms.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>assets/js/sha512.js" type="text/javascript"></script>
-</body>
+        <script src="<?php echo base_url() ?>assets/js/forms.js" ></script>
+        <script src="<?php echo base_url() ?>assets/js/sha512.js" ></script>
 

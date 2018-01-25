@@ -7,7 +7,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
         <!--javascript includes-->
-        <script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
+        <script src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
 
     </head>
     <body>

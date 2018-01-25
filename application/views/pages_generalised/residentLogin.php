@@ -6,14 +6,14 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
 
         <!--javascript includes-->
-        <script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
+        <script src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
     </head>
     <body>
         <?php
         defined('BASEPATH') OR exit('No direct script access allowed');
         ?>
        
-	<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto"/>	
+	<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" alt="header" style=" max-width:100%; height:auto"/>	
         
         <div class ="row">
             <div class="" style="padding-left:3.5%">
