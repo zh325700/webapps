@@ -52,7 +52,7 @@ class CaregiverFacility extends CI_Controller {
         redirect('addfacility_control/find'); // after click delete button you redirect to post page
     }
 
-    public function edit($ID_facility) {
+    public function edit($ID_facility = 1) {
         $data['facility'] = $this->Addfacility_model->get_facility($ID_facility); // use post_model to get the data in the database
         $this->load->model('Language_model');
         $data=$this->Language_model->getData($this->session->userdata('language'),'addfac');
