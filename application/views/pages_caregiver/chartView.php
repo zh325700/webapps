@@ -22,7 +22,7 @@
 </div>
 <div class="row">
     <div class=" col-sm-2" data-step="1" data-intro="Here is the image of the resident">
-        <img class="thumbnail" height="50" width="50"  src="<?php echo base_url(); ?>/image/photos/<?php echo $info['info'][0]->Picture; ?>">
+        <img class="thumbnail" height="50" width="50" alt="picture_elder" src="<?php echo base_url(); ?>/image/photos/<?php echo $info['info'][0]->Picture; ?>">
     </div>
     <div class="col-sm-10">
         <div class="row">
@@ -54,7 +54,6 @@
     <ul class="list-group" id="alertElderList" style="padding-top: 5px; padding-left:25px; font-size: 20px;"> 
         <li class="list-group-item">{Alert_box} <span></span></li>
     </ul>
-</div>
 </div>
 <div  class="chart-container">  <!-- vh stands for the height of the browser-->
     <canvas id="WeeklyTopicScore"></canvas>
