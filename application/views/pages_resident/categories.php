@@ -28,22 +28,22 @@
 
         <div class="row" data-step="1" data-intro="Click block with catagories you interested in to answer questions" data-position='top'>
             <div class="col-sm-3" style="padding-right:0.5%">
-                <button id = "newButton1"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=Privacy')">
+                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=Privacy')">
                     {Privacy}
                 </button> 
             </div>        
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button id = "newButton6"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=FoodAndMeals')">
+                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=FoodAndMeals')">
                     {Food}
                 </button>
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button id = "newButton2"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=Comfort')">
+                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=Comfort')">
                     {Comfort}
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%;">
-                <button id = "newButton2"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=Activities')">
+                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=Activities')">
                     {Activities}
                 </button> 
             </div>
@@ -51,22 +51,22 @@
 
         <div class="row" >
             <div class="col-sm-3" style="padding-right:0.5%">
-                <button id = "newButton3"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=PersonalRelationships')">
+                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=PersonalRelationships')">
                     {Personal} <br/> {relations}
                 </button>
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button id = "newButto3"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=DailyDecisions')">
+                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=DailyDecisions')">
                     {Daily} <br/> {decisions}
                 </button>
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button id = "newButton"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=RespectByStaff')">
+                <button  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=RespectByStaff')">
                     {Respect}
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%;">
-                <button id = "newButton5"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=SafetyAndSecurity')">
+                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=SafetyAndSecurity')">
                     {Safety}
                 </button> 
             </div>
@@ -74,24 +74,24 @@
 
         <div class="row">
             <div class="col-sm-3" style="padding-right:0.5%">
-                 <button id = "newButton"  type="button" class="btn btn-lg question button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
+                 <button type="button" class="btn btn-lg question button btn-block" onclick="loadPage('Welcome', 'Resident/menu')">
                     {Ga_terug}
 
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button id = "newButton4"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResponsiveness')">
+                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResponsiveness')">
                     {responsiveness} </br> {the_caregivers}
                 </button> 
             </div>
             <div class="col-sm-3"style="padding-left:0.5%; padding-right:0.5%">
-                 <button id = "newButton"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
+                 <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
                     {bonding}</br> {Staff}
 
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%">
-                 <button id = "newButton"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
+                 <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
                      Informatie <br> woonzorgcentrum
 
                 </button> 
