@@ -26,8 +26,8 @@
                     <img id="cat" src="<?php echo base_url(); ?>/image/pictograms/<?= $category ?>.png" alt=""/>
                 </div>-->
                 <div class="col-sm-offset-0">
-                    <h1>
-                        <?= $category ?> (vraag <p id="question_number" style="display: inline">1</p>)
+                    <h1 id="question_number">
+                        <?= $category ?>
                     </h1>
                 </div>
             </div> 
@@ -55,7 +55,7 @@
                     <img src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(5)" alt="" class="smiley" usemap="#map"/>
                 </div>    
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                    <img src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(-1)" alt="" class="smiley" usemap="#map"/>
                 </div> 
             </div>
 
