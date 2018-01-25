@@ -256,6 +256,7 @@
                     xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity/getNewActivities", false);
                     //sends the new data to the server and update the page
                     xmlhttp.send();
+                    console.log(input);
                     data = jQuery.parseJSON(input);
                     console.log(data[1]);
                     for(value in data){

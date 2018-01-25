@@ -45,25 +45,25 @@ class Activity_Model extends CI_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
-    
+
     public function doesAnElderParticipate($ID_Activity) {
-		//~ checks if an elder participates to an activity
-		$array = array(
-			'ID_Activity' => $ID_Activity, 
-			'ID_Elder' => $this->session->userdata('ID_Elder')
-		);
-		
-		//~ search in database
-		$this->db->where($array);
-		$result = $this->db->get('ActivityLink');
-		
-		if ($result->num_rows() > 0) {
-			//~ elder participates
-			return '1';
-		} else {
-			//~ elder does not participate
-			return '0';
-		}
+        //~ checks if an elder participates to an activity
+        $array = array(
+            'ID_Activity' => $ID_Activity,
+            'ID_Elder' => $this->session->userdata('ID_Elder')
+        );
+
+        //~ search in database
+        $this->db->where($array);
+        $result = $this->db->get('ActivityLink');
+
+        if ($result->num_rows() > 0) {
+            //~ elder participates
+            return '1';
+        } else {
+            //~ elder does not participate
+            return '0';
+        }
     }
 
     public function get_fewActivities($Num_Activity = 1) {
@@ -72,58 +72,61 @@ class Activity_Model extends CI_Model {
         $allArray = $query->result_array();
         $eventArray = array();
         $newEventArray = array();
-        
+
         foreach ($allArray as $oneActivity) {
+            date_default_timezone_set('Europe/Brussels');
             $time = strtotime($oneActivity['Time']);
+			
             $curtime = time();
+
             if (($curtime - $time) < 0) {
-				//~ the event is still to come
-				$id = $oneActivity['ID_Activity'];
-				$oneActivity['participates'] = $this->doesAnElderParticipate($id);
-				$newEventArray[] = $oneActivity;
+                //~ the event is still to come
+                $id = $oneActivity['ID_Activity'];
+                $oneActivity['participates'] = $this->doesAnElderParticipate($id);
+                $newEventArray[] = $oneActivity;
             }
         }
         //~ now we have all upcoming events in an array
-        
+
         foreach ($newEventArray as $key => $row) {
-			$ID_Activity[$key]  = $row['ID_Activity'];
-			$Title[$key] = $row['Title'];
-			$Description[$key] = $row['Description'];
-			$Time[$key] = $row['Time'];
-		}
+            $ID_Activity[$key] = $row['ID_Activity'];
+            $Title[$key] = $row['Title'];
+            $Description[$key] = $row['Description'];
+            $Time[$key] = $row['Time'];
+        }
         array_multisort($Time, SORT_ASC, $newEventArray);
         //~ now we have a sorted list by date 
-        
-        while( $Num_Activity > sizeof($eventArray) && sizeof($newEventArray) > 0 ){
-			$eventArray[] = array_shift($newEventArray);
-		}
-		//~ now we only have the asked amount of activities
-		
+
+        while ($Num_Activity > sizeof($eventArray) && sizeof($newEventArray) > 0) {
+            $eventArray[] = array_shift($newEventArray);
+        }
+        //~ now we only have the asked amount of activities
+
         return $eventArray;
     }
-    
-	public function participate_activity($ID_Activity) {
-		//~ If the elder already participates in the activity, the link will be deleted and he/she will no longer participate
-		//~ If the elder does not participate in the activity, a link will be created and he/she will be participating
-		$array = array(
-			'ID_Activity' => $ID_Activity, 
-			'ID_Elder' => $this->session->userdata('ID_Elder')
-		);
-		
-		//~ search in database
-		$this->db->where($array);
-		$result = $this->db->get('ActivityLink');
-		
-		if ($result->num_rows() > 0) {
-			//~ delete if already in database
-			$this->db->where($array);
-			$this->db->delete('ActivityLink');
-			return false;
-		} else {
-			//~ join if not in database already
-			$this->db->insert('ActivityLink', $array);
-			return true;
-		}
+
+    public function participate_activity($ID_Activity) {
+        //~ If the elder already participates in the activity, the link will be deleted and he/she will no longer participate
+        //~ If the elder does not participate in the activity, a link will be created and he/she will be participating
+        $array = array(
+            'ID_Activity' => $ID_Activity,
+            'ID_Elder' => $this->session->userdata('ID_Elder')
+        );
+
+        //~ search in database
+        $this->db->where($array);
+        $result = $this->db->get('ActivityLink');
+
+        if ($result->num_rows() > 0) {
+            //~ delete if already in database
+            $this->db->where($array);
+            $this->db->delete('ActivityLink');
+            return false;
+        } else {
+            //~ join if not in database already
+            $this->db->insert('ActivityLink', $array);
+            return true;
+        }
     }
 
 }
