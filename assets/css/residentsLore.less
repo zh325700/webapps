@@ -16,7 +16,6 @@
 body{
     font-family: myriad-pro-condensed, sans-serif;
     font-style: normal;
-    //display: flex;
     flex-direction: column;   
     background-image: url("../../../image/pictograms/loginpage.png");
     background-repeat: no-repeat;
@@ -24,6 +23,71 @@ body{
     background-position: center;
     background-size: 1500px 900px;
 }
+
+
+/** HEADER **/
+
+/* Log out */
+.top {
+    width: 8%;
+    color: white;
+    opacity: 0.7;
+    font-size:20px;
+    transition:0s 1s;
+    top:9%;
+    position: absolute;
+}
+
+.top:active{
+        color: @primary;
+        transition:0s 0s;
+    }
+
+#logLink{
+        right:10.2%;
+        top:15%;
+    }
+#log{
+
+    position: absolute;
+}
+    
+img.topIcon {
+    opacity: 0.7;
+    top:6.5%;
+    width:5%;
+    border-radius: 10px;
+    transition:0s 1s;
+}
+    
+.topIcon:active{
+         background-color: @primary;
+         opacity: 0.7;
+         transition:0s 0s;
+    }
+    
+    
+/* Info */
+
+img.align-right{
+        width: 60px;
+        float: right;
+        padding-top:50%;
+        margin-right: 10px;
+        opacity:0.95;
+        transition:0s 1s;
+        border-radius: 10px;
+    }
+    .align-right:active{
+        background-color: white;
+        opacity: 0.7;
+        transition:0s 0s;
+    }
+    #infoLink{
+        left:94.5%;
+        top:15%;
+    }
+
 
 #cat{
         width: 5%;
@@ -33,8 +97,6 @@ body{
     #question_number{
         color:white;
     }
-    
-
 
     p{
         color:white;
@@ -54,12 +116,7 @@ body{
         font-size:30px;
     }
     
-    img.align-right{
-        width: 60px;
-        float: right;
-        margin-top: 60px;
-        margin-right: 10px;
-    }
+    
     
     img.align-left{
         width: 60px;
@@ -79,14 +136,16 @@ body{
         position: relative;
         font-family:myriad-pro-condensed, sans-serif;
         //word-wrap: break-word;
-        font-size:100px;
+        font-size:30px;
         //height: 130px;
-        margin-bottom: 10%;
-        margin-top: 10%;
+        margin-bottom: 4%;
+        margin-top: 4%;
     }
     button:hover{
         color:white;
     }
+
+
     
     button.question{
         background-color:@accent;
@@ -98,10 +157,12 @@ body{
             background-color: @gray;
             color: @primary;
         }
-    
+
+/* Buttons */        
         #newButton{
             height: 150px;
-            font-size:35px;
+            /* font-size: 30 px lg*/
+            font-size:20px;
         }    
     .style:active {
             background-color: @accent;
@@ -112,19 +173,22 @@ body{
             color: @accent;
         }
         
+     button.style{
+        background-color: @gray;
+        color: @primary;
+        height:150px;
+        text-align: center;
+        /* font-size: 30 px lg*/
+        font-size:20px;
+        
+    }
+        
     img.quest{
         width:10px;
         color:white;
     }
     
-    button.style{
-        background-color: @gray;
-        color: @primary;
-        height:150px;
-        text-align: center;
-        font-size:35px;
-        
-    }
+ 
     
     .logout{
        font-size: 30px;
@@ -136,6 +200,20 @@ body{
             font-size:20px;
         }
     }
-    
+/** FOOTER **/
+.footer{
+        font-size:15px;
+        color: @primary;
+        opacity: 0.8;
+        padding-top:4%;
+}
+
+#link{
+    font-size:15px;
+    opacity: 0.8;
+    color:@primary;
+    padding-top:10%;
+    padding-left:0%;
+}
 
 
