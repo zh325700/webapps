@@ -2,7 +2,7 @@
 </head>
 <body>            
     <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
-        <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
+        <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class="" alt="header"/>
 
         <div class="py-5 bg-primary text-white" >
             <div class="container">
@@ -17,7 +17,7 @@
 
                         <div class="form-group" > <label for="Time" class="text-dark">{Time}</label>
                             <div class='input-group date' id='datetimepicker1'>
-                                <input required="" type="datetime-local" name="Time" class="form-control" id="InputTime" placeholder="{Add_Time}"
+                                <input required="" type="datetime-local" name="Time" class="form-control" id="InputTime"
                                        value="<?php echo isset($_POST["Time"]) ? $_POST["Time"] : ''; ?>"> 
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
@@ -28,7 +28,6 @@
 
                         <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Activity}</button>
                     </div>
-                    </form>
                 </div>
             </div>
 
@@ -50,10 +49,7 @@
 
 <?php else: ?>
     <p>
-        <br><br><br>
-    <center>
-        <span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
-    </center>
     <br><br><br>
-    </p>
+        <span style="text-align: center;" class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+    <br><br><br>
 <?php endif; ?>

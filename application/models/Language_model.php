@@ -283,6 +283,7 @@
             $data['Safety']=$this->lang->line('Safety'); 
             $data['Security']=$this->lang->line('Security');
             $data['Log_out']=$this->lang->line('Log_out');
+            $data['Ga_terug']=$this->lang->line('Ga_terug');
             return $data;
         }
         
@@ -302,6 +303,7 @@
          * Output: the right values to the keys for the question screen
          */
         public function getDataQes(){
+            $data['HOME']=$this->lang->line('HOME');
             $data['Previous']=$this->lang->line('Previous');
             $data['Question']=$this->lang->line('Question');
             $data['Never']=$this->lang->line('Never');

@@ -15,7 +15,7 @@
                 <label >{Title}</label> <br> <label class="lab" style="padding-left: 10%"><?php echo $activity['Title']; ?></label><br>
                 <label >{Time}</label> <br> <label class="lab" style="padding-left: 10%"><?php echo $activity['Time']; ?></label><br>
                 <label >{Number_Of_Participants}</label> <br> <label class="lab" style="padding-left: 10%"><?php echo $count; ?></label><br>
-                <label readonly rows="4" cols="50" >
+                <label >
                         {Description}</label> <br> 
                 <label class="lab col-sm-offset-0" style="padding-left: 10%"><?php echo $activity['Description']; ?></label>
             </div>
@@ -40,10 +40,7 @@
 
 <?php else: ?>
     <p>
-        <br><br><br>
-    <center>
-        <span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
-    </center>
     <br><br><br>
-    </p>
+        <span style="text-align: center;" class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+    <br><br><br>
 <?php endif; ?>
