@@ -36,14 +36,36 @@ class CaregiverOperateActivity extends CI_Controller {
     }
 
     public function deleteActivity($ID_Activity) {
+		$this->load->model('Activity_Model');
         $this->Activity_Model->delete_activity($ID_Activity);
         redirect('Welcome/Overview/newOverView'); // after click delete button you redirect to post page
     }
     
     public function getNewActivities(){
-         $this->load->model('Activity_Model');
-         $data = $this->Activity_Model->get_fewActivities(5);
-         echo(json_encode($data));
+		$this->load->model('Activity_Model');
+		$data = $this->Activity_Model->get_fewActivities(5);
+		echo(json_encode($data));
     }
+    
+    public function ActivityList($ID_Activity = 0) {
+        $this->load->model('Language_model');
+        $this->load->model('Activity_Model');
+		
+		$data=$this->Language_model->getData($this->session->userdata('language'),'viewact');
+		
+		if($ID_Activity != 0){
+			//check if already participating or not and adjust.
+			$data = $this->Activity_Model->participate_activity($ID_Activity);
+		}
+		
+		//~ load the first 4 upcoming events
+		$event_array['events'] = $this->Activity_Model->get_fewActivities(4);
+		
+        $this->load->view('pages_generalised/header');
+        $this->load->view('pages_generalised/residents');
+        //load actual page
+        $this->load->view('pages_resident/events', $event_array);
+        $this->parser->parse('pages_generalised/footer', $data['footer']);
+	}
 
 }

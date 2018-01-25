@@ -1,7 +1,7 @@
 <link href="<?php echo base_url(); ?>assets/css/care_reg.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>            
-    <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+    <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
         <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
 
         <div class="py-5 bg-primary text-white" >
