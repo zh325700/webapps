@@ -1,6 +1,17 @@
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
-<table>
+<div class="container-fluid" style="padding-bottom:2%" >
+    
+    <div id="blue" class="row" style="padding-left: 2.5%">
+               
+                <div class="col-sm-offset-0" >
+                    <h1>
+                        Wil je meedoen aan een activiteit?
+                    </h1>
+                </div>
+    </div> 
+    <div class="row" style="padding-left:2.5%; padding-right:2.5%;padding-top:2%">
+<table id="activity">
   <tr>
     <th>Time</th>
     <th>Event</th>
@@ -40,6 +51,10 @@ foreach($events as $event)
 }
 ?>
 </table>
+        
+    </div>
+    
+</div>
 
 
 <?php else: ?>
