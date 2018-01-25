@@ -15,11 +15,11 @@
                     <?php echo form_open_multipart('CaregiverOperateActivity/addActivity'); ?> <!--form_open_multipart so we can add image-->
                     <div id="forms" class="col-sm-6" >
                         <div class="form-group"> <label for="Title" class="text-dark">{Title}</label>
-                            <input required="" type="text" name="Title" class="form-control" id="InputTitle" placeholder="{Add_Activity_Title}"
+                            <input required="" type="text" id="Title" name="Title" class="form-control"  placeholder="{Add_Activity_Title}"
                                    value="<?php echo isset($_POST["Title"]) ? $_POST["Title"] : ''; ?>"> </div>
 
-                        <div class="form-group" > <label for="Time" class="text-dark">{Time}</label>
-                            <div class='input-group date' id='datetimepicker1'>
+                        <div class="form-group" > <label  class="text-dark">{Time}</label>
+                            <div class='input-group date' >
                                 <input required="" type="datetime-local" name="Time" class="form-control" id="InputTime"
                                        value="<?php echo isset($_POST["Time"]) ? $_POST["Time"] : ''; ?>"> 
                                 <span class="add-on"><i class="icon-th"></i></span>
@@ -28,7 +28,7 @@
                     </div>
                     <div id="forms_2" class="col-sm-6" style="padding-top:3%;padding-right:2.5%;padding-bottom: 8%">    
                         <div class="form-group"> <label for="Description" class="text-dark">{Description}</label>
-                            <textarea class="form-control"  name="Description" id="InputDescription" rows="10" placeholder="{Add_Activity_description}"></textarea>
+                            <textarea class="form-control" id="Description" name="Description"  rows="10" placeholder="{Add_Activity_description}"></textarea>
                         </div>
                         <button type="submit" class="btn btn-lg button btn-block">{Add_Activity}</button>
                     </div>
