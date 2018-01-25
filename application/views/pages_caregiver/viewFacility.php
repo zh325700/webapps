@@ -9,7 +9,7 @@
             </h2>
         </div>
     </div> 
-    <form method="post"> 
+
     <div class="row" > 
         
         <div  id="forms" class="col-sm-offset-0 col-sm-2" style="padding-top:2%">        
@@ -66,7 +66,7 @@
            </div>                                    
             <?php endif; ?>
             </div>
-        </form>
+
     
 </div>
 
