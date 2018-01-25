@@ -29,7 +29,8 @@
 
                     <?php echo form_open('CaregiverOperateActivity/deleteActivity/' . $activity['ID_Activity']); /* if we click it it goes to /post/delete/3 */ ?>    
 
-                    <button id="delete" class="btn btn-lg btn-block button" value="DELETE" onclick="loadPage('CaregiverOperateActivity', 'deleteActivity/<?php echo $activity['ID_Activity']; ?>')"/>{DELETE}</button>
+                    <button id="delete" class="btn btn-lg btn-block button" value="DELETE" onclick="loadPage('CaregiverOperateActivity', 'deleteActivity/<?php echo $activity['ID_Activity']; ?>')">{DELETE}</button>
+                    <?php echo form_close();?>
                 </div>
             <?php endif; ?>
 

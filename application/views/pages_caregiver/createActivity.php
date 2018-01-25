@@ -27,6 +27,7 @@
                         </div>
 
                         <button style="margin-top: 3vh;" type="submit" class="btn btn-info w-100">{Add_Activity}</button>
+                        <?php echo form_close() ?>
                     </div>
                 </div>
             </div>
@@ -45,7 +46,6 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    </body>
 
 <?php else: ?>
     <p>

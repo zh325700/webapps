@@ -6,15 +6,15 @@
                 <h2 class="par1">Grace-AGE</h2>
             </div>
             <div class="col-sm-offset-10">
-                <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  value="Log_out" onclick="loadPage('ResidentLogin', 'view')"/>
+                <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  alt="Log_out" onclick="loadPage('ResidentLogin', 'view')"/>
                 <a id="logLink" class=" top" onclick="loadPage('ResidentLogin', 'view')">{Log_out}</a>              
             </div>
             <div class="col-sm-offset-11">
                 <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
                 <img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>
                 </a>
-                <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
-                <a id="infoLink" class=" top" >Info</a>              
+                <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();"
+                   id="infoLink" class=" top" >Info              
                 </a>
             </div>
         </div>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="row" style="padding-top:2%">
-            <div id="awcc1511526958631" class="col-sm-6" >
+            <div id="awcc151152695863" class="col-sm-6" >
                         <!--Weather report-->
                         <a  href="https://www.accuweather.com/…/…/27046/weather-forecast/27046" class="aw-widget-legal"></a>
                         <div id="awcc1511526958631" class="aw-widget-current"
@@ -40,7 +40,7 @@
 		</div>
                 <div class="col-sm-6" data-step="1" data-intro="Click here to answer the questionaire" data-position='top'>
                     <button id="quest"  type="button" class="btn btn-lg question button btn-block" onclick="loadPage('Welcome','Resident/categories')">                      
-                       <img src="<?php echo base_url(); ?>/image/pictograms/questions.png" class="quest"/>
+                       <img src="<?php echo base_url(); ?>/image/pictograms/questions.png" class="quest" alt="Questionnaire"/>
                        {Questionnaire}
                     </button>
                 </div>
@@ -50,14 +50,14 @@
                 <div class="col-sm-offset-0 col-sm-6">
                     <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block"
                             data-step="4" data-intro="Click here to see recent activities" data-position='top' onclick="loadPage('CaregiverOperateActivity','ActivityList')">
-                       <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>
+                       <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align" alt="Activities"/>
                         {Activities}
                     </button>
                 </div>
                 <div class="col-sm-offset-0 col-sm-6">
                     <button id = "newButton"  type="button" class="btn btn-lg button style btn-block family" 
                             data-step="3" data-intro="Watch video your familly sent you" data-position='top'>
-                        <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="family"/>
+                        <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="family" alt="Family"/>
                         {Family} 
                     </button>
                 </div>
@@ -66,8 +66,8 @@
 
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/question.js"></script>
-<script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/question.js"></script>
+<script src="https://oap.accuweather.com/launch.js"></script>
 
 <?php else: ?>
 <p>

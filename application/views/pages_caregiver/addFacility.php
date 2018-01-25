@@ -51,7 +51,8 @@
         <div class="row insert-row" style="padding-bottom:30%">
               <button type="submit" class="btn btn-lg btn-block button form-control">{Add_Facility}</button>
         </div>
-    </div>      
+    </div> 
+    <?php echo form_close()?>
 </div>
 
 

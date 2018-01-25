@@ -1,16 +1,4 @@
 
-<!--our css and less-->
-<link rel="stylesheet/less" type="text/css" href="<?php echo base_url(); ?>/assets/css/pj_login_resident.less" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
-
-<!--compile less files-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
-
-<!--javascript includes-->
-<script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
-
-</head>
-<body>
     <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
     ?>
@@ -82,7 +70,7 @@
 
             <div class="row">
                 <div class="col-sm-offset-0 col-sm-3">
-                    <a id = "previousBtn" type="button" class="btn btn-lg" onclick="javascript:previous()">{Ga_terug}</a>          
+                    <a id = "previousBtn" class="btn btn-lg" onclick="javascript:previous()">{Ga_terug}</a>          
                 </div>     
             </div>
 
@@ -100,9 +88,9 @@
             }
             ?>
 
-            <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/question.js"></script>
+            <script  src="<?php echo base_url(); ?>/assets/js/question.js"></script>
 
-            <script type="text/javascript">
+            <script >
                         loadQuestions(<?php echo json_encode($questions) ?>, "<?php echo $category ?>", "<?php echo $this->session->userdata('ID_Elder') ?>");
             </script>
 

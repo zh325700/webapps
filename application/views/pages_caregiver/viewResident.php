@@ -13,7 +13,7 @@
         </div>
     <div class="row">
         <div class="col-md-offset-0 col-sm-3" data-step="1" data-intro="Here is the image of the resident">
-            <img class="" height="260" width="240" style="padding-top: 10%; padding-left:5%" src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
+            <img class="" height="260" alt="resident" width="240" style="padding-top: 10%; padding-left:5%" src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
         </div>
 
         <div id="forms1" class="col-sm-offset-1 col-sm-3" style="padding-left:0%" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
@@ -35,13 +35,14 @@
 		<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
 
         <div class="col-sm-offset-4 col-md-offset-4 col-md-2 col-sm-3" style="padding-left:0%;padding-right:0%">
-            <button class="btn btn-lg btn-block button" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')"/>{EDIT}</button>
+            <button class="btn btn-lg btn-block button" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')">{EDIT}</button>
         </div>
         <div class="col-sm-offset-1 col-md-offset-2 col-sm-4 col-md-3" style="padding-left:2.5%; padding-right:6%">
             
             <?php echo form_open('CaregiverOperateResident/delete/' . $residents['ID_Elder']); /* if we click it it goes to /post/delete/3 */ ?>    
 
-            <button id="delete" class="btn btn-lg btn-block button" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')"/>{DELETE}</button>
+            <button id="delete" class="btn btn-lg btn-block button" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')">{DELETE}</button>
+            <?php echo form_close(); ?>
         </div>
 		<?php endif; ?>
 

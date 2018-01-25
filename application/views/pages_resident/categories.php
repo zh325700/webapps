@@ -7,15 +7,15 @@
                 <h2 class="par1">Grace-AGE</h2>
             </div>
             <div class="col-sm-offset-10">
-                <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  value="Log_out" onclick="loadPage('ResidentLogin', 'view')"/>
+                <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  alt="Log_out" onclick="loadPage('ResidentLogin', 'view')"/>
                 <a id="logLink" class=" top" onclick="loadPage('ResidentLogin', 'view')">{Log_out}</a>              
             </div>
             <div class="col-sm-offset-11">
                 <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
                 <img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>
                 </a>
-                <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
-                <a id="infoLink" class=" top" >Info</a>              
+                <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();"
+                   id="infoLink" class=" top" >Info              
                 </a>
             </div>
         </div>
@@ -81,12 +81,12 @@
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
                 <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResponsiveness')">
-                    {responsiveness} </br> {the_caregivers}
+                    {responsiveness} <br/> {the_caregivers}
                 </button> 
             </div>
-            <div class="col-sm-3"style="padding-left:0.5%; padding-right:0.5%">
+            <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
                  <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
-                    {bonding}</br> {Staff}
+                    {bonding}<br/> {Staff}
 
                 </button> 
             </div>

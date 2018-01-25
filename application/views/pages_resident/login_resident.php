@@ -73,9 +73,6 @@
                 </div>
             </div>
         </div>
-    </body>
-
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- Javascript libraries -->
     <?php
@@ -88,6 +85,5 @@
     }
     ?>
 
-    <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/loginResident.js"></script>
-</html>
+    <script src="<?php echo base_url(); ?>/assets/js/loginResident.js"></script>
 

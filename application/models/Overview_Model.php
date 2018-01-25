@@ -44,7 +44,7 @@
         }
         
         public function getElderScoreDivision($division){
-            $this->db->select('AVG(Answers.Score) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber, Elder.ID_Elder Elder_ID ');
+            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber, Elder.ID_Elder Elder_ID ');
             $this->db->where("Answers.Score !=",-1);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->where('Elder.Division',$division);
@@ -58,7 +58,7 @@
         
         public function getQuestionScoreDivision($division,$language){
             if($language==='Dutch'){
-                $this->db->select('AVG(Answers.Score) avg_Score, Questions.Type_nl Topic, Questions.Type_nl Topictest');  
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Type_nl Topic, Questions.Type_nl Topictest');  
             }
             else{
                 $this->db->select('AVG(Answers.Score) avg_Score, Questions.Type_en Topic, Questions.Type_en Topictest');  
@@ -76,7 +76,7 @@
         }
         
         public function getElderScoreQuestion($ID_elder){
-            $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question Question Answers.ID_Elder ID_Elder ');
+            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question Question Answers.ID_Elder ID_Elder ');
             $this->db->where("Answers.Score !=",-1);
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->where('Answers.ID_Elder',$ID_elder);
@@ -89,7 +89,7 @@
         }
         
         public function getElderScoreRecords($ID_elder){
-            $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question Question ');
+            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question Question ');
             $this->db->where("Answers.Score !=",-1);
             $this->db->join('Questions','Questions.ID_Question=Answers.ID_Question');
             $this->db->where('Answers.ID_Elder',$ID_elder);
@@ -101,7 +101,7 @@
         }
         
         public function getQuestionScoreElders($ID_question){
-            $this->db->select('AVG(Answers.Score) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber ');
+            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber ');
             $this->db->where("Answers.Score !=",-1);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->where('Answers.ID_Question',$ID_question);
@@ -113,7 +113,7 @@
             return $data;
         }
         public function getQuestionScoreRecords($ID_question){
-            $this->db->select('AVG(Answers.Score) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber ');
+            $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Elder.FirstName FirstName, Elder.LastName LastName, Elder.RoomNumber RoomNumber ');
             $this->db->where("Answers.Score !=",-1);
             $this->db->join('Elder','Elder.ID_Elder=Answers.ID_Elder');
             $this->db->where('Answers.ID_Question',$ID_question);
@@ -166,10 +166,10 @@
         
         public function getElderWorstTopicInfo($ID_elder,$language){
             if($language==='Dutch'){
-                $this->db->select('AVG(Answers.Score) WorstScore,Questions.Type_nl WorstTopic');
+                $this->db->select('ROUND(AVG(Answers.Score),2) WorstScore,Questions.Type_nl WorstTopic');
             }
             else{
-                $this->db->select('AVG(Answers.Score) WorstScore,Questions.Type_en WorstTopic');
+                $this->db->select('ROUND(AVG(Answers.Score),2) WorstScore,Questions.Type_en WorstTopic');
             }
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('ID_Elder',$ID_elder);
@@ -185,10 +185,10 @@
         
         public function getElderBestTopicInfo($ID_elder,$language){
             if($language==='Dutch'){
-                $this->db->select('AVG(Answers.Score) avg_ScoreBest,Questions.Type_nl typeBest');
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_ScoreBest,Questions.Type_nl typeBest');
             }
             else{
-                $this->db->select('AVG(Answers.Score) avg_ScoreBest,Questions.Type_en typeBest');
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_ScoreBest,Questions.Type_en typeBest');
             }
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('ID_Elder',$ID_elder);
@@ -204,10 +204,10 @@
         
         public function getScoreType($type,$ID_elder,$language){
             if($language==='Dutch'){
-               $this->db->select('AVG(Answers.Score) avg_Score,Answers.DateStamp DateStamp,Questions.Question_nl question');
+               $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score,Answers.DateStamp DateStamp,Questions.Question_nl question');
             }
             else{
-                $this->db->select('AVG(Answers.Score) avg_Score,Answers.DateStamp DateStamp,Questions.Question_en question');
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score,Answers.DateStamp DateStamp,Questions.Question_en question');
             }
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('Questions.Type_en',$type);
@@ -236,10 +236,10 @@
         
         public function getTopicInfo($topic,$language){
             if($language==='Dutch'){
-                $this->db->select('COUNT(Answers.Score) NumberAnswers,Questions.Type_nl Topic, AVG(Answers.Score) avg_score');
+                $this->db->select('COUNT(Answers.Score) NumberAnswers,Questions.Type_nl Topic, ROUND(AVG(Answers.Score),2) avg_score');
             }
             else{
-                $this->db->select('COUNT(Answers.Score) NumberAnswers,Questions.Type_en Topic, AVG(Answers.Score) avg_score');
+                $this->db->select('COUNT(Answers.Score) NumberAnswers,Questions.Type_en Topic, ROUND(AVG(Answers.Score),2) avg_score');
             }
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('Questions.Type_en',$topic);
@@ -310,10 +310,10 @@
         
         public function getAlertDivision($datestamp,$language){
             if($language==='Dutch'){
-                $this->db->select('AVG(Answers.Score) avg_Score,Questions.Type_nl type, Elder.division division');
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score,Questions.Type_nl type, Elder.division division');
             }
             else{
-                $this->db->select('AVG(Answers.Score) avg_Score,Questions.Type_en type, Elder.division division');
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score,Questions.Type_en type, Elder.division division');
             }
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('Answers.Datestamp >',$datestamp);
@@ -329,10 +329,10 @@
         
         public function getAlertResident($datestamp,$language){
             if($language==='Dutch'){
-                $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_nl question,Questions.Type_nl type, Elder.FirstName FirstName, Elder.LastName LastName');
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_nl question,Questions.Type_nl type, Elder.FirstName FirstName, Elder.LastName LastName');
             }
             else{
-                 $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_en question,Questions.Type_en type, Elder.FirstName FirstName, Elder.LastName LastName');
+                 $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_en question,Questions.Type_en type, Elder.FirstName FirstName, Elder.LastName LastName');
             }
             $this->db->where("Answers.Score !=",-1);
             $this->db->where('Answers.Datestamp >',$datestamp);
@@ -368,10 +368,10 @@
         
         public function getAlertQuestion($datestamp,$language){
             if($language==='Dutch'){
-                $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_nl question,Questions.Type_nl type, Count(Answers.Score) count');
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_nl question,Questions.Type_nl type, Count(Answers.Score) count');
             }
             else{
-                $this->db->select('AVG(Answers.Score) avg_Score, Questions.Question_en question,Questions.Type_en type, Count(Answers.Score) count');
+                $this->db->select('ROUND(AVG(Answers.Score),2) avg_Score, Questions.Question_en question,Questions.Type_en type, Count(Answers.Score) count');
             }
             $this->db->where('Answers.Datestamp >',$datestamp);
             $this->db->where("Answers.Score !=",-1);
