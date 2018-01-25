@@ -5,7 +5,7 @@
         </div>
         <div class="row" >
             <ul style="margin-left: 3vw ;  " class="list-group" id='callendarList'>
-                <li    class="list-group-item"> {Callendar} </li>
+                <li class="list-group-item"> {Callendar} </li>
             </ul>
         </div>
     </div>
