@@ -19,8 +19,8 @@ $pic = $resident['Picture'];
     </div> 
 
     <div class="row" style="margin-top:1.5%">
-        <div class="col-sm-offset-0 col-sm-2" style="padding-left: 2.5%">
-            <img src="../../image/photos/<?= $pic ?>" alt="" style=" width: 100px" class="align-left"/>
+        <div class="col-sm-offset-0 col-sm-2" style="">
+            <img src="../../image/photos/<?= $pic ?>" alt="" style=" width: 85%; margin-bottom: 5%" class="align-left"/>
         </div>
 
         <form action="" id="form">
@@ -38,7 +38,8 @@ $pic = $resident['Picture'];
     </div>
     <div class="row">
         <div class="col-sm-2" style="padding-right: 2.5%">
-            <button class="btn button style small btn-block" onclick="loadPage('ResidentLogin', 'view')">
+            <button class="btn button style extrasmall btn-block" style="margin-top: 0"
+                    onclick="loadPage('ResidentLogin', 'view')">
                 {Dit_ben}<br> {ik_niet}</button>
         </div>
 
@@ -47,57 +48,57 @@ $pic = $resident['Picture'];
 
     <div class="row" style="height: 10%">-->
         <div class="col-md-offset-1 col-md-2 col-md-offset-1 col-sm-3" >
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block" 
                     onclick="javascript:addNumber('1');"> 1 </button>
         </div>
         <div class="col-md-2 col-sm-3">
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block"
                     onclick="javascript:addNumber('2');"> 2 </button>
         </div>
         <div class="col-md-2 col-sm-3">                           
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block" 
                     onclick="javascript:addNumber('3');"> 3 </button>
         </div>
     </div>
     <div class="row" style="margin-top: 0.5%; height: 10%">
         <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block" 
                     onclick="javascript:addNumber('4');"> 4 </button>
         </div>
         <div class="col-md-2 col-sm-3">
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block"
                     onclick="javascript:addNumber('5');"> 5 </button>
         </div>
         <div class="col-md-2 col-sm-3">                            
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block" 
                     onclick="javascript:addNumber('6');"> 6 </button>
         </div>
     </div>
     <div class="row" style="margin-top: 0.5%; height: 10%">
         <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block"
                     onclick="javascript:addNumber('7');"> 7 </button>
         </div>
         <div class="col-md-2 col-sm-3">
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block" 
                     onclick="javascript:addNumber('8');"> 8 </button>
         </div>
         <div class="col-md-2 col-sm-3">                            
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block"
                     onclick="javascript:addNumber('9');"> 9 </button>
         </div>
     </div>
     <div class="row" style="margin-top: 0.5%; height: 10%">
         <div class="col-md-offset-3 col-md-2 col-sm-offset-3 col-sm-3">
-            <button class="btn button style btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block"
                     onclick="javascript:addNumber('0');"> 0 </button>
         </div>
         <div class="col-md-2 col-sm-3">
-            <button class="btn button style small btn-block" style="margin-top: 0;"
+            <button class="btn button style numpad btn-block"
                     onclick="javascript:addNumber('delete');"> {Delete} </button>
         </div>
         <div class="col-md-2 col-sm-3">                            
-            <button class="btn button style small btn-block" style="margin-top: 0"
+            <button class="btn button style numpad btn-block" style="margin-top: 0"
                     onclick="javascript:addNumber('clear');"> {Clear} </button>
         </div>
     </div>
