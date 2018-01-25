@@ -12,14 +12,14 @@
             </div>
             <div class="col-sm-offset-11">
                 <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
-                <img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>
+                    <img src="<?php echo base_url(); ?>/image/pictograms/information.png" alt="" class="align-right"/>
                 </a>
                 <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
                 <a id="infoLink" class=" top" >Info</a>              
                 </a>
             </div>
         </div>
-        
+
         <div class="row"  >
             <div class="col-sm-12">
                 <h2> {Please_category} </h2>
@@ -28,7 +28,7 @@
 
         <div class="row" data-step="1" data-intro="Click block with catagories you interested in to answer questions" data-position='top'>
             <div class="col-sm-3" style="padding-right:0.5%">
-                <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=Privacy')">
+                <button id = "Privacy"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion', 'getQuestion?category=Privacy')">
                     {Privacy}
                 </button> 
             </div>        
@@ -76,7 +76,6 @@
             <div class="col-sm-3" style="padding-right:0.5%">
                  <button type="button" class="btn btn-lg question button btn-block" onclick="loadPage('Welcome', 'Resident/menu')">
                     {Ga_terug}
-
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
@@ -92,24 +91,40 @@
             </div>
             <div class="col-sm-3" style="padding-left:0.5%">
                  <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
-                     Informatie <br> woonzorgcentrum
-
+                     {Informatie} <br> {woonzorgcentrum}
                 </button> 
             </div>
         </div>  
-        
 
-		    
+        <div class="row">
+            <div class="col-md-offset-10 col-sm-offset-9 col-sm-2">
+                <a id = "link" type="button" class="btn btn-lg logout" onclick="loadPage('Welcome', 'Caregiver/overview')">{Log_out}</a>          
+            </div>     
+        </div>
+    </div>
 
-</div>
+    <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/categories.js"></script>
 
+    <script type="text/javascript">
+                    setActive("Privacy",<?= $this->session->Privacy;?> );
+                    setActive("FoodAndMeals",<?= $this->session->FoodAndMeals;?> );
+                    setActive("Comfort",<?= $this->session->Comfort;?> );
+                    setActive("Activities",<?= $this->session->Activities;?> );
+                    setActive("SafetyAndSecurity",<?= $this->session->SafetyAndSecurity;?> );
+                    setActive("Autonomy",<?= $this->session->Autonomy;?> );
+                    setActive("RespectByStaff",<?= $this->session->RespectByStaff;?> );
+                    setActive("StaffResponsiveness",<?= $this->session->StaffResponsiveness;?> );
+                    setActive("StaffResidentBonding",<?= $this->session->StaffResidentBonding;?> );
+                    setActive("PersonalRelationships",<?= $this->session->PersonalRelationships;?> );
+                    setActive("InformationOfTheHome",<?= $this->session->InformationOfTheHome;?> );
+    </script>
 
 <?php else: ?>
-<p>
-<br><br><br>
-<center>
-<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
-</center>
-<br><br><br>
-</p>
+    <p>
+        <br><br><br>
+    <center>
+        <span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+    </center>
+    <br><br><br>
+    </p>
 <?php endif; ?>

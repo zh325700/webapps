@@ -1,4 +1,5 @@
 <?php
+$category = "";
 
 class ResidentQuestion extends CI_Controller{
     public function getQuestion(){
@@ -11,7 +12,7 @@ class ResidentQuestion extends CI_Controller{
         $data['first_question'] = $this->Questionnaire_model->getFirstQuestion($category);
         $data['category'] = $category;
         $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/residents');
+        $this->parser->parse('pages_generalised/residents',$data['header']);
         $this->parser->parse('pages_resident/question', $data);
         $this->parser->parse('pages_generalised/footer',$data['footer']);
     }
@@ -36,6 +37,7 @@ class ResidentQuestion extends CI_Controller{
             echo json_encode("Failed to Save Data");
         } else {
             $this->db->trans_commit();
+            $this->session->set_userdata($category, "Done");
             redirect('Welcome/LoadThankyou'); //TODO UPDATE TO ACTUAL CONTROLLER
         }
     }
