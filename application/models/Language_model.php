@@ -425,6 +425,7 @@
         */
         public function getDataFooter(){
             $data['Copyright']=$this->lang->line('Copyright');
+            $data['Log_out']=$this->lang->line('Log_out');
             return $data;
         }
         

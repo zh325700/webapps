@@ -235,16 +235,25 @@ input.logout{
     width: 35vw;
 }
 
-.footer{
-    font-size:15px;
-    color: #324868;
-    opacity: 0.8;
-    margin-top: 19%;
-}
 
 .list-group-item{
     font-family: myriad-pro-condensed, sans-serif;
     font-style: normal;
     word-wrap: break-word;
     font-size:15px;
+}
+
+/** FOOTER **/
+.footer{
+        font-size:15px;
+        color: #404C86;
+        opacity: 0.8;
+}
+
+#link{
+    font-size:15px;
+    opacity: 0.8;
+    color:#404C86;
+    padding-top:0%;
+    padding-left:0%;
 }
