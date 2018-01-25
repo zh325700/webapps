@@ -39,6 +39,8 @@ class Residents_model extends CI_Model {
 
     public function delete_resident($ID_Elder) {
         $this->db->where('ID_Elder', $ID_Elder);
+        $this->db->delete('ActivityLink');
+        $this->db->where('ID_Elder', $ID_Elder);
         $this->db->delete('Elder');
         return true;
     }

@@ -1,5 +1,6 @@
         <!--our css and less-->
-       
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url(); ?>/assets/css/pj_login_resident.less" />
+        <link rel="stylesheet/less" type="text/css" href="<?php echo base_url(); ?>/assets/css/Resident.less" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
         
         <!--compile less files-->
@@ -13,6 +14,8 @@
         <?php
         defined('BASEPATH') OR exit('No direct script access allowed');
         ?>
+        	<img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto"/>	
+
 		<div class ="row">
                 <div class="col-sm-offset-0">
                         <img id="home" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/home.png"  Value="HOME" Onclick="loadPage('Welcome', 'Resident/menu')"/>

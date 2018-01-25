@@ -1,5 +1,5 @@
                
-    <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+    <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
             <div class="container-fluid">              
                 <div id="blue" class="row">
                     <div class="col-sm-offset-0" style="padding-left:2.5%">

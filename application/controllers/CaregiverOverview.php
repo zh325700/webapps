@@ -184,6 +184,7 @@
                 $this->lang->load('english_lang','english');
             }
             $data['Alert_box']=$this->lang->line('Alert_box');
+            $data['Callendar']=$this->lang->line('Callendar');
             $this->parser->parse('pages_caregiver/overviewIntro',$data);
         }
         

@@ -1,4 +1,4 @@
-<?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
+<?php if (htmlentities($this->session->userdata('permission')) >= '3' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
 
 <div class="container-fluid">
 
@@ -49,8 +49,12 @@
             <input type="text" class="form-control" name="Number" placeholder="{Add_Number}" value="<?php echo $facility['Number']; ?>" required>
         </div>
         <div class="row insert-row" style="padding-bottom:30%">
-           <button class="btn btn-lg btn-block button"  onclick="loadPage('CaregiverFacility', 'update/<?php echo $facility['ID_facility']; ?>')">{Edit}</button>
+
+           <button class="btn btn-lg btn-block button" type="submit" >Edit</button>
+
+
         </div>
+        </form>
     </div>      
 </div>    
 

@@ -82,7 +82,7 @@ class Functions_model extends CI_Model{
 		
 	function login($email, $password,$language){
 		//getting the information of the account that is about to login
-		$this->db->select('ID_Caregiver, username, password, salt, permission');
+		$this->db->select('ID_Caregiver, username, password, salt, permission, ID_facility');
 		$this->db->where('email', $email);
 		$query = $this->db->get('Caregiver');
 		
@@ -95,6 +95,7 @@ class Functions_model extends CI_Model{
 			$db_password = $row->password;
 			$salt = $row->salt;
 			$permission = $row->permission;
+			$facility = $row->ID_facility;
 			
 			// hash the password with the unique salt.
 			$password = hash('sha512', $password . $salt);
@@ -119,6 +120,8 @@ class Functions_model extends CI_Model{
 					$this->session->set_userdata('login_string', $login_string);
 					$this->session->set_userdata('permission', $permission);
 					$this->session->set_userdata('language',$language);
+					$this->session->set_userdata('facility',$facility);
+					$this->session->set_userdata('allow_Caregiver', 'allow');
 					//login succesful
 					return true;
 					

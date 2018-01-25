@@ -6,7 +6,6 @@
 </head>
 <body>
 
-
     <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
     <div class ="row">
         <div class="col-sm-offset-0">
@@ -21,7 +20,7 @@
         </div>
     </div>
     
-    <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
+    <?php if (htmlentities($this->session->userdata('permission')) >= '1' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
         <div class="container-fluid">
             <div id="wrapper">
 
@@ -30,7 +29,7 @@
                     <nav id="spy">
                         <ul class="sidebar-nav nav">
                             <li>
-                                <a href="#anch2" id="btn_general">
+                                <a href="#" id="btn_general">
                                     <span class="fa fa-home solo">{general}</span>
                                 </a>
                             </li>
@@ -129,7 +128,7 @@
         <script src='<?php echo base_url() ?>/assets/js/chart.js'></script>
         <script type="text/javascript">
                 //makes the eventlisteners for the two buttons
-                document.getElementById("btn_general").addEventListener("click", init);
+                document.getElementById("btn_general").addEventListener("click", intro);
                 language = "Dutch";
                 //change the styling of this body
                 document.body.style.display = 'inline';
@@ -166,6 +165,8 @@
                     drawIntroChart();
                     //call the function to make the alerts
                     drawIntroAlert();
+                    
+                    drawCallendar();
                     //build the callender
                     $(document).ready(function () {
                         $('#calendar').fullCalendar({
@@ -210,6 +211,40 @@
                     xmlhttp.send();
                 }
                 
+                function intro(){
+                    xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () { //checks if the server is ready
+                        if (xmlhttp.readyState === XMLHttpRequest.DONE) {
+                            //responsetext is the output send by the server and is placed in the provided placeholder
+                            document.getElementById("panel_1").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    //prepare the xmlhttp request, here it's calling a controller function for the statics
+                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOverview/getIntro", false);
+                    //Sends the request to the server and then waits for a response
+                    xmlhttp.send();
+                    //call the function to draw the chart
+                    drawIntroChart();
+                    //call the function to make the alerts
+                    drawIntroAlert();
+                    
+                    drawCallendar();
+                    //build the callender
+                    $(document).ready(function () {
+                        $('#calendar').fullCalendar({
+                            defaultView: 'listWeek',
+                            defaultDate: '2017-12-12',
+                            navLinks: true, // can click day/week names to navigate views
+                            editable: true,
+                            eventLimit: true, // allow "more" link when too many events
+                            events: [
+
+                            ]
+                        });
+                    });
+                }
+                
+                
                 function drawCallendar(){
                     xmlhttp = new XMLHttpRequest();
                     //starts the function when the page is ready
@@ -219,11 +254,13 @@
                             input = xmlhttp.responseText;
                         }
                     };
-                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity/", false);
+                    xmlhttp.open("GET", "<?php echo base_url(); ?>index.php/CaregiverOperateActivity/getNewActivities", false);
                     //sends the new data to the server and update the page
                     xmlhttp.send();
                     data = jQuery.parseJSON(input);
+                    console.log(data[1]);
                     for(value in data){
+                        var text=data[value]['Time']+":"+data[value]["Title"];
                         var parent=document.getElementById("callendarList");
                         var child=document.createElement("li");
                         var span=document.createElement("span");
@@ -237,10 +274,10 @@
                         button.setAttribute('id',text);
                         button.appendChild(document.createTextNode("details"));
                         button.setAttribute('class','badge');
-                        button.addEventListener("click",function(){load('CaregiverOperateActivity/viewActivity/'+data[value]['ID_Activity'])});
+                        button.addEventListener("click",function(){window.location.href = '<?php echo base_url(); ?>index.php/CaregiverOperateActivity/viewActivity/'+data[value]['ID_Activity'];});
                         child.setAttribute('id',parent.value);
                         child.setAttribute('class',"list-group-item");
-                        span.appendChild(document.createTextNode(data[value]['text']));
+                        span.appendChild(document.createTextNode(text));
                         column2.appendChild(span);
                         row.appendChild(column2);
                         column1.appendChild(button);

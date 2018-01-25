@@ -60,7 +60,7 @@
                         $pic = $res['Picture'];
                         $id = $res['ID_Elder'];
                         ?>
-                        <div class="col-sm-3" style="display: inline-block; margin-top: 2%; margin-bottom: 2%; margin-right: 7%;">
+                        <div class="col-sm-3 col-md-2" style="display: inline-block; margin-top: 2%; margin-bottom: 2%; margin-right: 4%; margin-left:4%">
                             <img onclick="loadPage('ResidentLogin', 'verification?id=<?= $id ?>')"
                                  src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>"
                                  alt="<?php echo $lName ?>" 

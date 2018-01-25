@@ -21,19 +21,16 @@
     <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
         <div class="container-fluid">
-            <div class="row">
+            <div id="blue" class="row">
                 <div class="col-md-offset-1" style="padding-left: 20px">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/<?= $category ?>.png" alt="" class="align"/>
+                    <img id="cat" src="<?php echo base_url(); ?>/image/pictograms/<?= $category ?>.png" alt=""/>
                 </div>
                 <div class="col-sm-offset-1">
                     <h1>
                         <?= $category ?> (vraag <p id="question_number" style="display: inline">1</p>)
                     </h1>
                 </div>
-            </div>
-        </div>
-
-        <div class="container" >   
+            </div> 
             <div class="row" data-step="1" data-intro="Here you can see the questions" data-position='right'>
                 <div class="col-sm-8" style="padding-left: 20px">
                     <h2 id = "question_content"></h2>
@@ -89,7 +86,7 @@
                 </div>     
             </div>
 
-
+        </div>
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
             <!-- Javascript libraries -->

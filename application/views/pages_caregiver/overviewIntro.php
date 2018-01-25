@@ -3,8 +3,9 @@
         <div class="chart-container">  
             <canvas id="WeeklyTopicScore"></canvas>
         </div>
-        <div class="row">
-            <div id='calendar'></div>
+        <div class="row" >
+            <li style="margin-left: 3vw ;   " class="list-group-item"> {Callendar} </li>
+            <div style="margin-left: 3vw ;  " class="list-group" id='callendarList'></div>
         </div>
     </div>
     <div class="col-sm-6">

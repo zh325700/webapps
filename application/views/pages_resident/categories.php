@@ -1,7 +1,7 @@
 
 <?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
-    <div class="container">
+    <div class="container-fluid" style="padding-left:2.5%; padding-right:2.5%">
         <div class="row">
             <div class="col-sm-5">
                 <h2 class="par1">Grace-AGE</h2>
@@ -21,12 +21,12 @@
         </div>
 
         <div class="row" data-step="1" data-intro="Click block with catagories you interested in to answer questions" data-position='top'>
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="padding-right:0.5%">
                 <button id = "newButton1"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=Privacy')">
                     {Privacy}
                 </button> 
             </div>        
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
                 <button id = "newButton6"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=FoodAndMeals')">
                     {Food}
                 </button>
@@ -67,12 +67,24 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-3">
+                 <button id = "newButton"  type="button" class="btn btn-lg question button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
+                    {Ga_terug}
+
+                </button> 
+            </div>
+            <div class="col-sm-3">
                 <button id = "newButton4"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResponsiveness')">
                     {responsiveness} </br> {the_caregivers}
                 </button> 
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
+                 <button id = "newButton"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
+                    {bonding}</br> {Staff}
+
+                </button> 
+            </div>
+            <div class="col-sm-3">
                  <button id = "newButton"  type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
                     {bonding}</br> {Staff}
 
