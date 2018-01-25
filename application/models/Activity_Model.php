@@ -45,6 +45,26 @@ class Activity_Model extends CI_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
+    
+    public function doesAnElderParticipate($ID_Activity) {
+		//~ checks if an elder participates to an activity
+		$array = array(
+			'ID_Activity' => $ID_Activity, 
+			'ID_Elder' => $this->session->userdata('ID_Elder')
+		);
+		
+		//~ search in database
+		$this->db->where($array);
+		$result = $this->db->get('ActivityLink');
+		
+		if ($result->num_rows() > 0) {
+			//~ elder participates
+			return '1';
+		} else {
+			//~ elder does not participate
+			return '0';
+		}
+    }
 
     public function get_fewActivities($Num_Activity = 1) {
         $this->db->order_by('Activity.ID_Activity', 'DESC'); // order by ID Descending 
@@ -58,6 +78,8 @@ class Activity_Model extends CI_Model {
             $curtime = time();
             if (($curtime - $time) < 0) {
 				//~ the event is still to come
+				$id = $oneActivity['ID_Activity'];
+				$oneActivity['participates'] = $this->doesAnElderParticipate($id);
 				$newEventArray[] = $oneActivity;
             }
         }
@@ -76,7 +98,7 @@ class Activity_Model extends CI_Model {
 			$eventArray[] = array_shift($newEventArray);
 		}
 		//~ now we only have the asked amount of activities
-        
+		
         return $eventArray;
     }
     
