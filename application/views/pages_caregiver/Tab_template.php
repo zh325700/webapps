@@ -10,11 +10,11 @@
         </div>
         <div id="panel_element_1" class="panel-collapse collapse in">
             <div class="panel-body">   
-                <div class="row" id="question_template" style="font-size:15px">
+                <row id="question_template" style="font-size:15px">
                    <div class="col-sm-3"><?php echo($text["RoomNumber"]);?></div>
                    <div class="col-sm-3"><?php echo($text["Name"]);?></div>
                    <div class="col-sm-6"> <?php echo($text["Score"]);?></div>
-                </div>   
+                </row>   
                {content_res}
             </div>
         </div>
@@ -29,9 +29,9 @@
         </div>
         <div id="panel_element_2" class="panel-collapse collapse">
             <div class="panel-body">
-                <div class="row" id="question_template2" style="font-size:20px">
-                    <p><div class="col-sm-6"><?php echo($text["Question"]);?></div><div class="col-sm-3"><?php echo($text["Score"]);?></div>
-                </div>
+                <row id="question_template" style="font-size:20px">
+                    <p><div class="col-sm-6"><?php echo($text["Question"]);?></div><div class="col-sm-3"><?php echo($text["Score"]);?></div></p>
+                </row>
                 {content_qes}
             </div>
         </div>

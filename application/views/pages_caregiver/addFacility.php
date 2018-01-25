@@ -19,37 +19,37 @@
             <label>{Facility_Name}</label> 
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input id="formInput_N" type="text" class="form-control" name="Name" placeholder="{Add_Name}" required>
+            <input id="formInput" type="text" class="form-control" name="Name" placeholder="{Add_Name}" required>
         </div>
         <div class="row" style="padding-left:2.5%">
             <label>{City}</label> 
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input id="formInput_C" type="text" class="form-control" name="City" placeholder="{Add_City}" required>
+            <input id="formInput" type="text" class="form-control" name="City" placeholder="{Add_City}" required>
         </div>
         <div class="row" style="padding-left:2.5%">
             <label>{Postcode}</label>  
         </div>
         <div class="row" style="padding-left:2.5%">
-            <input id="formInput_P" type="text" class="form-control" name="Postcode" placeholder="{Add_Postcode}" required>
+            <input id="formInput" type="text" class="form-control" name="Postcode" placeholder="{Add_Postcode}" required>
          </div>
     </div>
     
     <div class="col-sm-offset-2 col-sm-5" style="padding-right:2.5%">
-        <div id="forms_2" class="row" style="padding-left:0%">
+        <div id="forms" class="row" style="padding-left:0%">
             <label>{Street}</label> 
         </div>
         <div class="row">
-            <input id="formInput_S" type="text" class="form-control" name="Street" placeholder="{Add_Street}" required>
+            <input id="formInput" type="text" class="form-control" name="Street" placeholder="{Add_Street}" required>
         </div>
         <div class="row">
             <label>{Number}</label> 
         </div>
         <div class="row">
-            <input id="formInput_Nu" type="text" class="form-control" name="Number" placeholder="{Add_Number}" required>
+            <input id="formInput" type="text" class="form-control" name="Number" placeholder="{Add_Number}" required>
         </div>
         <div class="row insert-row" style="padding-bottom:30%">
-              <button type="submit" class="btn btn-lg btn-block button form-control">{Add_Facility}</button>
+              <button type="submit"class="btn btn-lg btn-block button form-control">{Add_Facility}</button>
         </div>
     </div>      
 </div>
@@ -61,6 +61,9 @@
 <?php else: ?>
 <p>
 <br><br><br>
-<span style="text-align: center;" class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
 <br><br><br>
+</p>
 <?php endif; ?>

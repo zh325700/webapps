@@ -1,0 +1,223 @@
+/* 
+    Created on : Dec 14, 2017, 4:21:32 PM
+    Author     : loredonne
+*/
+
+/* Variables */
+@primary: #404C86;
+@accent: #61B749;
+@gray: #EDEEF4;
+@primary-light:#8EA1C7;
+
+/*{
+    border: 1px solid red;
+}*/
+
+body{
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    flex-direction: column;   
+    background-image: url("../../../image/pictograms/loginpage.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 1500px 900px;
+}
+
+
+/** HEADER **/
+
+/* Log out */
+.top {
+    width: 8%;
+    color: white;
+    opacity: 0.7;
+    font-size:20px;
+    transition:0s 1s;
+    top:9%;
+    position: absolute;
+}
+
+.top:active{
+        color: @primary;
+        transition:0s 0s;
+    }
+
+#logLink{
+        right:10.2%;
+        top:15%;
+    }
+#log{
+
+    position: absolute;
+}
+    
+img.topIcon {
+    opacity: 0.7;
+    top:6.5%;
+    width:5%;
+    border-radius: 10px;
+    transition:0s 1s;
+}
+    
+.topIcon:active{
+         background-color: @primary;
+         opacity: 0.7;
+         transition:0s 0s;
+    }
+    
+    
+/* Info */
+
+img.align-right{
+        width: 60px;
+        float: right;
+        padding-top:50%;
+        margin-right: 10px;
+        opacity:0.95;
+        transition:0s 1s;
+        border-radius: 10px;
+    }
+    .align-right:active{
+        background-color: white;
+        opacity: 0.7;
+        transition:0s 0s;
+    }
+    #infoLink{
+        left:94.5%;
+        top:15%;
+    }
+
+
+
+    
+
+    p{
+        color:white;
+        float:bottom;
+    }
+    h2{
+        color:white;
+        float:bottom;
+    }
+    
+    .par1{
+        margin-top: 60px;
+        font-size: 40px;
+    }
+    .par2{
+        margin-top: 2.5%;
+        font-size:30px;
+    }
+    
+    /* Icons menu page*/
+    
+    img.align-left{
+        width: 60px;
+        float: left;
+        opacity: 0.8;
+    }
+    
+    img.family{
+        margin-left: 20px;
+        width:60px;
+        opacity: 0.85;
+    }
+    img.quest{
+        width:60px;
+        color:white;
+        opacity: 0.85;
+    }
+    img.align{
+        width: 60px;
+        opacity: 0.85;
+    }
+
+    
+    
+ /* Buttons */    
+    button{
+        color: white;
+        border-radius: 10px;
+        position: relative;
+        font-family:myriad-pro-condensed, sans-serif;
+        //word-wrap: break-word;
+        font-size:30px;
+        //height: 130px;
+        margin-bottom: 4%;
+        margin-top: 4%;
+    }
+    button:hover{
+        color:white;
+    }
+
+    #quest{
+        height:200px;
+        margin-top:0px;
+        margin-bottom:2%;
+        font-size:40px;
+    }
+    
+    
+    button.question{
+        background-color:@accent;
+        //width: 745px;
+        height:150px;
+    }
+    
+    .question:active {
+            background-color: @gray;
+            color: @primary;
+        }
+
+       
+        #newButton{
+            height: 200px;
+            /* font-size: 30 px lg*/
+            font-size:40px;
+            margin-top: 2%;
+        }    
+    .style:active {
+            background-color: @accent;
+            color: white;
+        }
+ 
+        
+        
+     button.style{
+        background-color: @gray;
+        color: @primary;
+        height:150px;
+        text-align: center;
+        /* font-size: 30 px lg*/
+        font-size:20px;
+        
+    }
+        
+    #awcc1511526958631{
+        height:200px;
+    }
+
+    
+    @media(max-width:768px){
+        button{
+            font-size:20px;
+        }
+    }
+/** FOOTER **/
+.footer{
+        font-size:15px;
+        color: @primary;
+        opacity: 0.8;
+        padding-top:4%;
+}
+
+#link{
+    font-size:15px;
+    opacity: 0.8;
+    color:@primary;
+    padding-top:10%;
+    padding-left:0%;
+}
+
+

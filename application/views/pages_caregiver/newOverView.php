@@ -5,16 +5,17 @@
 <link href="<?php echo base_url(); ?>assets/css/overview.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class="" alt="header"/>
+
+    <img src="<?php echo base_url(); ?>/image/pictograms/headernew.png" style=" max-width:100%; height:auto" class=""/>
     <div class ="row">
         <div class="col-sm-offset-0">
-            <img id="home" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/home.png"  alt="HOME" />
+            <img id="home" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/home.png"  Value="HOME" />
         </div>
         <div class="col-sm-offset-1">
             <h2 class="par1" >Grace-AGE</h2>
         </div>
         <div class="col-sm-offset-11">
-            <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  alt="Log_out" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
+            <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  value="Log_out" Onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'"/>
             <a id="logLink" class="top" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>              
         </div>
     </div>
@@ -56,19 +57,19 @@
                             </li>
                             <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/CaregiverFacility/find" id="button_resqes 2">
+                                    <a href="<?php echo base_url(); ?>index.php/CaregiverFacility/find" id="button_resqes">
                                         <span class="fa fa-anchor solo">{Find_Facility}</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/create" id="button_resqes 3">
+                                    <a href="<?php echo base_url(); ?>index.php/CaregiverOperateResident/create" id="button_resqes">
                                         <span class="fa fa-anchor solo">{Add_Resident}</span>
                                     </a>
                                 </li>
                             <?php endif; ?>
                             <?php if (htmlentities($this->session->userdata('permission')) >= '3'): ?>
                                 <li>
-                                    <a href="<?php echo base_url(); ?>index.php/CaregiverFacility/addfacility" id="button_resqes 4">
+                                    <a href="<?php echo base_url(); ?>index.php/CaregiverFacility/addfacility" id="button_resqes">
                                         <span class="fa fa-anchor solo">{Add_Facility}</span>
                                     </a>
                                 </li>
@@ -125,7 +126,7 @@
         <script src='<?php echo base_url() ?>/assets/js/fullcalendar.min.js'></script>
         <script src='<?php echo base_url() ?>/assets/js/alert.js'></script>
         <script src='<?php echo base_url() ?>/assets/js/chart.js'></script>
-        <script>
+        <script type="text/javascript">
                 //makes the eventlisteners for the two buttons
                 document.getElementById("btn_general").addEventListener("click", intro);
                 language = "Dutch";
@@ -638,13 +639,13 @@
                 }
 
         </script>
-        <script> window.onload = init;</script>
+        <script type='text/javascript'> window.onload = init;</script>
 
 
 
     <?php else: ?>
-    <p>
-    <br><br><br>
+        <p>
+            <br><br><br>
     <center>
         <span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
     </center>

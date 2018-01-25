@@ -1,0 +1,259 @@
+
+.header{
+    position: relative;
+}
+
+img.topIcon {
+    opacity: 0.7;
+    top:3.5%;
+    width:4.5%;
+    border-radius: 10px;
+    transition:0s 1s;
+}
+
+#log{
+    position: absolute;
+}
+
+#home{
+   
+    left:2.5%;
+    position: absolute;
+    opacity: 0.8;
+    width: 4%;
+}
+
+.top {
+    width: 8%;
+    color: white;
+    opacity: 0.7;
+    font-size:14px;
+    transition:0s 1s;
+    top:9%;
+   
+    position: absolute;
+}
+
+
+.top:active{
+        color: #404C86;
+        transition:0s 0s;
+    }
+    
+    #logLink{
+        right:0.5%;
+    }
+    
+.topIcon:active{
+         background-color: #404C86;
+         opacity: 0.7;
+         transition:0s 0s;
+    }
+    
+    
+.par1{
+    position:absolute;
+    top:0%;
+    /*laptop-> top: 4%*/
+    font-size: 40px;
+    color: white;
+    padding-left:1%;
+    /*laptop-> left: 1.5%*/
+    transition:0s 1;
+    }
+    .par1:active{
+        color: #404C86;
+        transition:0s 0s;
+    }
+
+#wrapper {
+    padding-left: 250px;
+    transition: all 0.4s ease 0s;
+}
+
+#wrapper.toggled {     
+    padding-left: 220px;
+}
+
+
+#sidebar-wrapper {
+    margin-left: -250px;
+    left: 250px;
+    width: 250px;
+    background: #404C86;
+    position: absolute;
+    height: 100%;
+    overflow-y: auto;
+    z-index: auto;
+    transition: all 0.4s ease 0s;
+}
+
+#wrapper.active {
+    padding-left: 0;
+}
+
+#wrapper.active #sidebar-wrapper {
+    left: 0;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav li {
+    line-height: 45px;
+    text-indent: 20px;
+}
+
+.sidebar-nav li a {
+    color: #FFFFFF;
+    display: block;
+    text-decoration: none;
+    padding-left: 60px;
+}
+.sidebar-nav li a span:before {
+    position: absolute;
+    left: 0;
+    color: #41484c;
+    text-align: center;
+    width: 20px;
+    line-height: 18px;
+}
+
+
+.sidebar-nav li a:hover,
+.sidebar-nav li.active {
+    color: #41484c;
+    background: rgb(97,183,73);
+    text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+    background: rgb(97,183,73);
+}
+.sidebar-nav .dropdown-menu {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    background-color: #8EA1C7;
+    box-shadow: none;
+    
+}
+
+.graceAge{
+  position:absolute;
+  top:50%;
+  text-align:center;
+  width:100%;
+  color:white;
+  font-size:36px;
+  -ms-transform: translate(0,-50%); /* IE 9 */
+   	-webkit-transform: translate(0,-50%); /* Safari */
+    transform: translate(0,-50%);  
+
+}
+
+button.badge{
+    background-color: #EDEEF4;
+    color: #404C86;
+    text-align: center;
+    border-radius: 10px;
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    word-wrap: break-word;
+    font-size:15px;
+    padding-right: 5px;
+}
+
+button.badge:hover{
+    color:white;
+}
+
+button.tab{
+    background-color: #EDEEF4;
+    color: #404C86;
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    word-wrap: break-word;
+}
+
+.button.tab:hover,
+.button.tab .active {
+    color: #222;
+    background-color: #61B749;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.panel .panel-heading{
+    background-color: #EDEEF4;
+    color: #404C86;
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+}
+
+.panel-collapse{
+    overflow-y: scroll; 
+    height: 620px;
+}
+
+.panel .panel-heading:hover,
+.panel .panel-heading .active {
+    color: #222;
+    background-color: #61B749;
+    text-decoration: none;
+    cursor: pointer;
+}
+.panel-group .panel-body{
+    background-color: #EDEEF4;
+}
+input.logout{
+       float:right;
+       font-size: 20px;
+    }
+
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 50vh;
+    width: 35vw;
+}
+
+
+.list-group-item{
+    font-family: myriad-pro-condensed, sans-serif;
+    font-style: normal;
+    word-wrap: break-word;
+    font-size:15px;
+}
+
+/** FOOTER **/
+.footer{
+        font-size:15px;
+        color: #404C86;
+        opacity: 0.8;
+}
+
+#link{
+    font-size:15px;
+    opacity: 0.8;
+    color:#404C86;
+    padding-top:0%;
+    padding-left:0%;
+}
