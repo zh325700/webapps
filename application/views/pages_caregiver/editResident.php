@@ -1,5 +1,4 @@
-<body>            
-
+           
 <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
 
 
@@ -13,12 +12,9 @@
                </div>
                 </div>
                 <div class="row">
-
+                    <?php echo validation_errors(); ?>
+                    <?php echo form_open('CaregiverOperateResident/update'); ?>
                     <div  id="forms2" class="col-sm-offset-0 col-sm-6" style="padding-left:2.5%">
-
-                        
-                        <?php echo validation_errors(); ?>
-                        <?php echo form_open('CaregiverOperateResident/update'); ?>
                         <input type="hidden" name="ID_Elder" value="<?php echo $resident['ID_Elder']; ?>" >
                         <div class="form-group"> <label for="FirstName" class="text-dark">{FirstName}</label>
                             <input required="" type="text" name="FirstName" class="form-control" id="FirstName" placeholder="{Add_FirstName}"
@@ -39,7 +35,7 @@
                                 <span >
                                     <img src="<?php echo base_url(); ?>/image/pictograms/male.png" alt="male" style="width:40px;height:40px;">
 
-                                    <input  type="checkbox"name="Sex" value="M" style="width:15px;height:15px;text-align: center;">
+                                    <input  type="checkbox" name="Sex" value="M" style="width:15px;height:15px;text-align: center;">
                                 </span>
                             </label>
                         </div>
@@ -86,14 +82,12 @@
                             <button type="submit" class="btn btn-lg btn-block button">{EDIT}</button>
                         </div>
                         
+                        </div>
 
-                        </form>
                     </div>
-
+                    <?php echo form_close(); ?>
                 </div>
-
             </div>
-
 
 
         <script>   // allow to only check one sex 
@@ -106,7 +100,6 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    </body>
 
     <!--Javascript libraries--> 
     <script>   // allow to only check one sex 

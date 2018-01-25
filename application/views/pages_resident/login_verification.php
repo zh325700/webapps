@@ -23,14 +23,14 @@ $pic = $resident['Picture'];
             <img src="../../image/photos/<?= $pic ?>" alt="" style=" width: 85%; margin-bottom: 5%" class="align-left"/>
         </div>
 
-        <form action="" id="form">
+        <form id="form">
             <div class="col-sm-offset-1 col-sm-2" style="padding-right:0%; padding-top: 0%">
                 <h2>{Birthday}: </h2>
             </div>
             <div class="col-sm-4"> 
                 <h2>
                     <input id="date" type="text" class="forms" placeholder="dd/mm/yyyy" 
-                           pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" readonly="true">
+                           pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" readonly="readonly">
                 </h2>
             </div>
         </form>
@@ -117,14 +117,11 @@ if (isset($js_to_load)) {
     endforeach;
 }
 ?>
+<script src="<?php echo base_url(); ?>/assets/js/loginverification.js"></script>
 
-<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/loginverification.js"></script>
-
-<script type="text/javascript">
+<script >
                         setDate("<?= $date ?>", "<?= $idelder ?>", "<?= $idfacility ?>",
                                 "<?= $firstname ?>", "<?= $lastname ?>", "<?= $division ?>",
                                 "<?= $pic ?>");
 </script>
 
-</body>
-</html>

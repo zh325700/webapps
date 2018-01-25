@@ -14,7 +14,7 @@
     
     <div class="row">
          <div class="col-sm-offset-0 col-sm-2" data-step="1" data-intro="Here is the image of the resident">
-            <img class="" height="140" width="140" style="padding-top: 9%; padding-left:8%; padding-bottom:0%" src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
+            <img class="" height="140" width="140" alt="resident" style="padding-top: 9%; padding-left:8%; padding-bottom:0%" src="<?php echo base_url(); ?>/image/photos/<?php echo $residents['Picture']; ?>">
         </div>
     </div>
 
@@ -91,15 +91,15 @@
     </div>
     <div class="row" style="padding-bottom: 0%; padding-top: 1%">
 		<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
-
         <div class="col-sm-offset-4 col-md-3 col-sm-4" style="padding-left:2.5%;">
-            <button class="btn btn-lg btn-block button" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')"/>{EDIT}</button>
+            <button class="btn btn-lg btn-block button" value="EDIT" onclick="loadPage('CaregiverOperateResident', 'edit/<?php echo $residents['ID_Elder']; ?>')">{EDIT}</button>
         </div>
         <div class="col-sm-offset-1 col-sm-4 col-md-3" style="padding-right:2.5%">
             
             <?php echo form_open('CaregiverOperateResident/delete/' . $residents['ID_Elder']); /* if we click it it goes to /post/delete/3 */ ?>    
 
-            <button id="delete" class="btn btn-lg btn-block button" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')"/>{DELETE}</button>
+            <button id="delete" class="btn btn-lg btn-block button" value="DELETE" onclick="loadPage('CaregiverOperateResident', 'delete/<?php echo $residents['ID_Elder']; ?>')">{DELETE}</button>
+            <?php echo form_close(); ?>
         </div>
         
        <?php endif; ?>

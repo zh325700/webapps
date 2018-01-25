@@ -156,8 +156,8 @@
     $lang['het_niet']="know it";
     $lang['Ga_terug']="Go back";
     //view activities resident
-    $lang['Participate_no']="Participate or no";
-    $lang['already_participates']="already participates?";
+    $lang['Participate_no']="";
+    $lang['already_participates']="Already participates?";
     $lang['Event']="Event";
     $lang['Participate']="Participate";
     $lang['Wil_activiteit']="Do you want to participate in an activity?";
