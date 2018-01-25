@@ -141,6 +141,8 @@ $lang['responsiveness']="Reactievermogen ";
 $lang['the_caregivers']="van het personeel";
 $lang['Safety']="Veiligheid";
 $lang['Security']="beveiliging";
+$lang['Informatie']="Informatie";
+$lang['woonzorgcentrum']="woonzorgcentrum";
 //question
 $lang['Previous']="Vorige";
 $lang['Question']="Vraag";
@@ -151,6 +153,12 @@ $lang['Most_time']="Meestal";
 $lang['Always']="Altijd";
 $lang['Ik_weet']="Ik weet";
 $lang['het_niet']="het niet";
+//view activities resident
+$lang['Participate_no']="Deelnemen of niet";
+$lang['already_participates']="al deelnemer?";
+$lang['Event']="Event";
+$lang['Participate']="Deelnemen";
+$lang['Wil_activiteit']="Wil je deelnemen aan een activiteit";
 //stuff
 $lang['Read_More']="Lees meer...";
 $lang['Add_New_Facility']="Voeg nieuwe residentie toe";

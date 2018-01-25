@@ -1,5 +1,7 @@
 <body>            
+
 <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
+
 
             <div class="container-fluid">
                 <div id="blue" class="row">
@@ -11,58 +13,67 @@
                </div>
                 </div>
                 <div class="row">
-                    <div  id="forms" class="col-sm-offset-0 col-sm-6" style="padding-left:2.5%">
+
+                    <div  id="forms2" class="col-sm-offset-0 col-sm-6" style="padding-left:2.5%">
+
                         
                         <?php echo validation_errors(); ?>
                         <?php echo form_open('CaregiverOperateResident/update'); ?>
                         <input type="hidden" name="ID_Elder" value="<?php echo $resident['ID_Elder']; ?>" >
                         <div class="form-group"> <label for="FirstName" class="text-dark">{FirstName}</label>
-                            <input required="" type="text" name="FirstName" class="form-control" id="InputName" placeholder="{Add_FirstName}"
+                            <input required="" type="text" name="FirstName" class="form-control" id="FirstName" placeholder="{Add_FirstName}"
                                    value="<?php echo $resident['FirstName']; ?>"> </div>
                         <div class="form-group"> <label for="LastName" class="text-dark">{LastName}</label>
-                            <input required="" type="text" name="LastName" class="form-control" id="InputName" placeholder="{Add_LastName}"
+                            <input required="" type="text" name="LastName" class="form-control" id="LastName" placeholder="{Add_LastName}"
                                    value="<?php echo $resident['LastName']; ?>"> </div>
 
-                        <div class="form-group"> <label for="Sex" class="text-dark">{Gender}</label>
+                        <div class="form-group"> <label  class="text-dark">{Gender}</label>
                             <label style="padding-left: 10vh">
-                                <div>
-                                    <img src="https://cdn2.iconfinder.com/data/icons/person-gender-hairstyle-clothes-variations/48/Female-Side-comb-O-neck-512.png" style="width:40px;height:40px;">
+                                <span>
+                                    <img src="<?php echo base_url(); ?>/image/pictograms/female.png" alt="female" style="width:40px;height:40px;">
 
                                     <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px;text-align: center;">
-                                </div>
+                                </span>
                             </label>
                             <label style="padding-left: 20vh">
-                                <div >
-                                    <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/user-male-icon.png" style="width:40px;height:40px;">
+                                <span >
+                                    <img src="<?php echo base_url(); ?>/image/pictograms/male.png" alt="male" style="width:40px;height:40px;">
 
                                     <input  type="checkbox"name="Sex" value="M" style="width:15px;height:15px;text-align: center;">
-                                </div>
+                                </span>
                             </label>
                         </div>
                         <div class="form-group"> <label for="Birthday" class="text-dark">{Birthday}</label>
-                            <input required="" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday"
+                            <input required="" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday"  id="Birthday"
+
                                    placeholder="{Day/Month/Year}" value="<?php echo $resident['Birthday']; ?>">
                         </div>
 
                         <div class="form-group"> <label for="RoomNumber" class="text-dark">{RoomNumber}</label>
-                            <input  required="" type="text" class="form-control" name="RoomNumber" 
+
+                            <input  required="" type="text" class="form-control" name="RoomNumber" id="RoomNumber"
+
                                     placeholder="{Add_Roomnumber}" value="<?php echo $resident['RoomNumber']; ?>">
                         </div>
 
                     </div>
-                    <div id="forms" class="col-sm-6">
+
+                    <div id="forms1" class="col-sm-6">
 
                         <div class="form-group" > <label for="ID_facility" class="text-dark">{Facility}</label>
-                            <select required="" name="ID_facility" class="form-control">
+                            <select required="" id="ID_facility" name="ID_facility" class="form-control">
+
                                 <option disabled selected value> -- {Select_Facility} -- </option>
                                 <?php foreach ($facilities as $fac): ?>
                                     <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="form-group" > <label for="Add Image" class="text-dark">{Upload_Image}</label><br>
-                            <input required="" class="inputfile" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
-                            <img  id="output" width="300px" height="170px">
+
+                        <div class="form-group" > <label for="Add_Image" class="text-dark">{Upload_Image}</label><br>
+                            <input required="" class="inputfile" id="Add_Image" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
+                            <img  id="output" width="300" height="170" src="#" >
+
                             <script>
                                 var loadFile = function (event) {
                                     var output = document.getElementById('output');

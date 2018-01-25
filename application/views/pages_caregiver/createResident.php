@@ -1,5 +1,7 @@
                
+
     <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
+
             <div class="container-fluid">              
                 <div id="blue" class="row">
                     <div class="col-sm-offset-0" style="padding-left:2.5%">
@@ -9,60 +11,66 @@
                     </div>
                 </div> 
                 <div class="row">
-                    <div id="forms" class="col-sm-6">
+
+                    <div id="forms1" class="col-sm-6">
+
                         
                         <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('CaregiverOperateResident/create'); ?> <!--form_open_multipart so we can add image-->
 
                         <div class="form-group"> <label for="LastName" class="text-dark">{LastName}</label>
-                            <input required="" type="text" name="LastName" class="form-control" id="InputName" placeholder="{Add_LastName}"
+                            <input required="" type="text" name="LastName" class="form-control" id="LastName" placeholder="{Add_LastName}"
                                    value="<?php echo isset($_POST["LastName"]) ? $_POST["LastName"] : ''; ?>"> </div>
                         
                         <div class="form-group"> <label for="FirstName" class="text-dark">{FirstName}</label>
-                            <input required="" type="text" name="FirstName" class="form-control" id="InputName" placeholder="{Add_FirstName}"
+                            <input required="" type="text" name="FirstName" class="form-control" id="FirstName" placeholder="{Add_FirstName}"
                                    value="<?php echo isset($_POST["FirstName"]) ? $_POST["FirstName"] : ''; ?>"> </div>
 
-                        <div class="form-group"> <label for="Gender" class="text-dark">{Gender}</label>
+                        <div class="form-group"> <label class="text-dark">{Gender}</label>
                             <label style="padding-left: 5vh">
-                                <div>
-                                    <img src="<?php echo base_url(); ?>/image/pictograms/female.png" style="width:40px;height:40px;">
+                                <span>
+                                    <img src="<?php echo base_url(); ?>/image/pictograms/female.png" alt="female" style="width:40px;height:40px;">
 
                                     <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px">
-                                </div>
+                                </span>
                             </label>
                             <label style="padding-left: 10vh">
-                                <div >
-                                    <img src="<?php echo base_url(); ?>/image/pictograms/male.png" style="width:40px;height:40px;">
+                                <span >
+                                    <img src="<?php echo base_url(); ?>/image/pictograms/male.png" alt="male" style="width:40px;height:40px;">
 
-                                    <input   type="checkbox"name="Sex" value="M" style="width:15px;height:15px">
-                                </div>
+                                    <input   type="checkbox" name="Sex" value="M" style="width:15px;height:15px">
+                                </span>
+
                             </label>
                         </div>
                         
                         <div class="form-group"> <label for="Birthday" class="text-dark">{Birthday}</label>
                             <input required="" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday"
-                                   placeholder="{Day/Month/Year}" value="<?php echo isset($_POST["Birthday"]) ? $_POST["Birthday"] : ''; ?>">
+                                   id="Birthday" placeholder="{Day/Month/Year}" value="<?php echo isset($_POST["Birthday"]) ? $_POST["Birthday"] : ''; ?>">
                         </div>
 
                         <div class="form-group"> <label for="RoomNumber" class="text-dark">{RoomNumber}</label>
-                            <input  required="" type="text" class="form-control" name="RoomNumber" 
+                            <input  required="" type="text" class="form-control" name="RoomNumber" id="RoomNumber"
+
                                     placeholder="{Add_Roomnumber}" value="<?php echo isset($_POST["RoomNumber"]) ? $_POST["RoomNumber"] : ''; ?>">
                         </div> 
 
 
                     </div>
-                    <div id="forms" class="col-sm-6" style="padding-right:2.5%">
+                    <div id="forms2" class="col-sm-6" style="padding-right:2.5%">
                       <div class="form-group" > <label for="ID_Facility" class="text-dark">{Facility}</label>
-                            <select required="" name="ID_Facility" class="form-control">
+                          <select required="" id="ID_Facility" name="ID_Facility" class="form-control">
+
                                 <option disabled selected value> -- {Select_Facility} -- </option>
                                 <?php foreach ($facilities as $fac): ?>
                                     <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="form-group"> <label for="Add Image" class="text-dark">{Upload_Image}</label><br>
-                            <input required="" class="inputfile" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
-                            <img  id="output" width="300px" height="170px"> <!-- laptop: height="185px">-->
+                        <div class="form-group"> <label for="Add_Image" class="text-dark">{Upload_Image}</label><br>
+                            <input required="" id="Add_Image" class="inputfile" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
+                            <img  id="output" width="300" height="170" src="#"> <!-- laptop: height="185px">-->
+
                             <script>
                                 var loadFile = function (event) {
                                     var output = document.getElementById('output');
@@ -105,4 +113,6 @@
     </center>
     <br><br><br>
     </p>
+
 <?php endif; ?>
+

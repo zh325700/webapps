@@ -66,6 +66,11 @@
             $data['Number_Of_Participants']=$this->lang->line('Number_Of_Participants');
             $data['Description']=$this->lang->line('Description');
             $data['DELETE']=$this->lang->line('DELETE');
+            $data['Event']=$this->lang->line('Event');
+            $data['Participate_no']=$this->lang->line('Participate_no');
+            $data['already_participates']=$this->lang->line('already_participates');
+            $data['Participate']=$this->lang->line('Participate');
+            $data['Wil_activiteit']=$this->lang->line('Wil_activiteit');
             return $data;
         }
         
@@ -282,8 +287,10 @@
             $data['responsiveness']=$this->lang->line('responsiveness');
             $data['Safety']=$this->lang->line('Safety'); 
             $data['Security']=$this->lang->line('Security');
-            $data['Log_out']=$this->lang->line('Log_out');
             $data['Ga_terug']=$this->lang->line('Ga_terug');
+            $data['Informatie']=$this->lang->line('Informatie');
+            $data['woonzorgcentrum']=$this->lang->line('woonzorgcentrum');
+            $data['Log_out']=$this->lang->line('Log_out');
             return $data;
         }
         
@@ -303,7 +310,6 @@
          * Output: the right values to the keys for the question screen
          */
         public function getDataQes(){
-            $data['HOME']=$this->lang->line('HOME');
             $data['Previous']=$this->lang->line('Previous');
             $data['Question']=$this->lang->line('Question');
             $data['Never']=$this->lang->line('Never');

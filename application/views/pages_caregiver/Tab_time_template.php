@@ -7,12 +7,12 @@
        </div>
        
        <div id="panel_element_1" class="panel-collapse collapse in">
-           <div class="row" id="question_template" style="font-size:20px">
+           <row id="question_template" style="font-size:20px">
            <p><div class="col-sm-4"><?php echo($text["RoomNumber"]);?></div><div class="col-sm-2"><span class="text-nowrap"><?php echo($text["Name"]);?></span></div>
-               <div class="col-sm-6"> <?php echo($text["Score"]);?></div>
-            </div>
+               <div class="col-sm-6"> <?php echo($text["Score"]);?></div></p>
+       </row>
            {content_res}
-        </div>
+         </div>
     </div>
 </div>
                   

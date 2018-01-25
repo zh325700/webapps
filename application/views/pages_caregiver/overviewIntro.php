@@ -4,10 +4,8 @@
             <canvas id="WeeklyTopicScore"></canvas>
         </div>
         <div class="row" >
-            
-            <ul style="margin-left: 3vw ;  " class="list-group" id='callendarList'>
-                <li style="margin-left: 3vw ;   " class="list-group-item"> {Callendar} </li>
-            </ul>
+            <li style="margin-left: 3vw ;   " class="list-group-item"> {Callendar} </li>
+            <div style="margin-left: 3vw ;  " class="list-group" id='callendarList'></div>
         </div>
     </div>
     <div class="col-sm-6">

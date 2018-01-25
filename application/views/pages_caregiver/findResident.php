@@ -1,3 +1,4 @@
+
 <?php if (htmlentities($this->session->userdata('permission')) >= '1' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
 
     <div class="container-fluid">
@@ -17,8 +18,10 @@
                 flex-direction: column;
             }
         </style>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
+        <script  src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script  src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
+
+
         <?php
         $arraylastname = array();
         $arrayFirstname = array();
@@ -65,10 +68,11 @@
         </script>
         <div class="row">
             <div id="forms" class="col-sm-offset-0 col-sm-4">
-                <form   action='' method='post'>
-                    <div class="form-group"><label >{LastName} </label><input id="formInput" type='text' name='LastName' placeholder="{LastName}" class='autoLastName form-control'></div>
-                    <div class="form-group"><label >{FirstName} </label><input id="formInput" type='text' name='FirstName' placeholder="{FirstName}"  class='autoFirstname form-control'></div>
-                    <div class="form-group"><label >{RoomNumber} </label><input id="formInput" type='text' name='RoomNumber' placeholder="{RoomNumber}" class='autoRoom form-control'></div>
+                <form   method='post'>
+                    <div class="form-group"><label >{LastName} </label><input id="formInput1" type='text' name='LastName' placeholder="{LastName}" class='autoLastName form-control'></div>
+                    <div class="form-group"><label >{FirstName} </label><input id="formInput2" type='text' name='FirstName' placeholder="{FirstName}"  class='autoFirstname form-control'></div>
+                    <div class="form-group"><label >{RoomNumber} </label><input id="formInput3" type='text' name='RoomNumber' placeholder="{RoomNumber}" class='autoRoom form-control'></div>
+
                     <div class="form-group"><label >{Facility} </label>
                         <select name="ID_facility" id="formInput" class="form-control">
                             <option value=""> - {Select_Facility} - </option>
@@ -76,23 +80,24 @@
                                 <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                             <?php endforeach; ?>
                         </select></div>
-                    
-                    <div class="form-group"> <label for="Gender" class="text-dark">{Gender}</label>
-                            <label style="padding-left: 5vh">
-                                <div>
-                                    <img src="<?php echo base_url(); ?>/image/pictograms/female.png" style="width:40px;height:40px;">
 
-                                    <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px">
-                                </div>
-                            </label>
-                            <label style="padding-left: 10vh">
-                                <div >
-                                    <img src="<?php echo base_url(); ?>/image/pictograms/male.png" style="width:40px;height:40px;">
+                    <div class="form-group"> <label  class="text-dark">{Gender}</label>
+                        <label style="padding-left: 5vh">
+                            <span>
+                                <img src="<?php echo base_url(); ?>/image/pictograms/female.png" style="width:40px;height:40px;" alt="female">
 
-                                    <input   type="checkbox"name="Sex" value="M" style="width:15px;height:15px">
-                                </div>
-                            </label>
-                        </div>
+                                <input  type="checkbox" name="Sex" value="F" style="width:15px;height:15px">
+                            </span>
+                        </label>
+                        <label style="padding-left: 10vh">
+                            <span >
+                                <img src="<?php echo base_url(); ?>/image/pictograms/male.png" style="width:40px;height:40px;" alt="male">
+
+                                <input   type="checkbox" name="Sex" value="M" style="width:15px;height:15px">
+                            </span>
+                        </label>
+                    </div>
+
 
                     <div class="form-group">
                         <button class="btn btn-lg btn-block form-control button" type="submit" value="{FIND}" name="findres" />{FIND}</button>
@@ -129,8 +134,11 @@
                             $lastname = $fArray['LastName'];
                             ?>
                             <div style="display: inline-block" class="col-sm-offset-2">
+                                <figure>
                                 <img onclick="loadPage('CaregiverOperateResident', 'view/<?php echo $id; ?>')" src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>" alt="<?php echo $lastname ?>" style="width:200px; height:200px; border:10px blue;" >
                                 <figcaption class="text-center"><?php echo $lastname; ?></figcaption>
+                                </figure>
+
                             </div>
                             <?php
                         }

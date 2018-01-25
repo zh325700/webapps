@@ -51,7 +51,7 @@ class CaregiverOperateActivity extends CI_Controller {
         $this->load->model('Language_model');
         $this->load->model('Activity_Model');
 		
-		$data=$this->Language_model->getData($this->session->userdata('language'),'viewact');
+        $event_array=$this->Language_model->getData($this->session->userdata('language'),'viewact');
 		
 		if($ID_Activity != 0){
 			//check if already participating or not and adjust.
@@ -62,10 +62,10 @@ class CaregiverOperateActivity extends CI_Controller {
 		$event_array['events'] = $this->Activity_Model->get_fewActivities(4);
 		
         $this->load->view('pages_generalised/header');
-        $this->load->view('pages_generalised/residents');
+        $this->parser->parse('pages_generalised/residents',$event_array['header']);
         //load actual page
-        $this->load->view('pages_resident/events', $event_array);
-        $this->parser->parse('pages_generalised/footer', $data['footer']);
+        $this->parser->parse('pages_resident/events', $event_array);
+        $this->parser->parse('pages_generalised/footer', $event_array['footer']);
 	}
 
 }

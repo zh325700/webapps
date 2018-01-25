@@ -110,6 +110,12 @@
     $lang['Selecteer_foto']="Select your picture";
     //login verification
     $lang['Clear']="Clear";
+    $lang['Login_verificatie']="Login verification";
+    $lang['Gelieve_geboortedag_vullen']="Please fill in your birthdate";
+    $lang['Dit_ben']="I'm not";
+    $lang['ik_niet']="This person";
+    $lang['delete']="delete";
+    //categories
     $lang['Please_category']="Please choose a categorie";
     $lang['Privacy']="Privacy";
     $lang['Food']="Food";
@@ -130,11 +136,15 @@
     $lang['the_caregivers']="the caregivers";
     $lang['Safety']="Safety and";
     $lang['Security']="Security";
+    $lang['Informatie']="Information";
+    $lang['woonzorgcentrum']="carehome";
+    //menu residents
     $lang['Weather_report']="Weather report";
     $lang['Family']="Family";
     $lang['Questionnaire']="Questionnaire";
     $lang['Activities']="Activities";
     $lang['Log_out']="Logout";
+    //questions
     $lang['Previous']="Previous";
     $lang['Question']="Question";
     $lang['Never']="Never";
@@ -142,33 +152,29 @@
     $lang['Sometimes']="Sometimes";
     $lang['Most_time']="Most of the time";   
     $lang['Always']="Always";
+    $lang['Ik_weet']="I don't";
+    $lang['het_niet']="know it";
+    $lang['Ga_terug']="Go back";
+    //view activities resident
+    $lang['Participate_no']="Participate or no";
+    $lang['already_participates']="already participates?";
+    $lang['Event']="Event";
+    $lang['Participate']="Participate";
+    $lang['Wil_activiteit']="Do you want to participate in an activity?";
+    //stuff
     $lang['Can_message']="Can you read the message below";
     $lang['maximum_font']="You have reached the maximum fontsize";
     $lang['Text_Message']="Test Message";
     $lang['Confirm']="Confirm";
     $lang['title_general1']="General overview results residents";
     $lang['title_general2']="General overview results questions";
-
-    
-
-    
-
     $lang['alert_box']='Alert box with special remarks of the resident';
     $lang['Topic']='Topic';
     $lang['DELETE']="Delete";
     $lang['EDIT']="Edit";
-
     $lang['Welcome']="Welcome";
-   
     
-    $lang['Login_verificatie']="Login verification";
-    $lang['Gelieve_geboortedag_vullen']="Please fill in your birthdate";
-    $lang['Dit_ben']="I'm not";
-    $lang['ik_niet']="This person";
-    $lang['delete']="delete";
-    $lang['Ik_weet']="I don't";
-    $lang['het_niet']="know it";
-    $lang['Ga_terug']="Go back";
+    
     $lang['HOME']="Home";
     $lang['Copyright']="Copyright: HCI/webapps project-team 2";
 

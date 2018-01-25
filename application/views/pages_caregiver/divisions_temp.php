@@ -1,3 +1,4 @@
+{thedivisions}
 <style>
     .lid:hover,
     .lid.active {
@@ -7,7 +8,6 @@
         cursor: pointer;
     }   
 </style>
-{thedivisions}
 <li class="lid" id="{divisions}" onclick="getScoresDiv({divisions})">
     {divisions}
 </li>

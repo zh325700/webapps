@@ -92,7 +92,7 @@
             </div>
             <div class="col-sm-3" style="padding-left:0.5%">
                  <button type="button" class="btn btn-lg style button btn-block" onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
-                     Informatie <br> woonzorgcentrum
+                     {Informatie} <br> {woonzorgcentrum}
 
                 </button> 
             </div>
