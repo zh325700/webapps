@@ -111,16 +111,16 @@ $lang['Add_Activity']="Activiteit toevoegen";
 $lang['Add_Time']="Tijd toevoegen";
 $lang['Add_Activity_Title']="Naam toevoegen";
 $lang['Add_Activity_description']="Beschrijving toevoegen";
-
+//menu resident
+$lang['Weather_report']="Weerbericht";
+$lang['Family']="Familie";
+$lang['Questionnaire']="Vragenlijst";
+$lang['Activities']="Activiteiten";
+$lang['Log_out']="Uitloggen";
+$lang['Ga_terug']="Ga terug";
+//categorie
 $lang['Overview_facility']="Overzicht van de residentie";
 $lang['Save']="Opslaan";
-
-$lang['Read_More']="Lees meer...";
-$lang['Add_New_Facility']="Voeg nieuwe residentie toe";
-
-
-$lang['Member_Since']="Bewoner sinds";
-
 $lang['Please_category']="Kies een categorie";
 $lang['Privacy']="Privacy";
 $lang['Food']="Eten";
@@ -134,49 +134,36 @@ $lang["Daily"]="Dagelijks";
 $lang['decisions']="kiezen";
 $lang['Respect']="Respect";
 $lang['by']="van de";
-$lang['Staff']="wie hier werkt";
+$lang['Staff']="met wie hier werkt";
 $lang['resident']="-bewoner";
-$lang['bonding']="Een band voelen met";
-$lang['responsiveness']="Reactievermogen van";
-$lang['the_caregivers']="het personeel";
-$lang['Safety']="Veiligheid en";
+$lang['bonding']="Een band voelen";
+$lang['responsiveness']="Reactievermogen ";
+$lang['the_caregivers']="van het personeel";
+$lang['Safety']="Veiligheid";
 $lang['Security']="beveiliging";
-$lang['Weather_report']="Weerbericht";
-$lang['Family']="Familie";
-$lang['Questionnaire']="Vragenlijst";
-$lang['Activities']="Activiteiten";
-$lang['Log_out']="Uitloggen";
+//question
 $lang['Previous']="Vorige";
 $lang['Question']="Vraag";
-$lang['Ga_terug']="Ga terug";
 $lang['Never']="Nooit";
 $lang['Rarely']="Zelden";
 $lang['Sometimes']="Soms";
 $lang['Most_time']="Meestal";   
 $lang['Always']="Altijd";
+$lang['Ik_weet']="Ik weet";
+$lang['het_niet']="het niet";
+//stuff
+$lang['Read_More']="Lees meer...";
+$lang['Add_New_Facility']="Voeg nieuwe residentie toe";
+$lang['Member_Since']="Bewoner sinds";
 $lang['Can_message']="Kan je de zin hieronder lezen";
 $lang['maximum_font']="Je hebt de grootste lettertype bereikt";
 $lang['Text_Message']="Goededag";
 $lang['Confirm']="Bevestig";
 $lang['title_general1']="Algemeen resultaten overzicht bewoners";
 $lang['title_general2']="Algemeen resultaten overzicht vragenlijst";
-
-
-
-
-
 $lang['alert_box']='Opmerkingen van of over deze bewoner';
 $lang['Topic']='Categorie';
-
 $lang['Welcome']="Welkom";
-
-
-
-
-
-$lang['Ik_weet']="Ik weet";
-$lang['het_niet']="het niet";
 $lang['HOME']="Start";
 $lang['Copyright']="Auteursrechten: HCI/webapps project-team 2";
-
 ?>

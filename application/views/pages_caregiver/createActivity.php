@@ -21,7 +21,7 @@
 
                         <div class="form-group" > <label for="Time" class="text-dark">{Time}</label>
                             <div class='input-group date' id='datetimepicker1'>
-                                <input required="" type="datetime-local" name="Time" class="form-control" id="InputTime" placeholder="{Add_Time}"
+                                <input required="" type="datetime-local" name="Time" class="form-control" id="InputTime"
                                        value="<?php echo isset($_POST["Time"]) ? $_POST["Time"] : ''; ?>"> 
                                 <span class="add-on"><i class="icon-th"></i></span>
                             </div>
@@ -55,10 +55,7 @@
 
 <?php else: ?>
     <p>
-        <br><br><br>
-    <center>
-        <span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
-    </center>
     <br><br><br>
-    </p>
+        <span style="text-align: center;" class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+    <br><br><br>
 <?php endif; ?>
