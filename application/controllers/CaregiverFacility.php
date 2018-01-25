@@ -40,9 +40,10 @@ class CaregiverFacility extends CI_Controller {
             $this->parser->parse('pages_generalised/caregiver',$data['header']);
             $this->parser->parse('pages_caregiver/addFacility',$data);
             $this->parser->parse('pages_generalised/footer',$data['footer']);
-        } else {          
+        } else {
+                       
             $this->Addfacility_model->create_facility();
-            redirect('CaregiverFacility/find');
+            redirect('addfacility_control/find');
         }
     }
 

@@ -1,5 +1,5 @@
-<?php if (htmlentities($this->session->userdata('permission')) >= '1'): ?>
 
+<?php if (htmlentities($this->session->userdata('permission')) >= '1' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
 
     <div class="container-fluid">
         <div id ="blue" class="row ">
@@ -20,6 +20,8 @@
         </style>
         <script  src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script  src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
+
+
         <?php
         $arraylastname = array();
         $arrayFirstname = array();
@@ -70,6 +72,7 @@
                     <div class="form-group"><label >{LastName} </label><input id="formInput1" type='text' name='LastName' placeholder="{LastName}" class='autoLastName form-control'></div>
                     <div class="form-group"><label >{FirstName} </label><input id="formInput2" type='text' name='FirstName' placeholder="{FirstName}"  class='autoFirstname form-control'></div>
                     <div class="form-group"><label >{RoomNumber} </label><input id="formInput3" type='text' name='RoomNumber' placeholder="{RoomNumber}" class='autoRoom form-control'></div>
+
                     <div class="form-group"><label >{Facility} </label>
                         <select name="ID_facility" id="formInput" class="form-control">
                             <option value=""> - {Select_Facility} - </option>
@@ -94,6 +97,7 @@
                             </span>
                         </label>
                     </div>
+
 
                     <div class="form-group">
                         <button class="btn btn-lg btn-block form-control button" type="submit" value="{FIND}" name="findres" />{FIND}</button>
@@ -134,6 +138,7 @@
                                 <img onclick="loadPage('CaregiverOperateResident', 'view/<?php echo $id; ?>')" src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>" alt="<?php echo $lastname ?>" style="width:200px; height:200px; border:10px blue;" >
                                 <figcaption class="text-center"><?php echo $lastname; ?></figcaption>
                                 </figure>
+
                             </div>
                             <?php
                         }

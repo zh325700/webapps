@@ -1,5 +1,7 @@
 <body>            
-<?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+
+<?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
+
 
             <div class="container-fluid">
                 <div id="blue" class="row">
@@ -11,7 +13,9 @@
                </div>
                 </div>
                 <div class="row">
+
                     <div  id="forms2" class="col-sm-offset-0 col-sm-6" style="padding-left:2.5%">
+
                         
                         <?php echo validation_errors(); ?>
                         <?php echo form_open('CaregiverOperateResident/update'); ?>
@@ -41,28 +45,35 @@
                         </div>
                         <div class="form-group"> <label for="Birthday" class="text-dark">{Birthday}</label>
                             <input required="" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" type="text" class="form-control" name="Birthday"  id="Birthday"
+
                                    placeholder="{Day/Month/Year}" value="<?php echo $resident['Birthday']; ?>">
                         </div>
 
                         <div class="form-group"> <label for="RoomNumber" class="text-dark">{RoomNumber}</label>
+
                             <input  required="" type="text" class="form-control" name="RoomNumber" id="RoomNumber"
+
                                     placeholder="{Add_Roomnumber}" value="<?php echo $resident['RoomNumber']; ?>">
                         </div>
 
                     </div>
+
                     <div id="forms1" class="col-sm-6">
 
                         <div class="form-group" > <label for="ID_facility" class="text-dark">{Facility}</label>
                             <select required="" id="ID_facility" name="ID_facility" class="form-control">
+
                                 <option disabled selected value> -- {Select_Facility} -- </option>
                                 <?php foreach ($facilities as $fac): ?>
                                     <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
+
                         <div class="form-group" > <label for="Add_Image" class="text-dark">{Upload_Image}</label><br>
                             <input required="" class="inputfile" id="Add_Image" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
                             <img  id="output" width="300" height="170" src="#" >
+
                             <script>
                                 var loadFile = function (event) {
                                     var output = document.getElementById('output');

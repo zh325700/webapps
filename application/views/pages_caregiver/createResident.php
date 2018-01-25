@@ -1,5 +1,7 @@
                
-    <?php if (htmlentities($this->session->userdata('permission')) >= '2'): ?>
+
+    <?php if (htmlentities($this->session->userdata('permission')) >= '2' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
+
             <div class="container-fluid">              
                 <div id="blue" class="row">
                     <div class="col-sm-offset-0" style="padding-left:2.5%">
@@ -9,7 +11,9 @@
                     </div>
                 </div> 
                 <div class="row">
+
                     <div id="forms1" class="col-sm-6">
+
                         
                         <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('CaregiverOperateResident/create'); ?> <!--form_open_multipart so we can add image-->
@@ -36,6 +40,7 @@
 
                                     <input   type="checkbox" name="Sex" value="M" style="width:15px;height:15px">
                                 </span>
+
                             </label>
                         </div>
                         
@@ -46,6 +51,7 @@
 
                         <div class="form-group"> <label for="RoomNumber" class="text-dark">{RoomNumber}</label>
                             <input  required="" type="text" class="form-control" name="RoomNumber" id="RoomNumber"
+
                                     placeholder="{Add_Roomnumber}" value="<?php echo isset($_POST["RoomNumber"]) ? $_POST["RoomNumber"] : ''; ?>">
                         </div> 
 
@@ -54,6 +60,7 @@
                     <div id="forms2" class="col-sm-6" style="padding-right:2.5%">
                       <div class="form-group" > <label for="ID_Facility" class="text-dark">{Facility}</label>
                           <select required="" id="ID_Facility" name="ID_Facility" class="form-control">
+
                                 <option disabled selected value> -- {Select_Facility} -- </option>
                                 <?php foreach ($facilities as $fac): ?>
                                     <option value="<?php echo $fac['ID_facility']; ?>"><?php echo $fac['Name']; ?></option>
@@ -63,6 +70,7 @@
                         <div class="form-group"> <label for="Add_Image" class="text-dark">{Upload_Image}</label><br>
                             <input required="" id="Add_Image" class="inputfile" type="file" name="userfile" accept="image/*" onchange="loadFile(event)" size="20"><br>
                             <img  id="output" width="300" height="170" src="#"> <!-- laptop: height="185px">-->
+
                             <script>
                                 var loadFile = function (event) {
                                     var output = document.getElementById('output');
@@ -105,4 +113,6 @@
     </center>
     <br><br><br>
     </p>
+
 <?php endif; ?>
+

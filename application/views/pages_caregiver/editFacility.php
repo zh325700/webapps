@@ -36,7 +36,7 @@
     
     <div class="col-sm-offset-2 col-sm-5" style="padding-right:2.5%">
         <input type="hidden"  name="ID_facility" value="<?php echo $facility['ID_facility']; ?>">
-        <div id="forms_2" class="row" style="padding-left:0%">
+        <div id="forms" class="row" style="padding-left:0%">
             <label>{Street}</label> 
         </div>
         <div class="row">
@@ -49,8 +49,12 @@
             <input type="text" class="form-control" name="Number" placeholder="{Add_Number}" value="<?php echo $facility['Number']; ?>" required>
         </div>
         <div class="row insert-row" style="padding-bottom:30%">
+
            <button class="btn btn-lg btn-block button" type="submit" >Edit</button>
+
+
         </div>
+        </form>
     </div>      
 </div>    
 
@@ -60,6 +64,9 @@
 <?php else: ?>
 <p>
 <br><br><br>
-<span style="text-align: center;" class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+<center>
+<span class="error">You are not logged in or you are not authorized to access this page.</span> Please <a href="<?php echo base_url(); ?>">login</a> with the proper account.
+</center>
 <br><br><br>
+</p>
 <?php endif; ?>
