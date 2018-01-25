@@ -6,7 +6,7 @@
                     </div>
                 </div> 
                 <div class="row">
-                    <div id="forms1" class="col-sm-6">
+                    <div id="forms1" class="col-sm-6" style="padding-left:2.5%; padding-top:2%">
                         <?php echo validation_errors(); ?>
                         <?php echo form_open_multipart('AdminRegister/register_caregiver'); ?>
                         <div class="form-group"> <label for="InputName" class="text-dark">{Username}</label>
@@ -25,7 +25,7 @@
 
                         
                     </div>
-                    <div id="forms2" class="col-sm-6" style="padding-right:2.5%">
+                    <div id="forms2" class="col-sm-6" style="padding-right:2.5%; padding-top:2%">
                         <div class="form-group" > <label for="Facility" class="text-dark">{Facility}</label>
                             <select required="" id="Facility" name="ID_Facility" class="form-control">
                                 <option disabled selected value> -- {Select_Facility} -- </option>

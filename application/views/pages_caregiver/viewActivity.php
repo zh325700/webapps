@@ -12,12 +12,12 @@
         </div> 
         <div class="row">
             <div class=" col-sm-offset-0 col-sm-5" id="forms" data-step="2" data-intro="Here you can find Information of residents" data-position='right'>
-                <label >{Title}</label> <br> <label class="lab" style="padding-left: 10%"><?php echo $activity['Title']; ?></label><br>
-                <label >{Time}</label> <br> <label class="lab" style="padding-left: 10%"><?php echo $activity['Time']; ?></label><br>
-                <label >{Number_Of_Participants}</label> <br> <label class="lab" style="padding-left: 10%"><?php echo $count; ?></label><br>
+                <label >{Title}</label> <br> <label class="lab"><?php echo $activity['Title']; ?></label><br>
+                <label >{Time}</label> <br> <label class="lab"><?php echo $activity['Time']; ?></label><br>
+                <label >{Number_Of_Participants}</label> <br> <label class="lab" ><?php echo $count; ?></label><br>
                 <label >
                         {Description}</label> <br> 
-                <label class="lab col-sm-offset-0" style="padding-left: 10%"><?php echo $activity['Description']; ?></label>
+                <label class="lab col-sm-offset-0"><?php echo $activity['Description']; ?></label>
             </div>
         </div>
         <div class="row">

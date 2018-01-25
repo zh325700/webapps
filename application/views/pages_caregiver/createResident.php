@@ -10,9 +10,9 @@
                     </h2>
                     </div>
                 </div> 
-                <div class="row">
+                <div class="row" style="padding-top:2%">
 
-                    <div id="forms1" class="col-sm-6">
+                    <div id="forms1" class="col-sm-6" style="padding-left:2.5%">
 
                         
                         <?php echo validation_errors(); ?>
