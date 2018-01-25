@@ -6,26 +6,6 @@
             </h1>
         </div>
     </div>      
-
-            <!--                    <div class="row">
-                                    <div class="col-sm-4">
-                                        <h1>
-                                            Ik verblijf op :
-                                        </h1>
-                                    </div>
-                                    <div class="col-sm-7 dropdown" style="padding-left: 0;">
-                                        <button class="btn style btn-block" type="button" data-toggle="dropdown"><?= $division ?><span class="caret"/></button>
-                                        <ul class="dropdown-menu" style="text-height: text-size"> <h1>
-                                            <li><a href="<?php echo base_url(); ?>index.php/ResidentLogin/loadByDivision?division=0">Verdieping 0</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/ResidentLogin/loadByDivision?division=1">Verdieping 1</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/ResidentLogin/loadByDivision?division=2">Verdieping 2</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/ResidentLogin/loadByDivision?division=3">Verdieping 3</a></li> </h1>
-                                        </ul>
-                                    </div>
-                                </div>-->
             <div class="row" data-step="1" data-intro="Choose your gender" data-position='top'>
                 <div class="col-sm-4" style="margin-top: 1%; padding-left: 2.5%">
                     <h1>
@@ -60,12 +40,12 @@
                         $pic = $res['Picture'];
                         $id = $res['ID_Elder'];
                         ?>
-                        <div class="col-sm-3 col-md-2" style="display: inline-block; margin-top: 2%; margin-bottom: 2%; margin-right: 4%; margin-left:4%">
+                        <div class="col-sm-3 col-md-3" style="display: inline-block; margin:auto; margin-top:2%">
                             <img onclick="loadPage('ResidentLogin', 'verification?id=<?= $id ?>')"
                                  src="<?php echo base_url(); ?>image/photos/<?php echo $pic; ?>"
                                  alt="<?php echo $lName ?>" 
-                                 style="width:200px ;height:200px;border:10px blue;">
-                            <figcaption class="col-sm-6"><?= $fName; ?> <?= $lName; ?> </figcaption>
+                                 style="width:200px ;height:200px;border:10px blue; margin:auto; display:block">
+                            <p style="text-align: center;"><?= $fName; ?> <?= $lName; ?> </p>
                         </div>
                         <?php
                     }

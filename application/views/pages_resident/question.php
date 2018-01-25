@@ -75,7 +75,7 @@
                 <div class="col-sm-2" style="padding-left: 3%;">
                     <p>{Always}</p>
                 </div>  
-                <div class="col-sm-2" style="padding-left: 0%;">
+                <div class="col-sm-2" style="padding-left: 0%; ">
                     <p>{Ik_weet} {het_niet}</p>
                 </div> 
             </div>

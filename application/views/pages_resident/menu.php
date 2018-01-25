@@ -29,9 +29,9 @@
         </div>
 
         <div class="row" style="padding-top:2%">
-            <div id="awcc1511526958631" class="col-sm-6" >
+            <div class="col-sm-6" >
                         <!--Weather report-->
-                        <a  href="https://www.accuweather.com/…/…/27046/weather-forecast/27046" class="aw-widget-legal"></a>
+                        <a class="aw-widget-legal"></a>
                         <div id="awcc1511526958631" class="aw-widget-current"
                             data-locationkey="" data-unit="c" data-language="nl" 
                             data-useip="true" data-uid="awcc1511526958631"
@@ -48,14 +48,14 @@
 
 	<div class="row" style="padding-top:0%">
                 <div class="col-sm-offset-0 col-sm-6">
-                    <button id = "newButton" type="button" class="btn btn-lg style button activity btn-block"
+                    <button id = "activity" type="button" class="btn btn-lg style button btn-block"
                             data-step="4" data-intro="Click here to see recent activities" data-position='top' onclick="loadPage('CaregiverOperateActivity','ActivityList')">
                        <img src="<?php echo base_url(); ?>/image/pictograms/activities.png" class="align"/>
                         {Activities}
                     </button>
                 </div>
-                <div class="col-sm-offset-0 col-sm-6">
-                    <button id = "newButton"  type="button" class="btn btn-lg button style btn-block family" 
+                <div class="col-sm-offset-0 col-sm-6" >
+                    <button id="family" type="button" class="btn btn-lg button style btn-block" 
                             data-step="3" data-intro="Watch video your familly sent you" data-position='top'>
                         <img src="<?php echo base_url(); ?>/image/pictograms/family.png" class="family"/>
                         {Family} 

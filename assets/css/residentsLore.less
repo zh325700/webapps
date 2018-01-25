@@ -1,9 +1,4 @@
-/* 
-    Created on : Dec 14, 2017, 4:21:32 PM
-    Author     : loredonne
-*/
-
-/* Variables */
+/* VARIABLES */
 @primary: #404C86;
 @accent: #61B749;
 @gray: #EDEEF4;
@@ -41,7 +36,7 @@ body{
     }
 
 #logLink{
-        right:10.2%;
+        right:10.5%;
         top:15%;
     }
 #log{
@@ -51,8 +46,8 @@ body{
     
 img.topIcon {
     opacity: 0.7;
-    top:6.5%;
-    width:5%;
+    top:6%;
+    width:70px;
     border-radius: 10px;
     transition:0s 1s;
 }
@@ -74,6 +69,7 @@ img.align-right{
         opacity:0.95;
         transition:0s 1s;
         border-radius: 10px;
+        transition:0s 1s;
     }
     .align-right:active{
         background-color: white;
@@ -81,13 +77,12 @@ img.align-right{
         transition:0s 0s;
     }
     #infoLink{
-        left:94.5%;
+        left:94.2%;
         top:15%;
+        color: @accent;
     }
 
-
-
-    
+    /** CONTENT PAGES**/
 
     p{
         color:white;
@@ -132,17 +127,16 @@ img.align-right{
 
     
     
- /* Buttons */    
+ /* BUTTONS */    
     button{
         color: white;
         border-radius: 10px;
         position: relative;
         font-family:myriad-pro-condensed, sans-serif;
-        //word-wrap: break-word;
         font-size:30px;
-        //height: 130px;
         margin-bottom: 4%;
         margin-top: 4%;
+        transition:0s 1s;
     }
     button:hover{
         color:white;
@@ -158,49 +152,58 @@ img.align-right{
     
     button.question{
         background-color:@accent;
-        //width: 745px;
         height:150px;
+        transition:0s 1s;
     }
     
     .question:active {
             background-color: @gray;
             color: @primary;
+            transition:0s 0s;
         }
 
        
         #newButton{
             height: 200px;
-            /* font-size: 30 px lg*/
             font-size:40px;
             margin-top: 2%;
-        }    
-    .style:active {
-            background-color: @accent;
-            color: white;
-        }
- 
+        }   
         
+        #back{
+            font-size:24px;
+        }
+    
+        #family{
+            height: 200px;
+            font-size:40px;
+            margin-top: 2%;
+        }
+        #activity{
+            height: 200px;
+            font-size:40px;
+            margin-top: 2%;
+            margin-bottom: 7%;
+        }   
         
      button.style{
         background-color: @gray;
         color: @primary;
         height:150px;
-        text-align: center;
-        /* font-size: 30 px lg*/
-        font-size:20px;
-        
+        font-size:24px; 
+        transition:0s 1s;
     }
+    
+    .style:active {
+            background-color: @accent;
+            color: white;
+            transition:0s 0s;
+        }
         
     #awcc1511526958631{
         height:200px;
     }
 
-    
-    @media(max-width:768px){
-        button{
-            font-size:20px;
-        }
-    }
+
 /** FOOTER **/
 .footer{
         font-size:15px;

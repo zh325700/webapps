@@ -22,10 +22,12 @@
                         <a id="homeLink" class=" top " Onclick="loadPage('Welcome', 'Resident/menu')">{HOME}</a>              
                     </div>
                     <div class="col-sm-offset-1">
-                        <h2 class="par1" Onclick="location.href = '<?php echo base_url(); ?>index.php/Welcome/Overview/newOverView'">Grace-AGE</h2>
+                        <h2 class="par1" Onclick="loadPage('Welcome', 'Resident/menu')">Grace-AGE</h2>
                     </div>
                     <div class="col-sm-offset-11">
                           <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
 			  <img class="top-right" src="<?php echo base_url(); ?>/image/pictograms/information.png" alt=""/>
-			  </a>                    </div>
+			  </a>                  
+                          <a id="infoLink" class=" top" >Info</a>              
+                    </div>
                 </div>

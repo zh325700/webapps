@@ -29,15 +29,13 @@
         color:white;
     }
 
-/**{
-    border: 1px solid red;
-}*/
 
     button.style{
         font-family: myriad-pro-condensed, sans-serif;
         width: 75%;
         font-size: 10px;
         background-color:@sober-color-light;
+        transition:0s 1s;
     }
      img.align-left{
         width: 80px;
@@ -50,9 +48,6 @@
         float: right;
         background-color:@sober-color-light;
     }
-    
-    
-
     
     img.family{
         width: 100px;
@@ -69,6 +64,7 @@
      
     .button:active{
         background-color: @secondary-color-light;
+        transition:0s 0s;
     }
     p{
         font-size: 35px;
@@ -79,17 +75,12 @@
         padding-bottom: 15px;
     }
     
-    button.logout{
-        float:bottom;
-        width:50%;
-    }
     
     button.activity{
        //padding-right: 40px;
        padding-bottom: 25px;
        float: none;
     }
-    
     
     button.question{
         background-color: @secondary-color-light;
@@ -118,16 +109,15 @@
         padding-bottom:30%;
     }
 
+/** ACTIVITY TABLE **/    
     
+table{
+    width:100%;
+    height: 500px;
+    border-color: @gray;
+    font-size:24px;      
+}
     
-    table{
-        width:100%;
-        height: 500px;
-        border-color: @gray;
-        font-size:24px;      
-    }
-    
-
 
 #activity td, #customers th {
     border: 1px solid #ddd;

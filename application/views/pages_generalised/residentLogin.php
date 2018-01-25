@@ -22,6 +22,7 @@
             <div class="col-sm-offset-11">
                 <a href="javascript:void(0);"  onclick="javascript:introJs().setOption('showProgress', true).start();">
                     <img class="top-right" src="<?php echo base_url(); ?>/image/pictograms/information.png" alt=""/>
-                </a>                    
+                </a> 
+                <a id="infoLink" class=" top" >Info</a>  
             </div>
         </div>
