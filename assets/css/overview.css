@@ -215,6 +215,15 @@ button.tab{
     font-style: normal;
 }
 
+.alertgroup{
+    overflow-y: auto; 
+    height: 700px;
+}
+
+.callendargroup{
+    overflow-y: auto; 
+    height: 350px;
+}
 .panel-collapse{
     overflow-y: scroll; 
     height: 620px;

@@ -1,16 +1,4 @@
 
-<!--our css and less-->
-<link rel="stylesheet/less" type="text/css" href="<?php echo base_url(); ?>/assets/css/pj_login_resident.less" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/introjs.css" />
-
-<!--compile less files-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
-
-<!--javascript includes-->
-<script type="text/JavaScript" src="<?php echo base_url(); ?>/assets/js/intro.js"></script>
-
-</head>
-<body>
     <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
     ?>
@@ -26,8 +14,8 @@
                     <img id="cat" src="<?php echo base_url(); ?>/image/pictograms/<?= $category ?>.png" alt=""/>
                 </div>-->
                 <div class="col-sm-offset-0">
-                    <h1>
-                        <?= $category ?> (vraag <p id="question_number" style="display: inline">1</p>)
+                    <h1 id="question_number">
+                        <?= $category ?>
                     </h1>
                 </div>
             </div> 
@@ -40,22 +28,22 @@
 
             <div class="row" style="padding-left: 1.5%" data-step="2" data-intro="select answer by click the faces" data-position='top'>
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley1.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                    <img id="1" src="<?php echo base_url(); ?>/image/pictograms/smiley1.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
                 </div>
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley2.png" onclick="javascript:getQuestion(2)" alt="" class="smiley" usemap="#map"/>
+                    <img id="2" src="<?php echo base_url(); ?>/image/pictograms/smiley2.png" onclick="javascript:getQuestion(2)" alt="" class="smiley" usemap="#map"/>
                 </div>
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley3.png" onclick="javascript:getQuestion(3)" alt="" class="smiley" usemap="#map"/>
+                    <img id="3" src="<?php echo base_url(); ?>/image/pictograms/smiley3.png" onclick="javascript:getQuestion(3)" alt="" class="smiley" usemap="#map"/>
                 </div>
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley4.png" onclick="javascript:getQuestion(4)" alt="" class="smiley" usemap="#map"/>
+                    <img id="4" src="<?php echo base_url(); ?>/image/pictograms/smiley4.png" onclick="javascript:getQuestion(4)" alt="" class="smiley" usemap="#map"/>
                 </div> 
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(5)" alt="" class="smiley" usemap="#map"/>
+                    <img id="5" src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(5)" alt="" class="smiley" usemap="#map"/>
                 </div>    
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                    <img id="6" src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(6)" alt="" class="smiley" usemap="#map"/>
                 </div> 
             </div>
 
@@ -82,7 +70,7 @@
 
             <div class="row">
                 <div class="col-sm-offset-0 col-sm-3">
-                    <a id = "previousBtn" type="button" class="btn btn-lg" onclick="javascript:previous()">{Ga_terug}</a>          
+                    <a id = "previousBtn" class="btn btn-lg" onclick="javascript:previous()">{Ga_terug}</a>          
                 </div>     
             </div>
 
@@ -100,9 +88,9 @@
             }
             ?>
 
-            <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/question.js"></script>
+            <script  src="<?php echo base_url(); ?>/assets/js/question.js"></script>
 
-            <script type="text/javascript">
+            <script >
                         loadQuestions(<?php echo json_encode($questions) ?>, "<?php echo $category ?>", "<?php echo $this->session->userdata('ID_Elder') ?>");
             </script>
 

@@ -9,10 +9,10 @@
             </h2>
         </div>
     </div> 
-    <form method="post"> 
+
     <div class="row" > 
         
-        <div  id="forms"class="col-sm-offset-0 col-sm-2" style="padding-top:2%">        
+        <div  id="forms" class="col-sm-offset-0 col-sm-2" style="padding-top:2%">        
 		<h3><b>{facility}{Name}{/facility}</b></h3>
         </div>
     </div>
@@ -66,7 +66,7 @@
            </div>                                    
             <?php endif; ?>
             </div>
-        </form>
+
     
 </div>
 

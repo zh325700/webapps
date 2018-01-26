@@ -4,7 +4,7 @@
                     <p class="footer " >{Copyright} &copy; 2017</p>
                 </div>
                 <div class="col-sm-2">
-                    <a id = "link" type="button" class="btn btn-lg" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>          
+                    <a id = "link" class="btn btn-lg" onclick="location.href = '<?php echo base_url(); ?>index.php/Logout'">{Log_out}</a>          
                 </div> 
             
         </div>     

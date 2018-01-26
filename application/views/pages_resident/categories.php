@@ -6,7 +6,7 @@
                 <h2 class="par1" Onclick="loadPage('Welcome', 'Resident/menu')">Grace-AGE</h2>
             </div>
             <div class="col-sm-offset-10">
-                <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  value="Log_out" onclick="loadPage('ResidentLogin', 'view')"/>
+                <img id="log" class="topIcon" src="<?php echo base_url(); ?>/image/pictograms/logout.png"  alt="Log_out" onclick="loadPage('ResidentLogin', 'view')"/>
                 <a id="logLink" class=" top" onclick="loadPage('ResidentLogin', 'view')">{Log_out}</a>              
             </div>
             <div class="col-sm-offset-11">
@@ -25,22 +25,22 @@
 
         <div class="row" data-step="1" data-intro="Click block with catagories you interested in to answer questions" data-position='top'>
             <div class="col-sm-3" style="padding-right:0.5%">
-                <button id = "Privacy"  type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('Privacy')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion', 'getQuestion?category=Privacy')">
+                <button id = "Privacy"  type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('Privacy')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion', 'getQuestion?category=Privacy')">
                     {Privacy}
                 </button> 
             </div>        
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('FoodAndMeals')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=FoodAndMeals')">
+                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('FoodAndMeals')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=FoodAndMeals')">
                     {Food}
                 </button>
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('Comfort')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=Comfort')">
+                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('Comfort')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=Comfort')">
                     {Comfort}
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%;">
-                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('Activities')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=Activities')">
+                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('Activities')=='1'){echo 'style="background-color: #404C86;color:#EDEEFred;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=Activities')">
                     {Activities}
                 </button> 
             </div>
@@ -48,22 +48,22 @@
 
         <div class="row" >
             <div class="col-sm-3" style="padding-right:0.5%">
-                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('PersonalRelationships')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=PersonalRelationships')">
+                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('PersonalRelationships')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=PersonalRelationships')">
                     {Personal} <br/> {relations}
                 </button>
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('Autonomy')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=Autonomy')">
+                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('Autonomy')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=Autonomy')">
                     {Daily} <br/> {decisions}
                 </button>
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button  type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('RespectByStaff')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=RespectByStaff')">
+                <button  type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('RespectByStaff')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=RespectByStaff')">
                     {Respect}
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%;">
-                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('SafetyAndSecurity')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=SafetyAndSecurity')">
+                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('SafetyAndSecurity')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=SafetyAndSecurity')">
                     {Safety}
                 </button> 
             </div>
@@ -76,18 +76,17 @@
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
-                <button  type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('StaffResponsiveness')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResponsiveness')">
-                    {responsiveness} </br> {the_caregivers}
+                <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('StaffResponsiveness')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResponsiveness')">
+                    {responsiveness} <br/> {the_caregivers}
                 </button> 
             </div>
-            <div class="col-sm-3"style="padding-left:0.5%; padding-right:0.5%">
-                 <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('StaffResidentBonding')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
-                    {bonding}</br> {Staff}
-
+            <div class="col-sm-3" style="padding-left:0.5%; padding-right:0.5%">
+                 <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('StaffResidentBonding')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=StaffResidentBonding')">
+                    {bonding}<br/> {Staff}
                 </button> 
             </div>
             <div class="col-sm-3" style="padding-left:0.5%; padding-bottom: 1%">
-                 <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('InformationOfTheHome')=='1'){echo 'style="background-color: red;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=InformationOfTheHome')">
+                 <button type="button" class="btn btn-lg style button btn-block" <?php if($this->session->userdata('InformationOfTheHome')=='1'){echo 'style="background-color: #404C86;color:#EDEEF4;"';} ?> onclick="loadPage('ResidentQuestion','getQuestion?category=InformationOfTheHome')">
                      {Informatie} <br> {woonzorgcentrum}
                 </button> 
             </div>

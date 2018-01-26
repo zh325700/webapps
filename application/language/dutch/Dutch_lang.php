@@ -154,8 +154,8 @@ $lang['Always']="Altijd";
 $lang['Ik_weet']="Ik weet";
 $lang['het_niet']="het niet";
 //view activities resident
-$lang['Participate_no']="Deelnemen of niet";
-$lang['already_participates']="al deelnemer?";
+$lang['Participate_no']="";
+$lang['already_participates']="Al deelnemer?";
 $lang['Event']="Event";
 $lang['Participate']="Deelnemen";
 $lang['Wil_activiteit']="Wil je deelnemen aan een activiteit";

@@ -1,6 +1,6 @@
 
 <?php if (htmlentities($this->session->userdata('permission')) >= '1' && htmlentities($this->session->userdata('allow_Caregiver')) == 'allow'): ?>
-
+    
     <div class="container-fluid">
         <div id ="blue" class="row ">
             <div class="col-sm-offset-0" style="padding-left: 2.5%">
@@ -9,15 +9,7 @@
                 </h2>
             </div>
         </div>
-        <style>
-            label { display: table-cell; }
-            input { display: table-cell; flex-direction: column;}
-
-            .alignColumn{
-                display: flex;
-                flex-direction: column;
-            }
-        </style>
+        
         <script  src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script  src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
 
@@ -36,7 +28,7 @@
             array_push($arraySex, $res['Sex']);
         }
         ?>
-        <script type="text/javascript">
+        <script>
             var arraylastname = <?php echo json_encode($arraylastname) ?>; // push $residents into the array
             var arrayRoom = <?php echo json_encode($arrayRoom) ?>;
             var arrayFirstname = <?php echo json_encode($arrayFirstname) ?>;
@@ -100,11 +92,11 @@
 
 
                     <div class="form-group">
-                        <button class="btn btn-lg btn-block form-control button" type="submit" value="{FIND}" name="findres" />{FIND}</button>
+                        <button class="btn btn-lg btn-block form-control button" type="submit" value="{FIND}" name="findres" >{FIND}</button>
                     </div>
                 </form>
             </div>
-            <div class="col-sm-8" style="overflow:scroll; padding-top: 3%" height="120%" width="120%">
+            <div class="col-sm-8" style="padding-top: 3%">
 
                 <!--Add general function here-->
                 <?php

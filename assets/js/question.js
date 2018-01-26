@@ -24,7 +24,7 @@ function loadQuestions(all_questions, this_category, id_elder){
     }
     total_question_count = questions.length;
     var question = questions[0];
-    document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+    document.getElementById("question_number").innerHTML =category + " (vraag " + counter + "/" + total_question_count + ")";
     document.getElementById("question_content").innerHTML = question.Question_nl;
     console.log(questions);
 }
@@ -32,6 +32,7 @@ function loadQuestions(all_questions, this_category, id_elder){
 
 
 function getQuestion(score) {
+    //document.getElementById(score).src='../../image/pictograms/smiley'+score+'Active.png';
     var answer = {ID_Question:counter + offset, ID_Elder:id, Score:score};
     answers.push(answer);
     counter++;
@@ -40,7 +41,7 @@ function getQuestion(score) {
         console.log(category);
     } else {
         var question = questions[counter - 1];
-        document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+        document.getElementById("question_number").innerHTML = category + " (vraag " + counter + "/" + total_question_count + ")";
         document.getElementById("question_content").innerHTML = question.Question_nl;
         document.getElementById("previousBtn").innerHTML = "Vorige vraag";
         console.log(answers);
@@ -53,7 +54,7 @@ function previous(){
     counter--;
     if(counter >= 1){
         var question = questions[counter - 1];
-        document.getElementById("question_number").innerHTML = counter + "/" + total_question_count;
+        document.getElementById("question_number").innerHTML = category + " (vraag " + counter + "/" + total_question_count + ")";
         document.getElementById("question_content").innerHTML = question.Question_nl;
         console.log(counter);
         if (counter === 1){

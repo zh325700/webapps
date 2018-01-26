@@ -49,9 +49,10 @@
             <input type="text" class="form-control" name="Number" placeholder="{Add_Number}" value="<?php echo $facility['Number']; ?>" required>
         </div>
         <div class="row insert-row" style="padding-bottom:30%">
-           <button class="btn btn-lg btn-block button" type="submit" >Edit</button>
+           <button class="btn btn-lg btn-block button" type="submit" >{EDIT}</button>
         </div>
-    </div>      
+    </div>   
+    <?php echo form_close()?>
 </div>    
 
 <script src="<?= base_url() ?>assets/js/jquery.js"></script>
