@@ -14,9 +14,6 @@
 @gray: #EDEEF4;
 @primary-light:#8EA1C7;
 
-/**{
-    border: 1px solid red;
-}*/
 
 body{
     font-family: myriad-pro-condensed, sans-serif;
@@ -28,7 +25,7 @@ body{
 /* Home icon */
 img.topIcon {
     opacity: 0.7;
-    top:3.5%;
+    top:4.5%;
     width:4.5%;
     border-radius: 10px;
     transition:0s 1s;
@@ -62,28 +59,42 @@ img.topIcon {
 }
 
 #homeLink{
+    top:11%;
     left:3%;
+    font-size:20px;
 } 
+
+#infoLink{
+    left:94.2%;
+    top:11.5%;
+    color: @accent;
+    font-size:20px;
+}
 
 /* Info icon */
 img.top-right {
     position: absolute;
     top: 3.5%;
     right:2.5%;
-    width: 5%;
-    opacity: 0.75;
+    width: 4.5%;
+    opacity: 0.85;
     border-radius: 10px;
+    transition:0s 1s;
 }
+
+.top-right:active{
+        background-color: white;
+        opacity: 0.7;
+        transition:0s 0s;
+    }
     
 /* Grace Age logo */    
 .par1{
     position:absolute;
     top:1%;
-    /*laptop-> top: 4%*/
     font-size: 40px;
     color: white;
-    /*laptop-> left: 1.5%*/
-    transition:0s 1;
+    transition:0s 1s;
 }
 
 .par1:active{
@@ -107,7 +118,7 @@ img.top-right {
     } 
     
 .topIcon:active{
-         background-color: #404C86;
+         background-color: @primary;
          opacity: 0.7;
          transition:0s 0s;
     }
@@ -148,17 +159,20 @@ img.top-right {
         font-size:35px;
         margin-bottom: 10px;
         margin-top: 20px;
+        transition:0s 1s;
     }
     
     button.style{
         background-color: @gray;
         color: @primary;
         text-align: center;
+        transition:0s 1s;
     }
     
     .style:active {
             background-color: @accent;
             color: white;
+            transition:0s 0s;
         }
         
     button.small{
@@ -167,20 +181,14 @@ img.top-right {
     }
     
     button.extrasmall{
-        font-size: 15px;
+        font-size: 22px;
         width: 100%
     }
     
     button.numpad{
-        font-size: 30px;
+        font-size: 22px;
         margin-top: 0;
-    }
-    
-        
-    figcaption{
-        font-family: myriad-pro-condensed, sans-serif;
-        font-size: 25px;
-        width: 100%;
+        height: 75px;
     }
     
     h2{
@@ -206,20 +214,7 @@ img.top-right {
         float:none;
         margin-top: 10px;
     }
-    
-   
-
-    .logout{
-       float:none;
-       font-size: 30px;
-       color: @primary;
-       padding-left: 0px;
-    }
-    
-    .logout:active{
-        color: @accent;
-    }
-    
+       
     .top-buffer{
         margin-top: 25px;
     }
@@ -235,17 +230,43 @@ img.top-right {
         width: 110px;
         float:left;
         //padding-left: 5%;
+        transition:0s 1s;
     }
     
-    .smiley:active{
-        background-color: @primary-light;
+    .smiley1:active{
+        content: url("../../image/pictograms/smiley1Active.png");
         border-radius: 70px;
+        transition:0s 0s;
     }
     
-    .logout{
-       font-size: 15px;
-       color: @primary;
-       opacity: 0.7;
+    .smiley2:active{
+        content: url("../../image/pictograms/smiley2Active.png");
+        border-radius: 70px;
+        transition:0s 0s;
+    }
+    
+    .smiley3:active{
+        content: url("../../image/pictograms/smiley3Active.png");
+        border-radius: 70px;
+        transition:0s 0s;
+    }
+    
+    .smiley4:active{
+        content: url("../../image/pictograms/smiley4Active.png");
+        border-radius: 70px;
+        transition:0s 0s;
+    }
+    
+    .smiley5:active{
+        content: url("../../image/pictograms/smiley5Active.png");
+        border-radius: 70px;
+        transition:0s 0s;
+    }
+    
+    .smiley6:active{
+        opacity:0.7;
+        border-radius: 70px;
+        transition:0s 0s;
     }
     
 }
@@ -263,4 +284,18 @@ img.top-right {
     color:@primary;
     padding-top:0%;
     padding-left:0%;
+}
+
+/** RESPONSIVE DESIGN **/
+
+
+@media only screen and (min-width: 768px) {
+
+    .par1{
+        top:2.5%;
+    }
+    
+    img.top-right{
+        top:4.5%;
+    }
 }

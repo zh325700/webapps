@@ -32,6 +32,7 @@ function loadQuestions(all_questions, this_category, id_elder){
 
 
 function getQuestion(score) {
+    //document.getElementById(score).src='../../image/pictograms/smiley'+score+'Active.png';
     var answer = {ID_Question:counter + offset, ID_Elder:id, Score:score};
     answers.push(answer);
     counter++;

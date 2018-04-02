@@ -167,28 +167,28 @@ $query_Questions = ("	CREATE TABLE Questions(				ID_Question INT UNSIGNED NOT NU
 						INSERT INTO Questions(Type_en, Question_en, Type_nl, Question_nl) VALUES('InformationOfTheHome', 'I can talk to a caregiver about what I want when I die.'							, 'InformatieVanuitHetWoonzorgcentrum'	, 'Ik kan met een medewerker praten over wat ik graag wil op het einde van het leven.');
 						");
 						
-$query_TestData = ("	INSERT INTO Facility(Name, City, Postcode, Street, Number) VALUES('Remy', 'Leuven', '3000', 'Blijde inkomststraat', '5 ofzo');
+$query_TestData = ("	INSERT INTO Facility(Name, City, Postcode, Street, Number) VALUES('Edouard Remy', 'Leuven', '3000', 'Andreas Vesaliusstraat', '10');
 						
 						INSERT INTO Caregiver(email, password, salt, username, permission, ID_facility) VALUES('remy1@leuven.be', 'c3d48e73883fe272b125919bd0bed9e459e11f5ee7d38d5359f7a3d67ecff293a4b348153be6ad29309994d0322b4f9b889b262c1e87eaf87750b655502b922e', '4aa49ad51ef623ce845c1c3e6046850beb5741a641a9ccf9b54ba06f94b30c531745954ee87846f9133aa69fb906f858bd041c2984ee711ad886a8d4ada72e0d', 'Remy', '1', '1');
 						INSERT INTO Caregiver(email, password, salt, username, permission, ID_facility) VALUES('remy3@leuven.be', 'c3d48e73883fe272b125919bd0bed9e459e11f5ee7d38d5359f7a3d67ecff293a4b348153be6ad29309994d0322b4f9b889b262c1e87eaf87750b655502b922e', '4aa49ad51ef623ce845c1c3e6046850beb5741a641a9ccf9b54ba06f94b30c531745954ee87846f9133aa69fb906f858bd041c2984ee711ad886a8d4ada72e0d', 'Remy', '3', '1');
 						
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Marie'		, 'Nagels'		, 'F', '102', '14/09/1944', '1', 'marienagels.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Jose'		, 'Tielemans'	, 'F', '308', '06/06/1959', '3', 'josetielemans.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Juliet'		, 'Helem'		, 'F', '238', '21/04/1935', '2', 'juliethelem.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Antoinette'	, 'Marien'		, 'F', '225', '15/11/1945', '2', 'antoinettemarien.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Clementine'	, 'Jansens'		, 'F', '007', '16/03/1932', '0', 'clementinejansens.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Georgette'	, 'Peters'		, 'F', '063', '25/08/1922', '0', 'georgettepeters.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Ivette'		, 'De Putter'	, 'F', '322', '14/07/1922', '3', 'ivettedeputter.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Lutgarde'	, 'Klechtermans', 'F', '234', '09/12/1943', '2', 'lutgardeklechtermans.jpg');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Marie'		, 'Nagels'		, 'F', '102', '14/09/1944', '1', 'marienagels.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Jose'		, 'Tielemans'	, 'F', '308', '06/06/1959', '3', 'josetielemans.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Juliet'		, 'Helem'		, 'F', '238', '21/04/1935', '2', 'juliethelem.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Antoinette'	, 'Marien'		, 'F', '225', '15/11/1945', '2', 'antoinettemarien.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Clementine'	, 'Jansens'		, 'F', '007', '16/03/1932', '0', 'clementinejansens.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Georgette'	, 'Peters'		, 'F', '063', '25/08/1922', '0', 'georgettepeters.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Ivette'		, 'De Putter'	, 'F', '322', '14/07/1922', '3', 'ivettedeputter.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Lutgarde'	, 'Klechtermans', 'F', '234', '09/12/1943', '2', 'lutgardeklechtermans.png');
 						
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Joske'		, 'Nagels'		, 'M', '325', '01/12/1923', '3', 'joskenagels.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Pol'			, 'Tielemans'	, 'M', '008', '05/01/1947', '0', 'poltielemans.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Louis'		, 'Helem'		, 'M', '212', '20/11/1935', '2', 'louishelem.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Willie'		, 'Marien'		, 'M', '123', '14/10/1958', '1', 'williemarien.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Jose'		, 'Jansens'		, 'M', '213', '24/04/1949', '2', 'josejansens.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Frank'		, 'Peters'		, 'M', '389', '13/09/1945', '3', 'frankpeters.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Maurice'		, 'De Putter'	, 'M', '364', '21/06/1964', '3', 'mauricedeputter.jpg');
-						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Frans'		, 'Klechtermans', 'M', '057', '02/07/1915', '0', 'fransklechtermans.jpg');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Joske'		, 'Nagels'		, 'M', '325', '01/12/1923', '3', 'joskenagels.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Pol'			, 'Tielemans'	, 'M', '008', '05/01/1947', '0', 'poltielemans.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Louis'		, 'Helem'		, 'M', '212', '20/11/1935', '2', 'louishelem.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Willie'		, 'Marien'		, 'M', '123', '14/10/1958', '1', 'williemarien.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Jose'		, 'Jansens'		, 'M', '213', '24/04/1949', '2', 'josejansens.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Frank'		, 'Peters'		, 'M', '389', '13/09/1945', '3', 'frankpeters.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Maurice'		, 'De Putter'	, 'M', '364', '21/06/1964', '3', 'mauricedeputter.png');
+						INSERT INTO Elder(ID_Facility, FirstName, LastName, Sex, RoomNumber, Birthday, division, Picture) VALUES('1', 'Frans'		, 'Klechtermans', 'M', '057', '02/07/1915', '0', 'fransklechtermans.png');
 						
 						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('5'	, '2'	, '3');
 						INSERT INTO Answers(ID_Question, ID_Elder, Score) VALUES('6'	, '4'	, '5');

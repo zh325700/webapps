@@ -28,22 +28,22 @@
 
             <div class="row" style="padding-left: 1.5%" data-step="2" data-intro="select answer by click the faces" data-position='top'>
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley1.png" onclick="javascript:getQuestion(1)" alt="" class="smiley" usemap="#map"/>
+                    <img id="1" src="<?php echo base_url(); ?>/image/pictograms/smiley1.png" onclick="javascript:getQuestion(1)" alt="" class="smiley smiley1" usemap="#map"/>
                 </div>
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley2.png" onclick="javascript:getQuestion(2)" alt="" class="smiley" usemap="#map"/>
+                    <img id="2" src="<?php echo base_url(); ?>/image/pictograms/smiley2.png" onclick="javascript:getQuestion(2)" alt="" class="smiley smiley2" usemap="#map"/>
                 </div>
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley3.png" onclick="javascript:getQuestion(3)" alt="" class="smiley" usemap="#map"/>
+                    <img id="3" src="<?php echo base_url(); ?>/image/pictograms/smiley3.png" onclick="javascript:getQuestion(3)" alt="" class="smiley smiley3" usemap="#map"/>
                 </div>
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley4.png" onclick="javascript:getQuestion(4)" alt="" class="smiley" usemap="#map"/>
+                    <img id="4" src="<?php echo base_url(); ?>/image/pictograms/smiley4.png" onclick="javascript:getQuestion(4)" alt="" class="smiley smiley4" usemap="#map"/>
                 </div> 
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(5)" alt="" class="smiley" usemap="#map"/>
+                    <img id="5" src="<?php echo base_url(); ?>/image/pictograms/smiley5.png" onclick="javascript:getQuestion(5)" alt="" class="smiley smiley5" usemap="#map"/>
                 </div>    
                 <div class="col-sm-2">
-                    <img src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(6)" alt="" class="smiley" usemap="#map"/>
+                    <img id="6" src="<?php echo base_url(); ?>/image/pictograms/dontknow.png" onclick="javascript:getQuestion(6)" alt="" class="smiley smiley6" usemap="#map"/>
                 </div> 
             </div>
 
@@ -63,7 +63,7 @@
                 <div class="col-sm-2" style="padding-left: 3%;">
                     <p>{Always}</p>
                 </div>  
-                <div class="col-sm-2" style="padding-left: 0%;">
+                <div class="col-sm-2" style="padding-left: 0%; ">
                     <p>{Ik_weet} {het_niet}</p>
                 </div> 
             </div>
