@@ -20,7 +20,7 @@ class CaregiverOperateActivity extends CI_Controller {
         }
     }
 
-    public function viewActivity($ID_Activity = 2) {  // by default I make it 2 just to test
+    public function viewActivity($ID_Activity =2) {  // by default I make it 2 just to test
         $this->load->model('Language_model');
         $this->load->model('Activity_Model');
         $data=$this->Language_model->getData($this->session->userdata('language'),'viewact');
